@@ -13,7 +13,7 @@ Jerome Queck’s GitHub profile: mathematics and software, selected public proje
 
 ## Getting it running
 
-Python 3 generates supplemental counters; Lowlighter Metrics renders recent activity in GitHub Actions. Run `python3 -m unittest discover -s tests` and Ruff format/check. Review Markdown and image assets directly. Before publication, validate relative links, image rendering, light/dark appearance and mobile readability on GitHub.
+Python 3 generates contribution panels; GitHub Readme Stats renders the OpenClaw card in GitHub Actions. Run `python3 -m unittest discover -s tests` and Ruff format/check. Review Markdown and image assets directly. Before publication, validate relative links, image rendering, light/dark appearance and mobile readability on GitHub.
 
 ## Conventions
 

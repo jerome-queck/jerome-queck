@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 
 from scripts.public_calendar import fetch_calendar, render_calendar
+from scripts.recent_activity import fetch_activity, markdown_activity, render_activity
 
 
 def graphql(query, **variables):
@@ -91,44 +92,11 @@ def main():
     counts = fetch_counters()
     today = dt.datetime.now(dt.timezone.utc).date()
     start, days = fetch_calendar(graphql, today)
-    events = json.loads(
-        subprocess.check_output(
-            [
-                "gh",
-                "api",
-                "--paginate",
-                "--slurp",
-                "users/jerome-queck/events/public?per_page=100",
-            ],
-            text=True,
-        )
-    )
-    activity = []
-    for page in events[:3]:
-        for event in page:
-            repo = event["repo"]["name"]
-            if not event.get("public") or any(
-                word in repo.lower() for word in ("clarifold", "doomsday")
-            ):
-                continue
-            if event["type"] not in ("IssuesEvent", "PullRequestEvent"):
-                continue
-            item = event["payload"].get("issue") or event["payload"].get("pull_request")
-            if not item:
-                continue
-            url = item["html_url"]
-            if not url.startswith("https://github.com/"):
-                raise ValueError("Unexpected activity URL")
-            label = (
-                html.escape(item["title"]).replace("[", "&#91;").replace("]", "&#93;")
-            )
-            activity.append(
-                f"- {event['created_at'][:10]} · [{repo}#{item['number']}: {label}]({url})"
-            )
-    activity = activity[:8]
+    activity = fetch_activity()
     updated = dt.datetime.now(dt.timezone.utc).strftime("%d %b %Y %H:%M UTC")
     output = Path(sys.argv[1])
     output.mkdir(parents=True, exist_ok=True)
+    (output / "activity.svg").write_text(render_activity(activity))
     (output / "calendar.svg").write_text(render_calendar(start, today, days))
     (output / "counters.svg").write_text(render_counters(counts, updated))
     (output / "README.md").write_text(
@@ -145,7 +113,7 @@ def main():
     )
     with (output / "README.md").open("a") as summary:
         summary.write(
-            "\n## Recent issue and PR events\n\n" + "\n".join(activity) + "\n"
+            "\n## Recent issue and PR events\n\n" + markdown_activity(activity) + "\n"
         )
 
 

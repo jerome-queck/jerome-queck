@@ -39,3 +39,5 @@ My notes from limits and derivatives to multivariable and vector calculus, with 
 ## Upstream contributions
 
 **[OpenClaw](https://github.com/openclaw/openclaw)** — Fixed a failure mode where oversized Groq requests were repeatedly retried as rate limits, leaving sessions stuck. [PR #130275](https://github.com/openclaw/openclaw/pull/130275) · merged 28 August 2026.
+
+[![OpenClaw repository](https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/openclaw.svg)](https://github.com/openclaw/openclaw)

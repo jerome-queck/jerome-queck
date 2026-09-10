@@ -50,3 +50,7 @@ The reporting choices above are now settled: all-time public PR counters, linked
 issue resolutions, last-year calendar, recent public issue/PR activity, daily refresh.
 Reuse Lowlighter's established plugins with a small custom metric supplement.
 See `contribution-dashboard.md` and ADR-0001. Visual acceptance remains with the owner.
+
+Implementation evaluation: use GitHub Readme Stats for the OpenClaw card. Native
+calendar privacy and compact PR events made Lowlighter unsuitable without a fork;
+small tested Python panels handle the custom public contribution requirements.

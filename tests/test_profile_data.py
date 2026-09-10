@@ -8,6 +8,7 @@ from unittest.mock import patch
 
 from scripts.profile_data import main, render_counters, resolved_issues
 from scripts.public_calendar import add_public_days
+from scripts.recent_activity import markdown_activity, render_activity, select_activity
 
 
 def pr(
@@ -91,13 +92,35 @@ class ProfileDataTests(unittest.TestCase):
                 "scripts.profile_data.fetch_calendar",
                 return_value=(dt.date(2026, 9, 10), {"2026-09-10": 3}),
             ),
-            patch("scripts.profile_data.subprocess.check_output", return_value="[[]]"),
+            patch("scripts.profile_data.fetch_activity", return_value=[]),
             patch("sys.argv", ["profile_data", directory]),
         ):
             main()
             for name in ("counters.svg", "calendar.svg"):
                 ET.parse(Path(directory) / name)
             self.assertIn("10", (Path(directory) / "README.md").read_text())
+
+    def test_compact_pr_hydration_and_exclusion(self):
+        event = {
+            "public": True,
+            "repo": {"name": "owner/project"},
+            "type": "PullRequestEvent",
+            "created_at": "2026-09-10T00:00:00Z",
+            "payload": {"action": "opened", "pull_request": {"number": 3}},
+        }
+
+        def fetch(endpoint):
+            return {"title": "<fix> [link]"}
+
+        rows = select_activity([[event]], fetch)
+        self.assertEqual(rows[0]["url"], "https://github.com/owner/project/pull/3")
+        ET.fromstring(render_activity(rows))
+        self.assertIn("&#91;", markdown_activity(rows))
+        event["repo"]["name"] = "jerome-queck/doomsday-protocol"
+        self.assertEqual(select_activity([[event]], fetch), [])
+        event["repo"]["name"] = "owner/project"
+        event["public"] = False
+        self.assertEqual(select_activity([[event]], fetch), [])
 
     def test_svg_escapes_text(self):
         root = ET.fromstring(render_counters((10, 8, 6), "<&>"))

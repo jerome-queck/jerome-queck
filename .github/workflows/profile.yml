@@ -22,31 +22,15 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 -m scripts.profile_data generated
-      - name: Render established calendar and activity plugins
-        uses: lowlighter/metrics@366f8b9dfe3a59656c67d5dcad9950f59c9bc96d
+      - name: Render OpenClaw project card with GitHub Readme Stats
+        uses: stats-organization/github-readme-stats-action@abb8761d64babb580b336af88cccb2db39063440
         with:
+          card: pin
+          options: username=openclaw&repo=openclaw&theme=tokyonight&hide_border=true
+          path: generated/openclaw.svg
           token: ${{ github.token }}
-          user: jerome-queck
-          filename: activity.svg
-          output_action: none
-          base: ''
-          plugin_activity: yes
-          plugin_activity_visibility: public
-          plugin_activity_filter: issue, pr
-          plugin_activity_limit: 8
-          plugin_activity_load: 300
-          plugin_activity_days: 0
-          plugin_activity_timestamps: yes
-          plugin_activity_skipped: |
-            Jerome-Group/clarifold
-            jerome-queck/doomsday-protocol
-          plugins_errors_fatal: yes
-          config_timezone: Asia/Singapore
-          config_animations: no
-      - name: Collect render
-        run: |
-          test -s /metrics_renders/activity.svg
-          cp /metrics_renders/activity.svg generated/activity.svg
+          core_version: 2.2.0
+          fail_on_error: true
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: profile-data
@@ -78,11 +62,12 @@ jobs:
           fi
           cp "$GENERATED/counters.svg" counters.svg
           cp "$GENERATED/calendar.svg" calendar.svg
+          cp "$GENERATED/openclaw.svg" openclaw.svg
           cp "$GENERATED/activity.svg" activity.svg
           cp "$GENERATED/README.md" README.md
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add counters.svg calendar.svg activity.svg README.md
+          git add counters.svg calendar.svg activity.svg openclaw.svg README.md
           if ! git diff --cached --quiet; then
             git commit -m 'Refresh public profile data' -m 'Assisted-by: none'
             git push origin HEAD:profile-data

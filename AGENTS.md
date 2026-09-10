@@ -13,7 +13,7 @@ Jerome Queck’s GitHub profile: mathematics and software, selected public proje
 
 ## Getting it running
 
-No application runtime or dependencies. Review Markdown and image assets directly. Before publication, validate relative links, image rendering, light/dark appearance and mobile readability on GitHub.
+Python 3 generates contribution panels; GitHub Readme Stats renders the OpenClaw card in GitHub Actions. Run `python3 -m unittest discover -s tests` and Ruff format/check. Review Markdown and image assets directly. Before publication, validate relative links, image rendering, light/dark appearance and mobile readability on GitHub.
 
 ## Conventions
 
@@ -90,7 +90,7 @@ skeleton CI has not earned that.
 ## Repository notes
 
 - Give mathematics and software equal weight. Feature Algebra and Calculus as mathematical notes websites.
-- Do not feature Clarifold until the Owner changes that decision.
+- Do not feature Clarifold or Doomsday Protocol until the Owner changes that decision.
 - Record reversible design choices in `docs/design/decisions.md`; glossary terms only in `CONTEXT.md`.
 - No blanket licence has been selected. Do not assume generated images establish rights or apply a code licence to artwork.
 - Bootstrap exception: the initial empty commit establishes `main`; subsequent file changes use pull requests.

@@ -103,12 +103,10 @@ Two shapes are settled, so no repository re-argues them:
 where tests are written, naming or layout rules particular to this codebase, and anything the
 core leaves open. Add them here; they evolve through this repository's normal pull-request flow.
 
-Bootstrap exception: §5 CI adoption is explicitly deferred until the final profile implementation.
-This exploration scaffold does not claim conformance with §5 yet. No CI or application runtime
-is installed during visual exploration. Check Markdown whitespace and relative links locally, then verify the
-selected README on GitHub before publication. Decorative images need alt text; essential
-project names, descriptions and links remain selectable text. The core above is retained from
-the template; organisation conformance automation is not installed in this personal repo.
+Python uses the standard library. CI runs Ruff format/check and unittest from a clean
+checkout, including a fixture SVG build. Live data generation is a separate workflow.
+Decorative images need alt text; essential project names, descriptions and links remain
+selectable text. Organisation conformance automation is not installed in this personal repo.
 
 ## 7. Evolution — what is rigid, what moves
 

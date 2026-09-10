@@ -1,0 +1,73 @@
+name: Refresh profile
+on:
+  schedule:
+    - cron: '23 1 * * *'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: profile-data
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Fetch public counters and contribution records
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -m scripts.profile_data generated
+      - name: Render OpenClaw project card with GitHub Readme Stats
+        uses: stats-organization/github-readme-stats-action@abb8761d64babb580b336af88cccb2db39063440
+        with:
+          card: pin
+          options: username=openclaw&repo=openclaw&theme=tokyonight&hide_border=true
+          path: generated/openclaw.svg
+          token: ${{ github.token }}
+          core_version: 2.2.0
+          fail_on_error: true
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: profile-data
+          path: generated/
+          retention-days: 7
+  publish:
+    if: github.ref == 'refs/heads/main'
+    needs: generate
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: profile-data
+          path: ${{ runner.temp }}/profile-data
+      - name: Publish generated assets only
+        env:
+          GENERATED: ${{ runner.temp }}/profile-data
+        run: |
+          if git show-ref --verify --quiet refs/remotes/origin/profile-data; then
+            git checkout -B profile-data origin/profile-data
+          else
+            git checkout --orphan profile-data
+            git rm -rf .
+          fi
+          cp "$GENERATED/counters.svg" counters.svg
+          cp "$GENERATED/calendar.svg" calendar.svg
+          cp "$GENERATED/openclaw.svg" openclaw.svg
+          cp "$GENERATED/activity.svg" activity.svg
+          cp "$GENERATED/README.md" README.md
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add counters.svg calendar.svg activity.svg openclaw.svg README.md
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh public profile data' -m 'Assisted-by: none'
+            git push origin HEAD:profile-data
+          fi

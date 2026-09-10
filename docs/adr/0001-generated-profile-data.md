@@ -23,7 +23,8 @@ connections are paginated. Truncation fails the refresh. Recent activity uses th
 events endpoint and hydrates compact PR payloads. Excluded projects stay out of the feed.
 
 The daily schedule and manual dispatch activate only when this workflow reaches `main`.
-A prototype-branch push trigger provides integration testing before that merge.
+A temporary prototype push trigger seeded the reviewed preview in run 34430852374.
+That trigger is removed after validation; normal publication is restricted to `main`.
 GitHub schedules can be delayed or disabled after prolonged repository inactivity.
 
 Sources evaluated:

@@ -9,3 +9,8 @@ Jerome Queck’s GitHub profile and supporting design records.
 - `docs/design/preview.md` — current draft and earlier rendering experiment.
 - `assets/` — authentic project screenshots; provenance in `assets/README.md`.
 - `docs/research/profile-readme.md` — GitHub constraints and verified public sources.
+
+- `scripts/profile_data.py` — public counters, privacy gate and linked activity summary.
+- `tests/` — deterministic metric and SVG checks.
+- `.github/workflows/` — CI and daily generated-data publication.
+- `docs/adr/` — generation and publication decisions.

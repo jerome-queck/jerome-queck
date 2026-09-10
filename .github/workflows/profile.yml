@@ -1,0 +1,90 @@
+name: Refresh profile
+on:
+  schedule:
+    - cron: '23 1 * * *'
+  workflow_dispatch:
+  push:
+    branches: [prototype/profile-directions]
+permissions:
+  contents: read
+concurrency:
+  group: profile-data
+  cancel-in-progress: false
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Fetch public counters and check calendar privacy
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/profile_data.py generated
+      - name: Render established calendar and activity plugins
+        uses: lowlighter/metrics@366f8b9dfe3a59656c67d5dcad9950f59c9bc96d
+        with:
+          token: ${{ github.token }}
+          user: jerome-queck
+          filename: activity.svg
+          output_action: none
+          base: ''
+          plugin_isocalendar: yes
+          plugin_isocalendar_duration: full-year
+          plugin_activity: yes
+          plugin_activity_visibility: public
+          plugin_activity_filter: issue, pr
+          plugin_activity_limit: 8
+          plugin_activity_load: 300
+          plugin_activity_days: 0
+          plugin_activity_timestamps: yes
+          plugin_activity_skipped: |
+            Jerome-Group/clarifold
+            Jerome-Group/doomsday-protocol
+          plugins_errors_fatal: yes
+          config_timezone: Asia/Singapore
+          config_animations: no
+      - name: Collect render
+        run: |
+          test -s /metrics_renders/activity.svg
+          cp /metrics_renders/activity.svg generated/activity.svg
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: profile-data
+          path: generated/
+          retention-days: 7
+  publish:
+    needs: generate
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          name: profile-data
+          path: ${{ runner.temp }}/profile-data
+      - name: Publish generated assets only
+        env:
+          GENERATED: ${{ runner.temp }}/profile-data
+        run: |
+          if git show-ref --verify --quiet refs/remotes/origin/profile-data; then
+            git checkout -B profile-data origin/profile-data
+          else
+            git checkout --orphan profile-data
+            git rm -rf .
+          fi
+          cp "$GENERATED/counters.svg" counters.svg
+          cp "$GENERATED/activity.svg" activity.svg
+          cp "$GENERATED/README.md" README.md
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add counters.svg activity.svg README.md
+          if ! git diff --cached --quiet; then
+            git commit -m 'Refresh public profile data' -m 'Assisted-by: none'
+            git push origin HEAD:profile-data
+          fi

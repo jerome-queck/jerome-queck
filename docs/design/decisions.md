@@ -43,3 +43,10 @@ The owner accepted the recommendation to use authentic project screenshots with 
 - Its linked issue [#130096](https://github.com/openclaw/openclaw/issues/130096) was closed by maintainer `obviyus`; do not label it as an issue personally closed by the author.
 
 Proposed dashboard: contribution calendar, PRs opened, PRs merged, and a precisely defined issue metric, followed by a short linked activity list. Proposed cadence: daily, plus manual refresh, with the last successful update shown. These reporting choices remain open; automatic updates are not implemented yet.
+
+## Accepted reporting and automation
+
+The reporting choices above are now settled: all-time public PR counters, linked
+issue resolutions, last-year calendar, recent public issue/PR activity, daily refresh.
+Reuse Lowlighter's established plugins with a small custom metric supplement.
+See `contribution-dashboard.md` and ADR-0001. Visual acceptance remains with the owner.

@@ -4,6 +4,14 @@ I study mathematics and build software for the things I spend time on: learning,
 
 [Website](https://jeromegroup.org) · [LinkedIn](https://www.linkedin.com/in/jeromequeck/) · [Jerome-Group](https://github.com/Jerome-Group)
 
+## Contributions
+
+[![All-time public PRs and linked issue resolutions](https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/counters.svg)](https://github.com/jerome-queck/jerome-queck/tree/profile-data)
+
+[![Last-year contribution calendar and recent public issue and PR activity](https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/activity.svg)](https://github.com/jerome-queck/jerome-queck/tree/profile-data)
+
+[Activity links and metric definitions](https://github.com/jerome-queck/jerome-queck/tree/profile-data) · Updated daily with GitHub Actions.
+
 ## Mathematics
 
 ### [Algebra](https://algebra.jeromegroup.org)

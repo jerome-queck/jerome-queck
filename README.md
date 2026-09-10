@@ -25,3 +25,7 @@ My notes from limits and derivatives to multivariable and vector calculus, with 
 **[NTULearn Sync](https://github.com/Jerome-Group/ntulearn)** — Keeps a local copy of my NTULearn courses, turning pages and announcements into Markdown and saving attachments in their course folders.
 
 **[Syrax](https://github.com/Jerome-Group/syrax)** — My personal Telegram assistant, built on OpenClaw with separate chats for academic work, media, system tasks and general use. The repo contains its setup, configuration and runtime adapter.
+
+## Upstream contributions
+
+**[OpenClaw](https://github.com/openclaw/openclaw)** — Fixed a failure mode where oversized Groq requests were repeatedly retried as rate limits, leaving sessions stuck. [PR #130275](https://github.com/openclaw/openclaw/pull/130275) · merged 28 August 2026.

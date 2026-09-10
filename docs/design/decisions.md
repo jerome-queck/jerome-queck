@@ -17,7 +17,9 @@ Recorded 2026-09-10. Reversible editorial choices live here; ADRs are reserved f
 
 ## Open
 
-- Assess the screenshot draft in GitHub before final publication.
+- Select the contribution dashboard presentation and reporting window.
+- Define the issue metric: closure actor versus authored closed issues versus issues resolved by merged PRs.
+- Confirm public-only metrics or anonymous private contribution counts.
 - Any graphic must be assessed in an actual GitHub render; keep project descriptions as text.
 
 ## Prototype
@@ -30,3 +32,14 @@ The rejected generated board is retained only in git history.
 ## Revision
 
 The owner accepted the recommendation to use authentic project screenshots with native Markdown. Two live screenshots now illustrate Algebra and Calculus. No decorative curve is included in the profile. The screenshot draft remains on the prototype branch for review.
+
+## Contribution-focused direction
+
+- Swiss Grid is rejected as too boring. DenverCoder1 is a mechanism reference, not a layout to copy.
+- Give graphical contribution activity a prominent section that updates automatically.
+- Keep Mathematics and Software as separate project sections.
+- Add a separate Upstream contributions section, initially featuring OpenClaw only.
+- Verified: authored PR [openclaw/openclaw#130275](https://github.com/openclaw/openclaw/pull/130275) merged 2026-08-28T20:49:11Z. It fixes oversized Groq requests being treated as retryable rate limits, which stalled sessions.
+- Its linked issue [#130096](https://github.com/openclaw/openclaw/issues/130096) was closed by maintainer `obviyus`; do not label it as an issue personally closed by the author.
+
+Proposed dashboard: contribution calendar, PRs opened, PRs merged, and a precisely defined issue metric, followed by a short linked activity list. Proposed cadence: daily, plus manual refresh, with the last successful update shown. These reporting choices remain open; automatic updates are not implemented yet.

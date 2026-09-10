@@ -20,13 +20,9 @@ I study mathematics and build software for the things I spend time on: learning,
 
 My notes on groups, rings, fields and representations, brought to the web with visual explanations and interactive explorations. [Source](https://github.com/Jerome-Group/algebra)
 
-[![Algebra: notes on four cube actions alongside an interactive cube](assets/algebra.jpg)](https://algebra.jeromegroup.org/#cube-four-actions)
-
 ### [Calculus](https://calculus.jeromegroup.org)
 
 My notes from limits and derivatives to multivariable and vector calculus, with interactive graphs that connect calculations to geometry. [Source](https://github.com/Jerome-Group/calculus)
-
-[![Calculus: gradient notes alongside a three-dimensional paraboloid](assets/calculus.jpg)](https://calculus.jeromegroup.org/#gradient-normals-and-steepest-ascent)
 
 ## Software
 

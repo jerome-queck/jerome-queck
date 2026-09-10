@@ -54,3 +54,9 @@ See `contribution-dashboard.md` and ADR-0001. Visual acceptance remains with the
 Implementation evaluation: use GitHub Readme Stats for the OpenClaw card. Native
 calendar privacy and compact PR events made Lowlighter unsuitable without a fork;
 small tested Python panels handle the custom public contribution requirements.
+
+## Published profile simplification — 2026-09-10
+
+Owner removed the Algebra and Calculus screenshots as unnecessary. Keep their native
+project descriptions and links. Contribution graphics remain. Historical captures stay
+in `assets/` as design evidence; they are no longer embedded in the profile.

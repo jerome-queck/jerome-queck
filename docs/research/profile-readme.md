@@ -27,6 +27,5 @@ GitHub Pages publishes a separate static HTML/CSS/JavaScript website. It is dist
 - [Academic OS](https://github.com/Jerome-Group/academic-os): module organisation, tasks, calendar and data behind the homepage.
 - [NTULearn](https://github.com/Jerome-Group/ntulearn): imports course pages, announcements and attachments into module folders.
 - [Syrax](https://github.com/Jerome-Group/syrax): public personal chatbot system and setup.
-- [Doomsday Protocol](https://github.com/jerome-queck/doomsday-protocol): episode-exact Marvel watch tracker with progress and finish forecasting.
 
 Repository descriptions and the Algebra/Calculus READMEs were read live. Hosted URLs above come from those READMEs; this record does not claim a full deployment test. LinkedIn was accessible only behind a sign-in overlay, so detailed biography is deferred.

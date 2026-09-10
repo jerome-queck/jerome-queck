@@ -1,26 +1,19 @@
 # Jerome Queck
 
-**Mathematics × Software**
-
-I study mathematics and build software—from visual mathematical notes to systems that organise learning and everyday work.
+I study mathematics and build software for the things I spend time on: learning, research, and organising my work.
 
 [Website](https://jeromegroup.org) · [LinkedIn](https://www.linkedin.com/in/jeromequeck/) · [Jerome-Group](https://github.com/Jerome-Group)
 
-## Mathematics, made visible
+## Mathematics
 
-### [Algebra](https://algebra.jeromegroup.org)
+**[Algebra](https://algebra.jeromegroup.org)** — My notes on groups, rings, fields and representations, brought to the web with visual explanations and interactive explorations. [Source](https://github.com/Jerome-Group/algebra)
 
-My mathematical notes website exploring groups, rings, fields and representations, with visual explanations and laboratories. [Source](https://github.com/Jerome-Group/algebra)
+**[Calculus](https://calculus.jeromegroup.org)** — My multivariable calculus notes, with 3D geometry to connect the calculations to the shapes they describe. [Source](https://github.com/Jerome-Group/calculus)
 
-### [Calculus](https://calculus.jeromegroup.org)
+## Software
 
-My mathematical notes website exploring multivariable calculus through visual explanations and 3D geometry. [Source](https://github.com/Jerome-Group/calculus)
+**[Academic OS](https://github.com/Jerome-Group/academic-os)** — The system I use to organise my degree: module and research folders, tasks, calendars, and the information behind my academic dashboard.
 
-## Software I build
+**[NTULearn Sync](https://github.com/Jerome-Group/ntulearn)** — Keeps a local copy of my NTULearn courses, turning pages and announcements into Markdown and saving attachments in their course folders.
 
-| Project | What it does |
-| --- | --- |
-| [Academic OS](https://github.com/Jerome-Group/academic-os) | Organises modules, tasks, calendars and the data behind my academic dashboard. |
-| [NTULearn](https://github.com/Jerome-Group/ntulearn) | Imports course pages, announcements and attachments into module folders. |
-| [Syrax](https://github.com/Jerome-Group/syrax) | A personal chatbot system built around open-source agent tooling. |
-| [Doomsday Protocol](https://github.com/jerome-queck/doomsday-protocol) | A Marvel watch tracker with episode-level progress and finish forecasting. |
+**[Syrax](https://github.com/Jerome-Group/syrax)** — My personal Telegram assistant, built on OpenClaw with separate chats for academic work, media, system tasks and general use. The repo contains its setup, configuration and runtime adapter.

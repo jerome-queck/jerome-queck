@@ -1,7 +1,9 @@
-# Visual options
+# Current exploration
 
-![A: Editorial Geometry; B: Technical Observatory; C: Creative Gallery](profile-directions.png)
+The image-generated A/B/C board was rejected. Its source is retained in git history only.
 
-This board is a generated aesthetic mockup, not a GitHub screenshot. Small generated descriptions are placeholders and sometimes wrong. Use the root README for accurate copy: Doomsday Protocol is a Marvel watch tracker, NTULearn imports course content, and Syrax is a personal chatbot system.
+- [Current profile copy](../../README.md): native Markdown, five selected projects.
+- [GitHub rendering sample](rendering-sample.md): one optional mathematical accent above native text.
+- [Research and examples](../research/github-native-design.md): supported techniques and trade-offs.
 
-Choose a direction or combination before final implementation. Artwork will be extracted or regenerated separately from selectable Markdown descriptions and links.
+These are Markdown documents prepared for GitHub rendering; remote verification is recorded in the pull request. The sample demonstrates feasibility; it is not an approved final aesthetic.

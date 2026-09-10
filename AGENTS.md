@@ -90,7 +90,7 @@ skeleton CI has not earned that.
 ## Repository notes
 
 - Give mathematics and software equal weight. Feature Algebra and Calculus as mathematical notes websites.
-- Do not feature Clarifold until the Owner changes that decision.
+- Do not feature Clarifold or Doomsday Protocol until the Owner changes that decision.
 - Record reversible design choices in `docs/design/decisions.md`; glossary terms only in `CONTEXT.md`.
 - No blanket licence has been selected. Do not assume generated images establish rights or apply a code licence to artwork.
 - Bootstrap exception: the initial empty commit establishes `main`; subsequent file changes use pull requests.

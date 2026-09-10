@@ -6,5 +6,5 @@ Jerome Queck’s GitHub profile and supporting design records.
 - `docs/agents/` — engineering skill configuration and workflow guidance.
 - `docs/design/decisions.md` — settled choices and a pointer to the prototype branch.
 - `README.md` — selectable profile copy prototype.
-- `docs/design/profile-directions.png` — three visual options; prompt in `docs/design/image-prompt.md`.
+- `docs/design/preview.md` — current exploration and actual GitHub rendering sample; assets in `docs/design/assets/`.
 - `docs/research/profile-readme.md` — GitHub constraints and verified public sources.

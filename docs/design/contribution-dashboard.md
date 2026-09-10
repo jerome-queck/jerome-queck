@@ -4,8 +4,8 @@ Accepted: all-time public authored PRs opened and merged; distinct closed issues
 to authored merged PRs, where closure occurs at or after merge. This is linked resolution,
 not proof that the author clicked Close or that the merge was the sole cause.
 
-The last-year native contribution calendar and latest public issue/PR events use
-Lowlighter Metrics. The activity feed is bounded to GitHub's latest 300 events;
+The calendar reconstructs 365 days of public contribution records. Latest public
+issue/PR events use Lowlighter Metrics. The activity feed is bounded to GitHub's latest 300 events;
 it is not an exhaustive activity archive. Clarifold and Doomsday are excluded from
 featured activity, while aggregate public counts span public repositories.
 

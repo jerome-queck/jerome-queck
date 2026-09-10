@@ -1,7 +1,13 @@
+import datetime as dt
+import tempfile
 import unittest
 import xml.etree.ElementTree as ET
+from collections import Counter
+from pathlib import Path
+from unittest.mock import patch
 
-from scripts.profile_data import public_calendar_check, render_counters, resolved_issues
+from scripts.profile_data import main, render_counters, resolved_issues
+from scripts.public_calendar import add_public_days
 
 
 def pr(
@@ -41,14 +47,57 @@ class ProfileDataTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             resolved_issues([item])
 
-    def test_private_calendar_fails(self):
-        with self.assertRaises(ValueError):
-            public_calendar_check(
+    def test_calendar_ignores_private_and_restricted_records(self):
+        days = Counter()
+        add_public_days(
+            days,
+            [
+                {"isRestricted": True},
                 {
-                    "restrictedContributionsCount": 1,
-                    "hasAnyRestrictedContributions": True,
-                }
-            )
+                    "isRestricted": False,
+                    "occurredAt": "2026-09-10T00:00:00Z",
+                    "repository": {"isPrivate": True},
+                },
+                {
+                    "isRestricted": False,
+                    "occurredAt": "2026-09-10T00:00:00Z",
+                    "repository": {"isPrivate": False},
+                    "commitCount": 3,
+                },
+            ],
+        )
+        self.assertEqual(dict(days), {"2026-09-10": 3})
+
+    def test_failed_fetch_preserves_previous_files(self):
+        with tempfile.TemporaryDirectory() as directory:
+            target = Path(directory) / "counters.svg"
+            target.write_text("previous")
+            with (
+                patch(
+                    "scripts.profile_data.fetch_counters",
+                    side_effect=RuntimeError("offline"),
+                ),
+                patch("sys.argv", ["profile_data", directory]),
+                self.assertRaises(RuntimeError),
+            ):
+                main()
+            self.assertEqual(target.read_text(), "previous")
+
+    def test_fixture_build_writes_parseable_graphics(self):
+        with (
+            tempfile.TemporaryDirectory() as directory,
+            patch("scripts.profile_data.fetch_counters", return_value=(10, 8, 6)),
+            patch(
+                "scripts.profile_data.fetch_calendar",
+                return_value=(dt.date(2026, 9, 10), {"2026-09-10": 3}),
+            ),
+            patch("scripts.profile_data.subprocess.check_output", return_value="[[]]"),
+            patch("sys.argv", ["profile_data", directory]),
+        ):
+            main()
+            for name in ("counters.svg", "calendar.svg"):
+                ET.parse(Path(directory) / name)
+            self.assertIn("10", (Path(directory) / "README.md").read_text())
 
     def test_svg_escapes_text(self):
         root = ET.fromstring(render_counters((10, 8, 6), "<&>"))

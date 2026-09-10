@@ -18,10 +18,10 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - name: Fetch public counters and check calendar privacy
+      - name: Fetch public counters and contribution records
         env:
           GH_TOKEN: ${{ github.token }}
-        run: python3 scripts/profile_data.py generated
+        run: python3 -m scripts.profile_data generated
       - name: Render established calendar and activity plugins
         uses: lowlighter/metrics@366f8b9dfe3a59656c67d5dcad9950f59c9bc96d
         with:
@@ -30,8 +30,6 @@ jobs:
           filename: activity.svg
           output_action: none
           base: ''
-          plugin_isocalendar: yes
-          plugin_isocalendar_duration: full-year
           plugin_activity: yes
           plugin_activity_visibility: public
           plugin_activity_filter: issue, pr
@@ -41,7 +39,7 @@ jobs:
           plugin_activity_timestamps: yes
           plugin_activity_skipped: |
             Jerome-Group/clarifold
-            Jerome-Group/doomsday-protocol
+            jerome-queck/doomsday-protocol
           plugins_errors_fatal: yes
           config_timezone: Asia/Singapore
           config_animations: no
@@ -79,11 +77,12 @@ jobs:
             git rm -rf .
           fi
           cp "$GENERATED/counters.svg" counters.svg
+          cp "$GENERATED/calendar.svg" calendar.svg
           cp "$GENERATED/activity.svg" activity.svg
           cp "$GENERATED/README.md" README.md
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add counters.svg activity.svg README.md
+          git add counters.svg calendar.svg activity.svg README.md
           if ! git diff --cached --quiet; then
             git commit -m 'Refresh public profile data' -m 'Assisted-by: none'
             git push origin HEAD:profile-data

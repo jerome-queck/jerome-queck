@@ -8,7 +8,9 @@ I study mathematics and build software for the things I spend time on: learning,
 
 [![All-time public PRs and linked issue resolutions](https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/counters.svg)](https://github.com/jerome-queck/jerome-queck/tree/profile-data)
 
-[![Last-year contribution calendar and recent public issue and PR activity](https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/activity.svg)](https://github.com/jerome-queck/jerome-queck/tree/profile-data)
+![Last-year public contribution calendar](https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/calendar.svg)
+
+[![Recent public issue and PR activity](https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/activity.svg)](https://github.com/jerome-queck/jerome-queck/tree/profile-data)
 
 [Activity links and metric definitions](https://github.com/jerome-queck/jerome-queck/tree/profile-data) · Updated daily with GitHub Actions.
 

@@ -7,6 +7,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from scripts.public_calendar import fetch_calendar, render_calendar
+
 
 def graphql(query, **variables):
     command = ["gh", "api", "graphql", "-f", f"query={query}"]
@@ -16,14 +18,6 @@ def graphql(query, **variables):
     if result.get("errors"):
         raise RuntimeError("GitHub query failed; retaining published data")
     return result["data"]
-
-
-def public_calendar_check(collection):
-    if (
-        collection["restrictedContributionsCount"]
-        or collection["hasAnyRestrictedContributions"]
-    ):
-        raise ValueError("Calendar contains private counts; retaining published data")
 
 
 def resolved_issues(pull_requests):
@@ -45,13 +39,10 @@ def resolved_issues(pull_requests):
 
 
 def fetch_counters():
-    data = graphql("""query { user(login:"jerome-queck") {
-      contributionsCollection { restrictedContributionsCount hasAnyRestrictedContributions }
-    }
+    data = graphql("""query {
     opened: search(query:"is:public author:jerome-queck is:pr", type:ISSUE) { issueCount }
     merged: search(query:"is:public author:jerome-queck is:pr is:merged", type:ISSUE) { issueCount }
     }""")
-    public_calendar_check(data["user"]["contributionsCollection"])
     resolved = set()
     cursor = None
     while True:
@@ -98,6 +89,8 @@ def render_counters(counts, updated):
 
 def main():
     counts = fetch_counters()
+    today = dt.datetime.now(dt.timezone.utc).date()
+    start, days = fetch_calendar(graphql, today)
     events = json.loads(
         subprocess.check_output(
             [
@@ -136,6 +129,7 @@ def main():
     updated = dt.datetime.now(dt.timezone.utc).strftime("%d %b %Y %H:%M UTC")
     output = Path(sys.argv[1])
     output.mkdir(parents=True, exist_ok=True)
+    (output / "calendar.svg").write_text(render_calendar(start, today, days))
     (output / "counters.svg").write_text(render_counters(counts, updated))
     (output / "README.md").write_text(
         f"# Public contribution snapshot\n\nUpdated {updated}.\n\n"
@@ -144,7 +138,7 @@ def main():
         f"- Distinct closed issues linked to those merged PRs: {counts[2]}\n\n"
         "Linked issues must close at or after the PR merge. This measures linked resolution, "
         "not who clicked Close; GitHub can change links retrospectively.\n\n"
-        "Calendar: last year. Recent activity: public issue and PR events among the "
+        "Calendar: last 365 days, reconstructed from public contribution records. Recent activity: public issue and PR events among the "
         "latest 300 GitHub events; this is a bounded feed, not a complete history.\n\n"
         "[Browse PRs](https://github.com/pulls?q=is%3Apr+author%3Ajerome-queck+is%3Apublic) · "
         "[Browse issues](https://github.com/issues?q=is%3Aissue+author%3Ajerome-queck+is%3Apublic)\n"

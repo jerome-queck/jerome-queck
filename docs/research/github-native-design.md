@@ -32,7 +32,9 @@ Sources: [GitHub HTML sanitization](https://github.com/github/markup), [official
 
 README sources were read through GitHub’s API in addition to their public pages. The comparison distinguishes an observed mechanism from an aesthetic recommendation.
 
-## Proposed visual budget — not yet accepted
+## Initial visual budget — superseded by screenshot selection
+
+The owner subsequently selected authentic screenshots with native text; see [current decisions](../design/decisions.md). The initial options below remain as research history.
 
 1. Keep GitHub’s typography and a short personal introduction.
 2. Use five project entries in two sections, each with one concrete sentence.

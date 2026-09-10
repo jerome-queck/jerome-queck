@@ -1,9 +1,7 @@
-# Current exploration
+# Screenshot draft
 
-The image-generated A/B/C board was rejected. Its source is retained in git history only.
+[View the current README on GitHub](https://github.com/jerome-queck/jerome-queck/blob/prototype/profile-directions/README.md).
 
-- [Current profile copy](../../README.md): native Markdown, five selected projects.
-- [GitHub rendering sample](rendering-sample.md): one optional mathematical accent above native text.
-- [Research and examples](../research/github-native-design.md): supported techniques and trade-offs.
+The owner selected authentic screenshots with native Markdown. Algebra and Calculus each have one linked screenshot; software projects keep concise text descriptions. See [capture provenance](../../assets/README.md).
 
-These are Markdown documents prepared for GitHub rendering; remote verification is recorded in the pull request. The sample demonstrates feasibility; it is not an approved final aesthetic.
+The previous [small-accent rendering sample](rendering-sample.md) is a feasibility experiment, not the selected direction. The rejected AI board is retained only in git history.

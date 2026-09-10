@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="600" viewBox="0 0 820 600" role="img">
+    <title>Recent public pull request and issue activity</title>
+    <rect width="820" height="600" rx="18" fill="#0d1422"/>
+    <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="28" y="36" fill="#e2e8f0" font-size="20">Recent contributions</text>
+    <circle cx="34" cy="71" r="5" fill="#a78bfa"/>
+        <text x="52" y="76" fill="#e2e8f0" font-size="15">Automate contribution dashboard and recent activity</text>
+        <text x="52" y="99" fill="#94a3b8" font-size="12">jerome-queck/jerome-queck#7 · opened · 2026-09-10</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
+        <text x="52" y="141" fill="#e2e8f0" font-size="15">Define contribution dashboard and OpenClaw showcase</text>
+        <text x="52" y="164" fill="#94a3b8" font-size="12">jerome-queck/jerome-queck#6 · opened · 2026-09-10</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
+        <text x="52" y="206" fill="#e2e8f0" font-size="15">Show real project screenshots in the profile</text>
+        <text x="52" y="229" fill="#94a3b8" font-size="12">jerome-queck/jerome-queck#5 · opened · 2026-09-10</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
+        <text x="52" y="271" fill="#e2e8f0" font-size="15">Ground profile design in GitHub rendering</text>
+        <text x="52" y="294" fill="#94a3b8" font-size="12">jerome-queck/jerome-queck#4 · opened · 2026-09-10</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
+        <text x="52" y="336" fill="#e2e8f0" font-size="15">Design contribution-focused profile and project showcase</text>
+        <text x="52" y="359" fill="#94a3b8" font-size="12">jerome-queck/jerome-queck#3 · opened · 2026-09-10</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
+        <text x="52" y="401" fill="#e2e8f0" font-size="15">Configure profile repository guidance</text>
+        <text x="52" y="424" fill="#94a3b8" font-size="12">jerome-queck/jerome-queck#2 · opened · 2026-09-10</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
+        <text x="52" y="466" fill="#e2e8f0" font-size="15">Scaffold profile repository and explore visual directions</text>
+        <text x="52" y="489" fill="#94a3b8" font-size="12">jerome-queck/jerome-queck#1 · opened · 2026-09-10</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
+        <text x="52" y="531" fill="#e2e8f0" font-size="15">Add official logo and image previews for shared links</text>
+        <text x="52" y="554" fill="#94a3b8" font-size="12">Jerome-Group/algebra#17 · closed · 2026-09-09</text></g></svg>

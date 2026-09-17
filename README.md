@@ -1,9 +1,9 @@
 # Public contribution snapshot
 
-Updated 16 Sep 2026 06:07 UTC.
+Updated 17 Sep 2026 06:11 UTC.
 
-- Authored PRs opened, all time: 605
-- Authored PRs merged, all time: 593
+- Authored PRs opened, all time: 628
+- Authored PRs merged, all time: 615
 - Distinct closed issues linked to those merged PRs: 465
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close; GitHub can change links retrospectively.
@@ -14,11 +14,11 @@ Calendar: last 365 days, reconstructed from public contribution records. Recent 
 
 ## Recent issue and PR events
 
-- 2026-09-16 · opened · [jerome-queck/incypher-rapido#22: Issue 19: add durable control journal](https://github.com/jerome-queck/incypher-rapido/pull/22)
-- 2026-09-16 · opened · [jerome-queck/incypher-rapido#21: Issue 19: record empirical red baseline](https://github.com/jerome-queck/incypher-rapido/pull/21)
-- 2026-09-16 · opened · [jerome-queck/incypher-rapido#20: Issue 11: record completed cleanup](https://github.com/jerome-queck/incypher-rapido/pull/20)
-- 2026-09-16 · closed · [jerome-queck/incypher-rapido#11: Improve autonomous competition solve capability](https://github.com/jerome-queck/incypher-rapido/issues/11)
-- 2026-09-16 · opened · [jerome-queck/incypher-rapido#19: Reduce policy refusals and provenance dead ends](https://github.com/jerome-queck/incypher-rapido/issues/19)
-- 2026-09-16 · opened · [jerome-queck/incypher-rapido#18: Issue 11: preserve outcome and reconcile docs](https://github.com/jerome-queck/incypher-rapido/pull/18)
-- 2026-09-15 · opened · [jerome-queck/incypher-rapido#17: Issue #11: retain immutable bounded solver evidence](https://github.com/jerome-queck/incypher-rapido/pull/17)
-- 2026-09-15 · opened · [jerome-queck/incypher-rapido#16: Issue #11: add bounded category tooling](https://github.com/jerome-queck/incypher-rapido/pull/16)
+- 2026-09-17 · opened · [jerome-queck/incypher-rapido#45: Expand autonomous solver analysis capability](https://github.com/jerome-queck/incypher-rapido/pull/45)
+- 2026-09-17 · opened · [jerome-queck/incypher-rapido#44: Bind candidate verification to complete evidence](https://github.com/jerome-queck/incypher-rapido/pull/44)
+- 2026-09-16 · opened · [jerome-queck/incypher-rapido#43: Record exact-image recovery rehearsal](https://github.com/jerome-queck/incypher-rapido/pull/43)
+- 2026-09-16 · opened · [jerome-queck/incypher-rapido#42: Resume interrupted runs without lost work](https://github.com/jerome-queck/incypher-rapido/pull/42)
+- 2026-09-16 · reopened · [jerome-queck/incypher-rapido#19: Reduce policy refusals and provenance dead ends](https://github.com/jerome-queck/incypher-rapido/issues/19)
+- 2026-09-16 · opened · [jerome-queck/incypher-rapido#41: Keep Daybreak solving across early exits](https://github.com/jerome-queck/incypher-rapido/pull/41)
+- 2026-09-16 · opened · [jerome-queck/incypher-rapido#40: Verify issue 19 calibration cleanup](https://github.com/jerome-queck/incypher-rapido/pull/40)
+- 2026-09-16 · opened · [jerome-queck/incypher-rapido#39: Record corrected issue 19 calibration](https://github.com/jerome-queck/incypher-rapido/pull/39)

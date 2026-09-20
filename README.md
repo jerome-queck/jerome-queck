@@ -1,10 +1,10 @@
 # Public contribution snapshot
 
-Updated 19 Sep 2026 05:58 UTC.
+Updated 20 Sep 2026 06:22 UTC.
 
-- Authored PRs opened, all time: 658
-- Authored PRs merged, all time: 646
-- Distinct closed issues linked to those merged PRs: 468
+- Authored PRs opened, all time: 671
+- Authored PRs merged, all time: 659
+- Distinct closed issues linked to those merged PRs: 473
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close; GitHub can change links retrospectively.
 
@@ -14,11 +14,11 @@ Calendar: last 365 days, reconstructed from public contribution records. Recent 
 
 ## Recent issue and PR events
 
-- 2026-09-19 · opened · [jerome-queck/incypher-rapido#73: Add frozen H24 offline fixture contract](https://github.com/jerome-queck/incypher-rapido/pull/73)
-- 2026-09-19 · opened · [jerome-queck/incypher-rapido#72: Add read-only reconciled reporting contract](https://github.com/jerome-queck/incypher-rapido/pull/72)
-- 2026-09-19 · opened · [jerome-queck/incypher-rapido#71: Serialize offline pilot client startup](https://github.com/jerome-queck/incypher-rapido/pull/71)
-- 2026-09-19 · opened · [jerome-queck/incypher-rapido#70: Improve artifact argument repair diagnostics](https://github.com/jerome-queck/incypher-rapido/pull/70)
-- 2026-09-18 · opened · [jerome-queck/incypher-rapido#69: Add offline Verifier evidence repair pilot](https://github.com/jerome-queck/incypher-rapido/pull/69)
-- 2026-09-18 · opened · [jerome-queck/incypher-rapido#68: Reconcile historical cumulative solve baseline](https://github.com/jerome-queck/incypher-rapido/pull/68)
-- 2026-09-18 · opened · [jerome-queck/incypher-rapido#67: Verify exact dynamic candidates across fresh instances](https://github.com/jerome-queck/incypher-rapido/pull/67)
-- 2026-09-18 · opened · [jerome-queck/incypher-rapido#66: Route Verifier only for finalized proof-backed candidates](https://github.com/jerome-queck/incypher-rapido/pull/66)
+- 2026-09-19 · opened · [jerome-queck/incypher-rapido#81: Record sanitized H24 evaluation evidence](https://github.com/jerome-queck/incypher-rapido/pull/81)
+- 2026-09-19 · opened · [jerome-queck/incypher-rapido#80: Fail H24 preflight on non-removable private paths](https://github.com/jerome-queck/incypher-rapido/pull/80)
+- 2026-09-19 · opened · [jerome-queck/incypher-rapido#79: Load sealed offline pilot for packaged soak](https://github.com/jerome-queck/incypher-rapido/pull/79)
+- 2026-09-19 · opened · [jerome-queck/incypher-rapido#78: Validate inherited evaluation volumes](https://github.com/jerome-queck/incypher-rapido/pull/78)
+- 2026-09-19 · opened · [jerome-queck/incypher-rapido#77: Preregister and seal offline H24 evaluation](https://github.com/jerome-queck/incypher-rapido/pull/77)
+- 2026-09-19 · closed · [Jerome-Group/ntulearn#150: Media Gallery title parser selects comment count](https://github.com/Jerome-Group/ntulearn/issues/150)
+- 2026-09-19 · opened · [Jerome-Group/ntulearn#151: Prefer recording links for Media Gallery titles](https://github.com/Jerome-Group/ntulearn/pull/151)
+- 2026-09-19 · opened · [Jerome-Group/ntulearn#150: Media Gallery title parser selects comment count](https://github.com/Jerome-Group/ntulearn/issues/150)

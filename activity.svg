@@ -4,19 +4,19 @@
     <g font-family="Segoe UI,Arial,sans-serif">
     <text x="28" y="36" fill="#e2e8f0" font-size="20">Recent contributions</text>
     <circle cx="34" cy="71" r="5" fill="#a78bfa"/>
-        <text x="52" y="76" fill="#e2e8f0" font-size="15">Add frozen H24 offline fixture contract</text>
-        <text x="52" y="99" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#73 · opened · 2026-09-19</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
-        <text x="52" y="141" fill="#e2e8f0" font-size="15">Add read-only reconciled reporting contract</text>
-        <text x="52" y="164" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#72 · opened · 2026-09-19</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
-        <text x="52" y="206" fill="#e2e8f0" font-size="15">Serialize offline pilot client startup</text>
-        <text x="52" y="229" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#71 · opened · 2026-09-19</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
-        <text x="52" y="271" fill="#e2e8f0" font-size="15">Improve artifact argument repair diagnostics</text>
-        <text x="52" y="294" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#70 · opened · 2026-09-19</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
-        <text x="52" y="336" fill="#e2e8f0" font-size="15">Add offline Verifier evidence repair pilot</text>
-        <text x="52" y="359" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#69 · opened · 2026-09-18</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
-        <text x="52" y="401" fill="#e2e8f0" font-size="15">Reconcile historical cumulative solve baseline</text>
-        <text x="52" y="424" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#68 · opened · 2026-09-18</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
-        <text x="52" y="466" fill="#e2e8f0" font-size="15">Verify exact dynamic candidates across fresh instances</text>
-        <text x="52" y="489" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#67 · opened · 2026-09-18</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
-        <text x="52" y="531" fill="#e2e8f0" font-size="15">Route Verifier only for finalized proof-backed candidates</text>
-        <text x="52" y="554" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#66 · opened · 2026-09-18</text></g></svg>
+        <text x="52" y="76" fill="#e2e8f0" font-size="15">Record sanitized H24 evaluation evidence</text>
+        <text x="52" y="99" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#81 · opened · 2026-09-19</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
+        <text x="52" y="141" fill="#e2e8f0" font-size="15">Fail H24 preflight on non-removable private paths</text>
+        <text x="52" y="164" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#80 · opened · 2026-09-19</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
+        <text x="52" y="206" fill="#e2e8f0" font-size="15">Load sealed offline pilot for packaged soak</text>
+        <text x="52" y="229" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#79 · opened · 2026-09-19</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
+        <text x="52" y="271" fill="#e2e8f0" font-size="15">Validate inherited evaluation volumes</text>
+        <text x="52" y="294" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#78 · opened · 2026-09-19</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
+        <text x="52" y="336" fill="#e2e8f0" font-size="15">Preregister and seal offline H24 evaluation</text>
+        <text x="52" y="359" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#77 · opened · 2026-09-19</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
+        <text x="52" y="401" fill="#e2e8f0" font-size="15">Media Gallery title parser selects comment count</text>
+        <text x="52" y="424" fill="#94a3b8" font-size="12">Jerome-Group/ntulearn#150 · closed · 2026-09-19</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
+        <text x="52" y="466" fill="#e2e8f0" font-size="15">Prefer recording links for Media Gallery titles</text>
+        <text x="52" y="489" fill="#94a3b8" font-size="12">Jerome-Group/ntulearn#151 · opened · 2026-09-19</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
+        <text x="52" y="531" fill="#e2e8f0" font-size="15">Media Gallery title parser selects comment count</text>
+        <text x="52" y="554" fill="#94a3b8" font-size="12">Jerome-Group/ntulearn#150 · opened · 2026-09-19</text></g></svg>

@@ -1,10 +1,10 @@
 # Public contribution snapshot
 
-Updated 20 Sep 2026 06:22 UTC.
+Updated 21 Sep 2026 06:27 UTC.
 
-- Authored PRs opened, all time: 671
-- Authored PRs merged, all time: 659
-- Distinct closed issues linked to those merged PRs: 473
+- Authored PRs opened, all time: 680
+- Authored PRs merged, all time: 667
+- Distinct closed issues linked to those merged PRs: 475
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close; GitHub can change links retrospectively.
 
@@ -14,11 +14,11 @@ Calendar: last 365 days, reconstructed from public contribution records. Recent 
 
 ## Recent issue and PR events
 
-- 2026-09-19 · opened · [jerome-queck/incypher-rapido#81: Record sanitized H24 evaluation evidence](https://github.com/jerome-queck/incypher-rapido/pull/81)
-- 2026-09-19 · opened · [jerome-queck/incypher-rapido#80: Fail H24 preflight on non-removable private paths](https://github.com/jerome-queck/incypher-rapido/pull/80)
-- 2026-09-19 · opened · [jerome-queck/incypher-rapido#79: Load sealed offline pilot for packaged soak](https://github.com/jerome-queck/incypher-rapido/pull/79)
-- 2026-09-19 · opened · [jerome-queck/incypher-rapido#78: Validate inherited evaluation volumes](https://github.com/jerome-queck/incypher-rapido/pull/78)
-- 2026-09-19 · opened · [jerome-queck/incypher-rapido#77: Preregister and seal offline H24 evaluation](https://github.com/jerome-queck/incypher-rapido/pull/77)
-- 2026-09-19 · closed · [Jerome-Group/ntulearn#150: Media Gallery title parser selects comment count](https://github.com/Jerome-Group/ntulearn/issues/150)
-- 2026-09-19 · opened · [Jerome-Group/ntulearn#151: Prefer recording links for Media Gallery titles](https://github.com/Jerome-Group/ntulearn/pull/151)
-- 2026-09-19 · opened · [Jerome-Group/ntulearn#150: Media Gallery title parser selects comment count](https://github.com/Jerome-Group/ntulearn/issues/150)
+- 2026-09-21 · opened · [jerome-queck/incypher-rapido#96: Audit historical CTF gaps before expanding the solver toolbase](https://github.com/jerome-queck/incypher-rapido/issues/96)
+- 2026-09-21 · closed · [jerome-queck/incypher-rapido#93: Handle read-side Board HTTP 429 with bounded, deadline-aware backoff](https://github.com/jerome-queck/incypher-rapido/issues/93)
+- 2026-09-21 · opened · [jerome-queck/incypher-rapido#95: fix(board): bound read-side rate-limit retries](https://github.com/jerome-queck/incypher-rapido/pull/95)
+- 2026-09-21 · closed · [jerome-queck/incypher-rapido#92: Fix secret-free quick-start dependencies: schema tests require undeclared jsonschema](https://github.com/jerome-queck/incypher-rapido/issues/92)
+- 2026-09-21 · opened · [jerome-queck/incypher-rapido#94: build: declare shared development dependencies](https://github.com/jerome-queck/incypher-rapido/pull/94)
+- 2026-09-20 · opened · [jerome-queck/incypher-rapido#90: Add checksum-pinned competition solver toolbase](https://github.com/jerome-queck/incypher-rapido/pull/90)
+- 2026-09-20 · opened · [jerome-queck/patchpath-sample#3: Test: verify ChatGPT GitHub PR workflow](https://github.com/jerome-queck/patchpath-sample/pull/3)
+- 2026-09-20 · opened · [jerome-queck/incypher-rapido#86: Prepare documentation for solver-tooling pivot](https://github.com/jerome-queck/incypher-rapido/pull/86)

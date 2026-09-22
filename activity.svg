@@ -4,19 +4,19 @@
     <g font-family="Segoe UI,Arial,sans-serif">
     <text x="28" y="36" fill="#e2e8f0" font-size="20">Recent contributions</text>
     <circle cx="34" cy="71" r="5" fill="#a78bfa"/>
-        <text x="52" y="76" fill="#e2e8f0" font-size="15">Audit historical CTF gaps before expanding the solver toolbase</text>
-        <text x="52" y="99" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#96 · opened · 2026-09-21</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
-        <text x="52" y="141" fill="#e2e8f0" font-size="15">Handle read-side Board HTTP 429 with bounded, deadline-aware backoff</text>
-        <text x="52" y="164" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#93 · closed · 2026-09-21</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
-        <text x="52" y="206" fill="#e2e8f0" font-size="15">fix(board): bound read-side rate-limit retries</text>
-        <text x="52" y="229" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#95 · opened · 2026-09-21</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
-        <text x="52" y="271" fill="#e2e8f0" font-size="15">Fix secret-free quick-start dependencies: schema tests require undeclared jsonsc…</text>
-        <text x="52" y="294" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#92 · closed · 2026-09-21</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
-        <text x="52" y="336" fill="#e2e8f0" font-size="15">build: declare shared development dependencies</text>
-        <text x="52" y="359" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#94 · opened · 2026-09-21</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
-        <text x="52" y="401" fill="#e2e8f0" font-size="15">Add checksum-pinned competition solver toolbase</text>
-        <text x="52" y="424" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#90 · opened · 2026-09-20</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
-        <text x="52" y="466" fill="#e2e8f0" font-size="15">Test: verify ChatGPT GitHub PR workflow</text>
-        <text x="52" y="489" fill="#94a3b8" font-size="12">jerome-queck/patchpath-sample#3 · opened · 2026-09-20</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
-        <text x="52" y="531" fill="#e2e8f0" font-size="15">Prepare documentation for solver-tooling pivot</text>
-        <text x="52" y="554" fill="#94a3b8" font-size="12">jerome-queck/incypher-rapido#86 · opened · 2026-09-20</text></g></svg>
+        <text x="52" y="76" fill="#e2e8f0" font-size="15">Record push 29 acceptance boundary</text>
+        <text x="52" y="99" fill="#94a3b8" font-size="12">jerome-queck/incypher#36 · opened · 2026-09-22</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
+        <text x="52" y="141" fill="#e2e8f0" font-size="15">Add offline DICOM/PCAP tools and BYOK budget safety</text>
+        <text x="52" y="164" fill="#94a3b8" font-size="12">jerome-queck/incypher#35 · opened · 2026-09-22</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
+        <text x="52" y="206" fill="#e2e8f0" font-size="15">Route image-owned hard retries to priced Sol</text>
+        <text x="52" y="229" fill="#94a3b8" font-size="12">jerome-queck/incypher#34 · opened · 2026-09-22</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
+        <text x="52" y="271" fill="#e2e8f0" font-size="15">Record live attempt lifecycle evidence</text>
+        <text x="52" y="294" fill="#94a3b8" font-size="12">jerome-queck/incypher#33 · opened · 2026-09-21</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
+        <text x="52" y="336" fill="#e2e8f0" font-size="15">Record public agent pickup evidence</text>
+        <text x="52" y="359" fill="#94a3b8" font-size="12">jerome-queck/incypher#32 · opened · 2026-09-21</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
+        <text x="52" y="401" fill="#e2e8f0" font-size="15">Record partial feature-freeze handoff</text>
+        <text x="52" y="424" fill="#94a3b8" font-size="12">jerome-queck/incypher#31 · opened · 2026-09-21</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
+        <text x="52" y="466" fill="#e2e8f0" font-size="15">Record pre-freeze solver status</text>
+        <text x="52" y="489" fill="#94a3b8" font-size="12">jerome-queck/incypher#30 · opened · 2026-09-21</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
+        <text x="52" y="531" fill="#e2e8f0" font-size="15">Record checked Day-1 relaunch and budget setup</text>
+        <text x="52" y="554" fill="#94a3b8" font-size="12">jerome-queck/incypher#29 · opened · 2026-09-21</text></g></svg>

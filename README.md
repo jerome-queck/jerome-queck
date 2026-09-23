@@ -1,10 +1,10 @@
 # Public contribution snapshot
 
-Updated 22 Sep 2026 06:19 UTC.
+Updated 23 Sep 2026 06:03 UTC.
 
-- Authored PRs opened, all time: 706
-- Authored PRs merged, all time: 693
-- Distinct closed issues linked to those merged PRs: 475
+- Authored PRs opened, all time: 717
+- Authored PRs merged, all time: 704
+- Distinct closed issues linked to those merged PRs: 486
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close; GitHub can change links retrospectively.
 
@@ -14,11 +14,11 @@ Calendar: last 365 days, reconstructed from public contribution records. Recent 
 
 ## Recent issue and PR events
 
-- 2026-09-22 · opened · [jerome-queck/incypher#36: Record push 29 acceptance boundary](https://github.com/jerome-queck/incypher/pull/36)
-- 2026-09-22 · opened · [jerome-queck/incypher#35: Add offline DICOM/PCAP tools and BYOK budget safety](https://github.com/jerome-queck/incypher/pull/35)
-- 2026-09-22 · opened · [jerome-queck/incypher#34: Route image-owned hard retries to priced Sol](https://github.com/jerome-queck/incypher/pull/34)
-- 2026-09-21 · opened · [jerome-queck/incypher#33: Record live attempt lifecycle evidence](https://github.com/jerome-queck/incypher/pull/33)
-- 2026-09-21 · opened · [jerome-queck/incypher#32: Record public agent pickup evidence](https://github.com/jerome-queck/incypher/pull/32)
-- 2026-09-21 · opened · [jerome-queck/incypher#31: Record partial feature-freeze handoff](https://github.com/jerome-queck/incypher/pull/31)
-- 2026-09-21 · opened · [jerome-queck/incypher#30: Record pre-freeze solver status](https://github.com/jerome-queck/incypher/pull/30)
-- 2026-09-21 · opened · [jerome-queck/incypher#29: Record checked Day-1 relaunch and budget setup](https://github.com/jerome-queck/incypher/pull/29)
+- 2026-09-22 · closed · [Jerome-Group/academic-os#241: Use GPT-6 Luna for unattended module maintenance](https://github.com/Jerome-Group/academic-os/issues/241)
+- 2026-09-22 · opened · [Jerome-Group/academic-os#242: Run module maintenance with GPT-6 Luna max](https://github.com/Jerome-Group/academic-os/pull/242)
+- 2026-09-22 · opened · [Jerome-Group/academic-os#241: Use GPT-6 Luna for unattended module maintenance](https://github.com/Jerome-Group/academic-os/issues/241)
+- 2026-09-22 · opened · [Jerome-Group/algebra#46: Complete action and Sylow guided units](https://github.com/Jerome-Group/algebra/issues/46)
+- 2026-09-22 · closed · [Jerome-Group/algebra#44: Complete Cayley words, relations and regular embedding](https://github.com/Jerome-Group/algebra/issues/44)
+- 2026-09-22 · opened · [Jerome-Group/algebra#45: Complete Cayley words and regular embedding](https://github.com/Jerome-Group/algebra/pull/45)
+- 2026-09-22 · opened · [Jerome-Group/algebra#44: Complete Cayley words, relations and regular embedding](https://github.com/Jerome-Group/algebra/issues/44)
+- 2026-09-22 · closed · [Jerome-Group/algebra#42: Teach general rotations and cube symmetry boundaries](https://github.com/Jerome-Group/algebra/issues/42)

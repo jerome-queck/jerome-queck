@@ -1,10 +1,10 @@
 # Public contribution snapshot
 
-Updated 23 Sep 2026 06:03 UTC.
+Updated 24 Sep 2026 06:13 UTC.
 
-- Authored PRs opened, all time: 717
-- Authored PRs merged, all time: 704
-- Distinct closed issues linked to those merged PRs: 486
+- Authored PRs opened, all time: 811
+- Authored PRs merged, all time: 798
+- Distinct closed issues linked to those merged PRs: 582
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close; GitHub can change links retrospectively.
 
@@ -14,11 +14,11 @@ Calendar: last 365 days, reconstructed from public contribution records. Recent 
 
 ## Recent issue and PR events
 
-- 2026-09-22 · closed · [Jerome-Group/academic-os#241: Use GPT-6 Luna for unattended module maintenance](https://github.com/Jerome-Group/academic-os/issues/241)
-- 2026-09-22 · opened · [Jerome-Group/academic-os#242: Run module maintenance with GPT-6 Luna max](https://github.com/Jerome-Group/academic-os/pull/242)
-- 2026-09-22 · opened · [Jerome-Group/academic-os#241: Use GPT-6 Luna for unattended module maintenance](https://github.com/Jerome-Group/academic-os/issues/241)
-- 2026-09-22 · opened · [Jerome-Group/algebra#46: Complete action and Sylow guided units](https://github.com/Jerome-Group/algebra/issues/46)
-- 2026-09-22 · closed · [Jerome-Group/algebra#44: Complete Cayley words, relations and regular embedding](https://github.com/Jerome-Group/algebra/issues/44)
-- 2026-09-22 · opened · [Jerome-Group/algebra#45: Complete Cayley words and regular embedding](https://github.com/Jerome-Group/algebra/pull/45)
-- 2026-09-22 · opened · [Jerome-Group/algebra#44: Complete Cayley words, relations and regular embedding](https://github.com/Jerome-Group/algebra/issues/44)
-- 2026-09-22 · closed · [Jerome-Group/algebra#42: Teach general rotations and cube symmetry boundaries](https://github.com/Jerome-Group/algebra/issues/42)
+- 2026-09-24 · closed · [Jerome-Group/numbertheory#12: Finish Atlas learning controls and release evidence](https://github.com/Jerome-Group/numbertheory/issues/12)
+- 2026-09-24 · opened · [Jerome-Group/numbertheory#13: Finish Atlas diagnostic, Studio, and portable progress](https://github.com/Jerome-Group/numbertheory/pull/13)
+- 2026-09-24 · opened · [Jerome-Group/numbertheory#12: Finish Atlas learning controls and release evidence](https://github.com/Jerome-Group/numbertheory/issues/12)
+- 2026-09-24 · closed · [Jerome-Group/numbertheory#10: Rebuild Number Theory Atlas learning experience](https://github.com/Jerome-Group/numbertheory/issues/10)
+- 2026-09-24 · opened · [Jerome-Group/numbertheory#11: Rebuild Number Theory Atlas with exact learning paths and WebMCP](https://github.com/Jerome-Group/numbertheory/pull/11)
+- 2026-09-24 · closed · [Jerome-Group/calculus#183: Record learner participant constraint for future audits](https://github.com/Jerome-Group/calculus/issues/183)
+- 2026-09-24 · closed · [Jerome-Group/calculus#30: Verify and publish calculus audit release](https://github.com/Jerome-Group/calculus/issues/30)
+- 2026-09-24 · closed · [Jerome-Group/calculus#46: Complete source-mapped curriculum and learner validation](https://github.com/Jerome-Group/calculus/issues/46)

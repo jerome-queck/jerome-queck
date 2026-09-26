@@ -1,10 +1,10 @@
 # Public contribution snapshot
 
-Updated 25 Sep 2026 06:11 UTC.
+Updated 26 Sep 2026 06:11 UTC.
 
-- Authored PRs opened, all time: 811
-- Authored PRs merged, all time: 798
-- Distinct closed issues linked to those merged PRs: 582
+- Authored PRs opened, all time: 840
+- Authored PRs merged, all time: 827
+- Distinct closed issues linked to those merged PRs: 611
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close; GitHub can change links retrospectively.
 
@@ -14,11 +14,11 @@ Calendar: last 365 days, reconstructed from public contribution records. Recent 
 
 ## Recent issue and PR events
 
-- 2026-09-24 · closed · [Jerome-Group/numbertheory#12: Finish Atlas learning controls and release evidence](https://github.com/Jerome-Group/numbertheory/issues/12)
-- 2026-09-24 · opened · [Jerome-Group/numbertheory#13: Finish Atlas diagnostic, Studio, and portable progress](https://github.com/Jerome-Group/numbertheory/pull/13)
-- 2026-09-24 · opened · [Jerome-Group/numbertheory#12: Finish Atlas learning controls and release evidence](https://github.com/Jerome-Group/numbertheory/issues/12)
-- 2026-09-24 · closed · [Jerome-Group/numbertheory#10: Rebuild Number Theory Atlas learning experience](https://github.com/Jerome-Group/numbertheory/issues/10)
-- 2026-09-24 · opened · [Jerome-Group/numbertheory#11: Rebuild Number Theory Atlas with exact learning paths and WebMCP](https://github.com/Jerome-Group/numbertheory/pull/11)
-- 2026-09-24 · closed · [Jerome-Group/calculus#183: Record learner participant constraint for future audits](https://github.com/Jerome-Group/calculus/issues/183)
-- 2026-09-24 · closed · [Jerome-Group/calculus#30: Verify and publish calculus audit release](https://github.com/Jerome-Group/calculus/issues/30)
-- 2026-09-24 · closed · [Jerome-Group/calculus#46: Complete source-mapped curriculum and learner validation](https://github.com/Jerome-Group/calculus/issues/46)
+- 2026-09-26 · closed · [Jerome-Group/syrax#290: Record reliability and memory audit evidence](https://github.com/Jerome-Group/syrax/issues/290)
+- 2026-09-26 · opened · [Jerome-Group/syrax#295: Record reliability and memory audit evidence](https://github.com/Jerome-Group/syrax/pull/295)
+- 2026-09-26 · closed · [Jerome-Group/syrax#240: Bump openclaw from 2026.6.34 to 2026.9.5 in /runtime](https://github.com/Jerome-Group/syrax/pull/240)
+- 2026-09-26 · closed · [Jerome-Group/syrax#292: Upgrade the runtime while preserving delivery and failover boundaries](https://github.com/Jerome-Group/syrax/issues/292)
+- 2026-09-26 · closed · [Jerome-Group/syrax#291: Confirm safe restart completion before reporting configuration landed](https://github.com/Jerome-Group/syrax/issues/291)
+- 2026-09-26 · closed · [Jerome-Group/syrax#285: Bound and validate monitor request parsing](https://github.com/Jerome-Group/syrax/issues/285)
+- 2026-09-26 · closed · [Jerome-Group/syrax#283: Handle unexpected hatch provider response shapes](https://github.com/Jerome-Group/syrax/issues/283)
+- 2026-09-26 · closed · [Jerome-Group/syrax#281: Preserve hatch counts when responses finish after day rollover](https://github.com/Jerome-Group/syrax/issues/281)

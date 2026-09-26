@@ -4,19 +4,19 @@
     <g font-family="Segoe UI,Arial,sans-serif">
     <text x="28" y="36" fill="#e2e8f0" font-size="20">Recent contributions</text>
     <circle cx="34" cy="71" r="5" fill="#a78bfa"/>
-        <text x="52" y="76" fill="#e2e8f0" font-size="15">Finish Atlas learning controls and release evidence</text>
-        <text x="52" y="99" fill="#94a3b8" font-size="12">Jerome-Group/numbertheory#12 · closed · 2026-09-24</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
-        <text x="52" y="141" fill="#e2e8f0" font-size="15">Finish Atlas diagnostic, Studio, and portable progress</text>
-        <text x="52" y="164" fill="#94a3b8" font-size="12">Jerome-Group/numbertheory#13 · opened · 2026-09-24</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
-        <text x="52" y="206" fill="#e2e8f0" font-size="15">Finish Atlas learning controls and release evidence</text>
-        <text x="52" y="229" fill="#94a3b8" font-size="12">Jerome-Group/numbertheory#12 · opened · 2026-09-24</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
-        <text x="52" y="271" fill="#e2e8f0" font-size="15">Rebuild Number Theory Atlas learning experience</text>
-        <text x="52" y="294" fill="#94a3b8" font-size="12">Jerome-Group/numbertheory#10 · closed · 2026-09-24</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
-        <text x="52" y="336" fill="#e2e8f0" font-size="15">Rebuild Number Theory Atlas with exact learning paths and WebMCP</text>
-        <text x="52" y="359" fill="#94a3b8" font-size="12">Jerome-Group/numbertheory#11 · opened · 2026-09-24</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
-        <text x="52" y="401" fill="#e2e8f0" font-size="15">Record learner participant constraint for future audits</text>
-        <text x="52" y="424" fill="#94a3b8" font-size="12">Jerome-Group/calculus#183 · closed · 2026-09-24</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
-        <text x="52" y="466" fill="#e2e8f0" font-size="15">Verify and publish calculus audit release</text>
-        <text x="52" y="489" fill="#94a3b8" font-size="12">Jerome-Group/calculus#30 · closed · 2026-09-24</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
-        <text x="52" y="531" fill="#e2e8f0" font-size="15">Complete source-mapped curriculum and learner validation</text>
-        <text x="52" y="554" fill="#94a3b8" font-size="12">Jerome-Group/calculus#46 · closed · 2026-09-24</text></g></svg>
+        <text x="52" y="76" fill="#e2e8f0" font-size="15">Record reliability and memory audit evidence</text>
+        <text x="52" y="99" fill="#94a3b8" font-size="12">Jerome-Group/syrax#290 · closed · 2026-09-26</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
+        <text x="52" y="141" fill="#e2e8f0" font-size="15">Record reliability and memory audit evidence</text>
+        <text x="52" y="164" fill="#94a3b8" font-size="12">Jerome-Group/syrax#295 · opened · 2026-09-26</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
+        <text x="52" y="206" fill="#e2e8f0" font-size="15">Bump openclaw from 2026.6.34 to 2026.9.5 in /runtime</text>
+        <text x="52" y="229" fill="#94a3b8" font-size="12">Jerome-Group/syrax#240 · closed · 2026-09-26</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
+        <text x="52" y="271" fill="#e2e8f0" font-size="15">Upgrade the runtime while preserving delivery and failover boundaries</text>
+        <text x="52" y="294" fill="#94a3b8" font-size="12">Jerome-Group/syrax#292 · closed · 2026-09-26</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
+        <text x="52" y="336" fill="#e2e8f0" font-size="15">Confirm safe restart completion before reporting configuration landed</text>
+        <text x="52" y="359" fill="#94a3b8" font-size="12">Jerome-Group/syrax#291 · closed · 2026-09-26</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
+        <text x="52" y="401" fill="#e2e8f0" font-size="15">Bound and validate monitor request parsing</text>
+        <text x="52" y="424" fill="#94a3b8" font-size="12">Jerome-Group/syrax#285 · closed · 2026-09-26</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
+        <text x="52" y="466" fill="#e2e8f0" font-size="15">Handle unexpected hatch provider response shapes</text>
+        <text x="52" y="489" fill="#94a3b8" font-size="12">Jerome-Group/syrax#283 · closed · 2026-09-26</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
+        <text x="52" y="531" fill="#e2e8f0" font-size="15">Preserve hatch counts when responses finish after day rollover</text>
+        <text x="52" y="554" fill="#94a3b8" font-size="12">Jerome-Group/syrax#281 · closed · 2026-09-26</text></g></svg>

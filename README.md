@@ -1,10 +1,10 @@
 # Public contribution snapshot
 
-Updated 04 Oct 2026 07:00 UTC.
+Updated 05 Oct 2026 07:09 UTC.
 
 - Authored PRs opened, all time: 932
-- Authored PRs merged, all time: 917
-- Distinct closed issues linked to those merged PRs: 700
+- Authored PRs merged, all time: 918
+- Distinct closed issues linked to those merged PRs: 701
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close; GitHub can change links retrospectively.
 
@@ -14,11 +14,11 @@ Calendar: last 365 days, reconstructed from public contribution records. Recent 
 
 ## Recent issue and PR events
 
+- 2026-10-05 · closed · [Jerome-Group/academic-os#280: Weekly maintenance review 2026-09-28](https://github.com/Jerome-Group/academic-os/issues/280)
+- 2026-10-05 · opened · [Jerome-Group/academic-os#283: Weekly maintenance review 2026-10-05](https://github.com/Jerome-Group/academic-os/issues/283)
+- 2026-10-04 · closed · [Jerome-Group/ntulearn#287: Accept verified retained course aliases in media capacity checks](https://github.com/Jerome-Group/ntulearn/issues/287)
 - 2026-10-04 · closed · [Jerome-Group/numbertheory#19: Redesign the complete Number Theory learning experience](https://github.com/Jerome-Group/numbertheory/issues/19)
 - 2026-10-04 · opened · [Jerome-Group/ntulearn#288: fix: accept verified retained course aliases in capacity checks](https://github.com/Jerome-Group/ntulearn/pull/288)
 - 2026-10-04 · opened · [Jerome-Group/ntulearn#287: Accept verified retained course aliases in media capacity checks](https://github.com/Jerome-Group/ntulearn/issues/287)
 - 2026-10-04 · closed · [Jerome-Group/calculator#6: Bump zod from 3.25.76 to 4.6.5](https://github.com/Jerome-Group/calculator/pull/6)
 - 2026-10-04 · closed · [Jerome-Group/calculator#12: Overhaul existing Calculator workflows for phone-first use](https://github.com/Jerome-Group/calculator/issues/12)
-- 2026-10-04 · closed · [Jerome-Group/ntulearn#285: Keep empty ASR recovery in review and resume validated interrupted prefixes](https://github.com/Jerome-Group/ntulearn/issues/285)
-- 2026-10-04 · opened · [Jerome-Group/ntulearn#286: Retain empty ASR review and resume interrupted recovery](https://github.com/Jerome-Group/ntulearn/pull/286)
-- 2026-10-04 · opened · [Jerome-Group/ntulearn#285: Keep empty ASR recovery in review and resume validated interrupted prefixes](https://github.com/Jerome-Group/ntulearn/issues/285)

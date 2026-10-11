@@ -1,10 +1,10 @@
 # Public contribution snapshot
 
-Updated 10 Oct 2026 07:14 UTC.
+Updated 11 Oct 2026 07:17 UTC.
 
-- Authored PRs opened, all time: 932
-- Authored PRs merged, all time: 918
-- Distinct closed issues linked to those merged PRs: 701
+- Authored PRs opened, all time: 936
+- Authored PRs merged, all time: 922
+- Distinct closed issues linked to those merged PRs: 704
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close; GitHub can change links retrospectively.
 
@@ -14,11 +14,11 @@ Calendar: last 365 days, reconstructed from public contribution records. Recent 
 
 ## Recent issue and PR events
 
-- 2026-10-05 · closed · [Jerome-Group/academic-os#280: Weekly maintenance review 2026-09-28](https://github.com/Jerome-Group/academic-os/issues/280)
-- 2026-10-05 · opened · [Jerome-Group/academic-os#283: Weekly maintenance review 2026-10-05](https://github.com/Jerome-Group/academic-os/issues/283)
-- 2026-10-04 · closed · [Jerome-Group/ntulearn#287: Accept verified retained course aliases in media capacity checks](https://github.com/Jerome-Group/ntulearn/issues/287)
-- 2026-10-04 · closed · [Jerome-Group/numbertheory#19: Redesign the complete Number Theory learning experience](https://github.com/Jerome-Group/numbertheory/issues/19)
-- 2026-10-04 · opened · [Jerome-Group/ntulearn#288: fix: accept verified retained course aliases in capacity checks](https://github.com/Jerome-Group/ntulearn/pull/288)
-- 2026-10-04 · opened · [Jerome-Group/ntulearn#287: Accept verified retained course aliases in media capacity checks](https://github.com/Jerome-Group/ntulearn/issues/287)
-- 2026-10-04 · closed · [Jerome-Group/calculator#6: Bump zod from 3.25.76 to 4.6.5](https://github.com/Jerome-Group/calculator/pull/6)
-- 2026-10-04 · closed · [Jerome-Group/calculator#12: Overhaul existing Calculator workflows for phone-first use](https://github.com/Jerome-Group/calculator/issues/12)
+- 2026-10-10 · closed · [Jerome-Group/academic-os#286: Route learn to an explicit personal teaching folder](https://github.com/Jerome-Group/academic-os/issues/286)
+- 2026-10-10 · opened · [Jerome-Group/academic-os#287: Allow learn to route to an explicit teaching folder](https://github.com/Jerome-Group/academic-os/pull/287)
+- 2026-10-10 · opened · [Jerome-Group/academic-os#286: Route learn to an explicit personal teaching folder](https://github.com/Jerome-Group/academic-os/issues/286)
+- 2026-10-10 · closed · [Jerome-Group/ntulearn#289: Acquire upstream attachment and page revisions without replacing originals](https://github.com/Jerome-Group/ntulearn/issues/289)
+- 2026-10-10 · opened · [Jerome-Group/ntulearn#290: fix(sync): retain revised sources as immutable editions](https://github.com/Jerome-Group/ntulearn/pull/290)
+- 2026-10-10 · closed · [Jerome-Group/academic-os#284: Accept NTULearn extended v1 import receipt counts](https://github.com/Jerome-Group/academic-os/issues/284)
+- 2026-10-10 · opened · [Jerome-Group/academic-os#285: fix(imports): accept optional NTULearn v1 source counters](https://github.com/Jerome-Group/academic-os/pull/285)
+- 2026-10-10 · opened · [Jerome-Group/academic-os#284: Accept NTULearn extended v1 import receipt counts](https://github.com/Jerome-Group/academic-os/issues/284)

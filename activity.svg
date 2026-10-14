@@ -4,19 +4,19 @@
     <g font-family="Segoe UI,Arial,sans-serif">
     <text x="28" y="36" fill="#e2e8f0" font-size="20">Recent contributions</text>
     <circle cx="34" cy="71" r="5" fill="#a78bfa"/>
-        <text x="52" y="76" fill="#e2e8f0" font-size="15">Weekly maintenance review 2026-10-05</text>
-        <text x="52" y="99" fill="#94a3b8" font-size="12">Jerome-Group/academic-os#283 · closed · 2026-10-11</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
-        <text x="52" y="141" fill="#e2e8f0" font-size="15">Weekly maintenance review 2026-10-12</text>
-        <text x="52" y="164" fill="#94a3b8" font-size="12">Jerome-Group/academic-os#288 · opened · 2026-10-11</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
-        <text x="52" y="206" fill="#e2e8f0" font-size="15">Route learn to an explicit personal teaching folder</text>
-        <text x="52" y="229" fill="#94a3b8" font-size="12">Jerome-Group/academic-os#286 · closed · 2026-10-10</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
-        <text x="52" y="271" fill="#e2e8f0" font-size="15">Allow learn to route to an explicit teaching folder</text>
-        <text x="52" y="294" fill="#94a3b8" font-size="12">Jerome-Group/academic-os#287 · opened · 2026-10-10</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
-        <text x="52" y="336" fill="#e2e8f0" font-size="15">Route learn to an explicit personal teaching folder</text>
-        <text x="52" y="359" fill="#94a3b8" font-size="12">Jerome-Group/academic-os#286 · opened · 2026-10-10</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
-        <text x="52" y="401" fill="#e2e8f0" font-size="15">Acquire upstream attachment and page revisions without replacing originals</text>
-        <text x="52" y="424" fill="#94a3b8" font-size="12">Jerome-Group/ntulearn#289 · closed · 2026-10-10</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
-        <text x="52" y="466" fill="#e2e8f0" font-size="15">fix(sync): retain revised sources as immutable editions</text>
-        <text x="52" y="489" fill="#94a3b8" font-size="12">Jerome-Group/ntulearn#290 · opened · 2026-10-10</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
-        <text x="52" y="531" fill="#e2e8f0" font-size="15">Accept NTULearn extended v1 import receipt counts</text>
-        <text x="52" y="554" fill="#94a3b8" font-size="12">Jerome-Group/academic-os#284 · closed · 2026-10-10</text></g></svg>
+        <text x="52" y="76" fill="#e2e8f0" font-size="15">agent-run: auto-resume stalled cursor-agent sessions</text>
+        <text x="52" y="99" fill="#94a3b8" font-size="12">jerome-queck/probability#17 · opened · 2026-10-14</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
+        <text x="52" y="141" fill="#e2e8f0" font-size="15">Drop transitional evidence trigger and duplicate artifact</text>
+        <text x="52" y="164" fill="#94a3b8" font-size="12">jerome-queck/probability#16 · opened · 2026-10-14</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
+        <text x="52" y="206" fill="#e2e8f0" font-size="15">Gate hardening: evidence check from the base branch, pinned Chrome</text>
+        <text x="52" y="229" fill="#94a3b8" font-size="12">jerome-queck/probability#15 · opened · 2026-10-13</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
+        <text x="52" y="271" fill="#e2e8f0" font-size="15">Limit theorems chapter: four lessons and two experiments</text>
+        <text x="52" y="294" fill="#94a3b8" font-size="12">jerome-queck/probability#14 · opened · 2026-10-13</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
+        <text x="52" y="336" fill="#e2e8f0" font-size="15">Properties of expectation chapter: five lessons</text>
+        <text x="52" y="359" fill="#94a3b8" font-size="12">jerome-queck/probability#13 · opened · 2026-10-13</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
+        <text x="52" y="401" fill="#e2e8f0" font-size="15">Jointly distributed random variables chapter: five lessons</text>
+        <text x="52" y="424" fill="#94a3b8" font-size="12">jerome-queck/probability#12 · opened · 2026-10-13</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
+        <text x="52" y="466" fill="#e2e8f0" font-size="15">Continuous random variables chapter: eight lessons and the normal-approximation …</text>
+        <text x="52" y="489" fill="#94a3b8" font-size="12">jerome-queck/probability#11 · opened · 2026-10-13</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
+        <text x="52" y="531" fill="#e2e8f0" font-size="15">Discrete random variables chapter: eight lessons and the binomial-Poisson experi…</text>
+        <text x="52" y="554" fill="#94a3b8" font-size="12">jerome-queck/probability#10 · opened · 2026-10-13</text></g></svg>

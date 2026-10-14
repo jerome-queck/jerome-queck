@@ -1,9 +1,9 @@
 # Public contribution snapshot
 
-Updated 13 Oct 2026 07:48 UTC.
+Updated 14 Oct 2026 06:12 UTC.
 
-- Authored PRs opened, all time: 936
-- Authored PRs merged, all time: 922
+- Authored PRs opened, all time: 953
+- Authored PRs merged, all time: 928
 - Distinct closed issues linked to those merged PRs: 704
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close; GitHub can change links retrospectively.
@@ -14,11 +14,11 @@ Calendar: last 365 days, reconstructed from public contribution records. Recent 
 
 ## Recent issue and PR events
 
-- 2026-10-11 · closed · [Jerome-Group/academic-os#283: Weekly maintenance review 2026-10-05](https://github.com/Jerome-Group/academic-os/issues/283)
-- 2026-10-11 · opened · [Jerome-Group/academic-os#288: Weekly maintenance review 2026-10-12](https://github.com/Jerome-Group/academic-os/issues/288)
-- 2026-10-10 · closed · [Jerome-Group/academic-os#286: Route learn to an explicit personal teaching folder](https://github.com/Jerome-Group/academic-os/issues/286)
-- 2026-10-10 · opened · [Jerome-Group/academic-os#287: Allow learn to route to an explicit teaching folder](https://github.com/Jerome-Group/academic-os/pull/287)
-- 2026-10-10 · opened · [Jerome-Group/academic-os#286: Route learn to an explicit personal teaching folder](https://github.com/Jerome-Group/academic-os/issues/286)
-- 2026-10-10 · closed · [Jerome-Group/ntulearn#289: Acquire upstream attachment and page revisions without replacing originals](https://github.com/Jerome-Group/ntulearn/issues/289)
-- 2026-10-10 · opened · [Jerome-Group/ntulearn#290: fix(sync): retain revised sources as immutable editions](https://github.com/Jerome-Group/ntulearn/pull/290)
-- 2026-10-10 · closed · [Jerome-Group/academic-os#284: Accept NTULearn extended v1 import receipt counts](https://github.com/Jerome-Group/academic-os/issues/284)
+- 2026-10-14 · opened · [jerome-queck/probability#17: agent-run: auto-resume stalled cursor-agent sessions](https://github.com/jerome-queck/probability/pull/17)
+- 2026-10-14 · opened · [jerome-queck/probability#16: Drop transitional evidence trigger and duplicate artifact](https://github.com/jerome-queck/probability/pull/16)
+- 2026-10-13 · opened · [jerome-queck/probability#15: Gate hardening: evidence check from the base branch, pinned Chrome](https://github.com/jerome-queck/probability/pull/15)
+- 2026-10-13 · opened · [jerome-queck/probability#14: Limit theorems chapter: four lessons and two experiments](https://github.com/jerome-queck/probability/pull/14)
+- 2026-10-13 · opened · [jerome-queck/probability#13: Properties of expectation chapter: five lessons](https://github.com/jerome-queck/probability/pull/13)
+- 2026-10-13 · opened · [jerome-queck/probability#12: Jointly distributed random variables chapter: five lessons](https://github.com/jerome-queck/probability/pull/12)
+- 2026-10-13 · opened · [jerome-queck/probability#11: Continuous random variables chapter: eight lessons and the normal-approximation experiment](https://github.com/jerome-queck/probability/pull/11)
+- 2026-10-13 · opened · [jerome-queck/probability#10: Discrete random variables chapter: eight lessons and the binomial-Poisson experiment](https://github.com/jerome-queck/probability/pull/10)

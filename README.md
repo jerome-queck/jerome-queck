@@ -1,10 +1,10 @@
 # Public contribution snapshot
 
-Updated 17 Oct 2026 05:39 UTC.
+Updated 18 Oct 2026 06:00 UTC.
 
-- Authored PRs opened, all time: 959
-- Authored PRs merged, all time: 938
-- Distinct closed issues linked to those merged PRs: 704
+- Authored PRs opened, all time: 990
+- Authored PRs merged, all time: 969
+- Distinct closed issues linked to those merged PRs: 743
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close; GitHub can change links retrospectively.
 
@@ -14,11 +14,11 @@ Calendar: last 365 days, reconstructed from public contribution records. Recent 
 
 ## Recent issue and PR events
 
-- 2026-10-15 · opened · [jerome-queck/probability#23: agent-run.sh: one session per call; longrun owns supervision](https://github.com/jerome-queck/probability/pull/23)
-- 2026-10-15 · opened · [jerome-queck/probability#22: Evidence gate: math check in a fixed form, on the lesson text as merged](https://github.com/jerome-queck/probability/pull/22)
-- 2026-10-15 · opened · [jerome-queck/probability#21: Quality gate: short inline formulas never split on a phone (orphan check)](https://github.com/jerome-queck/probability/pull/21)
-- 2026-10-15 · opened · [jerome-queck/probability#20: Evidence gate: every review session must report its own verdict](https://github.com/jerome-queck/probability/pull/20)
-- 2026-10-15 · opened · [jerome-queck/probability#19: Content gate: named results tagged in lessons and registered](https://github.com/jerome-queck/probability/pull/19)
-- 2026-10-14 · closed · [jerome-queck/probability#17: agent-run: auto-resume stalled cursor-agent sessions](https://github.com/jerome-queck/probability/pull/17)
-- 2026-10-14 · opened · [jerome-queck/probability#18: agent-run: resume, gate, stall and image fixes (replaces #17)](https://github.com/jerome-queck/probability/pull/18)
-- 2026-10-14 · opened · [jerome-queck/probability#17: agent-run: auto-resume stalled cursor-agent sessions](https://github.com/jerome-queck/probability/pull/17)
+- 2026-10-18 · closed · [Jerome-Group/academic-os#300: Fix large binary review-package publication](https://github.com/Jerome-Group/academic-os/issues/300)
+- 2026-10-18 · opened · [Jerome-Group/academic-os#301: fix(cheatsheet): publish large binary review sources](https://github.com/Jerome-Group/academic-os/pull/301)
+- 2026-10-18 · closed · [Jerome-Group/calculus#218: docs: correct verification stage order](https://github.com/Jerome-Group/calculus/issues/218)
+- 2026-10-18 · opened · [Jerome-Group/calculus#219: docs(verification): correct CI stage order](https://github.com/Jerome-Group/calculus/pull/219)
+- 2026-10-18 · opened · [Jerome-Group/calculus#218: docs: correct verification stage order](https://github.com/Jerome-Group/calculus/issues/218)
+- 2026-10-18 · opened · [Jerome-Group/academic-os#300: Fix large binary review-package publication](https://github.com/Jerome-Group/academic-os/issues/300)
+- 2026-10-18 · closed · [Jerome-Group/calculus#216: fix: exclude retained outputs from TypeScript source checking](https://github.com/Jerome-Group/calculus/issues/216)
+- 2026-10-18 · opened · [Jerome-Group/calculus#217: fix(typescript): exclude retained outputs](https://github.com/Jerome-Group/calculus/pull/217)

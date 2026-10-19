@@ -1,6 +1,6 @@
 # Public contribution snapshot
 
-Updated 18 Oct 2026 06:00 UTC.
+Updated 19 Oct 2026 06:17 UTC.
 
 - Authored PRs opened, all time: 990
 - Authored PRs merged, all time: 969
@@ -14,11 +14,11 @@ Calendar: last 365 days, reconstructed from public contribution records. Recent 
 
 ## Recent issue and PR events
 
+- 2026-10-18 · closed · [Jerome-Group/academic-os#288: Weekly maintenance review 2026-10-12](https://github.com/Jerome-Group/academic-os/issues/288)
+- 2026-10-18 · opened · [Jerome-Group/academic-os#302: Weekly maintenance review 2026-10-19](https://github.com/Jerome-Group/academic-os/issues/302)
 - 2026-10-18 · closed · [Jerome-Group/academic-os#300: Fix large binary review-package publication](https://github.com/Jerome-Group/academic-os/issues/300)
 - 2026-10-18 · opened · [Jerome-Group/academic-os#301: fix(cheatsheet): publish large binary review sources](https://github.com/Jerome-Group/academic-os/pull/301)
 - 2026-10-18 · closed · [Jerome-Group/calculus#218: docs: correct verification stage order](https://github.com/Jerome-Group/calculus/issues/218)
 - 2026-10-18 · opened · [Jerome-Group/calculus#219: docs(verification): correct CI stage order](https://github.com/Jerome-Group/calculus/pull/219)
 - 2026-10-18 · opened · [Jerome-Group/calculus#218: docs: correct verification stage order](https://github.com/Jerome-Group/calculus/issues/218)
 - 2026-10-18 · opened · [Jerome-Group/academic-os#300: Fix large binary review-package publication](https://github.com/Jerome-Group/academic-os/issues/300)
-- 2026-10-18 · closed · [Jerome-Group/calculus#216: fix: exclude retained outputs from TypeScript source checking](https://github.com/Jerome-Group/calculus/issues/216)
-- 2026-10-18 · opened · [Jerome-Group/calculus#217: fix(typescript): exclude retained outputs](https://github.com/Jerome-Group/calculus/pull/217)

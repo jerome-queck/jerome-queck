@@ -4,19 +4,19 @@
     <g font-family="Segoe UI,Arial,sans-serif">
     <text x="28" y="36" fill="#e2e8f0" font-size="20">Recent contributions</text>
     <circle cx="34" cy="71" r="5" fill="#a78bfa"/>
-        <text x="52" y="76" fill="#e2e8f0" font-size="15">Refresh verification recipes for the connected argument workspace</text>
-        <text x="52" y="99" fill="#94a3b8" font-size="12">Jerome-Group/algebra#134 · closed · 2026-10-22</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
-        <text x="52" y="141" fill="#e2e8f0" font-size="15">Remove browser setup timing regression</text>
-        <text x="52" y="164" fill="#94a3b8" font-size="12">Jerome-Group/algebra#137 · closed · 2026-10-22</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
-        <text x="52" y="206" fill="#e2e8f0" font-size="15">Use a pinned preinstalled browser runtime</text>
-        <text x="52" y="229" fill="#94a3b8" font-size="12">Jerome-Group/algebra#138 · opened · 2026-10-22</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
-        <text x="52" y="271" fill="#e2e8f0" font-size="15">Remove browser setup timing regression</text>
-        <text x="52" y="294" fill="#94a3b8" font-size="12">Jerome-Group/algebra#137 · opened · 2026-10-22</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
-        <text x="52" y="336" fill="#e2e8f0" font-size="15">Document connected workspace verification</text>
-        <text x="52" y="359" fill="#94a3b8" font-size="12">Jerome-Group/algebra#136 · opened · 2026-10-22</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
-        <text x="52" y="401" fill="#e2e8f0" font-size="15">Keep expanded workspace verification within ten minutes</text>
-        <text x="52" y="424" fill="#94a3b8" font-size="12">Jerome-Group/algebra#133 · closed · 2026-10-22</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
-        <text x="52" y="466" fill="#e2e8f0" font-size="15">Build a connected argument workspace</text>
-        <text x="52" y="489" fill="#94a3b8" font-size="12">Jerome-Group/algebra#131 · closed · 2026-10-22</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
-        <text x="52" y="531" fill="#e2e8f0" font-size="15">Include every current subject in concept navigation</text>
-        <text x="52" y="554" fill="#94a3b8" font-size="12">Jerome-Group/algebra#130 · closed · 2026-10-22</text></g></svg>
+        <text x="52" y="76" fill="#e2e8f0" font-size="15">fix(routing): verify saved project membership after dispatch</text>
+        <text x="52" y="99" fill="#94a3b8" font-size="12">jerome-queck/emmy#32 · opened · 2026-10-24</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
+        <text x="52" y="141" fill="#e2e8f0" font-size="15">feat(policy): persist Emmy routing and calendar planning</text>
+        <text x="52" y="164" fill="#94a3b8" font-size="12">jerome-queck/emmy#31 · opened · 2026-10-24</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
+        <text x="52" y="206" fill="#e2e8f0" font-size="15">Verification cancellation leaks owned processes and loses failure receipts</text>
+        <text x="52" y="229" fill="#94a3b8" font-size="12">jerome-queck/probability#48 · closed · 2026-10-24</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
+        <text x="52" y="271" fill="#e2e8f0" font-size="15">fix: finish verification cancellation and preserve failure evidence</text>
+        <text x="52" y="294" fill="#94a3b8" font-size="12">jerome-queck/probability#52 · opened · 2026-10-24</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
+        <text x="52" y="336" fill="#e2e8f0" font-size="15">Keep finite distribution calculations stable for large valid inputs</text>
+        <text x="52" y="359" fill="#94a3b8" font-size="12">jerome-queck/probability#45 · closed · 2026-10-24</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
+        <text x="52" y="401" fill="#e2e8f0" font-size="15">Update development fast-uri after current npm advisories</text>
+        <text x="52" y="424" fill="#94a3b8" font-size="12">jerome-queck/probability#51 · opened · 2026-10-24</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
+        <text x="52" y="466" fill="#e2e8f0" font-size="15">Track remaining numerical range and cancellation defects in reusable helpers</text>
+        <text x="52" y="489" fill="#94a3b8" font-size="12">jerome-queck/probability#50 · opened · 2026-10-24</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
+        <text x="52" y="531" fill="#e2e8f0" font-size="15">fix(formal): preserve newest admitted verification outcome</text>
+        <text x="52" y="554" fill="#94a3b8" font-size="12">Jerome-Group/algebra#179 · opened · 2026-10-24</text></g></svg>

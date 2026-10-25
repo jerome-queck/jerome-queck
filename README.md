@@ -1,10 +1,10 @@
 # Public contribution snapshot
 
-Updated 24 Oct 2026 05:59 UTC.
+Updated 25 Oct 2026 06:14 UTC.
 
-- Authored PRs opened, all time: 1153
-- Authored PRs merged, all time: 1128
-- Distinct closed issues linked to those merged PRs: 946
+- Authored PRs opened, all time: 1181
+- Authored PRs merged, all time: 1154
+- Distinct closed issues linked to those merged PRs: 953
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close; GitHub can change links retrospectively.
 
@@ -14,11 +14,11 @@ Calendar: last 365 days, reconstructed from public contribution records. Recent 
 
 ## Recent issue and PR events
 
-- 2026-10-24 · opened · [jerome-queck/emmy#32: fix(routing): verify saved project membership after dispatch](https://github.com/jerome-queck/emmy/pull/32)
-- 2026-10-24 · opened · [jerome-queck/emmy#31: feat(policy): persist Emmy routing and calendar planning](https://github.com/jerome-queck/emmy/pull/31)
-- 2026-10-24 · closed · [jerome-queck/probability#48: Verification cancellation leaks owned processes and loses failure receipts](https://github.com/jerome-queck/probability/issues/48)
-- 2026-10-24 · opened · [jerome-queck/probability#52: fix: finish verification cancellation and preserve failure evidence](https://github.com/jerome-queck/probability/pull/52)
-- 2026-10-24 · closed · [jerome-queck/probability#45: Keep finite distribution calculations stable for large valid inputs](https://github.com/jerome-queck/probability/issues/45)
-- 2026-10-24 · opened · [jerome-queck/probability#51: Update development fast-uri after current npm advisories](https://github.com/jerome-queck/probability/issues/51)
-- 2026-10-24 · opened · [jerome-queck/probability#50: Track remaining numerical range and cancellation defects in reusable helpers](https://github.com/jerome-queck/probability/issues/50)
-- 2026-10-24 · opened · [Jerome-Group/algebra#179: fix(formal): preserve newest admitted verification outcome](https://github.com/Jerome-Group/algebra/pull/179)
+- 2026-10-25 · opened · [Jerome-Group/academic-os#394: Respect Available events on Observed calendars](https://github.com/Jerome-Group/academic-os/issues/394)
+- 2026-10-25 · opened · [Jerome-Group/academic-os#393: Bind Calendar refresh queries and preserve cancellation recovery](https://github.com/Jerome-Group/academic-os/issues/393)
+- 2026-10-25 · closed · [Jerome-Group/algebra#177: Prevent overlapping formal runs from reviving older success](https://github.com/Jerome-Group/algebra/issues/177)
+- 2026-10-25 · closed · [Jerome-Group/algebra#152: Keep argument lifecycle verification aligned with the mathematics release](https://github.com/Jerome-Group/algebra/issues/152)
+- 2026-10-25 · opened · [Jerome-Group/academic-os#392: fix(verification): isolate quality TeX startup](https://github.com/Jerome-Group/academic-os/pull/392)
+- 2026-10-25 · closed · [Jerome-Group/academic-os#381: Reject vacuous success for empty active module reports](https://github.com/Jerome-Group/academic-os/issues/381)
+- 2026-10-25 · opened · [Jerome-Group/academic-os#391: fix(reports): reject empty active cohort success](https://github.com/Jerome-Group/academic-os/pull/391)
+- 2026-10-25 · opened · [Jerome-Group/academic-os#390: Preserve concurrent curation register appends](https://github.com/Jerome-Group/academic-os/issues/390)

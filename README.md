@@ -1,9 +1,9 @@
 # Public contribution snapshot
 
-Updated 26 Oct 2026 06:21 UTC.
+Updated 27 Oct 2026 06:23 UTC.
 
-- Authored PRs opened, all time: 1241
-- Authored PRs merged, all time: 1213
+- Authored PRs opened, all time: 1264
+- Authored PRs merged, all time: 1236
 - Distinct closed issues linked to those merged PRs: 964
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close; GitHub can change links retrospectively.
@@ -14,11 +14,11 @@ Calendar: last 365 days, reconstructed from public contribution records. Recent 
 
 ## Recent issue and PR events
 
-- 2026-10-26 · opened · [jerome-queck/integration-bee#58: Prove eight more pack rows with SymPy](https://github.com/jerome-queck/integration-bee/pull/58)
-- 2026-10-26 · opened · [jerome-queck/integration-bee#57: fix(verify): prove five sticky pack rows and document a source conflict](https://github.com/jerome-queck/integration-bee/pull/57)
-- 2026-10-26 · opened · [jerome-queck/integration-bee#56: Prove forty-one more pack rows with SymPy](https://github.com/jerome-queck/integration-bee/pull/56)
-- 2026-10-26 · opened · [jerome-queck/integration-bee#55: Prove forty-three more pack rows with SymPy](https://github.com/jerome-queck/integration-bee/pull/55)
-- 2026-10-26 · opened · [jerome-queck/integration-bee#54: Require Pre-review self-check in the PR template](https://github.com/jerome-queck/integration-bee/pull/54)
-- 2026-10-26 · opened · [jerome-queck/integration-bee#53: Prove thirty-four more pack rows with SymPy](https://github.com/jerome-queck/integration-bee/pull/53)
-- 2026-10-25 · opened · [jerome-queck/integration-bee#52: Teach worked, faded, and bare doses for units 34, 35, and 36](https://github.com/jerome-queck/integration-bee/pull/52)
-- 2026-10-25 · opened · [Jerome-Group/academic-os#420: Weekly maintenance review 2026-10-26](https://github.com/Jerome-Group/academic-os/issues/420)
+- 2026-10-27 · opened · [jerome-queck/integration-bee#81: resolve-sticky-hard-handoff-M](https://github.com/jerome-queck/integration-bee/pull/81)
+- 2026-10-27 · opened · [jerome-queck/integration-bee#80: resolve-sticky-hard-handoff-O](https://github.com/jerome-queck/integration-bee/pull/80)
+- 2026-10-27 · opened · [jerome-queck/integration-bee#79: resolve-sticky-hard-handoff-N](https://github.com/jerome-queck/integration-bee/pull/79)
+- 2026-10-27 · opened · [jerome-queck/integration-bee#78: resolve-sticky-hard-handoff-L](https://github.com/jerome-queck/integration-bee/pull/78)
+- 2026-10-27 · opened · [jerome-queck/integration-bee#77: resolve-sticky-hard-handoff-Q](https://github.com/jerome-queck/integration-bee/pull/77)
+- 2026-10-27 · opened · [jerome-queck/integration-bee#76: resolve-sticky-hard-handoff-P](https://github.com/jerome-queck/integration-bee/pull/76)
+- 2026-10-26 · opened · [jerome-queck/integration-bee#75: cleanup-sticky-hard-handoff-J](https://github.com/jerome-queck/integration-bee/pull/75)
+- 2026-10-26 · opened · [jerome-queck/integration-bee#74: encode-sticky-hard-handoff-I](https://github.com/jerome-queck/integration-bee/pull/74)

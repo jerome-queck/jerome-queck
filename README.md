@@ -1,9 +1,9 @@
 # Public contribution snapshot
 
-Updated 27 Oct 2026 06:23 UTC.
+Updated 28 Oct 2026 06:54 UTC.
 
-- Authored PRs opened, all time: 1264
-- Authored PRs merged, all time: 1236
+- Authored PRs opened, all time: 1268
+- Authored PRs merged, all time: 1240
 - Distinct closed issues linked to those merged PRs: 964
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close; GitHub can change links retrospectively.
@@ -14,11 +14,11 @@ Calendar: last 365 days, reconstructed from public contribution records. Recent 
 
 ## Recent issue and PR events
 
+- 2026-10-28 · opened · [jerome-queck/integration-bee#85: Add a never-impossible lint for pack records and worked notes](https://github.com/jerome-queck/integration-bee/pull/85)
+- 2026-10-27 · opened · [Jerome-Group/academic-os#422: Scheduled repository verification repair](https://github.com/Jerome-Group/academic-os/issues/422)
+- 2026-10-27 · opened · [jerome-queck/integration-bee#84: fix(verification): repair worked-note and setup checks](https://github.com/jerome-queck/integration-bee/pull/84)
+- 2026-10-27 · opened · [jerome-queck/integration-bee#83: Add the learning-capture checklist for teaching agents](https://github.com/jerome-queck/integration-bee/pull/83)
+- 2026-10-27 · opened · [jerome-queck/integration-bee#82: Align finish-line docs with the live catalog at 770c6e4](https://github.com/jerome-queck/integration-bee/pull/82)
 - 2026-10-27 · opened · [jerome-queck/integration-bee#81: resolve-sticky-hard-handoff-M](https://github.com/jerome-queck/integration-bee/pull/81)
 - 2026-10-27 · opened · [jerome-queck/integration-bee#80: resolve-sticky-hard-handoff-O](https://github.com/jerome-queck/integration-bee/pull/80)
 - 2026-10-27 · opened · [jerome-queck/integration-bee#79: resolve-sticky-hard-handoff-N](https://github.com/jerome-queck/integration-bee/pull/79)
-- 2026-10-27 · opened · [jerome-queck/integration-bee#78: resolve-sticky-hard-handoff-L](https://github.com/jerome-queck/integration-bee/pull/78)
-- 2026-10-27 · opened · [jerome-queck/integration-bee#77: resolve-sticky-hard-handoff-Q](https://github.com/jerome-queck/integration-bee/pull/77)
-- 2026-10-27 · opened · [jerome-queck/integration-bee#76: resolve-sticky-hard-handoff-P](https://github.com/jerome-queck/integration-bee/pull/76)
-- 2026-10-26 · opened · [jerome-queck/integration-bee#75: cleanup-sticky-hard-handoff-J](https://github.com/jerome-queck/integration-bee/pull/75)
-- 2026-10-26 · opened · [jerome-queck/integration-bee#74: encode-sticky-hard-handoff-I](https://github.com/jerome-queck/integration-bee/pull/74)

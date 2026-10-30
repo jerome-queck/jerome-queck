@@ -4,19 +4,19 @@
     <g font-family="Segoe UI,Arial,sans-serif">
     <text x="28" y="36" fill="#e2e8f0" font-size="20">Recent contributions</text>
     <circle cx="34" cy="71" r="5" fill="#a78bfa"/>
-        <text x="52" y="76" fill="#e2e8f0" font-size="15">Add a never-impossible lint for pack records and worked notes</text>
-        <text x="52" y="99" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#85 · opened · 2026-10-28</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
-        <text x="52" y="141" fill="#e2e8f0" font-size="15">Scheduled repository verification repair</text>
-        <text x="52" y="164" fill="#94a3b8" font-size="12">Jerome-Group/academic-os#422 · opened · 2026-10-27</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
-        <text x="52" y="206" fill="#e2e8f0" font-size="15">fix(verification): repair worked-note and setup checks</text>
-        <text x="52" y="229" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#84 · opened · 2026-10-27</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
-        <text x="52" y="271" fill="#e2e8f0" font-size="15">Add the learning-capture checklist for teaching agents</text>
-        <text x="52" y="294" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#83 · opened · 2026-10-27</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
-        <text x="52" y="336" fill="#e2e8f0" font-size="15">Align finish-line docs with the live catalog at 770c6e4</text>
-        <text x="52" y="359" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#82 · opened · 2026-10-27</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
-        <text x="52" y="401" fill="#e2e8f0" font-size="15">resolve-sticky-hard-handoff-M</text>
-        <text x="52" y="424" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#81 · opened · 2026-10-27</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
-        <text x="52" y="466" fill="#e2e8f0" font-size="15">resolve-sticky-hard-handoff-O</text>
-        <text x="52" y="489" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#80 · opened · 2026-10-27</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
-        <text x="52" y="531" fill="#e2e8f0" font-size="15">resolve-sticky-hard-handoff-N</text>
-        <text x="52" y="554" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#79 · opened · 2026-10-27</text></g></svg>
+        <text x="52" y="76" fill="#e2e8f0" font-size="15">Yang worked solutions: last three rows and a no-empty gate</text>
+        <text x="52" y="99" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#106 · opened · 2026-10-30</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
+        <text x="52" y="141" fill="#e2e8f0" font-size="15">Yang worked solutions: 1.15, 1.17, 1.18, 1.20</text>
+        <text x="52" y="164" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#104 · closed · 2026-10-30</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
+        <text x="52" y="206" fill="#e2e8f0" font-size="15">Yang worked solutions: 2.3, 2.4</text>
+        <text x="52" y="229" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#99 · closed · 2026-10-30</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
+        <text x="52" y="271" fill="#e2e8f0" font-size="15">Yang worked solutions: 2.7, 3.4, 3.8, 4.4, 4.6, 6.1, 6.7</text>
+        <text x="52" y="294" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#102 · closed · 2026-10-30</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
+        <text x="52" y="336" fill="#e2e8f0" font-size="15">Yang worked solutions: 2.3-2.4, 2.7-6.7, 1.15-1.20 (combined)</text>
+        <text x="52" y="359" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#105 · opened · 2026-10-30</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
+        <text x="52" y="401" fill="#e2e8f0" font-size="15">Yang worked solutions: 1.15, 1.17, 1.18, 1.20</text>
+        <text x="52" y="424" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#104 · opened · 2026-10-30</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
+        <text x="52" y="466" fill="#e2e8f0" font-size="15">Yang worked solutions: 1.8, 1.9</text>
+        <text x="52" y="489" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#103 · opened · 2026-10-30</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
+        <text x="52" y="531" fill="#e2e8f0" font-size="15">Yang worked solutions: 2.7, 3.4, 3.8, 4.4, 4.6, 6.1, 6.7</text>
+        <text x="52" y="554" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#102 · opened · 2026-10-30</text></g></svg>

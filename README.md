@@ -14,7 +14,7 @@ I study mathematics and build tools for learning, research and organising my wor
 
 <a name="mathematics"></a>
 
-## ![01. Mathematics. Notes, proofs and experiments.](assets/chapter-math.svg)
+## <img src="assets/chapter-math.svg" width="64" alt=""> Mathematics
 
 Notes websites and tools for exploring ideas. A small example from algebra follows. **The order of two operations can change their result.**
 
@@ -53,7 +53,7 @@ Notes websites and tools for exploring ideas. A small example from algebra follo
 
 <a name="software"></a>
 
-## ![02. Software. Tools for my degree and research.](assets/chapter-software.svg)
+## <img src="assets/chapter-software.svg" width="64" alt=""> Software
 
 **Course material becomes a local working desk.** These connections describe actual interfaces between the projects.
 
@@ -74,7 +74,7 @@ Notes websites and tools for exploring ideas. A small example from algebra follo
 
 <a name="public-work"></a>
 
-## ![03. Public work. Public records with explicit definitions.](assets/chapter-public-work.svg)
+## <img src="assets/chapter-public-work.svg" width="64" alt=""> Public work
 
 <a href="https://github.com/jerome-queck/jerome-queck/tree/profile-data">
 <picture>

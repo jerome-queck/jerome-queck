@@ -1,6 +1,3 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="900" height="150" viewBox="0 0 900 150" role="img">
-    <title>MATHEMATICS. NOTES / PROOFS / EXPERIMENTS</title><rect width="900" height="150" fill="#101010"/>
-    <g font-family="Arial,sans-serif"><path d="M0 0H900" stroke="#f04416" stroke-width="9"/>
-    <text x="24" y="106" fill="#f04416" font-size="104" font-weight="900">01</text>
-    <text x="183" y="84" fill="#f4f1e9" font-size="63" font-weight="900">MATHEMATICS</text>
-    </g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="64" viewBox="0 0 80 64" role="img">
+    <title>Chapter 01</title><rect width="80" height="64" fill="#101010"/>
+    <g font-family="Arial,sans-serif"><text x="8" y="50" fill="#f04416" font-size="50" font-weight="900">01</text></g></svg>

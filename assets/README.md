@@ -27,6 +27,6 @@ The editorial cover above is superseded and retained historically. Active artwor
 `circuit-atlas-hero.jpg`, `software-circuit.jpg`, `software-circuit-mobile.jpg`, `syrax-exhibit.jpg` and `emmy-exhibit.jpg`, produced with built-in ImageGen.
 The software image depicts verified interfaces, not a screenshot. Exact prompts and a
 corrective arrow edit are recorded in [Circuit Atlas](../docs/design/circuit-atlas.md).
-`chapter-*.svg`, `nav-*.svg`, `enter-*.svg` and `exit.svg` come from
+Decorative numbered `chapter-*.svg` folios, `nav-*.svg`, `enter-*.svg` and `exit.svg` come from
 `scripts/render_interface.py`; the square-transform figures retain their exact mathematics
 with the new palette. Generated live data remains on `profile-data`, separate from authored art.

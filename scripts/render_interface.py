@@ -9,15 +9,12 @@ def svg(width, height, body, title, background="#101010"):
     <g font-family="Arial,sans-serif">{body}</g></svg>'''
 
 
-def chapter(number, title, subtitle):
+def chapter(number):
     return svg(
-        900,
-        150,
-        f"""<path d="M0 0H900" stroke="#f04416" stroke-width="9"/>
-    <text x="24" y="106" fill="#f04416" font-size="104" font-weight="900">{number}</text>
-    <text x="183" y="84" fill="#f4f1e9" font-size="63" font-weight="900">{title}</text>
-    """,
-        f"{title}. {subtitle}",
+        80,
+        64,
+        f'<text x="8" y="50" fill="#f04416" font-size="50" font-weight="900">{number}</text>',
+        f"Chapter {number}",
     )
 
 
@@ -39,12 +36,8 @@ def destination(name, subtitle, accent, width=440):
 
 def main():
     assets = ROOT / "assets"
-    for number, name, title, subtitle in [
-        ("01", "math", "MATHEMATICS", "NOTES / PROOFS / EXPERIMENTS"),
-        ("02", "software", "SOFTWARE", "TOOLS FOR MY DEGREE AND RESEARCH"),
-        ("03", "public-work", "PUBLIC WORK", "PUBLIC RECORDS / EXPLICIT DEFINITIONS"),
-    ]:
-        (assets / f"chapter-{name}.svg").write_text(chapter(number, title, subtitle))
+    for number, name in [("01", "math"), ("02", "software"), ("03", "public-work")]:
+        (assets / f"chapter-{name}.svg").write_text(chapter(number))
     for name, title, subtitle, accent in [
         ("algebra", "ALGEBRA", "Structure + symmetry", "#f04416"),
         ("calculus", "CALCULUS", "Change + geometry", "#dfff00"),

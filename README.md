@@ -21,7 +21,7 @@ Failed refreshes retain the previous data and timestamp. GitHub can delay schedu
 
 [![365 days reconstructed from public contribution records. Open the snapshot for definitions.](https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/profile-refresh-20261031/prototype-data/calendar.svg)](https://github.com/jerome-queck/jerome-queck/tree/prototype/profile-refresh-20261031/prototype-data)
 
-[![Two recent public issue and PR events, with links in the text snapshot.](https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/profile-refresh-20261031/prototype-data/activity.svg)](https://github.com/jerome-queck/jerome-queck/tree/prototype/profile-refresh-20261031/prototype-data#recent-issue-and-pr-events)
+[![Two recent public issue and PR events, with links in the text snapshot.](https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/profile-refresh-20261031/prototype-data/activity-mobile.svg)](https://github.com/jerome-queck/jerome-queck/tree/prototype/profile-refresh-20261031/prototype-data#recent-issue-and-pr-events)
 
 The recent feed samples the latest 300 public GitHub events. The calendar and aggregate counts span all public projects.
 

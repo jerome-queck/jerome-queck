@@ -1,3 +1,5 @@
+> Historical design record. The Owner rejected this direction. [Circuit Atlas](circuit-atlas.md) is the current implementation; earlier prototypes remain separate.
+
 # Screenshot draft
 
 [View the current README on GitHub](https://github.com/jerome-queck/jerome-queck/blob/prototype/profile-directions/README.md).

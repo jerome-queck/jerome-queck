@@ -8,7 +8,13 @@ PAYLOADS = (
     "counters.svg",
     "counters-mobile.svg",
     "calendar.svg",
+    "calendar-mobile.svg",
+    "cadence.svg",
+    "cadence-mobile.svg",
+    "pulse.svg",
+    "pulse-mobile.svg",
     "activity.svg",
+    "snapshot.json",
     "README.md",
 )
 

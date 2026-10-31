@@ -126,6 +126,25 @@ class ProfileDataTests(unittest.TestCase):
         root = ET.fromstring(render_counters((10, 8, 6), "<&>"))
         self.assertEqual(root.tag, "{http://www.w3.org/2000/svg}svg")
 
+    def test_counter_layouts_share_values_timestamp_and_scope(self):
+        for mobile, width in [(False, "900"), (True, "480")]:
+            root = ET.fromstring(
+                render_counters(
+                    (1315, 1276, 966), "31 Oct 2026 15:45 UTC", mobile=mobile
+                )
+            )
+            self.assertEqual(root.attrib["width"], width)
+            copy = " ".join(root.itertext())
+            for expected in [
+                "1,315",
+                "1,276",
+                "966",
+                "31 Oct 2026 15:45 UTC",
+                "ALL TIME",
+                "Linked issues resolved",
+            ]:
+                self.assertIn(expected, copy)
+
     def test_long_words_cannot_add_a_third_title_line(self):
         event = {
             "title": " ".join(["a" * 24] * 3),

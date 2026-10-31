@@ -76,3 +76,20 @@ personal work. Put the retained calendar, two-event feed and repository card in 
 
 See [research](../research/profile-refresh.md), [inventory](../research/profile-inventory.md)
 and [asset prompts and maintenance](profile-refresh.md).
+
+## Owner rejection and editorial replacement, 1 November 2026
+
+The Owner rejected the project-tree diagram as a repetition of the native project lists,
+and the initial visual treatment as insufficient design. The Owner grants full creative
+control for the replacement and cancelled organisation work.
+
+Choose the first of three generated composition studies, an editorial monograph. Remove
+the project map and the landscape from the active README. The new figure demonstrates
+noncommutativity of a square's rotation and reflection. It teaches an actual mathematical
+relationship instead of classifying projects. A typographic cover, compact horizontal
+counters, readable mobile variant and native chapter navigation set the new hierarchy.
+
+The five mathematics sites, four software projects, two selected merged upstream fixes,
+featured-project exclusions and aggregate scopes remain. Stop showing upstream repository
+statistics, which do not measure personal contribution. Preserve the useful authored
+contribution records, calendar and two-event feed. See personal-redesign.md.

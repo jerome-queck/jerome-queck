@@ -1,3 +1,5 @@
+> Unmerged design prototype. Data is a real public snapshot collected 31 Oct 2026 21:29 UTC. The live profile is unchanged.
+
 ![Jerome Queck. Mathematics × software. Original Circuit Atlas artwork.](assets/circuit-atlas-hero.jpg)
 
 # Mathematics & software
@@ -76,24 +78,24 @@ Notes websites and tools for exploring ideas. A small example from algebra follo
 
 ## ![03. Public work. Public records with explicit definitions.](assets/chapter-public-work.svg)
 
-<a href="https://github.com/jerome-queck/jerome-queck/tree/profile-data">
+<a href="https://github.com/jerome-queck/jerome-queck/blob/prototype/circuit-atlas/_preview/README.md">
 <picture>
-  <source media="(min-width: 601px)" srcset="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/counters.svg">
-  <img alt="All-time public PRs authored by me, opened and merged, plus distinct currently closed public issues linked to my merged PRs. Open the text snapshot for current values and collection time." src="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/counters-mobile.svg" width="100%">
+  <source media="(min-width: 601px)" srcset="https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/circuit-atlas/_preview/counters.svg">
+  <img alt="All-time public PRs authored by me, opened and merged, plus distinct currently closed public issues linked to my merged PRs. Open the text snapshot for current values and collection time." src="https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/circuit-atlas/_preview/counters-mobile.svg" width="100%">
 </picture>
 </a>
 
-<a href="https://github.com/jerome-queck/jerome-queck/tree/profile-data#merge-cadence">
+<a href="https://github.com/jerome-queck/jerome-queck/blob/prototype/circuit-atlas/_preview/README.md#merge-cadence">
 <picture>
-  <source media="(min-width: 601px)" srcset="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/cadence.svg">
-  <img alt="Authored public PRs merged per UTC calendar month over twelve months. The current month is partial. All values are available in the text snapshot." src="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/cadence-mobile.svg" width="100%">
+  <source media="(min-width: 601px)" srcset="https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/circuit-atlas/_preview/cadence.svg">
+  <img alt="Authored public PRs merged per UTC calendar month over twelve months. The current month is partial. All values are available in the text snapshot." src="https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/circuit-atlas/_preview/cadence-mobile.svg" width="100%">
 </picture>
 </a>
 
-<a href="https://github.com/jerome-queck/jerome-queck/tree/profile-data#public-contribution-calendar">
+<a href="https://github.com/jerome-queck/jerome-queck/blob/prototype/circuit-atlas/_preview/README.md#public-contribution-calendar">
 <picture>
-  <source media="(min-width: 601px)" srcset="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/calendar.svg">
-  <img alt="365 days reconstructed from public commit, issue, PR, review and repository contribution records. Zero to peak cell colors indicate daily frequency; dates and exact values are in the text snapshot." src="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/calendar-mobile.svg" width="100%">
+  <source media="(min-width: 601px)" srcset="https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/circuit-atlas/_preview/calendar.svg">
+  <img alt="365 days reconstructed from public commit, issue, PR, review and repository contribution records. Zero to peak cell colors indicate daily frequency; dates and exact values are in the text snapshot." src="https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/circuit-atlas/_preview/calendar-mobile.svg" width="100%">
 </picture>
 </a>
 
@@ -110,21 +112,21 @@ The nine selected projects, refreshed from their public repositories. Default-br
 <details>
 <summary>Inspect all nine repository tips and published-release records</summary>
 
-<a href="https://github.com/jerome-queck/jerome-queck/tree/profile-data#selected-repository-pulse">
+<a href="https://github.com/jerome-queck/jerome-queck/blob/prototype/circuit-atlas/_preview/README.md#selected-repository-pulse">
 <picture>
-  <source media="(min-width: 601px)" srcset="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/pulse.svg">
-  <img alt="Selected repository pulse. Current default-branch commit dates and latest published GitHub releases for all five mathematics and four software projects. Open the text snapshot for exact records and source links." src="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/pulse-mobile.svg" width="100%">
+  <source media="(min-width: 601px)" srcset="https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/circuit-atlas/_preview/pulse.svg">
+  <img alt="Selected repository pulse. Current default-branch commit dates and latest published GitHub releases for all five mathematics and four software projects. Open the text snapshot for exact records and source links." src="https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/circuit-atlas/_preview/pulse-mobile.svg" width="100%">
 </picture>
 </a>
 
 </details>
 
-[Last successful collection, definitions and exact values](https://github.com/jerome-queck/jerome-queck/tree/profile-data) · [Daily refresh workflow](https://github.com/jerome-queck/jerome-queck/actions/workflows/profile.yml).
+[Last successful collection, definitions and exact values](https://github.com/jerome-queck/jerome-queck/blob/prototype/circuit-atlas/_preview/README.md) · [Daily refresh workflow](https://github.com/jerome-queck/jerome-queck/actions/workflows/profile.yml).
 
 <details>
 <summary>Two recent events and how to read the numbers</summary>
 
-[![Two recent public issue and PR events, with full titles and links in the text snapshot.](https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/activity.svg)](https://github.com/jerome-queck/jerome-queck/tree/profile-data#recent-issue-and-pr-events)
+[![Two recent public issue and PR events, with full titles and links in the text snapshot.](https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/circuit-atlas/_preview/activity.svg)](https://github.com/jerome-queck/jerome-queck/blob/prototype/circuit-atlas/_preview/README.md#recent-issue-and-pr-events)
 
 Counters cover all-time public PRs authored by me. Linked resolutions count distinct currently closed public issues linked to those merged PRs, closed at or after the merge. This does not measure who clicked Close or prove a PR alone caused closure. Records can change retrospectively.
 

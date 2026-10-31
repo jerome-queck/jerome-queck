@@ -1,0 +1,11 @@
+[
+  {"repo":"Jerome-Group/algebra","name":"Algebra","group":"mathematics","url":"https://algebra.jeromegroup.org","summary":"Structure and symmetry."},
+  {"repo":"Jerome-Group/calculus","name":"Calculus","group":"mathematics","url":"https://calculus.jeromegroup.org","summary":"Change and geometry."},
+  {"repo":"jerome-queck/probability","name":"Probability","group":"mathematics","url":"https://probability.jeromegroup.org","summary":"Reasoning about uncertainty."},
+  {"repo":"Jerome-Group/numbertheory","name":"Number theory","group":"mathematics","url":"https://numbertheory.jeromegroup.org","summary":"Patterns in the integers."},
+  {"repo":"Jerome-Group/calculator","name":"Calculator","group":"mathematics","url":"https://calculator.jeromegroup.org","summary":"Mathematical notebooks with exact computation, graphs and reusable definitions. Sign-in required."},
+  {"repo":"Jerome-Group/ntulearn","name":"NTULearn Sync","group":"software","url":"https://github.com/Jerome-Group/ntulearn","summary":"Turns course pages and announcements into Markdown and saves attachments in their original formats."},
+  {"repo":"Jerome-Group/academic-os","name":"Academic OS","group":"software","url":"https://github.com/Jerome-Group/academic-os","summary":"Checks source structure, freshness and missing material alongside tasks and calendars."},
+  {"repo":"Jerome-Group/syrax","name":"Syrax","group":"software","url":"https://github.com/Jerome-Group/syrax","summary":"My Telegram assistant, built on OpenClaw."},
+  {"repo":"jerome-queck/emmy","name":"Emmy","group":"software","url":"https://github.com/jerome-queck/emmy","summary":"My operating kit for ChatGPT Dot."}
+]

@@ -47,7 +47,7 @@ def fetch_calendar(graphql, today):
         ("pullRequestReviewContributions", None),
         ("repositoryContributions", None),
     ]:
-        cursor = None
+        cursor, seen = None, set()
         resource_field = (
             f"{resource} {{ repository {{ isPrivate }} }}"
             if resource
@@ -77,29 +77,64 @@ def fetch_calendar(graphql, today):
             if not page["pageInfo"]["hasNextPage"]:
                 break
             cursor = page["pageInfo"]["endCursor"]
+            if not cursor or cursor in seen:
+                raise ValueError("Contribution pagination did not advance")
+            seen.add(cursor)
     return start, days
 
 
-def render_calendar(start, today, days):
+def render_calendar(start, today, days, mobile=False, updated=""):
     sunday = start - dt.timedelta(days=(start.weekday() + 1) % 7)
-    palette = ["#202c40", "#255e63", "#268e88", "#2cc5ae", "#8af0cc"]
+    palette = ["#303030", "#81452b", "#b34e23", "#f04416", "#dfff00"]
     maximum = max(days.values(), default=1) or 1
+    width, height = (480, 790) if mobile else (900, 350)
     squares = []
     date = start
     while date <= today:
         offset = (date - sunday).days
+        week, weekday = offset // 7, offset % 7
         count = days.get(str(date), 0)
         level = min(4, max(1, round(count / maximum * 4))) if count else 0
+        if mobile:
+            panel, column = divmod(week, 18)
+            x, y, size = 78 + column * 20, 140 + panel * 185 + weekday * 19, 15
+        else:
+            x, y, size = 52 + week * 15, 120 + weekday * 17, 12
         squares.append(
-            f'<rect x="{28 + offset // 7 * 14}" y="{65 + offset % 7 * 14}" width="11" height="11" rx="2" fill="{palette[level]}"><title>{date}: {count}</title></rect>'
+            f'<rect x="{x}" y="{y}" width="{size}" height="{size}" fill="{palette[level]}"><title>{date}: {count}</title></rect>'
         )
         date += dt.timedelta(days=1)
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="820" height="205" viewBox="0 0 820 205" role="img">
-    <title>Public contribution calendar, {start} to {today}</title>
-    <rect width="820" height="205" rx="18" fill="#0d1422"/>
-    <g font-family="Segoe UI,Arial,sans-serif" fill="#dbe4f0">
-    <text x="28" y="38" font-size="18">A year of public contributions</text>
-    <text x="790" y="38" font-size="13" text-anchor="end">{sum(days.values()):,} contributions</text>
-    {"".join(squares)}
-    <text x="28" y="187" font-size="12" fill="#94a3b8">{start} → {today} · Public commits, issues, PRs, reviews and repositories</text>
+    labels = []
+    for panel in range(3 if mobile else 1):
+        origin = 140 + panel * 185 if mobile else 120
+        for label, day in [("M", 1), ("W", 3), ("F", 5)]:
+            labels.append(
+                f'<text x="28" y="{origin + day * (19 if mobile else 17) + 13}" font-size="21">{label}</text>'
+            )
+        if mobile:
+            beginning = max(start, sunday + dt.timedelta(weeks=panel * 18))
+            labels.append(
+                f'<text x="78" y="{origin - 18}" font-size="22">{beginning:%d %b %Y}</text>'
+            )
+        else:
+            for week in range(0, 53, 8):
+                marker = sunday + dt.timedelta(weeks=week)
+                labels.append(
+                    f'<text x="{52 + week * 15}" y="102" font-size="21">{marker:%b %y}</text>'
+                )
+    legend_y = height - 92
+    legend = "".join(
+        f'<rect x="{167 + n * 31}" y="{legend_y - 18}" width="23" height="23" fill="{color}"/>'
+        for n, color in enumerate(palette)
+    )
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img">
+    <title>Public contribution records, {start} to {today}; {sum(days.values())} records. Zero to four nonzero levels relative to daily maximum {maximum}.</title>
+    <rect width="{width}" height="{height}" fill="#101010"/>
+    <g font-family="Arial,sans-serif" fill="#f4f1e9">
+    <text x="28" y="40" font-size="25" font-weight="900">PUBLIC CONTRIBUTION RHYTHM</text>
+    <text x="28" y="76" font-size="22">365 days / {sum(days.values()):,} records</text>
+    {"".join(labels)}{"".join(squares)}
+    <text x="28" y="{legend_y}" font-size="21">0 → peak</text>{legend}
+    <text x="28" y="{height - 56}" font-size="20">{start} to {today}</text>
+    <text x="28" y="{height - 23}" fill="#c7c3bb" font-size="20">{updated}</text>
     </g></svg>"""

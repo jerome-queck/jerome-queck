@@ -7,8 +7,26 @@ Captured directly from the live public sites on 2026-09-10 using the in-app brow
 
 Both captures use the same desktop viewport. The README links each screenshot to the depicted lesson; descriptions remain ordinary text. Screenshots are snapshots, not a claim that the live interface stays unchanged. No blanket reuse licence is selected.
 
-## Current profile assets
+## Superseded profile assets, 31 October 2026
 
-`control-room.jpg` is original generated artwork. `project-map.svg` comes from the authored
-registry in `scripts/render_identity.py`. See [prompts and maintenance](../docs/design/profile-refresh.md).
+`control-room.jpg` is original generated artwork. The removed `project-map.svg` came from the former authored
+registry in `scripts/render_identity.py`. Both survive in Git history. See [prompts and maintenance](../docs/design/profile-refresh.md).
 The historical project screenshots above are retained as evidence and are not embedded.
+
+## Editorial redesign, 1 November 2026
+
+The active cover is `editorial-cover.jpg`. The exact mathematical figures are
+`order-matters.png` and `order-matters-mobile.png`, generated with Matplotlib from
+quarter-turn and reflection transforms. The project-tree graphic and its generator
+were removed. The earlier atmospheric banner is historical and no longer embedded.
+See [current design and provenance](../docs/design/personal-redesign.md).
+
+## Circuit Atlas, 1 November 2026
+
+The editorial cover above is superseded and retained historically. Active artwork is
+`circuit-atlas-hero.jpg`, `software-circuit.jpg`, `software-circuit-mobile.jpg`, `syrax-exhibit.jpg` and `emmy-exhibit.jpg`, produced with built-in ImageGen.
+The software image depicts verified interfaces, not a screenshot. Exact prompts and a
+corrective arrow edit are recorded in [Circuit Atlas](../docs/design/circuit-atlas.md).
+Decorative numbered `chapter-*.svg` folios, `nav-*.svg`, `enter-*.svg` and `exit.svg` come from
+`scripts/render_interface.py`; the square-transform figures retain their exact mathematics
+with the new palette. Generated live data remains on `profile-data`, separate from authored art.

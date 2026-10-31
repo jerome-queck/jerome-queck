@@ -16,19 +16,10 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - name: Fetch public counters and contribution records
+      - name: Collect public contributions and selected repositories
         env:
           GH_TOKEN: ${{ github.token }}
         run: python3 -m scripts.profile_data generated
-      - name: Render OpenClaw project card with GitHub Readme Stats
-        uses: stats-organization/github-readme-stats-action@abb8761d64babb580b336af88cccb2db39063440
-        with:
-          card: pin
-          options: username=openclaw&repo=openclaw&theme=tokyonight&hide_border=true
-          path: generated/openclaw.svg
-          token: ${{ github.token }}
-          core_version: 2.2.0
-          fail_on_error: true
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: profile-data
@@ -60,13 +51,20 @@ jobs:
             git rm -rf .
           fi
           cp "$GENERATED/counters.svg" counters.svg
+          cp "$GENERATED/counters-mobile.svg" counters-mobile.svg
           cp "$GENERATED/calendar.svg" calendar.svg
-          cp "$GENERATED/openclaw.svg" openclaw.svg
+          cp "$GENERATED/calendar-mobile.svg" calendar-mobile.svg
+          cp "$GENERATED/cadence.svg" cadence.svg
+          cp "$GENERATED/cadence-mobile.svg" cadence-mobile.svg
+          cp "$GENERATED/pulse.svg" pulse.svg
+          cp "$GENERATED/pulse-mobile.svg" pulse-mobile.svg
           cp "$GENERATED/activity.svg" activity.svg
+          cp "$GENERATED/snapshot.json" snapshot.json
           cp "$GENERATED/README.md" README.md
+          git rm --ignore-unmatch openclaw.svg
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add counters.svg calendar.svg activity.svg openclaw.svg README.md
+          git add counters.svg counters-mobile.svg calendar.svg calendar-mobile.svg cadence.svg cadence-mobile.svg pulse.svg pulse-mobile.svg activity.svg snapshot.json README.md
           if ! git diff --cached --quiet; then
             git commit -m 'Refresh public profile data' -m 'Assisted-by: none'
             git push origin HEAD:profile-data

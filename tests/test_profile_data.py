@@ -126,6 +126,20 @@ class ProfileDataTests(unittest.TestCase):
         root = ET.fromstring(render_counters((10, 8, 6), "<&>"))
         self.assertEqual(root.tag, "{http://www.w3.org/2000/svg}svg")
 
+    def test_long_words_cannot_add_a_third_title_line(self):
+        event = {
+            "title": " ".join(["a" * 24] * 3),
+            "repo": "owner/repo",
+            "number": 1,
+            "action": "opened",
+            "date": "2026-10-31",
+        }
+        root = ET.fromstring(render_activity([event]))
+        title_lines = [
+            node for node in root.iter() if node.attrib.get("font-size") == "24"
+        ]
+        self.assertLessEqual(len(title_lines), 2)
+
     def test_recent_activity_stays_at_two_events(self):
         events = [
             {

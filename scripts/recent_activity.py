@@ -73,8 +73,9 @@ def render_activity(activity):
     rows = []
     for index, item in enumerate(activity):
         y = 80 + index * 132
-        title = textwrap.shorten(item["title"], width=76, placeholder="…")
-        for line, value in enumerate(textwrap.wrap(title, width=40)):
+        for line, value in enumerate(
+            textwrap.wrap(item["title"], width=40, max_lines=2, placeholder="…")
+        ):
             rows.append(
                 f'<text x="28" y="{y + line * 28}" fill="#e2e8f0" font-size="24">{html.escape(value)}</text>'
             )

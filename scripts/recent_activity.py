@@ -77,12 +77,12 @@ def render_activity(activity):
             textwrap.wrap(item["title"], width=40, max_lines=2, placeholder="…")
         ):
             rows.append(
-                f'<text x="28" y="{y + line * 28}" fill="#e2e8f0" font-size="24">{html.escape(value)}</text>'
+                f'<text x="28" y="{y + line * 28}" fill="#e2e8f0" font-size="24" textLength="{min(576, len(value) * 14.4):.1f}" lengthAdjust="spacingAndGlyphs">{html.escape(value)}</text>'
             )
         repository = f"{item['repo']}#{item['number']}"
         repository = repository if len(repository) <= 48 else repository[:45] + "…"
         rows.append(
-            f'<text x="28" y="{y + 62}" fill="#b9cbd5" font-size="20">{html.escape(repository)}</text>'
+            f'<text x="28" y="{y + 62}" fill="#b9cbd5" font-size="20" textLength="{min(576, len(repository) * 12):.1f}" lengthAdjust="spacingAndGlyphs">{html.escape(repository)}</text>'
         )
         rows.append(
             f'<text x="28" y="{y + 88}" fill="#b9cbd5" font-size="20">{html.escape(item["action"])} · {item["date"]}</text>'
@@ -95,6 +95,6 @@ def render_activity(activity):
     return f'''<svg xmlns="http://www.w3.org/2000/svg" width="640" height="{height}" viewBox="0 0 640 {height}" role="img">
     <title>Two recent public pull request and issue events. Full titles and links in the snapshot README.</title>
     <rect width="640" height="{height}" rx="18" fill="#0d1422"/>
-    <g font-family="Segoe UI,Arial,sans-serif">
+    <g font-family="ui-monospace,monospace">
     <text x="28" y="36" fill="#8be9ee" font-size="25">Recent public work</text>
     {"".join(rows)}</g></svg>'''

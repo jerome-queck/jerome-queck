@@ -48,3 +48,10 @@ links retain meaning when an image cannot load. Expanding details reveals retain
 recent activity and repository context. The snapshot README provides accessible text numbers.
 
 Delivered JPEG SHA-256: `85e378c4a13f97963c2874a215142cc9da7e3391d521e025a4d7a67b386af341`.
+
+Recent-event cards reserve two title lines and bounded SVG text runs. Full titles remain in
+the native snapshot. Monospace typography and SVG textLength bound wide fallback glyphs too.
+The public hub's `profile/scripts/check-layout.cjs` accepts generated activity SVGs and checks
+actual Chrome text bounds with Playwright installed externally. Width controls cover W, CJK,
+emoji and three long words. The previously unbounded SVG fails the same browser check.
+See [SVG textLength](https://developer.mozilla.org/en-US/docs/Web/SVG/Reference/Attribute/textLength).

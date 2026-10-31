@@ -140,6 +140,25 @@ class ProfileDataTests(unittest.TestCase):
         ]
         self.assertLessEqual(len(title_lines), 2)
 
+    def test_remote_event_runs_have_declared_layout_widths(self):
+        event = {
+            "title": "W" * 80,
+            "repo": "W" * 80,
+            "number": 1,
+            "action": "opened",
+            "date": "2026-10-31",
+        }
+        root = ET.fromstring(render_activity([event]))
+        runs = [
+            node
+            for node in root.iter()
+            if node.attrib.get("font-size") == "24" or node.attrib.get("y") == "142"
+        ]
+        self.assertEqual(len(runs), 3)
+        for node in runs:
+            self.assertLessEqual(float(node.attrib["textLength"]), 576)
+            self.assertEqual(node.attrib["lengthAdjust"], "spacingAndGlyphs")
+
     def test_recent_activity_stays_at_two_events(self):
         events = [
             {

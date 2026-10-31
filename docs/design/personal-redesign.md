@@ -1,3 +1,5 @@
+> Historical design record. The Owner rejected this direction. [Circuit Atlas](circuit-atlas.md) is the current implementation; earlier prototypes remain separate.
+
 # Editorial personal profile
 
 Owner feedback, 1 November 2026. The old project-tree image repeated the native lists and the

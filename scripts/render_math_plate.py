@@ -1,10 +1,10 @@
 from pathlib import Path
 
 START = (1, 1)
-PAPER = "#f6f1e9"
-INK = "#1b1b18"
-RED = "#b73524"
-MUTED = "#8c8274"
+PAPER = "#101010"
+INK = "#f4f1e9"
+RED = "#f04416"
+MUTED = "#c7c3bb"
 
 
 def rotate(point):
@@ -35,17 +35,17 @@ def render(mobile=False):
     import matplotlib.pyplot as plt
     from matplotlib.patches import FancyArrowPatch
 
-    plt.rcParams.update({"font.family": "DejaVu Serif", "text.color": INK})
+    plt.rcParams.update({"font.family": "DejaVu Sans", "text.color": INK})
     fig = plt.figure(figsize=(9, 9) if mobile else (16, 6), dpi=100, facecolor=PAPER)
     if mobile:
-        fig.text(0.07, 0.91, "Order matters.", fontsize=43)
+        fig.text(0.07, 0.91, "ORDER MATTERS.", fontsize=43)
         fig.text(0.07, 0.81, "Start at the ringed corner (1, 1).", fontsize=22)
         slots = ((0.07, 0.22, 0.37, 0.41), (0.56, 0.22, 0.37, 0.41))
         fig.text(0.07, 0.11, "R = quarter-turn anticlockwise", fontsize=20)
         fig.text(0.07, 0.06, "S = reflect across the horizontal axis", fontsize=20)
     else:
-        fig.text(0.045, 0.75, "Same moves.", fontsize=41)
-        fig.text(0.045, 0.60, "Different result.", fontsize=41)
+        fig.text(0.045, 0.75, "SAME MOVES.", fontsize=41)
+        fig.text(0.045, 0.60, "DIFFERENT RESULT.", fontsize=41)
         fig.text(0.045, 0.35, "R = quarter-turn anticlockwise", fontsize=17)
         fig.text(0.045, 0.27, "S = reflect across the horizontal axis", fontsize=17)
         fig.text(
@@ -60,8 +60,8 @@ def render(mobile=False):
         ax.set_ylim(-1.6, 1.6)
         ax.axis("off")
         ax.plot([-1, 1, 1, -1, -1], [-1, -1, 1, 1, -1], color=INK, linewidth=1.6)
-        ax.plot([-1.4, 1.4], [0, 0], color="#d3c8b8", linewidth=0.8)
-        ax.plot([0, 0], [-1.4, 1.4], color="#d3c8b8", linewidth=0.8)
+        ax.plot([-1.4, 1.4], [0, 0], color="#484848", linewidth=0.8)
+        ax.plot([0, 0], [-1.4, 1.4], color="#484848", linewidth=0.8)
         points = route_points(route)
         ax.scatter(*zip(*points), s=35, color=MUTED, zorder=3)
         ax.scatter(

@@ -93,3 +93,11 @@ The five mathematics sites, four software projects, two selected merged upstream
 featured-project exclusions and aggregate scopes remain. Stop showing upstream repository
 statistics, which do not measure personal contribution. Preserve the useful authored
 contribution records, calendar and two-event feed. See personal-redesign.md.
+
+## Research-led graphical interface, 1 November 2026
+
+The Owner also rejected the editorial replacement as insufficiently different, requesting a wildly different layout, many more design elements and useful repository/contribution automation. Research heavily designed READMEs before choosing another composition. The earlier editorial target is superseded, retained on `prototype/personal-editorial`.
+
+Primary source and asset research now covers collectioneur's whole-profile custom graphics, andyruwruw's subject-specific interfaces, BrunnerLivio's complete themed page and other references. The next three generated full-page studies vary the entire composition. Independent review selects Circuit Atlas, while challenging its repetitive card rows. Use varied exhibits and a meaningful software relationship graphic instead. These generated studies are visual targets; their model-invented captions and illustrative plots do not become content.
+
+Original chrome/orange/ivory artwork, separately linked navigation, a precise math experiment, illustrated software flow and substantial contribution/repo displays carry one visual identity. Native text and independently usable links remain. Show twelve-month authored public merge cadence and the nine selected repositories' actual default-branch tips/published releases. Keep the two-event feed minimal. Source facts, scope, timestamps and failure behavior remain explicit. See [Circuit Atlas](circuit-atlas.md), [research](../research/heavily-designed-readmes.md) and ADR-0003. Actual GitHub visual acceptance remains unverified while browser access is unavailable. All organisation work remains cancelled.

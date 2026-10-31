@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="310" viewBox="0 0 640 310" role="img">
+    <title>Public contributions: 1313 PRs opened, 1275 merged, 965 linked issues resolved</title>
+    <rect width="640" height="310" rx="18" fill="#0d1422"/>
+    <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="32" y="39" fill="#8be9ee" font-size="23">PUBLIC WORK / ALL TIME</text>
+    <path d="M32 110H608" stroke="#344657"/>
+        <text x="32" y="92" fill="#8be9ee" font-size="21">01</text>
+        <text x="85" y="92" fill="#dbe4f0" font-size="27">PRs opened</text>
+        <text x="608" y="92" text-anchor="end" fill="#8be9ee" font-size="38">1,313</text><path d="M32 176H608" stroke="#344657"/>
+        <text x="32" y="158" fill="#efb48b" font-size="21">02</text>
+        <text x="85" y="158" fill="#dbe4f0" font-size="27">PRs merged</text>
+        <text x="608" y="158" text-anchor="end" fill="#efb48b" font-size="38">1,275</text><path d="M32 242H608" stroke="#344657"/>
+        <text x="32" y="224" fill="#e8e2d3" font-size="21">03</text>
+        <text x="85" y="224" fill="#dbe4f0" font-size="27">Linked issues resolved</text>
+        <text x="608" y="224" text-anchor="end" fill="#e8e2d3" font-size="38">965</text>
+    <text x="32" y="287" fill="#c2ced9" font-size="21">Updated 31 Oct 2026 15:22 UTC</text>
+    </g></svg>

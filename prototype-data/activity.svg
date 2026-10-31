@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="820" height="210" viewBox="0 0 820 210" role="img">
+    <title>Recent public pull request and issue activity</title>
+    <rect width="820" height="210" rx="18" fill="#0d1422"/>
+    <g font-family="Segoe UI,Arial,sans-serif">
+    <text x="28" y="36" fill="#e2e8f0" font-size="20">Recent contributions</text>
+    <circle cx="34" cy="71" r="5" fill="#a78bfa"/>
+        <text x="52" y="76" fill="#e2e8f0" font-size="15">fix(mouse): focus without raising again when the no-raise path fails</text>
+        <text x="52" y="99" fill="#94a3b8" font-size="12">vorssaint/vorssaint-utils#3737 · opened · 2026-10-31</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
+        <text x="52" y="141" fill="#e2e8f0" font-size="15">fix: macOS gateway discovery truncates names and TXT values that contain spaces</text>
+        <text x="52" y="164" fill="#94a3b8" font-size="12">openclaw/openclaw#189499 · opened · 2026-10-31</text></g></svg>

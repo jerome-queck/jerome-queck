@@ -8,14 +8,14 @@ I study mathematics and build tools for learning, research and organising my wor
 
 [Website](https://jeromegroup.org) · [LinkedIn](https://www.linkedin.com/in/jeromequeck/) · [Jerome-Group](https://github.com/Jerome-Group)
 
-<a href="https://github.com/jerome-queck/jerome-queck/tree/profile-data">
+<a href="https://github.com/jerome-queck/jerome-queck/tree/prototype/personal-editorial/_preview">
 <picture>
-  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/counters-mobile.svg">
-  <img alt="All-time authored public PRs opened, PRs merged and distinct linked issues resolved. Open the timestamped text snapshot for current numbers." src="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/counters.svg" width="100%">
+  <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/personal-editorial/_preview/counters-mobile.svg">
+  <img alt="All-time authored public PRs opened, PRs merged and distinct linked issues resolved. Open the timestamped text snapshot for current numbers." src="https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/personal-editorial/_preview/counters.svg" width="100%">
 </picture>
 </a>
 
-Public authored work, across public repositories. [Definitions and last successful refresh](https://github.com/jerome-queck/jerome-queck/tree/profile-data). These counts measure records and linked resolutions, not effort.
+Public authored work, across public repositories. [Definitions and last successful refresh](https://github.com/jerome-queck/jerome-queck/tree/prototype/personal-editorial/_preview). These counts measure records and linked resolutions, not effort.
 
 <a name="mathematics"></a>
 
@@ -116,14 +116,14 @@ The callback review definitions excluded synchronous callbacks. The correction m
 
 ## Public work
 
-[Daily refresh workflow](https://github.com/jerome-queck/jerome-queck/actions/workflows/profile.yml) · [Current numbers and records](https://github.com/jerome-queck/jerome-queck/tree/profile-data).
+[Daily refresh workflow](https://github.com/jerome-queck/jerome-queck/actions/workflows/profile.yml) · [Current numbers and records](https://github.com/jerome-queck/jerome-queck/tree/prototype/personal-editorial/_preview).
 
 <details>
 <summary>Calendar, two recent events and metric definitions</summary>
 
-[![365 days reconstructed from public contribution records. Definitions and textual records are linked.](https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/calendar.svg)](https://github.com/jerome-queck/jerome-queck/tree/profile-data)
+[![365 days reconstructed from public contribution records. Definitions and textual records are linked.](https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/personal-editorial/_preview/calendar.svg)](https://github.com/jerome-queck/jerome-queck/tree/prototype/personal-editorial/_preview)
 
-[![Two recent public issue and PR events, with full titles and links in the text snapshot.](https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/activity.svg)](https://github.com/jerome-queck/jerome-queck/tree/profile-data#recent-issue-and-pr-events)
+[![Two recent public issue and PR events, with full titles and links in the text snapshot.](https://raw.githubusercontent.com/jerome-queck/jerome-queck/prototype/personal-editorial/_preview/activity.svg)](https://github.com/jerome-queck/jerome-queck/tree/prototype/personal-editorial/_preview#recent-issue-and-pr-events)
 
 Counters cover all-time public PRs authored by me. Linked resolutions count distinct currently closed public issues linked to those merged PRs, closed at or after the merge. This does not measure who clicked Close or establish that a PR alone caused the resolution.
 

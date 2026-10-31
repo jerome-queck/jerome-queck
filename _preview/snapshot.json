@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "observed_from": "2026-10-31T21:27:54.874575+00:00",
-  "observed_to": "2026-10-31T21:29:54.475990+00:00",
-  "updated": "31 Oct 2026 21:29 UTC",
+  "observed_from": "2026-10-31T21:49:42.277263+00:00",
+  "observed_to": "2026-10-31T21:50:53.134223+00:00",
+  "updated": "31 Oct 2026 21:50 UTC",
   "counts": [
-    1318,
+    1319,
     1277,
     966
   ],
@@ -319,18 +319,18 @@
   ],
   "recent_events": [
     {
-      "url": "https://github.com/openclaw/openclaw/issues/189774",
-      "title": "[Bug]: oc-path YAML resolve/find/set report \"not found\" for values reached through aliases (*anchor)",
+      "url": "https://github.com/openclaw/openclaw/pull/189784",
+      "title": "fix(oc-path): follow YAML aliases in path resolve, find and set",
       "repo": "openclaw/openclaw",
-      "number": 189774,
+      "number": 189784,
       "date": "2026-10-31",
       "action": "opened"
     },
     {
-      "url": "https://github.com/jerome-queck/integration-bee/pull/126",
-      "title": "Reject indefinite sample zeros and non-real Q32 absolute values",
-      "repo": "jerome-queck/integration-bee",
-      "number": 126,
+      "url": "https://github.com/openclaw/openclaw/issues/189774",
+      "title": "[Bug]: oc-path YAML resolve/find/set report \"not found\" for values reached through aliases (*anchor)",
+      "repo": "openclaw/openclaw",
+      "number": 189774,
       "date": "2026-10-31",
       "action": "opened"
     }

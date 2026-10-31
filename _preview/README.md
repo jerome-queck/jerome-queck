@@ -1,10 +1,10 @@
 # Public work snapshot
 
-Collected 31 Oct 2026 21:29 UTC.
+Collected 31 Oct 2026 21:50 UTC.
 
-Observation interval: 2026-10-31T21:27:54.874575+00:00 to 2026-10-31T21:29:54.475990+00:00. GitHub queries are separate observations, not a transaction at one instant. [Reproducible public input](snapshot.json).
+Observation interval: 2026-10-31T21:49:42.277263+00:00 to 2026-10-31T21:50:53.134223+00:00. GitHub queries are separate observations, not a transaction at one instant. [Reproducible public input](snapshot.json).
 
-- Authored public PRs opened, all time: 1318
+- Authored public PRs opened, all time: 1319
 - Authored public PRs merged, all time: 1277
 - Distinct currently closed public issues linked to those merged PRs: 966
 
@@ -221,8 +221,8 @@ Nine authored selections. Default-branch tip commit and its Git committer date, 
 
 ## Recent issue and PR events
 
+- 2026-10-31 · opened · [openclaw/openclaw#189784: fix(oc-path): follow YAML aliases in path resolve, find and set](https://github.com/openclaw/openclaw/pull/189784)
 - 2026-10-31 · opened · [openclaw/openclaw#189774: &#91;Bug&#93;: oc-path YAML resolve/find/set report &quot;not found&quot; for values reached through aliases (*anchor)](https://github.com/openclaw/openclaw/issues/189774)
-- 2026-10-31 · opened · [jerome-queck/integration-bee#126: Reject indefinite sample zeros and non-real Q32 absolute values](https://github.com/jerome-queck/integration-bee/pull/126)
 
 The profile shows two matching issue/PR events sampled from the latest 300 public GitHub events. GitHub retains at most 30 days of public events. This is not a complete history. Aggregate counts and the calendar include all public projects. Featured exclusions apply to selected projects and the feed. Every source must succeed before publication. Failed refreshes retain the previous published snapshot and timestamp. Scheduled runs can be delayed or disabled by GitHub. One Git commit publishes the payload; CDN caches can refresh separately.
 

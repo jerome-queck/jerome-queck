@@ -70,21 +70,21 @@ def fetch_counters():
 
 def render_counters(counts, updated):
     labels = ["PRs opened", "PRs merged", "Linked issues resolved"]
-    colors = ["#a78bfa", "#2dd4bf", "#fbbf24"]
+    colors = ["#8be9ee", "#efb48b", "#e8e2d3"]
     cards = []
     for index, (count, label, color) in enumerate(zip(counts, labels, colors)):
-        x = 28 + index * 260
-        cards.append(f'''<rect x="{x}" y="66" width="244" height="104" rx="12" fill="#172033"/>
-        <text x="{x + 18}" y="112" fill="{color}" font-size="34" font-weight="700">{count:,}</text>
-        <text x="{x + 18}" y="144" fill="#dbe4f0" font-size="15">{label}</text>''')
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="820" height="220" viewBox="0 0 820 220" role="img">
+        y = 92 + index * 66
+        cards.append(f'''<path d="M32 {y + 18}H608" stroke="#344657"/>
+        <text x="32" y="{y}" fill="{color}" font-size="21">0{index + 1}</text>
+        <text x="85" y="{y}" fill="#dbe4f0" font-size="27">{label}</text>
+        <text x="608" y="{y}" text-anchor="end" fill="{color}" font-size="38">{count:,}</text>''')
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="640" height="310" viewBox="0 0 640 310" role="img">
     <title>Public contributions: {counts[0]} PRs opened, {counts[1]} merged, {counts[2]} linked issues resolved</title>
-    <rect width="820" height="220" rx="18" fill="#0d1422"/>
+    <rect width="640" height="310" rx="18" fill="#0d1422"/>
     <g font-family="Segoe UI,Arial,sans-serif">
-    <text x="28" y="39" fill="#f1f5f9" font-size="20" font-weight="600">Building in public</text>
-    <text x="790" y="38" fill="#94a3b8" font-size="12" text-anchor="end">ALL TIME · PUBLIC</text>
+    <text x="32" y="39" fill="#8be9ee" font-size="23">PUBLIC WORK / ALL TIME</text>
     {"".join(cards)}
-    <text x="28" y="199" fill="#94a3b8" font-size="12">Updated {html.escape(updated)} · Issues linked to authored merged PRs</text>
+    <text x="32" y="287" fill="#c2ced9" font-size="21">Updated {html.escape(updated)}</text>
     </g></svg>"""
 
 
@@ -108,6 +108,8 @@ def main():
         "not who clicked Close; GitHub can change links retrospectively.\n\n"
         "Calendar: last 365 days, reconstructed from public contribution records. Recent activity: public issue and PR events among the "
         "latest 300 GitHub events; this is a bounded feed, not a complete history.\n\n"
+        "The profile shows two recent events. Aggregate public counts and the calendar include all public projects. "
+        "Failed refreshes retain the previous published data and timestamp. Scheduled runs may be delayed or disabled by GitHub.\n\n"
         "[Browse PRs](https://github.com/pulls?q=is%3Apr+author%3Ajerome-queck+is%3Apublic) · "
         "[Browse issues](https://github.com/issues?q=is%3Aissue+author%3Ajerome-queck+is%3Apublic)\n"
     )

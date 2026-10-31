@@ -60,3 +60,19 @@ small tested Python panels handle the custom public contribution requirements.
 Owner removed the Algebra and Calculus screenshots as unnecessary. Keep their native
 project descriptions and links. Contribution graphics remain. Historical captures stay
 in `assets/` as design evidence; they are no longer embedded in the profile.
+
+## Graphical refresh, 31 October 2026
+
+The Owner now explicitly requests new generated assets and a prominent project map. Use one
+original, restrained mathematical-world banner, a deterministic map and native project links.
+This replaces the earlier general rejection of generated artwork for this refresh. It does
+not restore the removed project screenshots. Preserve separate Mathematics and Software
+sections, featured-project exclusions and the precise public-only aggregate metric scope.
+
+Add verified Calculator, Probability and Number theory sites. Add personally owned Emmy to
+Software. Feature the merged freeCodeCamp callback correction alongside OpenClaw. Do not
+describe open contributions as merged or imply that upstream repository statistics measure
+personal work. Put the retained calendar, two-event feed and repository card in details.
+
+See [research](../research/profile-refresh.md), [inventory](../research/profile-inventory.md)
+and [asset prompts and maintenance](profile-refresh.md).

@@ -4,19 +4,19 @@
     <g font-family="Segoe UI,Arial,sans-serif">
     <text x="28" y="36" fill="#e2e8f0" font-size="20">Recent contributions</text>
     <circle cx="34" cy="71" r="5" fill="#a78bfa"/>
-        <text x="52" y="76" fill="#e2e8f0" font-size="15">Yang worked solutions: last three rows and a no-empty gate</text>
-        <text x="52" y="99" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#106 · opened · 2026-10-30</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
-        <text x="52" y="141" fill="#e2e8f0" font-size="15">Yang worked solutions: 1.15, 1.17, 1.18, 1.20</text>
-        <text x="52" y="164" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#104 · closed · 2026-10-30</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
-        <text x="52" y="206" fill="#e2e8f0" font-size="15">Yang worked solutions: 2.3, 2.4</text>
-        <text x="52" y="229" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#99 · closed · 2026-10-30</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
-        <text x="52" y="271" fill="#e2e8f0" font-size="15">Yang worked solutions: 2.7, 3.4, 3.8, 4.4, 4.6, 6.1, 6.7</text>
-        <text x="52" y="294" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#102 · closed · 2026-10-30</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
-        <text x="52" y="336" fill="#e2e8f0" font-size="15">Yang worked solutions: 2.3-2.4, 2.7-6.7, 1.15-1.20 (combined)</text>
-        <text x="52" y="359" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#105 · opened · 2026-10-30</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
-        <text x="52" y="401" fill="#e2e8f0" font-size="15">Yang worked solutions: 1.15, 1.17, 1.18, 1.20</text>
-        <text x="52" y="424" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#104 · opened · 2026-10-30</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
-        <text x="52" y="466" fill="#e2e8f0" font-size="15">Yang worked solutions: 1.8, 1.9</text>
-        <text x="52" y="489" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#103 · opened · 2026-10-30</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
-        <text x="52" y="531" fill="#e2e8f0" font-size="15">Yang worked solutions: 2.7, 3.4, 3.8, 4.4, 4.6, 6.1, 6.7</text>
-        <text x="52" y="554" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#102 · opened · 2026-10-30</text></g></svg>
+        <text x="52" y="76" fill="#e2e8f0" font-size="15">Audit L1: real branches for A2–A7, C2, and stale finals</text>
+        <text x="52" y="99" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#119 · opened · 2026-10-31</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
+        <text x="52" y="141" fill="#e2e8f0" font-size="15">README: learner-journey statechart diagram</text>
+        <text x="52" y="164" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#118 · opened · 2026-10-31</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
+        <text x="52" y="206" fill="#e2e8f0" font-size="15">B/D: correct R1-2021-Q27 note, drills table pipes + check</text>
+        <text x="52" y="229" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#117 · opened · 2026-10-31</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
+        <text x="52" y="271" fill="#e2e8f0" font-size="15">F1: replace sympify with AST-whitelisted safe parser</text>
+        <text x="52" y="294" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#116 · opened · 2026-10-31</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
+        <text x="52" y="336" fill="#e2e8f0" font-size="15">Audit A8: mock01 SAMPLE-Q17 note marks e*x+C</text>
+        <text x="52" y="359" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#115 · opened · 2026-10-31</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
+        <text x="52" y="401" fill="#e2e8f0" font-size="15">Audit A1: correct four mistranscribed Yang integrands</text>
+        <text x="52" y="424" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#114 · opened · 2026-10-31</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
+        <text x="52" y="466" fill="#e2e8f0" font-size="15">fix(curriculum): align callback review definitions</text>
+        <text x="52" y="489" fill="#94a3b8" font-size="12">freeCodeCamp/freeCodeCamp#71474 · opened · 2026-10-31</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
+        <text x="52" y="531" fill="#e2e8f0" font-size="15">JavaScript reviews still say callbacks run after the outer function finishes</text>
+        <text x="52" y="554" fill="#94a3b8" font-size="12">freeCodeCamp/freeCodeCamp#71473 · opened · 2026-10-31</text></g></svg>

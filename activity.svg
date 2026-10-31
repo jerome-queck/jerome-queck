@@ -1,22 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="820" height="600" viewBox="0 0 820 600" role="img">
-    <title>Recent public pull request and issue activity</title>
-    <rect width="820" height="600" rx="18" fill="#0d1422"/>
-    <g font-family="Segoe UI,Arial,sans-serif">
-    <text x="28" y="36" fill="#e2e8f0" font-size="20">Recent contributions</text>
-    <circle cx="34" cy="71" r="5" fill="#a78bfa"/>
-        <text x="52" y="76" fill="#e2e8f0" font-size="15">Audit L1: real branches for A2–A7, C2, and stale finals</text>
-        <text x="52" y="99" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#119 · opened · 2026-10-31</text><circle cx="34" cy="136" r="5" fill="#a78bfa"/>
-        <text x="52" y="141" fill="#e2e8f0" font-size="15">README: learner-journey statechart diagram</text>
-        <text x="52" y="164" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#118 · opened · 2026-10-31</text><circle cx="34" cy="201" r="5" fill="#a78bfa"/>
-        <text x="52" y="206" fill="#e2e8f0" font-size="15">B/D: correct R1-2021-Q27 note, drills table pipes + check</text>
-        <text x="52" y="229" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#117 · opened · 2026-10-31</text><circle cx="34" cy="266" r="5" fill="#a78bfa"/>
-        <text x="52" y="271" fill="#e2e8f0" font-size="15">F1: replace sympify with AST-whitelisted safe parser</text>
-        <text x="52" y="294" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#116 · opened · 2026-10-31</text><circle cx="34" cy="331" r="5" fill="#a78bfa"/>
-        <text x="52" y="336" fill="#e2e8f0" font-size="15">Audit A8: mock01 SAMPLE-Q17 note marks e*x+C</text>
-        <text x="52" y="359" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#115 · opened · 2026-10-31</text><circle cx="34" cy="396" r="5" fill="#a78bfa"/>
-        <text x="52" y="401" fill="#e2e8f0" font-size="15">Audit A1: correct four mistranscribed Yang integrands</text>
-        <text x="52" y="424" fill="#94a3b8" font-size="12">jerome-queck/integration-bee#114 · opened · 2026-10-31</text><circle cx="34" cy="461" r="5" fill="#a78bfa"/>
-        <text x="52" y="466" fill="#e2e8f0" font-size="15">fix(curriculum): align callback review definitions</text>
-        <text x="52" y="489" fill="#94a3b8" font-size="12">freeCodeCamp/freeCodeCamp#71474 · opened · 2026-10-31</text><circle cx="34" cy="526" r="5" fill="#a78bfa"/>
-        <text x="52" y="531" fill="#e2e8f0" font-size="15">JavaScript reviews still say callbacks run after the outer function finishes</text>
-        <text x="52" y="554" fill="#94a3b8" font-size="12">freeCodeCamp/freeCodeCamp#71473 · opened · 2026-10-31</text></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="332" viewBox="0 0 640 332" role="img">
+    <title>Two recent public pull request and issue events. Full titles and links in the snapshot README.</title>
+    <rect width="640" height="332" rx="18" fill="#0d1422"/>
+    <g font-family="ui-monospace,monospace">
+    <text x="28" y="36" fill="#8be9ee" font-size="25">Recent public work</text>
+    <text x="28" y="80" fill="#e2e8f0" font-size="24" textLength="475.2" lengthAdjust="spacingAndGlyphs">Refresh graphical mathematics and</text><text x="28" y="108" fill="#e2e8f0" font-size="24" textLength="230.4" lengthAdjust="spacingAndGlyphs">software profile</text><text x="28" y="142" fill="#b9cbd5" font-size="20" textLength="336.0" lengthAdjust="spacingAndGlyphs">jerome-queck/jerome-queck#10</text><text x="28" y="168" fill="#b9cbd5" font-size="20">closed · 2026-10-31</text><text x="28" y="212" fill="#e2e8f0" font-size="24" textLength="504.0" lengthAdjust="spacingAndGlyphs">feat(profile): refresh mathematical</text><text x="28" y="240" fill="#e2e8f0" font-size="24" textLength="302.4" lengthAdjust="spacingAndGlyphs">world and public work</text><text x="28" y="274" fill="#b9cbd5" font-size="20" textLength="336.0" lengthAdjust="spacingAndGlyphs">jerome-queck/jerome-queck#11</text><text x="28" y="300" fill="#b9cbd5" font-size="20">opened · 2026-10-31</text></g></svg>

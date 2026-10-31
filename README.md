@@ -12,9 +12,9 @@ I study mathematics and build tools for learning, research and organising my wor
 
 [Website](https://jeromegroup.org) · [LinkedIn](https://www.linkedin.com/in/jeromequeck/) · [Jerome-Group](https://github.com/Jerome-Group)
 
-<a name="mathematics"></a>
+<img src="assets/chapter-math.svg" align="right" width="64" alt="">
 
-## <img src="assets/chapter-math.svg" width="64" alt=""> Mathematics
+## Mathematics
 
 Notes websites and tools for exploring ideas. A small example from algebra follows. **The order of two operations can change their result.**
 
@@ -51,9 +51,9 @@ Notes websites and tools for exploring ideas. A small example from algebra follo
 
 </details>
 
-<a name="software"></a>
+<img src="assets/chapter-software.svg" align="right" width="64" alt="">
 
-## <img src="assets/chapter-software.svg" width="64" alt=""> Software
+## Software
 
 **Course material becomes a local working desk.** These connections describe actual interfaces between the projects.
 
@@ -72,9 +72,9 @@ Notes websites and tools for exploring ideas. A small example from algebra follo
 
 **[Emmy](https://github.com/jerome-queck/emmy)** provides responsibility context and current evidence checks for ChatGPT Dot. Native products own execution, permissions, schedules and delivery.
 
-<a name="public-work"></a>
+<img src="assets/chapter-public-work.svg" align="right" width="64" alt="">
 
-## <img src="assets/chapter-public-work.svg" width="64" alt=""> Public work
+## Public work
 
 <a href="https://github.com/jerome-queck/jerome-queck/tree/profile-data">
 <picture>

@@ -68,24 +68,37 @@ def fetch_counters():
     return data["opened"]["issueCount"], data["merged"]["issueCount"], len(resolved)
 
 
-def render_counters(counts, updated):
+def render_counters(counts, updated, mobile=False):
     labels = ["PRs opened", "PRs merged", "Linked issues resolved"]
-    colors = ["#8be9ee", "#efb48b", "#e8e2d3"]
-    cards = []
-    for index, (count, label, color) in enumerate(zip(counts, labels, colors)):
-        y = 92 + index * 66
-        cards.append(f'''<path d="M32 {y + 18}H608" stroke="#344657"/>
-        <text x="32" y="{y}" fill="{color}" font-size="21">0{index + 1}</text>
-        <text x="85" y="{y}" fill="#dbe4f0" font-size="27">{label}</text>
-        <text x="608" y="{y}" text-anchor="end" fill="{color}" font-size="38">{count:,}</text>''')
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" width="640" height="310" viewBox="0 0 640 310" role="img">
-    <title>Public contributions: {counts[0]} PRs opened, {counts[1]} merged, {counts[2]} linked issues resolved</title>
-    <rect width="640" height="310" rx="18" fill="#0d1422"/>
+    width, height = (480, 306) if mobile else (900, 200)
+    body = []
+    for index, (count, label) in enumerate(zip(counts, labels)):
+        x, y = (28, 83 + index * 66) if mobile else (30 + index * 300, 104)
+        if mobile:
+            body.append(
+                f'<text x="{width - 28}" y="{y}" text-anchor="end" fill="#b73524" font-size="37">{count:,}</text>'
+            )
+            body.append(
+                f'<text x="{x}" y="{y}" fill="#1b1b18" font-size="23">{label}</text>'
+            )
+            body.append(f'<path d="M28 {y + 20}H{width - 28}" stroke="#d8ccbc"/>')
+        else:
+            body.append(
+                f'<text x="{x}" y="{y}" fill="#b73524" font-size="58" font-family="Georgia,serif">{count:,}</text>'
+            )
+            body.append(
+                f'<text x="{x}" y="{y + 36}" fill="#1b1b18" font-size="23">{label}</text>'
+            )
+            if index:
+                body.append(f'<path d="M{x - 20} 60V146" stroke="#d8ccbc"/>')
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img">
+    <title>All-time authored public contributions: {counts[0]} PRs opened, {counts[1]} merged, {counts[2]} distinct linked issues resolved</title>
+    <rect width="{width}" height="{height}" fill="#f6f1e9"/>
     <g font-family="Segoe UI,Arial,sans-serif">
-    <text x="32" y="39" fill="#8be9ee" font-size="23">PUBLIC WORK / ALL TIME</text>
-    {"".join(cards)}
-    <text x="32" y="287" fill="#c2ced9" font-size="21">Updated {html.escape(updated)}</text>
-    </g></svg>"""
+    <text x="28" y="32" fill="#6b6256" font-size="19">PUBLIC WORK · ALL TIME</text>
+    {"".join(body)}
+    <text x="28" y="{height - 18}" fill="#6b6256" font-size="19">Updated {html.escape(updated)}</text>
+    </g></svg>'''
 
 
 def main():
@@ -99,6 +112,9 @@ def main():
     (output / "activity.svg").write_text(render_activity(activity))
     (output / "calendar.svg").write_text(render_calendar(start, today, days))
     (output / "counters.svg").write_text(render_counters(counts, updated))
+    (output / "counters-mobile.svg").write_text(
+        render_counters(counts, updated, mobile=True)
+    )
     (output / "README.md").write_text(
         f"# Public contribution snapshot\n\nUpdated {updated}.\n\n"
         f"- Authored PRs opened, all time: {counts[0]}\n"

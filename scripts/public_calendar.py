@@ -82,7 +82,7 @@ def fetch_calendar(graphql, today):
 
 def render_calendar(start, today, days):
     sunday = start - dt.timedelta(days=(start.weekday() + 1) % 7)
-    palette = ["#202c40", "#255e63", "#268e88", "#2cc5ae", "#8af0cc"]
+    palette = ["#e5ded3", "#f0cbbf", "#df9f8c", "#cb6b50", "#a33222"]
     maximum = max(days.values(), default=1) or 1
     squares = []
     date = start
@@ -96,10 +96,10 @@ def render_calendar(start, today, days):
         date += dt.timedelta(days=1)
     return f"""<svg xmlns="http://www.w3.org/2000/svg" width="820" height="205" viewBox="0 0 820 205" role="img">
     <title>Public contribution calendar, {start} to {today}</title>
-    <rect width="820" height="205" rx="18" fill="#0d1422"/>
-    <g font-family="Segoe UI,Arial,sans-serif" fill="#dbe4f0">
+    <rect width="820" height="205" rx="0" fill="#f6f1e9"/>
+    <g font-family="Segoe UI,Arial,sans-serif" fill="#1b1b18">
     <text x="28" y="38" font-size="18">A year of public contributions</text>
     <text x="790" y="38" font-size="13" text-anchor="end">{sum(days.values()):,} contributions</text>
     {"".join(squares)}
-    <text x="28" y="187" font-size="12" fill="#94a3b8">{start} → {today} · Public commits, issues, PRs, reviews and repositories</text>
+    <text x="28" y="187" font-size="12" fill="#6b6256">{start} → {today} · Public commits, issues, PRs, reviews and repositories</text>
     </g></svg>"""

@@ -39,7 +39,7 @@ def select_activity(pages, fetch=rest):
                     "action": event["payload"]["action"],
                 }
             )
-            if len(activity) == 8:
+            if len(activity) == 2:
                 return activity
     return activity
 

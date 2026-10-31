@@ -126,6 +126,22 @@ class ProfileDataTests(unittest.TestCase):
         root = ET.fromstring(render_counters((10, 8, 6), "<&>"))
         self.assertEqual(root.tag, "{http://www.w3.org/2000/svg}svg")
 
+    def test_recent_activity_stays_at_two_events(self):
+        events = [
+            {
+                "public": True,
+                "repo": {"name": "owner/project"},
+                "type": "IssuesEvent",
+                "created_at": "2026-10-31T00:00:00Z",
+                "payload": {
+                    "action": "opened",
+                    "issue": {"number": n, "title": str(n)},
+                },
+            }
+            for n in range(4)
+        ]
+        self.assertEqual([row["number"] for row in select_activity([events])], [0, 1])
+
 
 if __name__ == "__main__":
     unittest.main()

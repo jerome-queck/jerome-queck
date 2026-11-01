@@ -1,20 +1,19 @@
 # Public work snapshot
 
-Collected 31 Oct 2026 22:23 UTC.
+Collected 01 Nov 2026 07:38 UTC.
 
-Observation interval: 2026-10-31T22:21:51.811873+00:00 to 2026-10-31T22:23:05.261853+00:00. GitHub queries are separate observations, not a transaction at one instant. [Reproducible public input](snapshot.json).
+Observation interval: 2026-11-01T07:37:11.902982+00:00 to 2026-11-01T07:38:27.423110+00:00. GitHub queries are separate observations, not a transaction at one instant. [Reproducible public input](snapshot.json).
 
-- Authored public PRs opened, all time: 1319
-- Authored public PRs merged, all time: 1278
-- Distinct currently closed public issues linked to those merged PRs: 967
+- Authored public PRs opened, all time: 1327
+- Authored public PRs merged, all time: 1285
+- Distinct currently closed public issues linked to those merged PRs: 972
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close or proof that a PR alone caused closure; GitHub can change links retrospectively.
 
 ## Merge cadence
 
-Authored public PRs merged by UTC calendar month, 2025-11 through 2026-10. Current month is partial through 2026-10-31. Across all public repositories, not just the selected projects.
+Authored public PRs merged by UTC calendar month, 2025-12 through 2026-11. Current month is partial through 2026-11-01. Across all public repositories, not just the selected projects.
 
-- 2025-11: 0
 - 2025-12: 0
 - 2026-01: 0
 - 2026-02: 14
@@ -25,7 +24,8 @@ Authored public PRs merged by UTC calendar month, 2025-11 through 2026-10. Curre
 - 2026-07: 106
 - 2026-08: 330
 - 2026-09: 373
-- 2026-10: 451
+- 2026-10: 454
+- 2026-11: 4
 
 ## Selected repository pulse
 
@@ -50,7 +50,7 @@ Nine authored selections. Default-branch tip commit and its Git committer date, 
   - Default-branch tip commit: [main · 2026-10-23T15:16:40Z](https://github.com/Jerome-Group/ntulearn/commit/c7ffb53a697dc34df412723c8f114a51cc92ee92)
   - No published GitHub release
 - **Academic OS** ([repository](https://github.com/Jerome-Group/academic-os))
-  - Default-branch tip commit: [main · 2026-10-25T09:41:19Z](https://github.com/Jerome-Group/academic-os/commit/c34e03cadfde1da3e1e835ea38d75a84dcaa9440)
+  - Default-branch tip commit: [main · 2026-10-31T23:17:59Z](https://github.com/Jerome-Group/academic-os/commit/469306b59ad8f4fe48f3a9729a3b341edc6f9961)
   - No published GitHub release
 - **Syrax** ([repository](https://github.com/Jerome-Group/syrax))
   - Default-branch tip commit: [main · 2026-10-02T16:34:35Z](https://github.com/Jerome-Group/syrax/commit/20a28ce395f3ffa76d3f42a26a4466dae61d9258)
@@ -62,7 +62,7 @@ Nine authored selections. Default-branch tip commit and its Git committer date, 
 
 ## Public contribution calendar
 
-2025-11-01 through 2026-10-31, reconstructed from public commit, issue, PR, review and repository contribution records. Count is records, not hours or quality. Cell levels are zero, then four nonzero levels relative to the largest daily count in this window. This is not a promise of parity with GitHub's native graph.
+2025-11-02 through 2026-11-01, reconstructed from public commit, issue, PR, review and repository contribution records. Count is records, not hours or quality. Cell levels are zero, then four nonzero levels relative to the largest daily count in this window. This is not a promise of parity with GitHub's native graph.
 
 - 2026-02-02: 2
 - 2026-02-03: 30
@@ -217,12 +217,13 @@ Nine authored selections. Default-branch tip commit and its Git committer date, 
 - 2026-10-28: 2
 - 2026-10-29: 13
 - 2026-10-30: 38
-- 2026-10-31: 45
+- 2026-10-31: 55
+- 2026-11-01: 17
 
 ## Recent issue and PR events
 
-- 2026-10-31 · closed · [jerome-queck/jerome-queck#12: Redesign personal profile as a graphical interface with maintained public data](https://github.com/jerome-queck/jerome-queck/issues/12)
-- 2026-10-31 · opened · [openclaw/openclaw#189784: fix(oc-path): follow YAML aliases in path resolve, find and set](https://github.com/openclaw/openclaw/pull/189784)
+- 2026-11-01 · opened · [jerome-queck/emmy#50: Add immutable automation reporting and readable unbound outcomes](https://github.com/jerome-queck/emmy/pull/50)
+- 2026-11-01 · opened · [openclaw/openclaw#189993: fix(cli): show the reason for invalid numeric flag values](https://github.com/openclaw/openclaw/pull/189993)
 
 The profile shows two matching issue/PR events sampled from the latest 300 public GitHub events. GitHub retains at most 30 days of public events. This is not a complete history. Aggregate counts and the calendar include all public projects. Featured exclusions apply to selected projects and the feed. Every source must succeed before publication. Failed refreshes retain the previous published snapshot and timestamp. Scheduled runs can be delayed or disabled by GitHub. One Git commit publishes the payload; CDN caches can refresh separately.
 

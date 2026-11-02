@@ -15,5 +15,5 @@ jobs:
       - run: ruff check scripts tests formal
       - run: python3 -m unittest discover -s tests
       - run: python3 formal/check.py
-      - run: npm install --prefix "$RUNNER_TEMP/profile-browser-runtime" --no-audit --no-fund --ignore-scripts --save-exact playwright@1.62.1
+      - run: npm install --prefix "$RUNNER_TEMP/profile-browser-runtime" --no-audit --no-fund --ignore-scripts --save-exact playwright@1.62.1 pngjs@7.0.0
       - run: NODE_PATH="$RUNNER_TEMP/profile-browser-runtime/node_modules" node --test .agents/skills/verify/scripts/drive.test.cjs

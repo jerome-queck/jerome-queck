@@ -159,11 +159,14 @@ def render_counters(counts, updated, mobile=False, upstream=()):
 
 def render_cadence(months, updated, mobile=False, upstream=()):
     repos = upstream_by_repo(upstream)
-    status_y = 188 + len(months) * 48 if mobile else 408
+    columns = min(8, len(months)) or 1
+    rows = max(1, (len(months) + columns - 1) // columns)
+    row_height = 270
+    status_y = 188 + len(months) * 48 if mobile else 408 + (rows - 1) * row_height
     width, height = (
         (480, status_y + 205 + len(repos) * 104)
         if mobile
-        else (900, 560 + len(repos) * 63)
+        else (900, status_y + 152 + len(repos) * 63)
     )
     maximum = max(months.values(), default=0) or 1
     upstream_months = Counter(
@@ -194,26 +197,44 @@ def render_cadence(months, updated, mobile=False, upstream=()):
                     )
                 )
         else:
-            slot = 828 / len(months)
-            x = 36 + index * slot
+            row, column = divmod(index, columns)
+            slot = 828 / columns
+            x = 36 + column * slot
+            center = x + slot / 2
+            offset = row * row_height
             bar = count / maximum * 153
             parts += [
-                f'<rect x="{x}" y="{291 - bar:.2f}" width="{slot * 0.61:.2f}" height="{max(2, bar):.2f}" fill="{COBALT if month == next(reversed(months)) else BLUE}"/>',
+                f'<rect x="{x + slot * 0.195:.2f}" y="{291 + offset - bar:.2f}" width="{slot * 0.61:.2f}" height="{max(2, bar):.2f}" fill="{COBALT if month == next(reversed(months)) else BLUE}"/>',
                 text(
-                    str(count), x + slot * 0.305, 278 - bar, 22, "mono", anchor="middle"
+                    str(count),
+                    center,
+                    278 + offset - bar,
+                    22,
+                    "mono",
+                    anchor="middle",
+                    max_width=slot - 12,
                 ),
-                text(month[5:], x + slot * 0.305, 325, 21, "mono", anchor="middle"),
+                text(
+                    month,
+                    center,
+                    325 + offset,
+                    21,
+                    "mono",
+                    anchor="middle",
+                    max_width=slot - 12,
+                ),
             ]
             if upstream_months[month]:
                 parts.append(
                     text(
                         f"+{upstream_months[month]}",
-                        x + slot * 0.305,
-                        361,
+                        center,
+                        361 + offset,
                         21,
                         "mono",
                         COBALT,
                         anchor="middle",
+                        max_width=slot - 12,
                     )
                 )
     y = status_y

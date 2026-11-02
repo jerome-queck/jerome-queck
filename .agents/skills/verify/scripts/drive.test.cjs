@@ -4,7 +4,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
-const {options, anchorSettled} = require('./drive.cjs');
+const {options, anchorSettled, pixelDifference} = require('./drive.cjs');
 const parent = fs.mkdtempSync(path.join(os.tmpdir(), 'profile-guard-test-'));
 const output = path.join(parent, 'evidence');
 const valid = ['--url', 'https://github.com/jerome-queck', '--output', output];
@@ -34,4 +34,15 @@ test('a visible heading cannot falsely prove chapter navigation', () => {
   assert.equal(anchorSettled(813, 64, true), false);
   assert.equal(anchorSettled(64, 64, true), true);
   assert.equal(anchorSettled(64, 64, false), false);
+});
+
+
+test('motion compares decoded pixels rather than PNG metadata or elapsed time', () => {
+  const {PNG} = require('pngjs');
+  const a = new PNG({width: 2, height: 1}); a.data.fill(255);
+  const still = PNG.sync.write(a);
+  assert.equal(pixelDifference(still, PNG.sync.write(a, {deflateLevel: 1})).changedPixels, 0);
+  a.data[0] = 0;
+  assert.equal(pixelDifference(still, PNG.sync.write(a)).changedPixels, 1);
+  assert.throws(() => pixelDifference(still, PNG.sync.write(new PNG({width: 1, height: 1}))), /geometry/);
 });

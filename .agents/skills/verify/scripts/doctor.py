@@ -19,9 +19,10 @@ status = subprocess.check_output(['git', 'status', '--porcelain'], text=True)
 result = {'source_head': head, 'worktree_status': status, 'target': args.url}
 if args.plan:
     result['plan'] = [
-        'Install pinned Playwright into a chosen external runtime directory if absent.',
+        'Install pinned Playwright and pngjs into a chosen external runtime directory if absent.',
         'Open a fresh anonymous owned browser, GET GitHub target and authored destinations.',
-        'Click chapter links and disclosures; capture four viewport/theme variants.',
+        'Click native footer section links and disclosures; capture four viewport/theme variants.',
+        'Compare actual embedded world PNG frames and fresh reduced-motion still-source frames.',
         'Write evidence only to a new external output directory; close owned browser.',
         'Collector is separate, opt-in, needs gh authentication and writes chosen output.',
         'No git writes, publication, workflows, launch services, or profile changes.',

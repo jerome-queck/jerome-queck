@@ -14,7 +14,7 @@ Run from this repository's root. Choose an external evidence parent and runtime 
 ```sh
 PROFILE_EVIDENCE=$(mktemp -d /tmp/profile-evidence.XXXXXX)
 PROFILE_RUNTIME=$(mktemp -d /tmp/profile-runtime.XXXXXX)
-npm install --prefix "$PROFILE_RUNTIME" --no-audit --no-fund --save-exact playwright@1.62.1
+npm install --prefix "$PROFILE_RUNTIME" --no-audit --no-fund --save-exact playwright@1.62.1 pngjs@7.0.0
 export NODE_PATH="$PROFILE_RUNTIME/node_modules"
 node -e 'console.log(require("playwright/package.json").version)'
 python3 .agents/skills/verify/scripts/doctor.py --plan
@@ -47,7 +47,11 @@ node .agents/skills/verify/scripts/drive.cjs --url https://github.com/jerome-que
 
 For a proposed branch, replace the second URL with its actual GitHub rendered README URL, for example obtain it from the open PR's head branch, then supply it as `--url`. A private/unpushed head cannot be verified anonymously; report that prerequisite. The live profile still proves the deployed main README, never the proposed head. Record both source head and target URL rather than equating them.
 
-Each drive uses desktop 1440×1100 and mobile 390×844, each in light and dark. It checks actual background color, native headings, the actual account avatar on the profile, decoded nonzero images, chosen picture source, chapter link clicks and heading arrival in the top 160 pixels (or the larger CSS scroll margin), with an uncovered heading, disclosure clicks, overflow, text alternatives, and GET destination navigation through actual rendered links. It records SVG path/text counts without assuming a font or palette. After outlined typography ships, add `--require-outlines yes` to require paths and prohibit SVG `<text>` in authored navigation assets. This optional requirement does not claim that all illustrated data must be outlines.
+The current README contract is one responsive world picture, native H1 plus Projects/Public records H2 headings, two disclosures, nine project destinations with repository sources, upstream PR anchors, publication snapshot and workflow links. Native footer section links must actually scroll to uncovered headings near the top; no obsolete chapter image buttons are required.
+
+The driver captures three actual embedded-world PNG frames at 0, 2.3 and 5 seconds, compares decoded pixels via pinned `pngjs`, and requires observed motion. A fresh browser context loads with reduced motion before navigation, must select `world-still.svg` or `world-mobile-still.svg`, and retain identical pixels across its three frames. It saves source CSS selectors and checks animated elements cannot cross `world-data`, the explicit static data group; animation frame equality cannot alone prove semantic truth. All four variants repeat these checks. The image-blocked page must retain native project names, repository links and public-record/source routes. Inspect its screenshot as well.
+
+Each drive uses desktop 1440×1100 and mobile 390×844, each in light and dark. It checks actual background color, native headings, the actual account avatar on the profile, decoded nonzero images, chosen picture source, native footer section link clicks and heading arrival in the top 160 pixels (or the larger CSS scroll margin), with an uncovered heading, disclosure clicks, overflow, text alternatives, and GET destination navigation through actual rendered links. It records SVG path/text counts without assuming a font or palette. After outlined typography ships, add `--require-outlines yes` to require paths and prohibit SVG `<text>` in the actual selected desktop/mobile world assets. The world is one opaque illustrated canvas; no `<text>` nodes are allowed when outlines are required. Visual review still checks readability and opaque coverage.
 
 GitHub profile native anchors have a 64-pixel scroll margin; the repository README SPA currently settles around 125 pixels despite a zero CSS margin. The near-top band accepts both observed behaviors while rejecting a heading merely somewhere in the viewport.
 
@@ -61,7 +65,7 @@ GH_TOKEN="$(gh auth token)" python3 -m scripts.profile_data "$PROFILE_EVIDENCE/c
 python3 -m unittest discover -s tests
 ```
 
-Verify the emitted eleven named payloads against `.github/workflows/profile.yml`, inspect `snapshot.json`, and compare accessible `README.md` with generated SVG counts/dates. Collection failure must leave the published branch unchanged. Successful local generation does not prove the `publish` job, branch protection, CDN convergence or scheduled execution. Those require actual workflow run and publication readback, recorded separately.
+Verify the emitted fifteen named payloads (the prior eleven plus two moving and two still world SVGs) against `.github/workflows/profile.yml`, inspect `snapshot.json`, and compare accessible `README.md` with generated SVG counts/dates. Collection failure must leave the published branch unchanged. Successful local generation does not prove the `publish` job, branch protection, CDN convergence or scheduled execution. Those require actual workflow run and publication readback, recorded separately.
 
 ## Evidence
 

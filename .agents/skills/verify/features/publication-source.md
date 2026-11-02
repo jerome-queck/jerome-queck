@@ -10,7 +10,7 @@ Open Last successful collection, definitions and exact values. Follow Reproducib
 
 ## Driving it with Playwright and the CLI
 
-The browser matrix clicks the actual text-snapshot and workflow anchors and saves page states. On `profile-data`, follow `snapshot.json`; save raw JSON and published README with exact branch revision and collection time. Run doctor, `gh auth status`, the skill's explicit collector command, and unit suite. Compare emitted payload names with the eleven workflow copy paths, saved public input with displayed values, and failure behavior with publication tests. For an actual publication change, inspect the real successful run's head, both jobs and resulting branch revision, then rerun the browser matrix after assets settle.
+The browser matrix clicks the actual text-snapshot and workflow anchors and saves page states. On `profile-data`, follow `snapshot.json`; save raw JSON and published README with exact branch revision and collection time. Run doctor, `gh auth status`, the skill's explicit collector command, and unit suite. Compare emitted payload names with the fifteen workflow copy paths (including moving and still worlds), saved public input with displayed values, and failure behavior with publication tests. For an actual publication change, inspect the real successful run's head, both jobs and resulting branch revision, then rerun the browser matrix after assets settle.
 
 ## Gotchas
 

@@ -2,7 +2,7 @@
 
 ## Sub-features
 
-Native heading hierarchy, descriptive image alternatives, empty alternatives for decorative folios, ordinary text descriptions, real links and disclosures; responsive `<picture>` selection; legible light/dark content and no horizontal overflow. Source is `README.md`, `assets/`, `scripts/render_interface.py` and data SVG renderers.
+Native heading hierarchy, descriptive image alternatives, ordinary text descriptions, real links and disclosures; responsive `<picture>` selection; legible light/dark content and no horizontal overflow. Source is `README.md`, `assets/`, `scripts/readme_world.py`, `scripts/render_interface.py` and data SVG renderers.
 
 ## How to get to it (user POV)
 
@@ -15,3 +15,5 @@ The matrix covers 1440×1100 and 390×844 in both schemes. Compare actual page b
 ## Gotchas
 
 A large raster or SVG may decode while text is unreadable at mobile width. GitHub sanitizes embedded HTML and proxies images; local HTML tests cannot prove this surface. A responsive source declaration is insufficient without checking `currentSrc`. Full-page screenshots require scrolling to paint long offscreen content; the driver does that. Contrast cannot be inferred from the requested scheme alone. Treat visual defects as failures even if scripted geometry passes.
+
+Motion: review all saved actual embedded-image frame comparisons. Normal motion must change pixels; fresh reduced-motion loading must stay still. Inspect retained source CSS and `world-data` boundary: animation selectors may affect decorative scene elements only. Review opaque coverage and narrow readability manually. With images blocked, native projects, public records, links and disclosure controls remain usable.

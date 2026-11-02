@@ -9,7 +9,12 @@
   ],
   "browser": "Chrome 156.0.8078.74",
   "playwright": "1.62.1",
-  "matrix": ["desktop-light", "desktop-dark", "mobile-light", "mobile-dark"],
+  "matrix": [
+    "desktop-light",
+    "desktop-dark",
+    "mobile-light",
+    "mobile-dark"
+  ],
   "observations": {
     "each_surface": "Four actual GitHub variants, all three disclosures, decoded images, headings, responsive source selection, background scheme, overflow, 17 actual-click GitHub destinations, published snapshot JSON and retained screenshots",
     "profile_images_expanded": 22,
@@ -25,7 +30,11 @@
     "Accommodate observed repository SPA top offset while requiring uncovered headings",
     "Capture native account avatar independently from README artwork"
   ],
-  "tests": {"driver_boundary_tests": 5, "existing_data_tests": 26, "result": "passed"},
+  "tests": {
+    "driver_boundary_tests": 5,
+    "existing_data_tests": 26,
+    "result": "passed"
+  },
   "outcome": "baseline captured; profile chapter navigation blocked; proposed design unverified",
   "not_proved": [
     "Proposed branch README or new data-panel typography",
@@ -35,5 +44,38 @@
     "Manual screen-reader and keyboard journeys",
     "Full collector recollection during this driver-generation baseline"
   ],
-  "evidence_policy": "Run artifacts live outside the checkout. The session handoff records their actual paths. Keep failed iterations. Update this record only after rereading source/maps and driving the changed actual surfaces."
+  "evidence_policy": "Run artifacts live outside the checkout. The session handoff records their actual paths. Keep failed iterations. Update this record only after rereading source/maps and driving the changed actual surfaces.",
+  "maintenance": {
+    "source_head": "558adfe",
+    "target_source": "world-compose working tree; unpublished, not an immutable verified target",
+    "status": "blocked: final world source and GitHub target required for complete live reproof",
+    "scope": "Sequential source review, no child agents under coordinator instruction. Driver changed for one world and native footer; baseline observations above remain historical only.",
+    "mechanism_probe": {
+      "defect_head": "18810ce",
+      "fixed_head": "18d57cb",
+      "surface": "Actual immutable GitHub README; isolated normal/reduced contexts at desktop and mobile",
+      "normal_changed_pixels": {
+        "desktop": [
+          9590,
+          10036
+        ],
+        "mobile": [
+          1130,
+          1146
+        ]
+      },
+      "reduced_changed_pixels": {
+        "desktop": [
+          0,
+          0
+        ],
+        "mobile": [
+          0,
+          0
+        ]
+      },
+      "reduced_selection": "motion-proof-still.svg on both sizes",
+      "limit": "Technical mechanism only; final world full matrix awaits immutable actual target"
+    }
+  }
 }

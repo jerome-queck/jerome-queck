@@ -2,11 +2,11 @@
 
 ## Sub-features
 
-Counters, twelve UTC months of merge cadence, 365-day public contribution calendar, selected repository pulse, recent public issue/PR events, selected upstream fixes and exact text definitions. Source is `README.md` and `scripts/profile_data.py`, `scripts/public_calendar.py`, `scripts/repo_pulse.py`, `scripts/recent_activity.py`.
+Counters, merge cadence and public contribution calendar beginning 1 July 2026 (current month partial), selected repository pulse, recent public issue/PR events, six merged upstream contributions with open proposals labelled separately and exact text definitions. Source is `README.md` and `scripts/profile_data.py`, `scripts/public_calendar.py`, `scripts/repo_pulse.py`, `scripts/recent_activity.py`.
 
 ## How to get to it (user POV)
 
-Click Public work. Read visible charts; open repository pulse and recent-events disclosures. Click each chart to the exact published text snapshot. Read Selected upstream fixes and open each cited pull request.
+Click Public records. Read visible charts; open repository pulse and recent-events disclosures. Click each chart to the exact published text snapshot. Read Selected upstream fixes and open each cited pull request.
 
 ## Driving it with Playwright
 

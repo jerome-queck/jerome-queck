@@ -1,0 +1,14 @@
+date	decision	reason	evidence	outcome
+2026-11-02	Personal profile only	Owner cancelled organisation work	https://github.com/jerome-queck/jerome-queck/issues/14	Organisation publication excluded
+2026-11-02	Reject field journal and glass-card studies	Owner wanted a distinctive world; critique found directory wallpaper	docs/design/decisions.md	Original cutaway workshop selected
+2026-11-02	Adapt process, create original assets	Shared primitives, real sources, narrow-screen iteration	https://x.com/poteto/status/2117043478140276847	Original ImageGen art plus code composition
+2026-11-02	Use native linked SVG views	Continuous art needs independently usable destinations	https://github.com/jerome-queck/jerome-queck/tree/prototype/pixel-motion	Gapless joins and distinct view crops observed on GitHub
+2026-11-02	Select separate still files natively	Embedded SVG media queries kept moving in tested reduced context	.agents/skills/verify/scripts/drive.cjs	Native picture sources produced zero changed reduced-motion pixels
+2026-11-02	Use compact titles, captions and PR receipts	Owner preferred space for analytics	README.md	Nine projects, five secondary source links, compact receipts
+2026-11-02	Start histories in July 2026	Owner excluded earlier empty months	scripts/public_calendar.py	All-time counters remain separately scoped
+2026-11-02	Count actual source lines	No universal bytes-to-lines ratio	docs/research/source-lines.md	Pinned cloc at nine public commits; all authors and classifier limits explicit
+2026-11-02	Bound queries and wrap long histories	Independent review reproduced GitHub one-year rejection and crowded labels	tests/test_calendar_windows.py	365-day windows and measured multirow cadence
+2026-11-02	Reduce desktop rows, quiet data backing	Actual GitHub critique found excess project height and distracting repeated texture	scripts/render_readme_world.py	135-unit desktop rows; mobile155 retained; receipts precede analytics
+2026-11-02	Keep current mobile cadence on one row	Actual GitHub showed an orphan November row	tests/test_calendar_windows.py	Measured five-column layout; future large counts can reduce columns
+2026-11-02	Model actual legacy upgrade	Published ref contained eleven files; next generation requires fifteen	formal/maintenance.md	Both starting snapshots, two publishers, real Git fixtures and matching mutants
+2026-11-02	Preserve JQ identity in avatar	Owner requires a characteristic that defines Jerome	docs/design/avatar-prompt.txt	Intertwined JQ remains recognisable at40px circular crop

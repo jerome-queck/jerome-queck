@@ -8,7 +8,7 @@ Native `<picture>` sources select still masters for reduced motion. Embedded SVG
 
 ## Artwork provenance
 
-`assets/pixel-world/workshop-original.png` is original artwork generated for this profile with built-in OpenAI ImageGen. Its SHA256 is `9fe259a2184042445935f4dfdf34725e52faebf45d50dc903c248f9915507158`. The environment supplies the pixel artwork. Python composes outlined typography, palette overlays, decorative motion, and view geometry over it. Native README links provide the actual destinations.
+`assets/pixel-world/workshop-original.png` is original artwork generated for this profile with built-in OpenAI ImageGen. Its SHA256 is `9fe259a2184042445935f4dfdf34725e52faebf45d50dc903c248f9915507158`. The [exact environment prompt](workshop-prompt.txt) records its style-only reference boundary. The environment supplies the pixel artwork. Python composes outlined typography, palette overlays, decorative motion, and view geometry over it. Native README links provide the actual destinations.
 
 `workshop.jpg` is a mechanical 900-pixel, quality-55 JPEG conversion embedded in the SVG masters. It contains no live data. Fonts come from the pinned local OFL sources in `assets/type/manifest.json`, outlined through `scripts/profile_style.py`.
 

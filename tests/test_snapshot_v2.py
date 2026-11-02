@@ -8,6 +8,7 @@ from unittest.mock import patch
 
 from scripts.profile_data import main, merge_months, render_snapshot
 from scripts.upstream_prs import fetch_upstream
+from tests.test_source_lines import empty_source
 from tests.test_upstream_prs import node
 
 
@@ -24,7 +25,7 @@ def snapshot():
         }
     )
     return {
-        "schema_version": 3,
+        "schema_version": 4,
         "observed_from": "2026-11-02T00:00:00+00:00",
         "observed_to": "2026-11-02T00:01:00+00:00",
         "updated": "02 Nov 2026 00:01 UTC",
@@ -41,12 +42,13 @@ def snapshot():
         },
         "merge_months": merge_months({"2026-11-01": 2}, today),
         "projects": [],
+        "source_lines": empty_source(),
         "recent_events": [],
         "upstream_prs": upstream,
     }
 
 
-class SnapshotV3Tests(unittest.TestCase):
+class SnapshotV4Tests(unittest.TestCase):
     def test_new_metrics_and_native_sources_share_one_input(self):
         source = snapshot()
         files = render_snapshot(source)
@@ -65,18 +67,18 @@ class SnapshotV3Tests(unittest.TestCase):
         self.assertEqual(files, render_snapshot(source))
 
     def test_missing_new_sources_never_turn_into_zero(self):
-        for key in ("schema_version", "upstream_prs", "calendar_kinds"):
+        for key in ("schema_version", "upstream_prs", "calendar_kinds", "source_lines"):
             source = snapshot()
             source.pop(key)
             with self.assertRaises((ValueError, KeyError)):
                 render_snapshot(source)
         source = snapshot()
         source["schema_version"] = 1
-        with self.assertRaisesRegex(ValueError, "schema-v3"):
+        with self.assertRaisesRegex(ValueError, "schema-v4"):
             render_snapshot(source)
         source = snapshot()
         source["projects"] = [{"name": "Algebra", "head": None, "release": None}]
-        with self.assertRaises(KeyError):
+        with self.assertRaises((KeyError, ValueError)):
             render_snapshot(source)
 
     def test_missing_or_invalid_patch_statistics_fail_before_publication(self):
@@ -115,7 +117,7 @@ class SnapshotV3Tests(unittest.TestCase):
                 render_snapshot(source)
         source = snapshot()
         source["schema_version"] = 2
-        with self.assertRaisesRegex(ValueError, "schema-v3"):
+        with self.assertRaisesRegex(ValueError, "schema-v4"):
             render_snapshot(source)
 
     def test_render_failure_leaves_existing_output_untouched(self):

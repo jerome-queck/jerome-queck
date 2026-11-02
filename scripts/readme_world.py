@@ -251,62 +251,56 @@ def _proposal_ages(snapshot, width, y):
 
 
 def _languages(snapshot, width, y):
-    counts = Counter()
-    for project in snapshot["projects"]:
-        counts.update(project["language_bytes"])
-    rows = sorted(counts.items(), key=lambda item: (-item[1], item[0]))
-    shown = rows[:4]
-    if len(rows) > 4:
-        shown.append(("Other", sum(value for _, value in rows[4:])))
-    total = sum(counts.values())
-    colors = ("#eeb36e", "#b77b70", "#82a8b1", "#c1a57b", "#806d8a")
+    source = snapshot["source_lines"]
+    rows = sorted(
+        source["by_language"].items(), key=lambda item: (-item[1]["code"], item[0])
+    )
+    shown = rows[:10]
+    maximum = max((row["code"] for _, row in shown), default=0) or 1
     parts = [
+        text("Languages / code lines", 28, y + 48, 32, "display", max_width=width - 56),
         text(
-            "Languages in these repositories",
+            "9 public projects / all authors / cloc 2.10",
             28,
-            y + 54,
-            32,
-            "display",
-            max_width=width - 56,
-        ),
-        text(
-            "GitHub language bytes / repository contents",
-            28,
-            y + 88,
-            19,
+            y + 80,
+            18,
             color=BLUE,
             max_width=width - 56,
         ),
     ]
-    if not total:
-        parts.append(text("No language bytes reported", 28, y + 132, 20))
-        return "".join(parts), y + 165
-    x = 28
-    for (_, value), color in zip(shown, colors):
-        length = (width - 56) * value / total
-        if value:
-            parts.append(
-                f'<rect x="{x:.3f}" y="{y + 113}" width="{length:.3f}" height="21" fill="{color}"/>'
-            )
-        x += length
-    for i, ((name, value), color) in enumerate(zip(shown, colors)):
-        row = y + 169 + i * 36
+    cursor = y + 122
+    for name, row in shown:
+        parts += [
+            text(name, 28, cursor, 20, max_width=width - 185),
+            text(f"{row['code']:,}", width - 28, cursor, 19, "mono", anchor="end"),
+            f'<rect x="28" y="{cursor + 10}" width="{(width - 56) * row["code"] / maximum:.3f}" height="5" fill="{COBALT}"/>',
+        ]
+        cursor += 43
+    if not rows:
+        parts.append(text("No classified code lines", 28, cursor, 20))
+        cursor += 40
+    other = sum(row["code"] for _, row in rows[10:])
+    if len(rows) > 10:
         parts.append(
-            f'<rect x="28" y="{row - 13}" width="11" height="11" fill="{color}"/>'
+            text(
+                f"Other: {other:,} code lines",
+                28,
+                cursor,
+                18,
+                color=BLUE,
+                max_width=width - 56,
+            )
         )
-        parts.append(text(name, 48, row, 19, max_width=150))
-        parts.append(text(f"{value:,} B", width - 28, row, 17, "mono", anchor="end"))
-    parts.append(
-        text(
-            "Other languages are listed in the snapshot.",
-            28,
-            y + 190 + len(shown) * 36,
-            18,
-            color=BLUE,
-            max_width=width - 56,
-        )
-    )
-    return "".join(parts), y + 220 + len(shown) * 36
+        cursor += 31
+    total = source["totals"]
+    for label in (
+        f"{total['code']:,} code / {total['files']:,} classified files",
+        f"{total['comment']:,} comments / {total['blank']:,} blank lines",
+        "Contents, not personal authorship. Scope in snapshot.",
+    ):
+        parts.append(text(label, 28, cursor, 17, color=BLUE, max_width=width - 56))
+        cursor += 28
+    return "".join(parts), cursor + 16
 
 
 def _calendar(snapshot, width, y, mobile):

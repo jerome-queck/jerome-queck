@@ -20,6 +20,11 @@ from scripts.repo_pulse import (
     markdown_pulse,
     render_pulse,
 )
+from scripts.source_lines import (
+    collect_source_lines,
+    markdown_source_lines,
+    validate_source_lines,
+)
 from scripts.upstream_prs import (
     fetch_upstream,
     markdown_upstream,
@@ -259,9 +264,10 @@ def collect_snapshot():
     catalogue = load_projects(Path(__file__).parents[1] / "data/projects.json")
     projects = [fetch_repo_pulse(graphql, project) for project in catalogue]
     upstream = fetch_upstream(graphql)
+    source_lines = collect_source_lines(projects)
     completed = dt.datetime.now(dt.timezone.utc)
     return {
-        "schema_version": 3,
+        "schema_version": 4,
         "observed_from": started.isoformat(),
         "observed_to": completed.isoformat(),
         "updated": completed.strftime("%d %b %Y %H:%M UTC"),
@@ -272,14 +278,16 @@ def collect_snapshot():
         "calendar_kinds": calendar.kinds,
         "merge_months": merge_months(contributions["merged_dates"], today),
         "projects": projects,
+        "source_lines": source_lines,
         "recent_events": activity,
         "upstream_prs": upstream,
     }
 
 
 def render_snapshot(snapshot):
-    if snapshot.get("schema_version") != 3:
-        raise ValueError("Rendering requires a complete schema-v3 public snapshot")
+    if snapshot.get("schema_version") != 4:
+        raise ValueError("Rendering requires a complete schema-v4 public snapshot")
+    validate_source_lines(snapshot["source_lines"], snapshot["projects"])
     kinds = snapshot["calendar_kinds"]
     if (
         set(kinds) != set(KINDS)
@@ -355,6 +363,8 @@ def render_snapshot(snapshot):
         "No published release is a valid empty state, not a failed request. "
         "GitHub language bytes cover these nine repositories only, including any author and generated or vendored code as classified by GitHub. They are not expertise or a measure of personal work.\n\n"
         + markdown_pulse(snapshot["projects"])
+        + "\n\n"
+        + markdown_source_lines(snapshot["source_lines"])
         + f"\n\n## Public contribution calendar\n\n{start} through {today}, reconstructed from public "
         "commit, issue, PR, review and repository contribution records. The displayed window begins 1 July 2026. Count is records, not hours or quality. "
         "Cell levels are zero, then four nonzero levels relative to the largest daily count in this window. "

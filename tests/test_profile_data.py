@@ -22,6 +22,7 @@ from scripts.public_calendar import (
     render_calendar,
 )
 from scripts.recent_activity import markdown_activity, render_activity, select_activity
+from tests.test_source_lines import empty_source
 
 
 def pr(
@@ -114,6 +115,9 @@ class ProfileDataTests(unittest.TestCase):
             ),
             patch("scripts.profile_data.fetch_activity", return_value=[]),
             patch("scripts.profile_data.load_projects", return_value=[]),
+            patch(
+                "scripts.profile_data.collect_source_lines", return_value=empty_source()
+            ),
             patch("scripts.profile_data.fetch_upstream", return_value=[]),
             patch("sys.argv", ["profile_data", directory]),
         ):
@@ -419,7 +423,7 @@ class ProfileDataTests(unittest.TestCase):
 
     def test_all_graphics_and_text_derive_from_saved_snapshot(self):
         snapshot = {
-            "schema_version": 3,
+            "schema_version": 4,
             "observed_from": "2026-11-01T00:00:00+00:00",
             "observed_to": "2026-11-01T00:01:00+00:00",
             "updated": "01 Nov 2026 00:01 UTC",
@@ -430,6 +434,7 @@ class ProfileDataTests(unittest.TestCase):
             "calendar_kinds": dict(zip(KINDS, [3, 0, 0, 0, 0])),
             "merge_months": merge_months({"2026-11-01": 2}, dt.date(2026, 11, 1)),
             "projects": [],
+            "source_lines": empty_source(),
             "recent_events": [],
             "upstream_prs": [],
         }

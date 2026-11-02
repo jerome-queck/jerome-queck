@@ -37,6 +37,13 @@ class WorldTests(unittest.TestCase):
             self.assertTrue(
                 any(label and label.startswith(f"{value:,}") for label in labels)
             )
+        for item in source["upstream_prs"]:
+            if item["state"] == "MERGED":
+                self.assertTrue(
+                    any(
+                        label and "#" + str(item["number"]) in label for label in labels
+                    )
+                )
         footprint = change_footprint(source["upstream_prs"])
         for key in ("additions", "deletions", "file_changes"):
             self.assertIn(f"{footprint[key]:,}", labels)
@@ -96,7 +103,10 @@ class WorldTests(unittest.TestCase):
         readme = (ROOT / "README.md").read_text()
         links = Links()
         links.feed(readme)
-        for _, _, _, repo, site in PROJECTS:
+        self.assertIn("Text edition, links and sources", readme)
+        for _, name, description, repo, site in PROJECTS:
+            self.assertIn("[" + name + "](", readme)
+            self.assertIn(description, readme)
             self.assertIn(repo, links.hrefs)
             if site:
                 self.assertIn(site, links.hrefs)

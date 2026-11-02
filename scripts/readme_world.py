@@ -13,6 +13,7 @@ BLUE = "#c9b2a6"
 RULE = "#795451"
 from collections import Counter
 from pathlib import Path
+from textwrap import wrap
 
 from scripts.upstream_prs import upstream_totals
 
@@ -403,6 +404,22 @@ def render_world(snapshot, panels, mobile=False, motion="ambient"):
         text(f"{merged} merged / {opened} open", 28, y + 90, 20, "mono", BLUE),
     ]
     y += 115
+    merged_by_repo = {}
+    for item in snapshot["upstream_prs"]:
+        if item["state"] == "MERGED":
+            merged_by_repo.setdefault(item["repo"], []).append(item["number"])
+    parts.append(text("Merged PRs", 28, y + 27, 22, "mono", BLUE))
+    y += 38
+    if not merged_by_repo:
+        parts.append(text("No merged upstream PRs", 28, y + 22, 20, color=BLUE))
+        y += 29
+    for repo, numbers in sorted(
+        merged_by_repo.items(), key=lambda item: item[0].casefold()
+    ):
+        label = repo + "  " + ", ".join("#" + str(number) for number in sorted(numbers))
+        for line in wrap(label, 31 if mobile else 70):
+            parts.append(text(line, 28, y + 22, 20, "mono", max_width=width - 56))
+            y += 29
     footprint, y = _footprint(snapshot, width, y)
     parts.append(footprint)
     ages, y = _proposal_ages(snapshot, width, y)

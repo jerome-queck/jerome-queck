@@ -21,6 +21,34 @@ class LinkedRooms(unittest.TestCase):
         root = ET.parse(ART / "source-mobile-still.svg").getroot()
         self.assertGreaterEqual(int(root.get("height")) * 293 / 480, 48)
 
+    def test_mobile_descriptions_fit_at_least_23_source_pixels(self):
+        import re
+        from textwrap import wrap
+
+        from scripts.profile_style import face
+
+        root = ET.parse(ART / "full-mobile-still.svg").getroot()
+        groups = [n for n in root.iter() if n.get("data-bounds")]
+        units = face("body")[0]["head"].unitsPerEm
+        for index, (_, _, description, _, _) in enumerate(PROJECTS):
+            top = (index + 1) * 220
+            for line in wrap(description, 19):
+                matches = [
+                    n
+                    for n in groups
+                    if n.get("aria-label") == line
+                    and top <= float(n.get("data-bounds").split()[1]) < top + 220
+                ]
+                self.assertEqual(len(matches), 1, line)
+                node = matches[0]
+                bounds = list(map(float, node.get("data-bounds").split()))
+                self.assertLess(bounds[3], top + 200)
+                transform = next(child for child in node if child.get("transform")).get(
+                    "transform"
+                )
+                scale = float(re.search(r"scale\(([-.0-9]+)", transform).group(1))
+                self.assertGreaterEqual(scale * units, 22.99)
+
     def test_still_masters_have_no_animation(self):
         for size in ("wide", "mobile"):
             for role in ("full", "title", "source"):

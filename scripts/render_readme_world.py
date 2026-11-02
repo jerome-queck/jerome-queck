@@ -88,7 +88,7 @@ PROJECTS.sort(key=lambda item: PROJECT_ORDER.index(item[0]))
 
 
 def master(mobile, role, motion):
-    width, height = (480, 190) if mobile else (900, 220)
+    width, height = (480, 220) if mobile else (900, 220)
     title_width, button_width = width * 3 // 4, width // 4
     button = role == "source"
     view_width = {"full": width, "title": title_width, "source": button_width}[role]
@@ -140,16 +140,17 @@ def master(mobile, role, motion):
                     "REPO  >",
                     x0 + button_width / 2,
                     y + height - 28,
-                    20 if mobile else 22,
+                    24 if mobile else 22,
                     "mono",
                     anchor="middle",
                     max_width=button_width - 20,
+                    minimum=23 if mobile else None,
                 ),
             ]
         else:
             panel_width = width * 0.56
             label_x = (12 if i < 2 or 4 <= i < 7 else width * 0.05) + 13
-            lines = wrap(desc, 23 if mobile else 35)
+            lines = wrap(desc, 19 if mobile else 35)
             body.append(
                 text(
                     name,
@@ -158,6 +159,7 @@ def master(mobile, role, motion):
                     31 if mobile else 42,
                     "display",
                     max_width=panel_width - 26,
+                    minimum=23 if mobile else None,
                 )
             )
             for n, line in enumerate(lines):
@@ -165,11 +167,11 @@ def master(mobile, role, motion):
                     text(
                         line,
                         label_x,
-                        y + (83 if mobile else 110) + n * (26 if mobile else 29),
-                        22 if mobile else 25,
+                        y + (83 if mobile else 110) + n * (30 if mobile else 29),
+                        25,
                         "body",
                         max_width=panel_width - 26,
-                        minimum=15,
+                        minimum=23 if mobile else 18,
                     )
                 )
             if PROJECTS[i][4]:
@@ -178,7 +180,7 @@ def master(mobile, role, motion):
                         "WEBSITE  >",
                         label_x,
                         y + height - 13,
-                        19,
+                        21 if mobile else 19,
                         "mono",
                         color="#eab878",
                     )

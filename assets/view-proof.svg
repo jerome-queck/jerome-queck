@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="100" viewBox="0 0 900 100"><title>SVG view fragment selection proof</title><view id="one" viewBox="0 0 900 100"/><view id="two" viewBox="0 100 900 100"/><rect width="900" height="100" fill="#223344"/><rect y="100" width="900" height="100" fill="#886622"/></svg>

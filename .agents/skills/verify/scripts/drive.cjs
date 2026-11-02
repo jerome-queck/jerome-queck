@@ -280,6 +280,10 @@ async function run(config) {
             const references = allImages.map(selectedSource).filter(src => assetFile(src) === url).map(src => new URL(src).hash.slice(1)).filter(Boolean);
             for (const error of viewErrors(motion.views, references)) fail('fragment-source', `${name}: ${error} in ${url}`);
             if (dataWorld && report.publishedSnapshot && motion.snapshot !== report.publishedSnapshot.observed_to) fail('snapshot-generation', `${name}: data asset timestamp differs from observed JSON ${url}`);
+            if (motion.dataBoundary) {
+              const counterpart = report.assets.find(previous => previous.motionSource.dataBoundary && previous.url.replace('-still.svg', '.svg') === url.replace('-still.svg', '.svg'));
+              if (counterpart && counterpart.motionSource.dataSHA256 !== motion.dataSHA256) fail('data-boundary', `${name}: normal/still world-data markup differs ${url}`);
+            }
             report.assets.push(asset);
             if (!assetResponse.ok() || !body.includes('<svg')) fail('asset-body', url);
             if (config['require-outlines'] === 'yes' && (!asset.paths || asset.textNodes)) fail('svg-outlines', url);

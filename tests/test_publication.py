@@ -14,9 +14,14 @@ PAYLOADS = (
     "pulse.svg",
     "pulse-mobile.svg",
     "activity.svg",
+    "world.svg",
+    "world-mobile.svg",
+    "world-still.svg",
+    "world-mobile-still.svg",
     "snapshot.json",
     "README.md",
 )
+LEGACY_PAYLOADS = tuple(name for name in PAYLOADS if not name.startswith("world"))
 
 
 def git(directory, *args):
@@ -26,7 +31,7 @@ def git(directory, *args):
 
 
 class PublicationTests(unittest.TestCase):
-    def publish(self, omitted=None):
+    def publish(self, initial_payloads, omitted=None):
         workflow = (ROOT / ".github/workflows/profile.yml").read_text()
         script = workflow.split("      - name: Publish generated assets only\n")[
             1
@@ -41,7 +46,7 @@ class PublicationTests(unittest.TestCase):
             git(checkout, "init", "--initial-branch=main")
             git(checkout, "config", "user.name", "Fixture")
             git(checkout, "config", "user.email", "fixture@example.invalid")
-            for name in (*PAYLOADS, "openclaw.svg"):
+            for name in (*initial_payloads, "openclaw.svg"):
                 (checkout / name).write_text("previous")
             (checkout / "unrelated.txt").write_text("preserve")
             git(checkout, "add", ".")
@@ -87,12 +92,15 @@ class PublicationTests(unittest.TestCase):
                 )
 
     def test_missing_current_payload_retains_remote_snapshot(self):
-        for name in PAYLOADS:
-            with self.subTest(name=name):
-                self.publish(omitted=name)
+        for initial_payloads in (LEGACY_PAYLOADS, PAYLOADS):
+            for name in PAYLOADS:
+                with self.subTest(initial_count=len(initial_payloads), name=name):
+                    self.publish(initial_payloads, omitted=name)
 
     def test_complete_snapshot_migrates_the_legacy_card_in_one_commit(self):
-        self.publish()
+        for initial_payloads in (LEGACY_PAYLOADS, PAYLOADS):
+            with self.subTest(initial_count=len(initial_payloads)):
+                self.publish(initial_payloads)
 
 
 if __name__ == "__main__":

@@ -3,7 +3,6 @@
 import html
 import json
 import subprocess
-import textwrap
 
 
 def rest(endpoint):
@@ -70,31 +69,33 @@ def markdown_activity(activity):
 
 
 def render_activity(activity):
-    rows = []
+    from scripts.profile_style import BLUE, COBALT, rule, svg, text
+
+    parts = [
+        text("Recent public work", 28, 52, 38, "display"),
+        text("Full titles + links in native snapshot", 28, 91, 23, color=BLUE),
+    ]
     for index, item in enumerate(activity):
-        y = 80 + index * 132
-        for line, value in enumerate(
-            textwrap.wrap(item["title"], width=40, max_lines=2, placeholder="…")
-        ):
-            rows.append(
-                f'<text x="28" y="{y + line * 28}" fill="#f4f1e9" font-size="24" textLength="{min(576, len(value) * 14.4):.1f}" lengthAdjust="spacingAndGlyphs">{html.escape(value)}</text>'
-            )
-        repository = f"{item['repo']}#{item['number']}"
-        repository = repository if len(repository) <= 48 else repository[:45] + "…"
-        rows.append(
-            f'<text x="28" y="{y + 62}" fill="#c7c3bb" font-size="20" textLength="{min(576, len(repository) * 12):.1f}" lengthAdjust="spacingAndGlyphs">{html.escape(repository)}</text>'
-        )
-        rows.append(
-            f'<text x="28" y="{y + 88}" fill="#c7c3bb" font-size="20">{html.escape(item["action"])} · {item["date"]}</text>'
-        )
-    height = 68 + max(len(activity), 1) * 132
-    if not rows:
-        rows.append(
-            '<text x="28" y="80" fill="#c7c3bb" font-size="24">No matching recent events</text>'
-        )
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" width="640" height="{height}" viewBox="0 0 640 {height}" role="img">
-    <title>Two recent public pull request and issue events. Full titles and links in the snapshot README.</title>
-    <rect width="640" height="{height}" rx="0" fill="#101010"/>
-    <g font-family="ui-monospace,monospace">
-    <text x="28" y="36" fill="#f04416" font-size="25">Recent public work</text>
-    {"".join(rows)}</g></svg>'''
+        y = 139 + index * 121
+        parts += [
+            rule(28, y - 22, 612, y - 22),
+            text(
+                f"{item['repo']}#{item['number']}",
+                28,
+                y + 16,
+                27,
+                "mono",
+                COBALT,
+                max_width=584,
+                minimum=12,
+            ),
+            text(f"{item['action']} / {item['date']}", 28, y + 57, 25),
+        ]
+    if not activity:
+        parts.append(text("No matching recent events", 28, 155, 28))
+    return svg(
+        640,
+        156 + max(len(activity), 1) * 121,
+        "".join(parts),
+        "Two recent public issue and pull request events. Graphics show repository, number, action and date. Full original Unicode titles and links are in the native snapshot README.",
+    )

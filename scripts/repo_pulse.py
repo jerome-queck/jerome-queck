@@ -1,5 +1,4 @@
 import datetime as dt
-import html
 import json
 import re
 from pathlib import Path
@@ -8,6 +7,7 @@ from urllib.parse import urlparse
 QUERY = """query($owner:String!, $name:String!, $cursor:String) {
   repository(owner:$owner, name:$name) {
     nameWithOwner url visibility isPrivate isEmpty
+    languages(first:100, orderBy:{field:SIZE, direction:DESC}) { totalSize totalCount edges { size node { name } } pageInfo { hasNextPage } }
     defaultBranchRef { name target { __typename ... on Commit { oid committedDate url } } }
     releases(first:100, after:$cursor) {
       nodes { isDraft isPrerelease publishedAt tagName url }
@@ -98,6 +98,7 @@ def fetch_repo_pulse(graphql, project: dict) -> dict:
             raise ValueError("Selected public repository unavailable")
         current_url = _required_text(repo.get("url"))
         if identity is None:
+            languages = language_bytes(repo.get("languages"))
             identity = current_url
             branch = repo.get("defaultBranchRef")
             if branch is None:
@@ -156,6 +157,7 @@ def fetch_repo_pulse(graphql, project: dict) -> dict:
                 "default_branch": branch_name,
                 "head": head,
                 "release": selected[1] if selected else None,
+                "language_bytes": languages,
             }
         next_cursor = page.get("endCursor")
         if (
@@ -170,96 +172,153 @@ def fetch_repo_pulse(graphql, project: dict) -> dict:
     raise ValueError("Incomplete release pagination")
 
 
-def _short(value, limit):
-    return value if len(value) <= limit else value[: limit - 1] + "…"
+def language_bytes(connection):
+    if (
+        not isinstance(connection, dict)
+        or connection.get("pageInfo", {}).get("hasNextPage") is not False
+        or not isinstance(connection.get("edges"), list)
+    ):
+        raise ValueError("Incomplete selected repository languages")
+    result = {}
+    for edge in connection["edges"]:
+        name, size = edge.get("node", {}).get("name"), edge.get("size")
+        if (
+            not isinstance(name, str)
+            or not name
+            or type(size) is not int
+            or size < 0
+            or name in result
+        ):
+            raise ValueError("Invalid selected repository language bytes")
+        result[name] = size
+    if (
+        type(connection.get("totalSize")) is not int
+        or type(connection.get("totalCount")) is not int
+        or connection["totalSize"] != sum(result.values())
+        or connection["totalCount"] != len(result)
+    ):
+        raise ValueError("Incomplete selected repository language totals")
+    return dict(sorted(result.items(), key=lambda item: (-item[1], item[0])))
 
 
-def render_pulse(projects: tuple[dict, ...], updated: str, mobile=False) -> str:
+def render_pulse(projects, updated, mobile=False):
+    from scripts.profile_style import BLUE, CITRON, COBALT, INK, RULE, rule, svg, text
+
     width = 480 if mobile else 900
     has_releases = any(project["release"] for project in projects)
-    row_height = (142 if mobile else 96) if has_releases else (92 if mobile else 76)
-    height = 200 + len(projects) * row_height
-    parts = [
-        f'<svg xmlns="http://www.w3.org/2000/svg" width="{width}" height="{height}" viewBox="0 0 {width} {height}" role="img">',
-        '<rect width="100%" height="100%" fill="#101010"/>',
-    ]
-
-    def text(x, y, value, size=22, color="#f4f1e9", limit=None, title=None):
-        full = html.escape(str(title if title is not None else value))
-        display = html.escape(_short(str(value), limit) if limit else str(value))
-        length = min(width - x - 28, len(html.unescape(display)) * size * 0.56)
-        parts.append(
-            f'<text x="{x}" y="{y}" fill="{color}" font-family="Arial, sans-serif" font-size="{size}" textLength="{length:.1f}" lengthAdjust="spacingAndGlyphs"><title>{full}</title>{display}</text>'
-        )
-
-    text(28, 48, "SELECTED REPOSITORY PULSE", 26, "#dfff00", 27 if mobile else None)
-    text(
-        28,
-        83,
-        "Default-branch commit · any author",
-        22,
-        limit=36 if mobile else None,
+    row_height = (160 if has_releases else 117) if mobile else 112
+    totals = {}
+    for project in projects:
+        for name, size in project["language_bytes"].items():
+            totals[name] = totals.get(name, 0) + size
+    languages = sorted(totals.items(), key=lambda item: (-item[1], item[0]))
+    chart = languages[:4]
+    if len(languages) > 4:
+        chart.append(("Other", sum(size for _, size in languages[4:])))
+    height = (
+        475
+        + len(projects) * row_height
+        + (len(chart) * 42 if mobile else ((len(chart) + 1) // 2) * 40)
     )
-    text(28, 115, updated, 22, "#f4f1e9", 34 if mobile else 75)
-    for i, project in enumerate(projects):
-        y = 145 + i * row_height
-        parts.append(
-            f'<path d="M28 {y} H{width - 28}" stroke="#f04416" stroke-width="2"/>'
-        )
-        text(
-            28,
-            y + 32,
-            f"{i + 1:02d}  {project['name']}",
-            24,
-            "#dfff00",
-            28 if mobile else 30,
-        )
-        head = project["head"]
+    parts = [
+        text("REPOSITORY NOTEBOOK", 28, 47, 32, "display"),
+        text("Default-branch tips / any author", 28, 87, 25, color=BLUE),
+        text(updated, 28, 124, 20, "mono", BLUE),
+    ]
+    for index, project in enumerate(projects):
+        y = 163 + index * row_height
+        parts += [
+            rule(28, y, width - 28, y),
+            text(f"{index + 1:02d}", 28, y + 41, 20, "mono", COBALT),
+            text(project["name"], 79, y + 43, 35, "display", max_width=width - 107),
+        ]
+        head, release = project["head"], project["release"]
         commit = (
-            f"{head['committed_at'][:10]} · {project['default_branch']}"
+            f"{head['committed_at'][:10]} / {head['oid'][:7]}"
             if head
             else "No default-branch commit"
         )
-        release = project["release"]
-        release_text = (
-            f"{_short(release['tag'], 12)} · {release['published_at'][:10]}"
-            + (" · prerelease" if release["prerelease"] else "")
-            if release
-            else "No published GitHub release"
-        )
-        if mobile:
-            text(28, y + 65, f"Commit: {commit}", 22, limit=35)
-            if not has_releases:
-                continue
-            text(28, y + 98, "Latest published GitHub release:", 22)
-            text(
-                28,
-                y + 128,
-                release_text,
-                22,
-                limit=34,
-                title=release["tag"] if release else None,
+        parts.append(text(commit, 79, y + 82, 23, "mono", BLUE, max_width=width - 107))
+        if release:
+            release_text = (
+                "Prerelease " if release["prerelease"] else "Release "
+            ) + release["published_at"][:10]
+            parts.append(
+                text(
+                    release_text,
+                    79 if mobile else 514,
+                    y + 120 if mobile else y + 82,
+                    24,
+                    max_width=width - 107 if mobile else 358,
+                )
             )
-        else:
-            text(350, y + 32, f"Commit: {commit}", 22, limit=43)
-            if not has_releases:
-                continue
-            text(
-                350,
-                y + 68,
-                f"Release: {release_text}",
-                22,
-                limit=43,
-                title=release["tag"] if release else None,
-            )
+    y = 195 + len(projects) * row_height
     if not has_releases:
-        if mobile:
-            text(28, height - 55, "No published GitHub releases", 22)
-            text(28, height - 24, "in this selection.", 22)
-        else:
-            text(28, height - 24, "No published GitHub releases in this selection.", 22)
-    parts.append("</svg>")
-    return "\n".join(parts)
+        parts.append(
+            text(
+                "No published releases in this selection.",
+                28,
+                y,
+                24,
+                color=BLUE,
+                max_width=width - 56,
+            )
+        )
+    parts.append(
+        text(
+            "Source links + release records in snapshot.",
+            28,
+            y + 36,
+            23,
+            color=BLUE,
+            max_width=width - 56,
+        )
+    )
+    y += 105
+    parts += [
+        text("GitHub language bytes", 28, y, 34, "display", max_width=width - 56),
+        text("Nine selected repos / not expertise", 28, y + 40, 24, color=BLUE),
+    ]
+    colors = [COBALT, BLUE, INK, CITRON, RULE]
+    total = sum(totals.values())
+    x = 28
+    for index, (name, size) in enumerate(chart):
+        bar = size / total * (width - 56) if total else 0
+        color = colors[index]
+        parts.append(
+            f'<rect x="{x:.3f}" y="{y + 63}" width="{bar:.3f}" height="24" fill="{color}" stroke="{INK}" stroke-width="0.5"><title>{name}: {size} bytes</title></rect>'
+        )
+        x += bar
+        column, row = (0, index) if mobile else (index % 2, index // 2)
+        label_x, label_y = 28 + column * 430, y + 126 + row * 42
+        parts.append(
+            f'<rect x="{label_x}" y="{label_y - 20}" width="18" height="18" fill="{color}" stroke="{INK}" stroke-width="0.5"/>'
+        )
+        parts.append(
+            text(
+                f"{name}: {size:,} / {size / total:.1%}" if total else f"{name}: 0",
+                label_x + 30,
+                label_y,
+                23,
+                max_width=394 if mobile else 390,
+            )
+        )
+    if not languages:
+        parts.append(
+            text(
+                "No language bytes in this selection.",
+                28,
+                y + 118,
+                24,
+                max_width=width - 56,
+            )
+        )
+    return svg(
+        width,
+        height,
+        "".join(parts),
+        "Selected repository pulse. Default-branch tips by any author and latest published release dates. Exact tags and source links in native snapshot. GitHub language bytes aggregate nine selected repositories, not expertise. Top four languages plus Other, with exact full bytes in native snapshot.",
+    )
 
 
 def markdown_pulse(projects: tuple[dict, ...]) -> str:
@@ -282,5 +341,15 @@ def markdown_pulse(projects: tuple[dict, ...]) -> str:
             + (" · prerelease" if release["prerelease"] else "")
             if release
             else "  - No published GitHub release"
+        )
+        languages = project["language_bytes"]
+        lines.append(
+            "  - GitHub language bytes: "
+            + (
+                ", ".join(
+                    f"{escape(name)} {size:,}" for name, size in languages.items()
+                )
+                or "none"
+            )
         )
     return "\n".join(lines) + "\n"

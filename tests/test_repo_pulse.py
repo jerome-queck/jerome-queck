@@ -33,6 +33,12 @@ def page(releases=(), next_cursor=None):
             "isPrivate": False,
             "isEmpty": False,
             "url": "https://github.com/Jerome-Group/algebra",
+            "languages": {
+                "totalSize": 10,
+                "totalCount": 1,
+                "edges": [{"size": 10, "node": {"name": "Python"}}],
+                "pageInfo": {"hasNextPage": False},
+            },
             "defaultBranchRef": {
                 "name": "trunk",
                 "target": {
@@ -138,9 +144,10 @@ class RepoPulseTests(unittest.TestCase):
         for mobile in (False, True):
             root = ET.fromstring(render_pulse((result,), "Updated now", mobile))
             content = " ".join(root.itertext())
-            self.assertIn("rc<&", content)
+            self.assertIn("Prerelease", content)
+            self.assertNotIn("rc<&", content)
             self.assertIn("2026-01-02", content)
-            self.assertIn("prerelease", content)
+            self.assertIn("prerelease", content.lower())
         self.assertIn("rc\\<&", markdown_pulse((result,)))
 
     def test_incomplete_pages_and_empty_repository(self):

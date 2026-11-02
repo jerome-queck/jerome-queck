@@ -5,7 +5,7 @@
 
 ## What this repo is
 
-Jerome Queck’s GitHub profile: mathematics and software, selected public projects, and original visual assets. The root README is the profile surface; exploratory designs remain on prototype branches.
+Jerome Queck’s GitHub profile: mathematics and software, selected public projects, and original visual assets. The root README is the profile surface; exploratory designs remain on prototype branches. Data graphic definitions and regeneration commands live in `docs/design/data-graphics.md`.
 
 - **Visibility:** public
 - **Owner:** [jerome-queck](https://github.com/jerome-queck)
@@ -13,7 +13,7 @@ Jerome Queck’s GitHub profile: mathematics and software, selected public proje
 
 ## Getting it running
 
-Python 3 collects public facts and generates contribution/repository panels in GitHub Actions. `data/projects.json` controls the nine authored selections. Run `python3 -m unittest discover -s tests` and Ruff format/check. Review Markdown and image assets directly. Before publication, validate relative links, image rendering, light/dark appearance and mobile readability on GitHub.
+Python 3 collects public facts and generates contribution/repository panels in GitHub Actions. `data/projects.json` controls the nine authored selections. Install the pinned typography dependencies with `python3 -m pip install -r requirements.txt`. Run `python3 -m unittest discover -s tests` and Ruff format/check. Review Markdown and image assets directly. Before publication, validate relative links, image rendering, light/dark appearance and mobile readability on GitHub.
 
 ## Conventions
 
@@ -89,8 +89,13 @@ skeleton CI has not earned that.
 
 ## Repository notes
 
-- Give mathematics and software equal weight. Feature Algebra and Calculus as mathematical notes websites.
+- Represent mathematics, software and open-source work without presenting Jerome as exclusively a mathematics profile. The visual direction may use mathematical ideas. Feature Algebra and Calculus as mathematical notes websites.
 - Do not feature Clarifold or Doomsday Protocol until the Owner changes that decision.
 - Record reversible design choices in `docs/design/decisions.md`; glossary terms only in `CONTEXT.md`.
 - No blanket licence has been selected. Do not assume generated images establish rights or apply a code licence to artwork.
 - Bootstrap exception: the initial empty commit establishes `main`; subsequent file changes use pull requests.
+- Keep graphic text outlined through `scripts/profile_style.py`; preserve native equivalents and full Unicode dynamic titles in the snapshot.
+- Schema 4 requires complete public contribution kinds, upstream PR records with patch counts, selected repository language bytes, and pinned cloc counts at all nine recorded public commits. The visible top ten uses physical code lines, including classified data, markup and configuration across all authors. Missing or truncated input must fail, never become a zero-valued chart. Displayed calendar/cadence windows begin in July 2026; all-time counters retain their stated scope.
+- Read `.agents/skills/verify/SKILL.md` before visual acceptance. Actual GitHub desktop/mobile, light/dark, motion and reduced-motion evidence is required; local previews alone do not prove it.
+- Read `.agents/skills/profile-publication/SKILL.md` after changing covered collection, rendering, publication or fixtures. A source-drift failure requires mapping review, not blindly refreshing hashes.
+- Maintain the browser feature map after UI or source changes and the publication model after covered-code changes. Follow the installed pstack maintenance skills, resolve their current paths, and preserve failed evidence. No recurring automation is implied.

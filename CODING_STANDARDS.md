@@ -103,7 +103,7 @@ Two shapes are settled, so no repository re-argues them:
 where tests are written, naming or layout rules particular to this codebase, and anything the
 core leaves open. Add them here; they evolve through this repository's normal pull-request flow.
 
-Python uses the standard library. CI runs Ruff format/check and unittest from a clean
+Collection uses the Python standard library. Typography uses pinned fontTools and uharfbuzz from `requirements.txt`. CI runs Ruff format/check and unittest from a clean
 checkout, including a fixture SVG build. Live data generation is a separate workflow.
 Decorative images need alt text; essential project names, descriptions and links remain
 selectable text. Organisation conformance automation is not installed in this personal repo.

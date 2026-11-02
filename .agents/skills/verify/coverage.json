@@ -1,0 +1,88 @@
+{
+  "version": 2,
+  "source_head": "92b883461dbd1031a74d0730f40f83c891e6ce8b",
+  "observed_date_utc": "2026-11-02",
+  "purpose": "Historical baseline plus observed proposed-world verification; production readback remains a separate release gate.",
+  "targets": [
+    "https://github.com/jerome-queck",
+    "https://github.com/jerome-queck/jerome-queck/blob/main/README.md"
+  ],
+  "browser": "Chrome 156.0.8078.74",
+  "playwright": "1.62.1",
+  "matrix": [
+    "desktop-light",
+    "desktop-dark",
+    "mobile-light",
+    "mobile-dark"
+  ],
+  "observations": {
+    "each_surface": "Four actual GitHub variants, all three disclosures, decoded images, headings, responsive source selection, background scheme, overflow, 17 actual-click GitHub destinations, published snapshot JSON and retained screenshots",
+    "profile_images_expanded": 22,
+    "profile_navigation": "All three chapter hashes change but fail to scroll to their native headings in every variant. Product gap remains visible.",
+    "repository_navigation": "All three chapter clicks reach uncovered headings in the top 160 pixels in every variant. Verified again after correcting the driver's initial CSS-offset-only assumption.",
+    "avatar": "Actual profile avatar decoded at 460 by 460; element screenshot retained. This is the old account avatar, not proof of proposed artwork adoption.",
+    "cleanup": "Every owned browser/context closed. External JSON and screenshots remained after cleanup."
+  },
+  "driver_corrections_reproved_live": [
+    "Resolve GitHub-rewritten relative picture srcsets before comparing currentSrc",
+    "Use stable disclosure locators while details state changes",
+    "Wait for fonts and near-top heading arrival rather than accepting visibility anywhere",
+    "Accommodate observed repository SPA top offset while requiring uncovered headings",
+    "Capture native account avatar independently from README artwork"
+  ],
+  "tests": {
+    "driver_boundary_tests": 5,
+    "existing_data_tests": 26,
+    "result": "passed"
+  },
+  "outcome": "baseline captured; profile chapter navigation blocked; proposed design unverified",
+  "not_proved": [
+    "Proposed branch README or new data-panel typography",
+    "New avatar adopted by the account",
+    "Authenticated calculator or assistant execution",
+    "Hosted refresh publication and scheduled delivery",
+    "Manual screen-reader and keyboard journeys",
+    "Full collector recollection during this driver-generation baseline"
+  ],
+  "evidence_policy": "Run artifacts live outside the checkout. The session handoff records their actual paths. Keep failed iterations. Update this record only after rereading source/maps and driving the changed actual surfaces.",
+  "maintenance": {
+    "source_head": "5af26d0e77c5d7e3e2571ab085cd68161d080f55",
+    "target_source": "https://github.com/jerome-queck/jerome-queck/blob/8c931f9/README.md",
+    "status": "passed proposed immutable GitHub preview; production publication not established",
+    "scope": "All four feature maps reread. Independent source and visual reviewers challenged the current implementation. The earlier baseline remains unchanged above.",
+    "driver_unit_tests": 11,
+    "python_tests": 75,
+    "observed_at": "2026-11-02T15:18:09.781Z",
+    "browser": "Chrome156.0.8078.74",
+    "playwright": "1.62.1",
+    "normal_variants": [
+      "desktop-light",
+      "desktop-dark",
+      "mobile-light",
+      "mobile-dark"
+    ],
+    "reduced_variants": "Fresh contexts for all four variants; every picture selects still, full-canvas decoded pixels unchanged.",
+    "observations": [
+      "Sixteen images in eleven gapless rows, five75/25website-source pairs, no overflow.",
+      "Nine actual title clicks, five repository clicks, six merged PR links and actual visible records/snapshot links.",
+      "Thirty-two fetched SVG variants have outlined text, meaningful alternatives, declared distinct view boxes and data timestamps matching schema4 input.",
+      "Decorative interior motion changes pixels; data remains still. Native still sources have zero pixel changes.",
+      "All project links and records source remain in the image-blocked text edition.",
+      "Calculator reaches its authentication boundary and returns403 anonymously; actual calculator operation remains unverified.",
+      "JQ avatar remains a separately supplied file. The account image is unchanged."
+    ],
+    "harness_corrections_reproved": [
+      "Resolved DOM href selection covers trailing-slash normalization.",
+      "Wait for GitHub SPA title transition before reading source contents.",
+      "Choose snapshot link from rendered Markdown rather than hidden file-tree markup.",
+      "Require schema4 source and matching data-snapshot timestamp."
+    ],
+    "not_proved": [
+      "Production main publication and CDN convergence.",
+      "Authenticated calculator or assistant operations.",
+      "Manual screen-reader journey.",
+      "New avatar uploaded to account.",
+      "Future scheduled execution; the schedule is configured but cannot guarantee delivery."
+    ]
+  }
+}

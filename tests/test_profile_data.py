@@ -14,8 +14,15 @@ from scripts.profile_data import (
     render_snapshot,
     resolved_issues,
 )
-from scripts.public_calendar import add_public_days, fetch_calendar, render_calendar
+from scripts.public_calendar import (
+    KINDS,
+    PublicCalendar,
+    add_public_days,
+    fetch_calendar,
+    render_calendar,
+)
 from scripts.recent_activity import markdown_activity, render_activity, select_activity
+from tests.test_source_lines import empty_source
 
 
 def pr(
@@ -100,10 +107,18 @@ class ProfileDataTests(unittest.TestCase):
             ),
             patch(
                 "scripts.profile_data.fetch_calendar",
-                return_value=(dt.date(2026, 9, 10), {"2026-09-10": 3}),
+                return_value=PublicCalendar(
+                    dt.date(2026, 7, 1),
+                    {"2026-09-10": 3},
+                    dict(zip(KINDS, [3, 0, 0, 0, 0])),
+                ),
             ),
             patch("scripts.profile_data.fetch_activity", return_value=[]),
             patch("scripts.profile_data.load_projects", return_value=[]),
+            patch(
+                "scripts.profile_data.collect_source_lines", return_value=empty_source()
+            ),
+            patch("scripts.profile_data.fetch_upstream", return_value=[]),
             patch("sys.argv", ["profile_data", directory]),
         ):
             main()
@@ -152,9 +167,117 @@ class ProfileDataTests(unittest.TestCase):
                 "966",
                 "31 Oct 2026 15:45 UTC",
                 "ALL TIME",
-                "Linked issues resolved",
+                "Linked closed issues",
             ]:
                 self.assertIn(expected, copy)
+
+    def test_calendar_mix_uses_same_public_records_and_pagination(self):
+        calls = []
+
+        def node(identity, count=None, private=False, restricted=False):
+            item = {
+                "isRestricted": restricted,
+                "resourcePath": identity,
+                "pullRequestReview": {"id": identity},
+                "occurredAt": "2026-07-01T12:00:00Z",
+                "repository": {"id": "repo1", "isPrivate": private},
+            }
+            if count is not None:
+                item["commitCount"] = count
+            return item
+
+        def query(source, **variables):
+            calls.append(variables)
+            if "commitContributionsByRepository" in source:
+                value = {
+                    "totalRepositoriesWithContributedCommits": 1,
+                    "commitContributionsByRepository": [
+                        {
+                            "contributions": {
+                                "nodes": [
+                                    node("commits", 3),
+                                    node("private", 99, private=True),
+                                    {"isRestricted": True},
+                                ],
+                                "pageInfo": {"hasNextPage": False},
+                            }
+                        }
+                    ],
+                }
+            else:
+                connection = next(
+                    name
+                    for name in (
+                        "issueContributions",
+                        "pullRequestContributions",
+                        "pullRequestReviewContributions",
+                        "repositoryContributions",
+                    )
+                    if name in source
+                )
+                more = connection == "issueContributions" and "cursor" not in variables
+                item = node(connection + str(variables.get("cursor", "")))
+                if connection in ("issueContributions", "pullRequestContributions"):
+                    item[
+                        "issue" if connection == "issueContributions" else "pullRequest"
+                    ] = {
+                        "id": item["resourcePath"],
+                        "repository": {"id": "repo1", "isPrivate": False},
+                    }
+                value = {
+                    connection: {
+                        "nodes": [item],
+                        "pageInfo": {
+                            "hasNextPage": more,
+                            "endCursor": "next" if more else None,
+                        },
+                    }
+                }
+            return {"user": {"contributionsCollection": value}}
+
+        calendar = fetch_calendar(query, dt.date(2026, 7, 1))
+        self.assertEqual(
+            calendar.kinds,
+            {
+                "commits": 3,
+                "issues": 2,
+                "pull_requests": 1,
+                "reviews": 1,
+                "repositories": 1,
+            },
+        )
+        self.assertEqual(calendar.days, {"2026-07-01": 8})
+        self.assertEqual(sum(calendar.kinds.values()), sum(calendar.days.values()))
+        self.assertEqual(calls[2]["cursor"], "next")
+
+    def test_calendar_duplicate_public_record_aborts(self):
+        record = {
+            "isRestricted": False,
+            "resourcePath": "/same",
+            "occurredAt": "2026-07-01T12:00:00Z",
+            "repository": {"id": "repo1", "isPrivate": False},
+            "commitCount": 1,
+        }
+
+        def query(*a, **kw):
+            return {
+                "user": {
+                    "contributionsCollection": {
+                        "totalRepositoriesWithContributedCommits": 1,
+                        "commitContributionsByRepository": [
+                            {
+                                "contributions": {
+                                    "nodes": [record, record],
+                                    "pageInfo": {"hasNextPage": False},
+                                }
+                            }
+                        ],
+                    }
+                }
+            }
+
+        with self.assertRaisesRegex(ValueError, "Duplicate"):
+            fetch_calendar(query, dt.date(2026, 7, 1))
 
     def test_calendar_nonadvancing_cursors_fail_without_timeout(self):
         for cursor in (None, "repeated"):
@@ -209,16 +332,16 @@ class ProfileDataTests(unittest.TestCase):
         months = merge_months(
             {
                 "2025-11-30": 10,
-                "2025-12-01": 2,
+                "2026-07-01": 2,
                 "2026-11-01": 3,
                 "2026-11-02": 99,
                 "2026-12-01": 99,
             },
             dt.date(2026, 11, 1),
         )
-        self.assertEqual(len(months), 12)
-        self.assertEqual(next(iter(months)), "2025-12")
-        self.assertEqual(months["2026-01"], 0)
+        self.assertEqual(len(months), 5)
+        self.assertEqual(next(iter(months)), "2026-07")
+        self.assertEqual(months["2026-08"], 0)
         self.assertEqual(months["2026-11"], 3)
         self.assertEqual(sum(months.values()), 5)
 
@@ -279,7 +402,9 @@ class ProfileDataTests(unittest.TestCase):
             ),
             patch(
                 "scripts.profile_data.fetch_calendar",
-                return_value=(dt.date(2026, 9, 10), {}),
+                return_value=PublicCalendar(
+                    dt.date(2026, 7, 1), {}, dict.fromkeys(KINDS, 0)
+                ),
             ),
             patch("scripts.profile_data.fetch_activity", return_value=[]),
             patch("scripts.profile_data.load_projects", return_value=[{}]),
@@ -298,20 +423,23 @@ class ProfileDataTests(unittest.TestCase):
 
     def test_all_graphics_and_text_derive_from_saved_snapshot(self):
         snapshot = {
-            "schema_version": 1,
+            "schema_version": 4,
             "observed_from": "2026-11-01T00:00:00+00:00",
             "observed_to": "2026-11-01T00:01:00+00:00",
             "updated": "01 Nov 2026 00:01 UTC",
             "counts": [10, 8, 6],
-            "calendar_start": "2025-11-02",
+            "calendar_start": "2026-07-01",
             "calendar_end": "2026-11-01",
             "calendar_days": {"2026-11-01": 3},
+            "calendar_kinds": dict(zip(KINDS, [3, 0, 0, 0, 0])),
             "merge_months": merge_months({"2026-11-01": 2}, dt.date(2026, 11, 1)),
             "projects": [],
+            "source_lines": empty_source(),
             "recent_events": [],
+            "upstream_prs": [],
         }
         files = render_snapshot(snapshot)
-        self.assertEqual(len(files), 11)
+        self.assertEqual(len(files), 15)
         self.assertEqual(files, render_snapshot(snapshot))
         for name, source in files.items():
             if name.endswith(".svg"):
@@ -321,38 +449,37 @@ class ProfileDataTests(unittest.TestCase):
         self.assertIn("2026-11: 2", files["README.md"])
         self.assertIn('"2026-11": 2', files["snapshot.json"])
 
-    def test_long_words_cannot_add_a_third_title_line(self):
+    def test_long_titles_remain_complete_native_without_changing_graphic_height(self):
         event = {
             "title": " ".join(["a" * 24] * 3),
             "repo": "owner/repo",
             "number": 1,
             "action": "opened",
             "date": "2026-10-31",
+            "url": "https://github.com/owner/repo/pull/1",
         }
-        root = ET.fromstring(render_activity([event]))
-        title_lines = [
-            node for node in root.iter() if node.attrib.get("font-size") == "24"
-        ]
-        self.assertLessEqual(len(title_lines), 2)
+        graphic = render_activity([event])
+        event["title"] += " e\u0301 天気" * 20
+        self.assertEqual(render_activity([event]), graphic)
+        self.assertIn(event["title"], markdown_activity([event]))
 
-    def test_remote_event_runs_have_declared_layout_widths(self):
+    def test_remote_titles_stay_native_and_overlong_identifiers_fail(self):
         event = {
-            "title": "W" * 80,
-            "repo": "W" * 80,
+            "title": "未知 e\u0301 🧮",
+            "repo": "owner/project",
             "number": 1,
             "action": "opened",
             "date": "2026-10-31",
+            "url": "https://github.com/owner/project/pull/1",
         }
         root = ET.fromstring(render_activity([event]))
-        runs = [
-            node
-            for node in root.iter()
-            if node.attrib.get("font-size") == "24" or node.attrib.get("y") == "142"
-        ]
-        self.assertEqual(len(runs), 3)
-        for node in runs:
-            self.assertLessEqual(float(node.attrib["textLength"]), 576)
-            self.assertEqual(node.attrib["lengthAdjust"], "spacingAndGlyphs")
+        self.assertEqual(list(root.iter("{http://www.w3.org/2000/svg}text")), [])
+        self.assertIn(event["title"], markdown_activity([event]))
+        self.assertIn("owner/project#1", " ".join(root.itertext()))
+        self.assertNotIn("textLength", render_activity([event]))
+        event["repo"] = "W" * 100
+        with self.assertRaisesRegex(ValueError, "does not fit"):
+            render_activity([event])
 
     def test_recent_activity_stays_at_two_events(self):
         events = [

@@ -101,3 +101,21 @@ The Owner also rejected the editorial replacement as insufficiently different, r
 Primary source and asset research now covers collectioneur's whole-profile custom graphics, andyruwruw's subject-specific interfaces, BrunnerLivio's complete themed page and other references. The next three generated full-page studies vary the entire composition. Independent review selects Circuit Atlas, while challenging its repetitive card rows. Use varied exhibits and a meaningful software relationship graphic instead. These generated studies are visual targets; their model-invented captions and illustrative plots do not become content.
 
 Original chrome/orange/ivory artwork, separately linked navigation, a precise math experiment, illustrated software flow and substantial contribution/repo displays carry one visual identity. Native text and independently usable links remain. Show twelve-month authored public merge cadence and the nine selected repositories' actual default-branch tips/published releases. Keep the two-event feed minimal. Source facts, scope, timestamps and failure behavior remain explicit. See [Circuit Atlas](circuit-atlas.md), [research](../research/heavily-designed-readmes.md) and ADR-0003. Actual GitHub visual acceptance remains unverified while browser access is unavailable. All organisation work remains cancelled.
+
+## Field-journal prototype rejected, 2 November 2026
+
+The owner rejected the initial field-journal profile as a generic list of projects and contributions. Its two-line Fraunces masthead and mathematical/software plates remain external prototype evidence, not the accepted profile. The generated JQ avatar is accepted. The next design must build a coherent identity across software, open-source contributions and mathematical work.
+
+The data work remains useful independently. Display merge cadence and calendar records from 1 July 2026 through the current collection date. All-time counters keep their explicit all-time scope. Add complete external-project PR records, repository language bytes and frequency by weekday without changing the eleven publication payloads. Public headings use "Open-source contributions". Technical ownership exclusions and collection limits belong in the native definitions. See [data graphic definitions](data-graphics.md) and [fresh contribution evidence](../research/upstream-contributions-2026-11-02.md).
+
+## Final workshop and data scope, 2 November 2026
+
+This entry supersedes earlier layout and data-display choices. The owner asked for a playful pixel world, compact linked project titles/descriptions, compact upstream PR-number receipts, more kinds of analytics and top ten languages by lines rather than bytes. Mathematics is one strand of the profile, not its entire identity. All five verified mathematics sites and four software projects remain; Clarifold and Doomsday remain excluded. Organisation work remains cancelled.
+
+Use a continuous original cutaway workshop with separately clickable native image views. Keep mobile labels readable and website/repository destinations distinct. Quiet opaque data ledgers share its palette. Small decorative motion has explicit native still-image selection for reduced motion. Public statistics remain static within a completed snapshot.
+
+Schema 4 adds actual pinned-cloc physical line counts at nine recorded public commits. No byte conversion is used. Data, markup and configuration can count as code, across all authors; this is repository composition, not personal authorship. The top ten and Other appear graphically, with the full classifier table and source revisions natively. Both time histories begin July 2026. Queries are bounded below GitHub's one-year limit, and the monthly chart wraps rather than discarding its history.
+
+The fifteen-payload publication model includes both the actual eleven-file legacy snapshot and later complete fifteen-file snapshots. Main README and generated-branch publication remain separate transitions; Git's atomic ref update does not imply simultaneous CDN visibility.
+
+The owner requires the avatar to identify Jerome. Retain the recognizable intertwined JQ initials; match the workshop materials around that identity instead of replacing it with a mascot. The upload-ready image is provided separately from any account setting.

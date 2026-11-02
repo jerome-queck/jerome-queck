@@ -9,3 +9,57 @@ The model starts from either the 11-file legacy snapshot with four absent world 
 TLC 2.19 with pinned TLA+ tools 1.7.4 explores 2,431 distinct states and 4,742 generated states to depth 35. `CompleteSnapshot` and `StaleRejected` hold. Omitting the existing cadence-mobile copy breaks completeness in 17 transitions, including from the legacy state. The scratch workflow reproduces the mixed snapshot with old cadence-mobile content; the restored fixture passes both initial states, all 15 missing payloads, complete one-commit updates, unrelated-file preservation and stale-parent rejection. Omitting a new world file is not modeled as a successful push: staging the absent path fails. Structural guard mutations for the bound, legacy slots, copy, staging and CI invocation were rejected. Detailed run output is retained as external evidence.
 
 [One-publisher lifecycle](chart.mmd) is an illustration of both initial states, not the two-publisher proof. Its view hides 32 copy-stage failure steps; each retains its initial snapshot. The two-publisher passing run exceeds Statechart's 500-state drawing budget. The legacy-only mutant path and full passing report were generated separately.
+
+## One-publisher lifecycle
+
+This is the exact Statechart output from `chart.cfg`. It illustrates the checked lifecycle for one publisher, with both starting snapshots. The full two-publisher proof is reported above. Thirty-two copy-stage failure transitions are hidden; each leaves its initial complete or legacy snapshot intact.
+
+```mermaid
+---
+title: "One publisher. Legacy upgrade and steady refresh."
+---
+stateDiagram-v2
+  s0: Complete snapshot, 15 files
+  s1: Legacy snapshot, 11 files
+  s2: Copied 0 of 15 payloads
+  s3: Complete snapshot retained
+  s4: Legacy snapshot retained
+  s5: Copied 1 of 15 payloads
+  s6: Copied 2 of 15 payloads
+  s7: Copied 3 of 15 payloads
+  s8: Copied 4 of 15 payloads
+  s9: Copied 5 of 15 payloads
+  s10: Copied 6 of 15 payloads
+  s11: Copied 7 of 15 payloads
+  s12: Copied 8 of 15 payloads
+  s13: Copied 9 of 15 payloads
+  s14: Copied 10 of 15 payloads
+  s15: Copied 11 of 15 payloads
+  s16: Copied 12 of 15 payloads
+  s17: Copied 13 of 15 payloads
+  s18: Copied 14 of 15 payloads
+  s19: Copied 15 of 15 payloads
+  s20: Snapshot published
+  [*] --> s0
+  [*] --> s1
+  s0 --> s2: Collect and render
+  s0 --> s3: Refresh fails
+  s1 --> s2: Collect and render
+  s1 --> s4: Refresh fails
+  s2 --> s5: Copy next payload
+  s5 --> s6: Copy next payload
+  s6 --> s7: Copy next payload
+  s7 --> s8: Copy next payload
+  s8 --> s9: Copy next payload
+  s9 --> s10: Copy next payload
+  s10 --> s11: Copy next payload
+  s11 --> s12: Copy next payload
+  s12 --> s13: Copy next payload
+  s13 --> s14: Copy next payload
+  s14 --> s15: Copy next payload
+  s15 --> s16: Copy next payload
+  s16 --> s17: Copy next payload
+  s17 --> s18: Copy next payload
+  s18 --> s19: Copy next payload
+  s19 --> s20: Push snapshot
+```

@@ -1,8 +1,8 @@
 {
-  "version": 1,
+  "version": 2,
   "source_head": "92b883461dbd1031a74d0730f40f83c891e6ce8b",
   "observed_date_utc": "2026-11-02",
-  "purpose": "Driver generation baseline, before the proposed typography and statistics refresh",
+  "purpose": "Historical baseline plus observed proposed-world verification; production readback remains a separate release gate.",
   "targets": [
     "https://github.com/jerome-queck",
     "https://github.com/jerome-queck/jerome-queck/blob/main/README.md"
@@ -46,19 +46,43 @@
   ],
   "evidence_policy": "Run artifacts live outside the checkout. The session handoff records their actual paths. Keep failed iterations. Update this record only after rereading source/maps and driving the changed actual surfaces.",
   "maintenance": {
-    "source_head": "74b831a",
-    "target_source": "Immutable proposed README URL pending from coordinator.",
-    "status": "blocked: final live GitHub matrix pending; no pass claimed",
-    "scope": "Sequential source coverage of all four feature files. No child readers under coordinator instruction. Historical baseline above is unchanged.",
-    "source_review_notes": "External session evidence/linked-driver-notes/source-coverage.md records source entry points and recipes.",
+    "source_head": "5af26d0e77c5d7e3e2571ab085cd68161d080f55",
+    "target_source": "https://github.com/jerome-queck/jerome-queck/blob/8c931f9/README.md",
+    "status": "passed proposed immutable GitHub preview; production publication not established",
+    "scope": "All four feature maps reread. Independent source and visual reviewers challenged the current implementation. The earlier baseline remains unchanged above.",
     "driver_unit_tests": 11,
-    "corrections_pending_live_reproof": [
-      "Sixteen-image continuous canvas and eleven rows including five 75/25 pairs",
-      "Nine actual image-title clicks, five image-source clicks, six merged PR receipts",
-      "Fragment-safe media file selection, explicit SVG views and retained actual view bitmaps",
-      "All-picture fresh reduced-motion selection and zero-pixel canvas motion",
-      "Authored decorative circles distinguished from generated static data boundary",
-      "Generic actual records-source and snapshot-link discovery including immutable previews"
+    "python_tests": 75,
+    "observed_at": "2026-11-02T15:18:09.781Z",
+    "browser": "Chrome156.0.8078.74",
+    "playwright": "1.62.1",
+    "normal_variants": [
+      "desktop-light",
+      "desktop-dark",
+      "mobile-light",
+      "mobile-dark"
+    ],
+    "reduced_variants": "Fresh contexts for all four variants; every picture selects still, full-canvas decoded pixels unchanged.",
+    "observations": [
+      "Sixteen images in eleven gapless rows, five75/25website-source pairs, no overflow.",
+      "Nine actual title clicks, five repository clicks, six merged PR links and actual visible records/snapshot links.",
+      "Thirty-two fetched SVG variants have outlined text, meaningful alternatives, declared distinct view boxes and data timestamps matching schema4 input.",
+      "Decorative interior motion changes pixels; data remains still. Native still sources have zero pixel changes.",
+      "All project links and records source remain in the image-blocked text edition.",
+      "Calculator reaches its authentication boundary and returns403 anonymously; actual calculator operation remains unverified.",
+      "JQ avatar remains a separately supplied file. The account image is unchanged."
+    ],
+    "harness_corrections_reproved": [
+      "Resolved DOM href selection covers trailing-slash normalization.",
+      "Wait for GitHub SPA title transition before reading source contents.",
+      "Choose snapshot link from rendered Markdown rather than hidden file-tree markup.",
+      "Require schema4 source and matching data-snapshot timestamp."
+    ],
+    "not_proved": [
+      "Production main publication and CDN convergence.",
+      "Authenticated calculator or assistant operations.",
+      "Manual screen-reader journey.",
+      "New avatar uploaded to account.",
+      "Future scheduled execution; the schedule is configured but cannot guarantee delivery."
     ]
   }
 }

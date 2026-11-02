@@ -4,7 +4,7 @@ from functools import lru_cache
 import random
 from PIL import Image, ImageDraw
 
-PALETTE = {'sky':'#101b2a','panel':'#17283a','ink':'#f4dfb5','muted':'#a7b7b6','accent':'#e8b45d','blue':'#72b5ca','rule':'#395063'}
+PALETTE = {'sky':'#101b2a','panel':'#17283a','ink':'#f4dfb5','muted':'#a7b7b6','accent':'#e8b45d','blue':'#72b5ca','rule':'#395063','outline':'#171d2c'}
 SCENE_SIZE = {'wide': (900, 620), 'mobile': (480, 620)}
 
 @lru_cache(maxsize=2)
@@ -63,8 +63,18 @@ def _pixels(mobile):
     # Timber frame, plaster flecks and warm window apertures.
     for x in [cx-31,cx-8,cx+27]: rect(x,57,x+3,126,'#3c343b'); rect(x+1,57,x+1,125,'#b18b72')
     for y in [61,88,120]: rect(cx-30,y,cx+29,y+3,'#403942'); rect(cx-30,y,cx+29,y,'#c09a79')
-    for x,y in [(cx-25,68),(cx+3,67),(cx-25,96),(cx+9,96)]:
+    for x,y in [(cx-25,68),(cx+9,96)]:
         rect(x-2,y-2,x+14,y+17,'#41373a'); rect(x,y,x+12,y+14,'#edb86e'); rect(x+1,y+1,x+11,y+7,'#ffe3a0'); rect(x+6,y,x+7,y+14,'#775b4b'); rect(x,y+8,x+12,y+9,'#775b4b'); rect(x-3,y+16,x+15,y+18,'#b39677')
+    # An open oddments shelf and a round porthole replace the repeated windows.
+    rect(cx-26,95,cx-10,114,'#494249'); rect(cx-24,97,cx-12,112,'#736559')
+    for yy in (101,107,112): rect(cx-25,yy,cx-11,yy+1,'#c09e7c')
+    for xx,yy,col in [(cx-23,97,'#d9a989'),(cx-19,98,'#9fb3a0'),(cx-16,96,'#e2c38c'),(cx-23,103,'#bac2a4'),(cx-18,103,'#e1c990'),(cx-14,104,'#bd8f7b'),(cx-22,109,'#dab98b'),(cx-16,108,'#9aafa2')]: rect(xx,yy,xx+2,yy+3,col)
+    ellipse((cx+2,66,cx+20,84),'#4a4044'); ellipse((cx+4,68,cx+18,82),'#e1b77e'); ellipse((cx+6,70,cx+16,80),'#83a6a0')
+    rect(cx+10,70,cx+11,80,'#6c6156'); rect(cx+6,74,cx+16,75,'#6c6156')
+    # A line of laundry and little notes make the tower inhabited.
+    rect(cx-30,87,cx+26,87,'#dabd96')
+    for xx,yy,col in [(cx-25,87,'#d6b0a0'),(cx-18,87,'#a6bcb0'),(cx+15,87,'#ead9ae'),(cx+21,87,'#cda994')]:
+        rect(xx,yy,xx+3,yy+4,col); rect(xx+1,yy-1,xx+1,yy,'#6d5a51')
     # Round attic window.
     ellipse((cx-9,44,cx+9,62),'#403943'); ellipse((cx-7,46,cx+7,60),'#ffd995'); rect(cx-1,46,cx+1,60,'#856953'); rect(cx-7,52,cx+7,54,'#856953')
     # Door and stone steps, with a glowing threshold.
@@ -91,6 +101,20 @@ def _pixels(mobile):
     poly([(cx-16,160),(cx-16,153),(cx-12,149),(cx+12,149),(cx+16,153),(cx+16,160)],'#2b2932')
     poly([(cx-13,160),(cx-13,154),(cx-10,152),(cx+10,152),(cx+13,154),(cx+13,160)],'#e8b574')
     rect(cx-1,152,cx+1,160,'#73574c'); rect(cx-13,157,cx+13,158,'#73574c')
+    # A roof-mounted hoist reaches across the garden. The dangling star-shaped
+    # lantern and loose rope break the roofline and give the place a small task.
+    rect(cx-34,54,cx-32,96,'#493f40'); rect(cx-43,56,cx-32,58,'#71594f')
+    poly([(cx-47,51),(cx-43,47),(cx-39,51),(cx-39,58),(cx-47,58)],'#9e866e')
+    ellipse((cx-46,49,cx-40,55),'#d4b488'); rect(cx-43,43,cx-42,49,'#b19c80')
+    rect(cx-44,59,cx-44,84,'#c3b092'); rect(cx-47,83,cx-41,89,'#65554b')
+    rect(cx-46,84,cx-42,88,'#edc37e'); rect(cx-45,82,cx-43,90,'#ffdf9b')
+    # Asymmetrical roof additions: a tiny dormer and leaning stovepipe.
+    poly([(cx+6,35),(cx+6,25),(cx+11,20),(cx+19,23),(cx+22,35)],'#3c4b54')
+    poly([(cx+8,34),(cx+8,26),(cx+12,23),(cx+18,25),(cx+20,34)],'#9b8273')
+    rect(cx+11,27,cx+16,32,'#efc78a'); rect(cx+13,27,cx+13,32,'#7f695c')
+    rect(cx-20,21,cx-16,31,'#58656a'); rect(cx-22,19,cx-15,22,'#a08a78')
+    # Smoke curls in discrete tiles, leaving the stars visible through it.
+    for xx,yy in [(cx-21,17),(cx-23,15),(cx-21,13),(cx-17,12),(cx-15,10),(cx-17,8)]: rect(xx,yy,xx+2,yy+1,'#4f6170')
     # A crooked side awning, shelves, and luminous glass jars give the building a lived-in edge.
     poly([(cx-50,105),(cx-33,99),(cx-29,104),(cx-46,111)],'#303944')
     poly([(cx-49,104),(cx-34,99),(cx-32,102),(cx-47,108)],'#9b7667')
@@ -159,6 +183,15 @@ def _pixels(mobile):
         rect(274,117,291,121,'#5b6870'); poly([(272,120),(293,120),(289,127),(278,127)],'#c18f70')
         rect(280,109,286,119,'#eacb95'); rect(282,106,283,109,'#786f6a'); rect(277,122,289,123,'#ead2a3')
         for xx,yy in [(278,129),(286,132),(291,130)]: rect(xx,yy,xx+1,yy+1,'#e9c68e')
+    if mobile:
+        # A tiny floating book and a launch use the negative space around the
+        # island; the narrow view keeps its own complete little world.
+        poly([(2,178),(13,173),(24,176),(34,173),(44,179),(34,183),(24,181),(13,184)],'#2b3440')
+        poly([(3,177),(13,172),(24,175),(34,172),(43,177),(34,181),(24,178),(13,182)],'#e3d5b3')
+        rect(24,175,24,181,'#a88c74'); rect(9,177,17,177,'#a39d88'); rect(29,176,36,176,'#a39d88')
+        poly([(135,158),(156,158),(152,165),(141,165)],'#c18f70')
+        rect(142,149,148,157,'#eacb95'); rect(144,146,145,149,'#786f6a'); rect(140,160,152,161,'#ead2a3')
+        for xx,yy in [(140,168),(149,170),(155,167)]: rect(xx,yy,xx+1,yy+1,'#e9c68e')
     return im
 
 def render_scene(mobile=False, motion='ambient'):

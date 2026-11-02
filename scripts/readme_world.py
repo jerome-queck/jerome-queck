@@ -84,24 +84,30 @@ def _cadence(snapshot, width, y, mobile):
             max_width=width - 56,
         ),
     ]
-    pitch = (width - 56) / len(months)
+    columns = min(len(months), 4 if mobile else 8) or 1
+    pitch = (width - 56) / columns
+    rows = max(1, math.ceil(len(months) / columns))
+    row_height = 204
     for index, (month, count) in enumerate(months.items()):
-        x = 28 + index * pitch
+        row, column = divmod(index, columns)
+        x = 28 + column * pitch
+        baseline = y + 245 + row * row_height
         height = count / maximum * 110
         parts += [
             (
-                f'<rect x="{x}" y="{y + 245 - height}" width="{pitch * 0.62}" height="{height}" fill="{COBALT}"/>'
+                f'<rect x="{x}" y="{baseline - height}" width="{pitch * 0.62}" height="{height}" fill="{COBALT}"/>'
                 if count
                 else ""
             ),
-            text(count, x, y + 230 - height, 20, "mono"),
-            text(month[5:], x, y + 275, 20, "mono"),
+            text(count, x, baseline - 15 - height, 20, "mono", max_width=pitch - 12),
+            text(month, x, baseline + 30, 18, "mono", max_width=pitch - 12),
         ]
+    footer = y + 313 + (rows - 1) * row_height
     parts += [
         text(
             f"2026-07-01 to {snapshot['calendar_end']}",
             28,
-            y + 313,
+            footer,
             20,
             "mono",
             BLUE,
@@ -110,13 +116,13 @@ def _cadence(snapshot, width, y, mobile):
         text(
             "Current month partial; all public repositories.",
             28,
-            y + 344,
+            footer + 31,
             20,
             color=BLUE,
             max_width=width - 56,
         ),
     ]
-    return "".join(parts), y + 377
+    return "".join(parts), footer + 64
 
 
 def _activity_mix(snapshot, width, y):

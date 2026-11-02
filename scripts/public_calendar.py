@@ -24,6 +24,13 @@ def add_public_days(days, nodes, resource=None):
             days[node["occurredAt"][:10]] += node.get("commitCount", 1)
 
 
+def _date_windows(start, end, days):
+    while start <= end:
+        stop = min(start + dt.timedelta(days=days - 1), end)
+        yield start, stop
+        start = stop + dt.timedelta(days=1)
+
+
 def fetch_calendar(graphql, today, start=dt.date(2026, 7, 1)):
     if start > today:
         raise ValueError("Calendar window begins after its end")
@@ -59,9 +66,7 @@ def fetch_calendar(graphql, today, start=dt.date(2026, 7, 1)):
             kinds[kind] += count
         add_public_days(days, public, resource)
 
-    window = start
-    while window <= today:
-        end = min(window + dt.timedelta(days=27), today)
+    for window, end in _date_windows(start, today, 28):
         query = """query($from:DateTime!, $to:DateTime!) { user(login:"jerome-queck") {
           contributionsCollection(from:$from,to:$to) {
             totalRepositoriesWithContributedCommits
@@ -82,14 +87,12 @@ def fetch_calendar(graphql, today, start=dt.date(2026, 7, 1)):
             if connection["pageInfo"]["hasNextPage"] is not False:
                 raise ValueError("Commit days truncated")
             add("commits", connection["nodes"])
-        window = end + dt.timedelta(days=1)
     for kind, connection, resource in [
         ("issues", "issueContributions", "issue"),
         ("pull_requests", "pullRequestContributions", "pullRequest"),
         ("reviews", "pullRequestReviewContributions", None),
         ("repositories", "repositoryContributions", None),
     ]:
-        cursor, seen = None, set()
         resource_field = (
             f"{resource} {{ id repository {{ id isPrivate }} }}"
             if resource
@@ -110,22 +113,24 @@ def fetch_calendar(graphql, today, start=dt.date(2026, 7, 1)):
             }}
           }}
         }} }}"""
-        while True:
-            variables = {"from": f"{start}T00:00:00Z", "to": f"{today}T23:59:59Z"}
-            if cursor:
-                variables["cursor"] = cursor
-            page = graphql(query, **variables)["user"]["contributionsCollection"][
-                connection
-            ]
-            add(kind, page["nodes"], resource)
-            if page["pageInfo"]["hasNextPage"] is False:
-                break
-            if page["pageInfo"]["hasNextPage"] is not True:
-                raise ValueError("Incomplete contribution pagination")
-            cursor = page["pageInfo"]["endCursor"]
-            if not cursor or cursor in seen:
-                raise ValueError("Contribution pagination did not advance")
-            seen.add(cursor)
+        for window, end in _date_windows(start, today, 365):
+            cursor, seen = None, set()
+            while True:
+                variables = {"from": f"{window}T00:00:00Z", "to": f"{end}T23:59:59Z"}
+                if cursor:
+                    variables["cursor"] = cursor
+                page = graphql(query, **variables)["user"]["contributionsCollection"][
+                    connection
+                ]
+                add(kind, page["nodes"], resource)
+                if page["pageInfo"]["hasNextPage"] is False:
+                    break
+                if page["pageInfo"]["hasNextPage"] is not True:
+                    raise ValueError("Incomplete contribution pagination")
+                cursor = page["pageInfo"]["endCursor"]
+                if not cursor or cursor in seen:
+                    raise ValueError("Contribution pagination did not advance")
+                seen.add(cursor)
     return PublicCalendar(start, dict(days), kinds)
 
 

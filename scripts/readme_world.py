@@ -80,7 +80,7 @@ def _cadence(snapshot, width, y, mobile):
             max_width=width - 56,
         ),
     ]
-    columns = min(len(months), 4 if mobile else 8) or 1
+    columns = min(len(months), 5 if mobile else 8) or 1
     pitch = (width - 56) / columns
     rows = max(1, math.ceil(len(months) / columns))
     row_height = 204
@@ -95,8 +95,8 @@ def _cadence(snapshot, width, y, mobile):
                 if count
                 else ""
             ),
-            text(count, x, baseline - 15 - height, 20, "mono", max_width=pitch - 12),
-            text(month, x, baseline + 30, 18, "mono", max_width=pitch - 12),
+            text(count, x, baseline - 15 - height, 20, "mono", max_width=pitch - 8),
+            text(month, x, baseline + 30, 18, "mono", max_width=pitch - 8),
         ]
     footer = y + 313 + (rows - 1) * row_height
     parts += [

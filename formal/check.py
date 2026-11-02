@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-"""Check source correspondence, real Git behavior, and the bounded model."""
 
 import hashlib
 import os

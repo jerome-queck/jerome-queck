@@ -126,10 +126,15 @@ class CalendarWindowTests(unittest.TestCase):
             )
 
     def test_cadence_full_history_wraps_with_year_labels_and_bounded_ink(self):
-        for today in (dt.date(2027, 6, 30), dt.date(2027, 12, 31), dt.date(2028, 7, 1)):
+        for today in (
+            dt.date(2026, 11, 2),
+            dt.date(2027, 6, 30),
+            dt.date(2027, 12, 31),
+            dt.date(2028, 7, 1),
+        ):
             months = merge_months({}, today)
             months = {month: 123456789 + i for i, month in enumerate(months)}
-            for width, mobile, columns in ((480, True, 4), (900, False, 8)):
+            for width, mobile, columns in ((480, True, 5), (900, False, 8)):
                 with self.subTest(today=today, mobile=mobile):
                     document, end = _cadence(
                         {"merge_months": months, "calendar_end": str(today)},
@@ -145,12 +150,15 @@ class CalendarWindowTests(unittest.TestCase):
                     }
                     self.assertTrue(set(months).issubset(labels))
                     self.assertIn("2026-07", labels)
-                    self.assertIn(
-                        "2027-07"
-                        if today.month == 7 and today.year == 2028
-                        else "2027-06",
-                        labels,
-                    )
+                    if today.year == 2026:
+                        self.assertLess(end, 400)
+                    else:
+                        self.assertIn(
+                            "2027-07"
+                            if today.month == 7 and today.year == 2028
+                            else "2027-06",
+                            labels,
+                        )
                     baselines = Counter(
                         labels[month].get("data-bounds").split()[1] for month in months
                     )

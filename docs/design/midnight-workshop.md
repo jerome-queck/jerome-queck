@@ -35,3 +35,9 @@ python3 -m unittest tests.test_readme_static tests.test_readme_world
 ```
 
 The renderer uses repository-relative asset paths. Regenerate the JPEG only when its original source changes. Inspect the SVG diff and verify native links, narrow layout, and reduced-motion selection on GitHub before accepting a visual change. See [data graphic definitions and regeneration](data-graphics.md) for the separate snapshot pipeline.
+
+## Personal avatar
+
+The avatar retains Jerome Queck's intertwined JQ initials as its defining characteristic. The original cream/plum/cobalt monogram is the identity reference; the workshop is the material and palette reference. The keeper illustration was an explored candidate, rejected as a personal avatar because it did not identify Jerome.
+
+`assets/avatar-workshop-jq-original.png` is the selected built-in ImageGen output. SHA256 is `30b7f12b9662d532507e009d32b078c454ae3beae18c55a1703c8bc6db423815`. `assets/avatar-workshop-jq.jpg` is its mechanical 1024-pixel quality-85 JPEG conversion, 166,697 bytes. Its SHA256 is `66f64e74eebe0d73d5064fdab584b6e6d4e81a2351a942ba4b6d8691f4677a3c`. The exact [avatar prompt](avatar-prompt.txt) records the two reference roles. The JPEG is ready for account upload; inclusion in this repository does not change the GitHub account picture.

@@ -46,3 +46,7 @@ The field-journal composition was a rejected prototype. Its proposed masthead an
 `scripts/render_readme_world.py` embeds that JPEG in twelve SVG masters. Wide and narrow layouts each have full, title, and source views in ambient and still variants. Code supplies outlined typography, overlays, light animation, and view geometry. The root README supplies native image links. The environment's pixels come from ImageGen.
 
 The [poteto process post](https://x.com/poteto/status/2117043478140276847) and [tibo.dog](https://tibo.dog/) were research references. Their artwork is not included in these assets. See [workshop provenance and regeneration](../docs/design/midnight-workshop.md). Historical assets above are retained separately from the active workshop. No blanket reuse licence has been selected.
+
+## Workshop JQ avatar, 2 November 2026
+
+`avatar-workshop-jq-original.png` and the upload-ready `avatar-workshop-jq.jpg` retain the intertwined JQ identity in the workshop palette. Built-in ImageGen used the earlier JQ monogram as identity reference and the original workshop as material reference. The original and converted hashes, exact prompt and account-upload boundary are recorded in [workshop provenance](../docs/design/midnight-workshop.md#personal-avatar). The earlier JQ candidate remains historical.

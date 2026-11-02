@@ -2,7 +2,7 @@
 
 ## Sub-features
 
-Counters, merge cadence, activity-type donut, upstream status/footprint, language-byte bars, weekday histogram and public contribution calendar beginning 1 July 2026 (current month partial), selected repository pulse, recent public issue/PR events, six merged upstream contributions with open proposals labelled separately and exact text definitions. Source is `README.md` and `scripts/profile_data.py`, `scripts/public_calendar.py`, `scripts/repo_pulse.py`, `scripts/recent_activity.py`.
+Counters, merge cadence, activity-type donut, upstream status/footprint, top-ten physical code-line composition, weekday histogram and public contribution calendar beginning 1 July 2026 (current month partial), selected repository pulse, recent public issue/PR events, six merged upstream contributions with open proposals labelled separately and exact text definitions. Source is `README.md` and `scripts/profile_data.py`, `scripts/public_calendar.py`, `scripts/repo_pulse.py`, `scripts/recent_activity.py`, `scripts/readme_world.py`, `scripts/source_lines.py`.
 
 ## How to get to it (user POV)
 
@@ -16,4 +16,6 @@ Run the matrix. Inspect `*-expanded.json` selected sources and decoded dimension
 
 GitHub Camo and raw CDNs can cache different generations. Keep collection interval and published timestamp; never call a chart fresh from screenshot appearance. The baseline counts all public PRs and linked currently closed issues; changing those meanings requires rereading collector source and updating this map. Public contribution frequency measures records, not effort, learning or quality. Selected repository commit dates can include any author; releases do not prove deployments. Private contributions are excluded. Open PRs, closures and merge links may change retrospectively.
 
-Schema-v3 calendar types must total the same public records as daily cells. Generated data has no decorative animation. Retain exact snapshot JSON and data-snapshot timestamp; compare displayed values manually because outlined glyph paths do not expose reliable DOM text. Preview data proves only its immutable artifact, never production freshness.
+Schema-v4 calendar types must total the same public records as daily cells. Generated data has no decorative animation. Retain exact snapshot JSON and data-snapshot timestamp; compare displayed values manually because outlined glyph paths do not expose reliable DOM text. Preview data proves only its immutable artifact, never production freshness.
+
+Match the top ten cloc language counts and Other against `source_lines.by_language`; retain recorded commit SHAs and exclusions. JSON, text, markup and configuration may count. All authors are included. Never compare this ranking directly with GitHub language-byte percentages or label it personal lines written.

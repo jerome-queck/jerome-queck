@@ -43,7 +43,7 @@ class SnapshotV2Tests(unittest.TestCase):
     def test_new_metrics_and_native_sources_share_one_input(self):
         source = snapshot()
         files = render_snapshot(source)
-        self.assertEqual(len(files), 11)
+        self.assertEqual(len(files), 15)
         self.assertEqual(json.loads(files["snapshot.json"]), source)
         self.assertIn("1 merged, 0 open, 0 closed without merge", files["README.md"])
         self.assertIn("including 1 upstream", files["README.md"])
@@ -114,7 +114,10 @@ class SnapshotV2Tests(unittest.TestCase):
             self.assertTrue(boxes)
             self.assertNotIn("font-family", document)
             self.assertNotIn("<text", document)
-            self.assertLess(len(document.encode()), 300_000)
+            self.assertLess(
+                len(document.encode()),
+                1_000_000 if root.get("data-snapshot") else 300_000,
+            )
 
 
 if __name__ == "__main__":

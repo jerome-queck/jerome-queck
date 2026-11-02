@@ -313,7 +313,7 @@ class ProfileDataTests(unittest.TestCase):
             "upstream_prs": [],
         }
         files = render_snapshot(snapshot)
-        self.assertEqual(len(files), 11)
+        self.assertEqual(len(files), 15)
         self.assertEqual(files, render_snapshot(snapshot))
         for name, source in files.items():
             if name.endswith(".svg"):

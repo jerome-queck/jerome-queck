@@ -59,13 +59,17 @@ jobs:
           cp "$GENERATED/cadence-mobile.svg" cadence-mobile.svg
           cp "$GENERATED/pulse.svg" pulse.svg
           cp "$GENERATED/pulse-mobile.svg" pulse-mobile.svg
+          cp "$GENERATED/world-still.svg" world-still.svg
+          cp "$GENERATED/world-mobile-still.svg" world-mobile-still.svg
+          cp "$GENERATED/world.svg" world.svg
+          cp "$GENERATED/world-mobile.svg" world-mobile.svg
           cp "$GENERATED/activity.svg" activity.svg
           cp "$GENERATED/snapshot.json" snapshot.json
           cp "$GENERATED/README.md" README.md
           git rm --ignore-unmatch openclaw.svg
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add counters.svg counters-mobile.svg calendar.svg calendar-mobile.svg cadence.svg cadence-mobile.svg pulse.svg pulse-mobile.svg activity.svg snapshot.json README.md
+          git add counters.svg counters-mobile.svg calendar.svg calendar-mobile.svg cadence.svg cadence-mobile.svg pulse.svg pulse-mobile.svg activity.svg world.svg world-mobile.svg world-still.svg world-mobile-still.svg snapshot.json README.md
           if ! git diff --cached --quiet; then
             git commit -m 'Refresh public profile data' -m 'Assisted-by: none'
             git push origin HEAD:profile-data

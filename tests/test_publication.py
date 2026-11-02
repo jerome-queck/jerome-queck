@@ -14,6 +14,10 @@ PAYLOADS = (
     "pulse.svg",
     "pulse-mobile.svg",
     "activity.svg",
+    "world.svg",
+    "world-mobile.svg",
+    "world-still.svg",
+    "world-mobile-still.svg",
     "snapshot.json",
     "README.md",
 )

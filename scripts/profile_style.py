@@ -13,12 +13,12 @@ from fontTools.pens.svgPathPen import SVGPathPen
 from fontTools.ttLib import TTFont
 from fontTools.varLib.instancer import instantiateVariableFont
 
-PAPER = "#F3EEDC"
-INK = "#30243B"
-COBALT = "#4055B5"
-BLUE = "#345C6A"
-CITRON = "#D7D99D"
-RULE = "#C9C5BB"
+PAPER = "#101B2A"
+INK = "#F4DFB5"
+COBALT = "#E8B45D"
+BLUE = "#A7B7B6"
+CITRON = "#718777"
+RULE = "#395063"
 FONT_ROOT = Path(__file__).resolve().parents[1] / "assets/type"
 
 

@@ -7,6 +7,7 @@ from pathlib import Path
 
 from scripts.profile_style import BLUE, COBALT, rule, svg, text
 from scripts.public_calendar import fetch_calendar, render_calendar, weekday_totals
+from scripts.readme_world import render_world
 from scripts.recent_activity import fetch_activity, markdown_activity, render_activity
 from scripts.repo_pulse import (
     fetch_repo_pulse,
@@ -295,6 +296,12 @@ def render_snapshot(snapshot):
         )
         files[f"pulse{suffix}.svg"] = render_pulse(
             snapshot["projects"], updated, mobile
+        )
+    for mobile in (False, True):
+        suffix = "-mobile" if mobile else ""
+        files[f"world{suffix}.svg"] = render_world(snapshot, files, mobile)
+        files[f"world{suffix}-still.svg"] = render_world(
+            snapshot, files, mobile, motion="none"
         )
     upstream_months = Counter(
         item["merged_at"][:7] for item in upstream if item["merged_at"]

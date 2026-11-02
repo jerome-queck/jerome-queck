@@ -1,4 +1,4 @@
-export const title = 'One publisher with 15 payloads. Illustration only. Proof uses two publishers.';
+export const title = 'Publication with 15 payloads. The counterexample shows one publisher.';
 export const state = v => {
   if (v.phase[1] === 'published') return 'Snapshot published';
   if (v.phase[1] === 'failed') return 'Previous snapshot retained';

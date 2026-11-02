@@ -32,12 +32,24 @@ def run(args, cwd=ROOT):
 
 
 def check_payload_mapping():
-    payloads = runpy.run_path(str(ROOT / "tests/test_publication.py"))["PAYLOADS"]
+    fixture = runpy.run_path(str(ROOT / "tests/test_publication.py"))
+    payloads = fixture["PAYLOADS"]
+    legacy = fixture["LEGACY_PAYLOADS"]
 
     model = (ROOT / "formal/Publication.tla").read_text()
     bound = re.search(r"^Payloads == 1\.\.(\d+)$", model, re.MULTILINE)
     if bound is None or int(bound[1]) != len(payloads):
         sys.exit("Payload drift: model bound differs from publication fixture")
+    new_slots = [index for index, name in enumerate(payloads, 1) if name not in legacy]
+    legacy_slots = re.search(r"^Legacy == Payloads \\ \{([^}]+)\}$", model, re.MULTILINE)
+    if (
+        len(legacy) != 11
+        or len(set(legacy)) != 11
+        or new_slots != [10, 11, 12, 13]
+        or legacy_slots is None
+        or [int(slot.strip()) for slot in legacy_slots[1].split(",")] != new_slots
+    ):
+        sys.exit("Payload drift: model legacy snapshot differs from publication fixture")
     workflow = (ROOT / ".github/workflows/profile.yml").read_text()
     copies = re.findall(
         r'^          cp "\$GENERATED/([^"\n]+)" ([^\s]+)$', workflow, re.MULTILINE
@@ -120,7 +132,11 @@ def main():
             sys.exit(
                 "Real workflow mutation did not expose the expected mixed snapshot"
             )
-        for cfg, should_pass in (("pass.cfg", True), ("mutant.cfg", False)):
+        for cfg, should_pass in (
+            ("pass.cfg", True),
+            ("mutant.cfg", False),
+            ("legacy-mutant.cfg", False),
+        ):
             result = run(
                 [
                     java,

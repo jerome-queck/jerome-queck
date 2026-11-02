@@ -1,5 +1,3 @@
-"""Compose native linked views of the midnight workshop."""
-
 import base64
 from pathlib import Path
 from textwrap import wrap
@@ -9,7 +7,6 @@ from scripts.repo_pulse import load_projects
 
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets/pixel-world"
-# Room order and short captions fit the scene; catalogue summaries serve native text.
 ROOM_CAPTIONS = {
     "Jerome-Group/ntulearn": "Course pages and original attachments.",
     "Jerome-Group/academic-os": "Sources, tasks and freshness.",
@@ -52,7 +49,6 @@ def master(mobile, role, motion):
     button = role == "source"
     view_width = {"full": width, "title": title_width, "source": button_width}[role]
     image = base64.b64encode((OUT / "workshop.jpg").read_bytes()).decode("ascii")
-    # Project rooms reveal consecutive portions of the cutaway at a constant scale.
     art_height = (len(PROJECTS) + 1) * height
     art_width = art_height * 2 / 3
     art_x = min(0, width * 0.72 - art_width * 420 / 1024)

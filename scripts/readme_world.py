@@ -1,5 +1,3 @@
-"""One opaque, locally outlined workshop and its observed public records."""
-
 import datetime as dt
 import html
 import math

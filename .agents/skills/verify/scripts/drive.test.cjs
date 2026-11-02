@@ -30,7 +30,6 @@ test('valid options leave evidence creation to the actual run', () => {
 });
 
 test('a visible heading cannot falsely prove chapter navigation', () => {
-  // Observed live-profile defect: the hash changes while heading stays at y813.
   assert.equal(anchorSettled(813, 64, true), false);
   assert.equal(anchorSettled(64, 64, true), true);
   assert.equal(anchorSettled(64, 64, false), false);

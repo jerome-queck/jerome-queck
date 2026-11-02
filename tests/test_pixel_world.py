@@ -26,7 +26,6 @@ class PixelWorldTest(unittest.TestCase):
             svg = render_scene(motion=mode)
             self.assertIn("prefers-reduced-motion:reduce", svg)
             root = ET.fromstring(svg)
-            # The complete painted world is identical across motion choices.
             paths = lambda node: [
                 ET.tostring(e) for e in node if e.tag.endswith("path")
             ]

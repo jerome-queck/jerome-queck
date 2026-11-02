@@ -1,5 +1,4 @@
 #!/usr/bin/env node
-/* Anonymous browser evidence for the actual GitHub README, never a local rendering. */
 const fs = require('node:fs');
 const path = require('node:path');
 const {execFileSync} = require('node:child_process');
@@ -184,7 +183,6 @@ async function run(config) {
             if (!avatarState.naturalWidth || !avatarState.width) fail('avatar', `${name}: avatar failed to decode or render`);
           }
           const sectionLinks = await article.locator('a[href^="#"]:not(.anchor)').evaluateAll(links => [...new Set(links.map(a => a.getAttribute('href')).filter(href => href !== '#'))]);
-          // Section links are optional; any present must still prove actual heading arrival.
           for (const href of sectionLinks) {
             const section = href.replace(/^#(?:user-content-)?/, '');
             const sectionLink = article.locator(`a:is([href="#${section}"], [href="#user-content-${section}"]):not(.anchor)`);

@@ -62,7 +62,6 @@ SELECTED = frozenset(
 
 
 def download(url, target, limit):
-    """Public HTTPS only; credentials are never forwarded to archive hosts."""
     with (
         urllib.request.urlopen(url, timeout=45) as response,
         target.open("wb") as output,

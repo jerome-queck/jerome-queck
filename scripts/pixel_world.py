@@ -1,5 +1,3 @@
-"""An original midnight island, drawn on a small pixel grid and emitted as SVG."""
-
 import random
 from collections import defaultdict
 from functools import lru_cache
@@ -26,7 +24,6 @@ def _pixels(mobile):
     im = Image.new("RGB", (w, h), PALETTE["sky"])
     d = ImageDraw.Draw(im)
     r = random.Random(502)
-    # The island is re-centered for a narrow canvas; sky and foreground are independently filled.
     cx = w // 2 if mobile else 100
 
     def rect(x0, y0, x1, y1, c):
@@ -38,7 +35,6 @@ def _pixels(mobile):
     def ellipse(box, c):
         d.ellipse(box, fill=c)
 
-    # Night sky: restrained clusters, tiny constellations, and a low blue haze.
     for y, c in [(86, "#18253a"), (100, "#1d3043"), (113, "#23394a")]:
         rect(0, y, w, y + 16, c)
     for i in range(100 if not mobile else 55):
@@ -52,7 +48,6 @@ def _pixels(mobile):
             rect(x, y - 2, x, y + 2, "#c9c4a6")
     ellipse((cx + 39, 12, cx + 69, 42), "#e4d6ab")
     ellipse((cx + 46, 9, cx + 73, 35), PALETTE["sky"])
-    # Distant floating silhouettes make the setting feel larger than the frame.
     for x, y, s in [
         (cx - 130, 105, 1),
         (cx + 100, 96, 1),
@@ -71,8 +66,6 @@ def _pixels(mobile):
             "#314b58",
         )
         rect(x - 7, y - 5, x + 7, y - 4, "#516b69")
-    # The narrow composition places the observatory in the distance, above
-    # the foreground island, instead of shrinking the wide scene.
     if mobile:
         poly(
             [(119, 111), (119, 73), (124, 66), (146, 66), (152, 74), (152, 111)],
@@ -105,7 +98,6 @@ def _pixels(mobile):
         rect(140, 101, 145, 107, "#e6bb7d")
         rect(135, 52, 136, 63, "#b6aa8c")
         poly([(136, 52), (146, 55), (136, 58)], "#d99a78")
-    # Island shadow, layered geology, grassy lip.
     poly(
         [
             (cx - 76, 139),
@@ -207,7 +199,6 @@ def _pixels(mobile):
         ],
         "#a0a38a",
     )
-    # Tall crooked workshop, a proper silhouette against the sky.
     poly(
         [
             (cx - 37, 123),
@@ -240,7 +231,6 @@ def _pixels(mobile):
         ],
         "#8c7168",
     )
-    # Deep timber framing; offset wings and irregular roof.
     poly(
         [
             (cx - 42, 59),
@@ -289,7 +279,6 @@ def _pixels(mobile):
                 rect(x, y, x + 3, y, "#73817a" if (x + y) % 3 else "#a0a292")
     rect(cx - 4, 16, cx + 2, 27, "#384551")
     rect(cx - 3, 13, cx + 1, 17, "#c9a378")
-    # Timber frame, plaster flecks and warm window apertures.
     for x in [cx - 31, cx - 8, cx + 27]:
         rect(x, 57, x + 3, 126, "#3c343b")
         rect(x + 1, 57, x + 1, 125, "#b18b72")
@@ -303,7 +292,6 @@ def _pixels(mobile):
         rect(x + 6, y, x + 7, y + 14, "#775b4b")
         rect(x, y + 8, x + 12, y + 9, "#775b4b")
         rect(x - 3, y + 16, x + 15, y + 18, "#b39677")
-    # An open oddments shelf and a round porthole replace the repeated windows.
     rect(cx - 26, 95, cx - 10, 114, "#494249")
     rect(cx - 24, 97, cx - 12, 112, "#736559")
     for yy in (101, 107, 112):
@@ -324,7 +312,6 @@ def _pixels(mobile):
     ellipse((cx + 6, 70, cx + 16, 80), "#83a6a0")
     rect(cx + 10, 70, cx + 11, 80, "#6c6156")
     rect(cx + 6, 74, cx + 16, 75, "#6c6156")
-    # A line of laundry and little notes make the tower inhabited.
     rect(cx - 30, 87, cx + 26, 87, "#dabd96")
     for xx, yy, col in [
         (cx - 25, 87, "#d6b0a0"),
@@ -334,12 +321,10 @@ def _pixels(mobile):
     ]:
         rect(xx, yy, xx + 3, yy + 4, col)
         rect(xx + 1, yy - 1, xx + 1, yy, "#6d5a51")
-    # Round attic window.
     ellipse((cx - 9, 44, cx + 9, 62), "#403943")
     ellipse((cx - 7, 46, cx + 7, 60), "#ffd995")
     rect(cx - 1, 46, cx + 1, 60, "#856953")
     rect(cx - 7, 52, cx + 7, 54, "#856953")
-    # Door and stone steps, with a glowing threshold.
     rect(cx - 6, 100, cx + 6, 130, "#3a3135")
     rect(cx - 4, 102, cx + 4, 128, "#73574e")
     rect(cx + 2, 116, cx + 3, 117, "#f2cc85")
@@ -351,7 +336,6 @@ def _pixels(mobile):
             132 + i * 3,
             ["#bdac8d", "#817e71"][i % 2],
         )
-    # Slender observatory wing and its brass telescope.
     rect(cx + 36, 92, cx + 50, 128, "#665b58")
     rect(cx + 33, 88, cx + 53, 93, "#373a43")
     rect(cx + 37, 97, cx + 48, 111, "#e8b978")
@@ -360,7 +344,6 @@ def _pixels(mobile):
     rect(cx + 43, 68, cx + 45, 81, "#ad9573")
     poly([(cx + 43, 72), (cx + 54, 64), (cx + 56, 67), (cx + 45, 75)], "#e0be80")
 
-    # Trees have layered, hand-clustered crowns and little fruit.
     def tree(x, y, scale=1):
         rect(x - 2, y - 24, x + 2, y, "#5e514c")
         poly(
@@ -392,7 +375,6 @@ def _pixels(mobile):
 
     tree(cx - 58, 132)
     tree(cx + 65, 137)
-    # Garden, fence, pots, path stones and tiny fungi.
     for x in range(cx - 70, cx + 72, 7):
         y = 140 + ((x // 7) % 3)
         if 0 < x < w:
@@ -409,7 +391,6 @@ def _pixels(mobile):
         rect(x, y - 5, x, y, "#566d58")
         rect(x - 1, y - 7, x + 1, y - 6, "#edc38d")
         rect(x - 2, y - 5, x, y - 4, "#cd8d7a")
-    # Secret cellar glowing inside the cliff.
     poly(
         [
             (cx - 16, 160),
@@ -434,8 +415,6 @@ def _pixels(mobile):
     )
     rect(cx - 1, 152, cx + 1, 160, "#73574c")
     rect(cx - 13, 157, cx + 13, 158, "#73574c")
-    # A roof-mounted hoist reaches across the garden. The dangling star-shaped
-    # lantern and loose rope break the roofline and give the place a small task.
     rect(cx - 34, 54, cx - 32, 96, "#493f40")
     rect(cx - 43, 56, cx - 32, 58, "#71594f")
     poly(
@@ -448,7 +427,6 @@ def _pixels(mobile):
     rect(cx - 47, 83, cx - 41, 89, "#65554b")
     rect(cx - 46, 84, cx - 42, 88, "#edc37e")
     rect(cx - 45, 82, cx - 43, 90, "#ffdf9b")
-    # Asymmetrical roof additions: a tiny dormer and leaning stovepipe.
     poly(
         [(cx + 6, 35), (cx + 6, 25), (cx + 11, 20), (cx + 19, 23), (cx + 22, 35)],
         "#3c4b54",
@@ -461,7 +439,6 @@ def _pixels(mobile):
     rect(cx + 13, 27, cx + 13, 32, "#7f695c")
     rect(cx - 20, 21, cx - 16, 31, "#58656a")
     rect(cx - 22, 19, cx - 15, 22, "#a08a78")
-    # Smoke curls in discrete tiles, leaving the stars visible through it.
     for xx, yy in [
         (cx - 21, 17),
         (cx - 23, 15),
@@ -471,7 +448,6 @@ def _pixels(mobile):
         (cx - 17, 8),
     ]:
         rect(xx, yy, xx + 2, yy + 1, "#4f6170")
-    # A crooked side awning, shelves, and luminous glass jars give the building a lived-in edge.
     poly([(cx - 50, 105), (cx - 33, 99), (cx - 29, 104), (cx - 46, 111)], "#303944")
     poly([(cx - 49, 104), (cx - 34, 99), (cx - 32, 102), (cx - 47, 108)], "#9b7667")
     for i in range(4):
@@ -482,7 +458,6 @@ def _pixels(mobile):
     for x, c in [(cx - 44, "#9cb4a0"), (cx - 40, "#e6c885"), (cx - 36, "#a4b1ad")]:
         rect(x, 113, x + 2, 116, c)
         rect(x + 1, 111, x + 1, 112, "#d6c19c")
-    # Ivy crawls up the walls, with a few leaves breaking the building outline.
     for x, y in [
         (cx + 27, 121),
         (cx + 26, 115),
@@ -498,7 +473,6 @@ def _pixels(mobile):
         rect(x, y, x + 1, y + 5, "#506958")
         rect(x - 2, y + 1, x, y + 2, "#738671")
         rect(x + 2, y - 1, x + 4, y, "#71846c")
-    # A hanging lamp, low bench and odd kettle imply a story without labels.
     rect(cx + 33, 104, cx + 36, 105, "#343941")
     rect(cx + 36, 105, cx + 36, 112, "#b6a184")
     rect(cx + 34, 112, cx + 38, 118, "#51464a")
@@ -509,7 +483,6 @@ def _pixels(mobile):
     rect(cx + 46, 119, cx + 52, 123, "#9ab0a1")
     rect(cx + 47, 117, cx + 51, 118, "#b6c3aa")
     rect(cx + 52, 120, cx + 54, 121, "#d0c6a4")
-    # Loose stones and plants soften the island edge.
     for x, y in [
         (cx - 63, 138),
         (cx - 36, 141),
@@ -524,10 +497,7 @@ def _pixels(mobile):
         rect(x, y - 4, x, y, "#597b63")
         rect(x - 2, y - 3, x + 2, y - 2, "#92a783")
         rect(x - 1, y - 6, x + 1, y - 5, "#e9d29a")
-    # A second impossible place breaks the single-house silhouette: a lantern
-    # observatory hangs over a small island, linked by a narrow aerial staircase.
     if not mobile:
-        # Suspended chain bridge and alternating treads.
         for i in range(18):
             x = 160 + i * 3
             yy = 125 - i // 3
@@ -535,7 +505,6 @@ def _pixels(mobile):
             rect(x, yy + 3, x + 1, yy + 5, "#574c4b")
             if i % 3 == 0:
                 rect(x, yy - 5, x, yy + 4, "#c6ab86")
-        # The outcrop has its own depth and a little arched opening underneath.
         poly(
             [
                 (180, 139),
@@ -592,7 +561,6 @@ def _pixels(mobile):
                     yy,
                     r.choice(["#6e6662", "#444b53", "#837568"]),
                 )
-        # Off-axis stack: stone foot, timber room, roof and tiny orbiting moon.
         poly(
             [
                 (207, 133),
@@ -647,20 +615,17 @@ def _pixels(mobile):
         for x in (212, 229, 246):
             rect(x, 92, x + 2, 132, "#4b3e41")
             rect(x, y - 17, x, y + 10, "#b39479")
-        # Giant round lens, deliberately different from the cottage windows.
         ellipse((217, 66, 240, 89), "#384451")
         ellipse((220, 69, 237, 86), "#c9ad80")
         ellipse((222, 71, 235, 84), "#77a5a5")
         ellipse((225, 73, 233, 81), "#d8d9ba")
         rect(228, 69, 229, 86, "#786d61")
         rect(221, 77, 236, 78, "#786d61")
-        # An open, skewed door throws warm light across the bridge.
         poly([(216, 101), (226, 99), (226, 115), (216, 117)], "#eec589")
         rect(219, 103, 223, 111, "#fff0b2")
         poly([(215, 101), (211, 99), (211, 117), (215, 115)], "#513d3b")
         rect(237, 101, 245, 112, "#eec589")
         rect(240, 101, 241, 112, "#715749")
-        # Long antenna, wind vane, hanging lantern and soft cloud of sparks.
         rect(228, 41, 230, 54, "#b4a38a")
         poly([(230, 42), (243, 45), (230, 48)], "#d99674")
         rect(250, 105, 255, 106, "#5b514d")
@@ -669,13 +634,11 @@ def _pixels(mobile):
         rect(254, 113, 256, 116, "#ffe29d")
         for xx, yy in [(192, 122), (201, 115), (257, 89), (263, 102), (190, 95)]:
             rect(xx, yy, xx + 1, yy + 1, "#e8cf9b")
-        # Descending secret steps into a cellar built into the rock.
         for i in range(5):
             rect(192 + i * 3, 143 + i * 3, 198 + i * 3, 144 + i * 3, "#d3b894")
         rect(217, 151, 235, 157, "#373238")
         rect(220, 152, 232, 156, "#e5b477")
         rect(225, 152, 226, 156, "#786155")
-        # Foreground floating book: a landing pad and a place to explore.
         poly(
             [
                 (162, 178),
@@ -707,7 +670,6 @@ def _pixels(mobile):
         for x, y in [(175, 174), (180, 173), (210, 174), (215, 175)]:
             rect(x, y, x + 5, y, "#9e9b88")
         rect(199, 174, 199, 181, "#a88c74")
-        # Two tethered parcels and a tiny floating repair launch.
         rect(274, 117, 291, 121, "#5b6870")
         poly([(272, 120), (293, 120), (289, 127), (278, 127)], "#c18f70")
         rect(280, 109, 286, 119, "#eacb95")
@@ -716,8 +678,6 @@ def _pixels(mobile):
         for xx, yy in [(278, 129), (286, 132), (291, 130)]:
             rect(xx, yy, xx + 1, yy + 1, "#e9c68e")
     if mobile:
-        # A tiny floating book and a launch use the negative space around the
-        # island; the narrow view keeps its own complete little world.
         poly(
             [
                 (2, 178),
@@ -818,7 +778,6 @@ if __name__ == "__main__":
         )
         for motion in ("none", "ambient", "character"):
             (out / f"{name}-{motion}.svg").write_text(render_scene(mobile, motion))
-    # Preview the same decorative cycles without requiring browser support.
     for mobile in (False, True):
         name = "mobile" if mobile else "wide"
         base = _pixels(mobile)

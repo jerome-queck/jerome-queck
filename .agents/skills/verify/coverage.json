@@ -1,0 +1,39 @@
+{
+  "version": 1,
+  "source_head": "92b883461dbd1031a74d0730f40f83c891e6ce8b",
+  "observed_date_utc": "2026-11-02",
+  "purpose": "Driver generation baseline, before the proposed typography and statistics refresh",
+  "targets": [
+    "https://github.com/jerome-queck",
+    "https://github.com/jerome-queck/jerome-queck/blob/main/README.md"
+  ],
+  "browser": "Chrome 156.0.8078.74",
+  "playwright": "1.62.1",
+  "matrix": ["desktop-light", "desktop-dark", "mobile-light", "mobile-dark"],
+  "observations": {
+    "each_surface": "Four actual GitHub variants, all three disclosures, decoded images, headings, responsive source selection, background scheme, overflow, 17 actual-click GitHub destinations, published snapshot JSON and retained screenshots",
+    "profile_images_expanded": 22,
+    "profile_navigation": "All three chapter hashes change but fail to scroll to their native headings in every variant. Product gap remains visible.",
+    "repository_navigation": "All three chapter clicks reach uncovered headings in the top 160 pixels in every variant. Verified again after correcting the driver's initial CSS-offset-only assumption.",
+    "avatar": "Actual profile avatar decoded at 460 by 460; element screenshot retained. This is the old account avatar, not proof of proposed artwork adoption.",
+    "cleanup": "Every owned browser/context closed. External JSON and screenshots remained after cleanup."
+  },
+  "driver_corrections_reproved_live": [
+    "Resolve GitHub-rewritten relative picture srcsets before comparing currentSrc",
+    "Use stable disclosure locators while details state changes",
+    "Wait for fonts and near-top heading arrival rather than accepting visibility anywhere",
+    "Accommodate observed repository SPA top offset while requiring uncovered headings",
+    "Capture native account avatar independently from README artwork"
+  ],
+  "tests": {"driver_boundary_tests": 5, "existing_data_tests": 26, "result": "passed"},
+  "outcome": "baseline captured; profile chapter navigation blocked; proposed design unverified",
+  "not_proved": [
+    "Proposed branch README or new data-panel typography",
+    "New avatar adopted by the account",
+    "Authenticated calculator or assistant execution",
+    "Hosted refresh publication and scheduled delivery",
+    "Manual screen-reader and keyboard journeys",
+    "Full collector recollection during this driver-generation baseline"
+  ],
+  "evidence_policy": "Run artifacts live outside the checkout. The session handoff records their actual paths. Keep failed iterations. Update this record only after rereading source/maps and driving the changed actual surfaces."
+}

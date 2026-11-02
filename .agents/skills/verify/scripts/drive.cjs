@@ -93,7 +93,7 @@ async function inspect(article) {
       const picture = img.closest('picture');
       const hit = img.closest('a')?.getBoundingClientRect();
       const sources = picture ? [...picture.querySelectorAll('source')].map(source => ({media: source.media, srcset: new URL(source.srcset, document.baseURI).href, matches: matchMedia(source.media).matches})) : [];
-      return {hitArea: hit ? {x: hit.x, y: hit.y, width: hit.width, height: hit.height} : null, alt: img.alt, src: img.src, srcAttribute: img.getAttribute('src'), currentSrc: img.currentSrc, href: img.closest('a')?.href, canvas: img.closest('p') === element.querySelector('picture')?.closest('p'), x: bounds.x, y: bounds.y, width: bounds.width, height: bounds.height, naturalWidth: img.naturalWidth, naturalHeight: img.naturalHeight, error, sources};
+      return {hitArea: hit ? {x: bounds.x, y: bounds.y, width: bounds.width, height: bounds.height} : null, anchorBox: hit ? {x: hit.x, y: hit.y, width: hit.width, height: hit.height} : null, alt: img.alt, src: img.src, srcAttribute: img.getAttribute('src'), currentSrc: img.currentSrc, href: img.closest('a')?.href, canvas: img.closest('p') === element.querySelector('picture')?.closest('p'), x: bounds.x, y: bounds.y, width: bounds.width, height: bounds.height, naturalWidth: img.naturalWidth, naturalHeight: img.naturalHeight, error, sources};
     }));
     const rect = element.getBoundingClientRect();
     const canvas = element.querySelector('picture')?.closest('p')?.getBoundingClientRect();
@@ -319,8 +319,9 @@ async function run(config) {
                 const sourceArticle = opened.locator('article.markdown-body');
                 for (const summary of await sourceArticle.locator('details > summary').all()) await summary.click();
                 const anchor = sourceArticle.locator(`a[href="${target.href}"]`).filter(target.image ? {has: opened.locator('img')} : {}).first();
-                const hitArea = await anchor.boundingBox();
-                const [response] = await Promise.all([opened.waitForNavigation({waitUntil: 'domcontentloaded'}), anchor.click()]);
+                const clickable = target.image ? anchor.locator('img') : anchor;
+                const hitArea = await clickable.boundingBox();
+                const [response] = await Promise.all([opened.waitForNavigation({waitUntil: 'domcontentloaded'}), clickable.click()]);
                 const navigation = {role: target.role, expected: target.href, url: opened.url(), title: await opened.title(), status: response?.status() ?? null, hitArea};
                 const bodyText = (await opened.locator('body').innerText()).slice(0, 60000);
                 if (target.role === 'merged-pr' && !/Merged/.test(bodyText)) fail('upstream', `Merged state not observed ${target.href}`);

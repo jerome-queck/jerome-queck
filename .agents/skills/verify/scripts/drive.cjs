@@ -331,11 +331,17 @@ async function run(config) {
                 await opened.goto(config.url, {waitUntil: 'domcontentloaded'});
                 const sourceArticle = opened.locator('article.markdown-body');
                 for (const summary of await sourceArticle.locator('details > summary').all()) await summary.click();
-                const anchor = sourceArticle.locator(`a[href="${target.href}"]`).filter(target.image ? {has: opened.locator('img')} : {}).first();
+                const anchors = sourceArticle.locator('a[href]');
+                const matchingIndex = await anchors.evaluateAll((links, target) => links.findIndex(link => link.href === target.href && (target.image ? link.querySelector('img')?.alt === target.alt : !link.querySelector('img'))), target);
+                if (matchingIndex < 0) throw Error('Observed destination anchor disappeared');
+                const anchor = anchors.nth(matchingIndex);
                 const clickable = target.image ? anchor.locator('img') : anchor;
                 const hitArea = await clickable.boundingBox();
+                const previousTitle = await opened.title();
                 const [response] = await Promise.all([opened.waitForNavigation({waitUntil: 'domcontentloaded'}), clickable.click()]);
-                const navigation = {role: target.role, expected: target.href, url: opened.url(), title: await opened.title(), status: response?.status() ?? null, hitArea};
+                await opened.waitForFunction(previous => document.title && document.title !== previous, previousTitle);
+                const readback = response || await context.request.get(opened.url());
+                const navigation = {role: target.role, expected: target.href, url: opened.url(), title: await opened.title(), status: readback.status(), statusSource: response ? 'clicked-document-response' : 'GET-destination-readback-after-SPA-click', hitArea};
                 const bodyText = (await opened.locator('body').innerText()).slice(0, 60000);
                 if (target.role === 'merged-pr' && !/Merged/.test(bodyText)) fail('upstream', `Merged state not observed ${target.href}`);
                 if (target.role === 'publication') {
@@ -351,7 +357,7 @@ async function run(config) {
                       const snapshot = await published.json();
                       write('published-snapshot.json', snapshot);
                       report.publishedSnapshot = {schema_version: snapshot.schema_version, observed_to: snapshot.observed_to, counts: snapshot.counts};
-                      if (snapshot.schema_version !== 3) fail('publication', 'Expected schema-v3 public input');
+                      if (snapshot.schema_version !== 4) fail('publication', 'Expected schema-v4 public input');
                       for (const asset of report.assets.filter(asset => asset.motionSource.dataBoundary)) if (asset.motionSource.snapshot !== snapshot.observed_to) fail('snapshot-generation', `Data timestamp differs from observed JSON ${asset.url}`);
                     }
                     else fail('publication', `Snapshot response ${published.status()}`);

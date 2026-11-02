@@ -3,6 +3,9 @@
 
 import hashlib
 import os
+import re
+import runpy
+import shlex
 import shutil
 import subprocess
 import sys
@@ -28,7 +31,38 @@ def run(args, cwd=ROOT):
     return result
 
 
+def check_payload_mapping():
+    payloads = runpy.run_path(str(ROOT / "tests/test_publication.py"))["PAYLOADS"]
+
+    model = (ROOT / "formal/Publication.tla").read_text()
+    bound = re.search(r"^Payloads == 1\.\.(\d+)$", model, re.MULTILINE)
+    if bound is None or int(bound[1]) != len(payloads):
+        sys.exit("Payload drift: model bound differs from publication fixture")
+    workflow = (ROOT / ".github/workflows/profile.yml").read_text()
+    copies = re.findall(
+        r'^          cp "\$GENERATED/([^"\n]+)" ([^\s]+)$', workflow, re.MULTILINE
+    )
+    if (
+        len(copies) != len(payloads)
+        or {source for source, _ in copies} != set(payloads)
+        or any(source != target for source, target in copies)
+    ):
+        sys.exit("Payload drift: workflow copies differ from publication fixture")
+    stages = re.findall(r"^          git add (.+)$", workflow, re.MULTILINE)
+    if len(stages) != 1 or sorted(shlex.split(stages[0])) != sorted(payloads):
+        sys.exit("Payload drift: workflow staging differs from publication fixture")
+    if copies[5] != ("cadence-mobile.svg", "cadence-mobile.svg"):
+        sys.exit("Mutation drift: model copy 6 no longer names cadence-mobile.svg")
+    ci = (ROOT / ".github/workflows/ci.yml").read_text()
+    if not re.search(r"^      - run: python3 formal/check\.py$", ci, re.MULTILINE):
+        sys.exit("Coverage drift: CI no longer invokes the formal check")
+    print(
+        f"Payload mapping checked: {len(payloads)} copies, staged files and model slots."
+    )
+
+
 def main():
+    check_payload_mapping()
     for line in (ROOT / "formal/source.sha256").read_text().splitlines():
         expected, path = line.split("  ", 1)
         actual = hashlib.sha256((ROOT / path).read_bytes()).hexdigest()

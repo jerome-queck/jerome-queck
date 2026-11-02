@@ -1,7 +1,7 @@
 ------------------------ MODULE Publication ------------------------
 EXTENDS Naturals, Sequences, FiniteSets
 CONSTANTS Broken, Publishers
-Payloads == 1..11
+Payloads == 1..15
 VARIABLES phase, progress, local, base, remote, remoteGen
 vars == <<phase, progress, local, base, remote, remoteGen>>
 Init == /\ phase = [p \in Publishers |-> "collect"]
@@ -15,7 +15,7 @@ Ready(p) == /\ phase[p] = "collect"
             /\ base' = [base EXCEPT ![p] = remoteGen]
             /\ local' = [local EXCEPT ![p] = remote]
             /\ UNCHANGED <<progress, remote, remoteGen>>
-Copy(p) == /\ phase[p] = "copy" /\ progress[p] < 11
+Copy(p) == /\ phase[p] = "copy" /\ progress[p] < Cardinality(Payloads)
            /\ LET f == progress[p] + 1 IN
               local' = [local EXCEPT ![p][f] = IF Broken /\ f = 6 THEN @ ELSE p]
            /\ progress' = [progress EXCEPT ![p] = @ + 1]
@@ -23,7 +23,7 @@ Copy(p) == /\ phase[p] = "copy" /\ progress[p] < 11
 Fail(p) == /\ phase[p] \in {"collect", "copy"}
            /\ phase' = [phase EXCEPT ![p] = "failed"]
            /\ UNCHANGED <<progress, local, base, remote, remoteGen>>
-Push(p) == /\ phase[p] = "copy" /\ progress[p] = 11
+Push(p) == /\ phase[p] = "copy" /\ progress[p] = Cardinality(Payloads)
            /\ phase' = [phase EXCEPT ![p] = IF base[p] = remoteGen THEN "published" ELSE "rejected"]
            /\ remote' = IF base[p] = remoteGen THEN local[p] ELSE remote
            /\ remoteGen' = IF base[p] = remoteGen THEN p ELSE remoteGen

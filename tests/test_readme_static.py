@@ -114,6 +114,38 @@ class LinkedRooms(unittest.TestCase):
                 scale = float(re.search(r"scale\(([-.0-9]+)", transform).group(1))
                 self.assertGreaterEqual(scale * units, 22.99)
 
+    def test_desktop_scene_and_captions_fit_without_cropping(self):
+        import re
+        from textwrap import wrap
+
+        from scripts.profile_style import face
+
+        root = ET.parse(ART / "full-wide-still.svg").getroot()
+        self.assertEqual(root.get("height"), "135")
+        image = next(n for n in root.iter() if n.get("id") == "scene-art")
+        self.assertEqual((image.get("width"), image.get("height")), ("900", "1350"))
+        scene = next(n for n in root.iter() if n.get("href") == "#scene-art")
+        self.assertEqual(scene.get("transform"), "translate(0 0) scale(1.0)")
+        groups = [n for n in root.iter() if n.get("data-bounds")]
+        units = face("body")[0]["head"].unitsPerEm
+        for index, (_, _, description, _, _) in enumerate(PROJECTS):
+            top = (index + 1) * 135
+            for line in wrap(description, 17 if index in (2, 3) else 40):
+                matches = [
+                    n
+                    for n in groups
+                    if n.get("aria-label") == line
+                    and top <= float(n.get("data-bounds").split()[1]) < top + 135
+                ]
+                self.assertEqual(len(matches), 1, line)
+                node = matches[0]
+                self.assertLess(float(node.get("data-bounds").split()[3]), top + 135)
+                transform = next(child for child in node if child.get("transform")).get(
+                    "transform"
+                )
+                scale = float(re.search(r"scale\(([-.0-9]+)", transform).group(1))
+                self.assertGreaterEqual(scale * units, 22.99)
+
     def test_still_masters_have_no_animation(self):
         for size in ("wide", "mobile"):
             for role in ("full", "title", "source"):

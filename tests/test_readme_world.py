@@ -57,6 +57,26 @@ class WorldTests(unittest.TestCase):
             self.assertIn(str(day) + " d", labels)
             self.assertIn(str(ages[day]), labels)
 
+    def test_receipt_precedes_analytics_on_a_quiet_backing(self):
+        for name in ("world.svg", "world-mobile.svg"):
+            root = ET.fromstring(render_snapshot(snapshot())[name])
+            nodes = list(root.iter())
+            labels = {
+                node.get("aria-label"): node
+                for node in nodes
+                if node.get("data-bounds")
+            }
+            receipt_y = float(
+                labels["Open-source contributions"].get("data-bounds").split()[1]
+            )
+            analytics_y = float(
+                labels["Public work / all time"].get("data-bounds").split()[1]
+            )
+            self.assertLess(receipt_y, analytics_y)
+            self.assertFalse(
+                any(node.tag.endswith(("image", "pattern")) for node in nodes)
+            )
+
     def test_world_is_self_contained_opaque_and_ids_are_unique(self):
         for name, document in render_snapshot(snapshot()).items():
             if not name.startswith("world"):

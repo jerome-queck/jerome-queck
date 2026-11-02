@@ -47,7 +47,7 @@ PROJECT_ORDER = tuple(project[0] for project in PROJECTS)
 
 
 def master(mobile, role, motion):
-    width, height = (480, 155) if mobile else (900, 160)
+    width, height = (480, 155) if mobile else (900, 135)
     title_width, button_width = width * 3 // 4, width // 4
     button = role == "source"
     view_width = {"full": width, "title": title_width, "source": button_width}[role]
@@ -66,22 +66,22 @@ def master(mobile, role, motion):
             text(
                 "Jerome Queck",
                 25,
-                58 if mobile else 61,
-                42 if mobile else 56,
+                58 if mobile else 53,
+                42 if mobile else 48,
                 "display",
                 max_width=width * 0.62,
             ),
             text(
                 "Things I make",
                 27,
-                123 if mobile else 130,
-                23 if mobile else 32,
+                123 if mobile else 110,
+                23 if mobile else 27,
                 "display",
             ),
         ]
         for first, count, x, fraction in (
             (1, 2, 12, 0.64),
-            (3, 2, width * 0.05, 0.44),
+            (3, 2, width * 0.05, 0.44 if mobile else 0.33),
             (5, 3, 12, 0.64),
             (8, 2, width * 0.05, 0.64),
         ):
@@ -107,11 +107,11 @@ def master(mobile, role, motion):
                 ),
             ]
         else:
-            panel_width = width * (0.44 if i in (2, 3) else 0.64)
+            panel_width = width * ((0.44 if mobile else 0.33) if i in (2, 3) else 0.64)
             label_x = (12 if i < 2 or 4 <= i < 7 else width * 0.05) + 13
             lines = wrap(
                 desc,
-                (17 if i in (2, 3) else 23) if mobile else (28 if i in (2, 3) else 40),
+                (17 if i in (2, 3) else 23) if mobile else (17 if i in (2, 3) else 40),
             )
             body.append(
                 text(

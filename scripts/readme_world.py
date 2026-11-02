@@ -1,6 +1,5 @@
 """One opaque, locally outlined workshop and its observed public records."""
 
-import base64
 import datetime as dt
 import html
 import math
@@ -12,7 +11,6 @@ COBALT = "#efad62"
 BLUE = "#c9b2a6"
 RULE = "#795451"
 from collections import Counter
-from pathlib import Path
 from textwrap import wrap
 
 from scripts.upstream_prs import upstream_totals
@@ -384,35 +382,6 @@ def render_world(snapshot, panels, mobile=False, motion="ambient"):
     width, _ = SCENE_SIZE["mobile" if mobile else "wide"]
     parts = [_beam(width, 0)]
     y = 8
-    count_art, y = _counts(snapshot, width, y, mobile)
-    parts.append(count_art)
-    cadence_art, y = _cadence(snapshot, width, y + 8, mobile)
-    parts.append(cadence_art)
-    activity_art, y = _activity_mix(snapshot, width, y + 8)
-    parts.append(activity_art)
-    calendar_art, y = _calendar(snapshot, width, y + 8, mobile)
-    parts.append(calendar_art)
-    parts.append(_beam(width, y))
-    languages, y = _languages(snapshot, width, y + 8)
-    parts.append(languages)
-    parts.append(_beam(width, y))
-    footprint, y = _footprint(snapshot, width, y + 8)
-    parts.append(footprint)
-    ages, y = _proposal_ages(snapshot, width, y)
-    parts.append(ages)
-    parts.append(
-        text(
-            "Collected " + snapshot["updated"],
-            28,
-            y + 30,
-            19,
-            "mono",
-            BLUE,
-            max_width=width - 56,
-        )
-    )
-    y += 50
-    parts.append(_beam(width, y))
     merged, opened, _ = upstream_totals(snapshot["upstream_prs"])
     parts += [
         text(
@@ -441,17 +410,38 @@ def render_world(snapshot, panels, mobile=False, motion="ambient"):
             parts.append(text(line, 28, y + 20, 18, "mono", max_width=width - 56))
             y += 23
     y += 8
-    texture = base64.b64encode(
-        (
-            Path(__file__).resolve().parents[1]
-            / "assets/pixel-world/ledger-texture.jpg"
-        ).read_bytes()
-    ).decode("ascii")
+    parts.append(_beam(width, y))
+    count_art, y = _counts(snapshot, width, y, mobile)
+    parts.append(count_art)
+    cadence_art, y = _cadence(snapshot, width, y + 8, mobile)
+    parts.append(cadence_art)
+    activity_art, y = _activity_mix(snapshot, width, y + 8)
+    parts.append(activity_art)
+    calendar_art, y = _calendar(snapshot, width, y + 8, mobile)
+    parts.append(calendar_art)
+    parts.append(_beam(width, y))
+    languages, y = _languages(snapshot, width, y + 8)
+    parts.append(languages)
+    parts.append(_beam(width, y))
+    footprint, y = _footprint(snapshot, width, y + 8)
+    parts.append(footprint)
+    ages, y = _proposal_ages(snapshot, width, y)
+    parts.append(ages)
+    parts.append(
+        text(
+            "Collected " + snapshot["updated"],
+            28,
+            y + 30,
+            19,
+            "mono",
+            BLUE,
+            max_width=width - 56,
+        )
+    )
+    y += 50
     world = svg(
         width,
         y + 20,
-        f'<defs><pattern id="ledger-texture" width="160" height="192" patternUnits="userSpaceOnUse"><image width="160" height="192" href="data:image/jpeg;base64,{texture}"/></pattern></defs>'
-        f'<rect width="{width}" height="{y + 20}" fill="url(#ledger-texture)" opacity=".08"/>'
         f'<path d="M0 0h18v{y + 20}H0zM{width - 18} 0h18v{y + 20}h-18z" fill="#392833"/>'
         f'<path d="M16 0v{y + 20}M{width - 16} 0v{y + 20}" stroke="#805750" stroke-width="3"/>'
         + '<g id="world-data" aria-label="Observed public GitHub records">'

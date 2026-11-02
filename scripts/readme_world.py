@@ -1,9 +1,19 @@
 """One opaque, locally outlined workshop and its observed public records."""
 
+import base64
+import datetime as dt
 import html
+import math
 import xml.etree.ElementTree as ET
 
-from scripts.profile_style import BLUE, COBALT, INK, RULE, svg, text
+from scripts.profile_style import svg, text
+
+COBALT = "#efad62"
+BLUE = "#c9b2a6"
+RULE = "#795451"
+from collections import Counter
+from pathlib import Path
+
 from scripts.upstream_prs import upstream_totals
 
 
@@ -23,79 +33,10 @@ def embed(document, prefix, x=0, y=0):
 
 def _beam(width, y):
     return (
-        f'<path d="M20 {y}H{width - 20}v8H20z" fill="{RULE}"/>'
-        f'<path d="M28 {y + 8}v20m{width - 56} 0v-20" stroke="{BLUE}" stroke-width="4"/>'
+        f'<path d="M0 {y}H{width}v12H0z" fill="#422d34"/>'
+        f'<path d="M0 {y + 2}H{width}M0 {y + 10}H{width}" stroke="#a8785e" stroke-width="2"/>'
+        f'<path d="M12 {y + 12}v19m{width - 24} 0v-19" stroke="#795451" stroke-width="5"/>'
     )
-
-
-PROJECT_LINES = {
-    "Algebra": "Structure / symmetry / proof",
-    "Calculus": "Change / geometry / argument",
-    "Probability": "Uncertainty / experiments",
-    "Number theory": "Patterns / exact experiments",
-    "Calculator": "Exact notebooks / sign-in required",
-    "NTULearn Sync": "Course pages / original attachments",
-    "Academic OS": "Freshness / sources / study desk",
-    "Syrax": "Telegram assistant / OpenClaw",
-    "Emmy": "Operating kit for ChatGPT Dot",
-}
-
-
-def _projects(projects, width, y, mobile):
-    parts = [text("Things I make", 28, y + 52, 42, "display")]
-    columns = 1 if mobile else 2
-    pitch = (width - 56) // columns
-    for index, project in enumerate(projects):
-        x = 28 + (index % columns) * pitch
-        top = y + 100 + (index // columns) * 154
-        parts += [
-            f'<path d="M{x} {top + 105}h{pitch - 20}v7H{x}z" fill="{RULE}"/>',
-            f'<path d="M{x} {top + 102}v-88h7v88m7 0v-98h7v98" fill="{BLUE}"/>',
-            text(project["name"], x + 39, top, 29, "display", max_width=pitch - 53),
-            text(
-                PROJECT_LINES[project["name"]],
-                x + 39,
-                top + 28,
-                21,
-                "body",
-                BLUE,
-                max_width=pitch - 53,
-            ),
-        ]
-        tip = project["head"]["committed_at"][:10] if project["head"] else "unavailable"
-        parts.append(
-            text(f"repo tip {tip}", x + 39, top + 53, 20, "mono", max_width=pitch - 53)
-        )
-        release = project["release"]
-        release_label = (
-            ("prerelease " if release["prerelease"] else "release ")
-            + release["published_at"][:10]
-            if release
-            else "no published release"
-        )
-        parts.append(
-            text(
-                release_label,
-                x + 39,
-                top + 77,
-                20,
-                "mono",
-                color=BLUE,
-                max_width=pitch - 53,
-            )
-        )
-        languages = sorted(
-            project["language_bytes"].items(), key=lambda item: (-item[1], item[0])
-        )
-        total = sum(value for _, value in languages)
-        cursor = x + 39
-        for language_index, (language, value) in enumerate(languages):
-            length = (pitch - 60) * value / total
-            parts.append(
-                f'<rect x="{cursor}" y="{top + 90}" width="{length}" height="6" fill="{(COBALT, BLUE, INK, RULE)[language_index % 4]}"><title>{html.escape(language)}: {value} bytes</title></rect>'
-            )
-            cursor += length
-    return "".join(parts), y + 105 + ((len(projects) + columns - 1) // columns) * 154
 
 
 def _counts(snapshot, width, y, mobile):
@@ -125,27 +66,7 @@ def _counts(snapshot, width, y, mobile):
         ]
     if mobile:
         y += 185
-    merged, opened, repos = upstream_totals(snapshot["upstream_prs"])
-    parts += [
-        text(
-            f"UPSTREAM  {merged} merged / {opened} open",
-            28,
-            y + 215,
-            21,
-            "mono",
-            BLUE,
-            max_width=width - 56,
-        ),
-        text(
-            f"{repos} external repositories / open is not merged",
-            28,
-            y + 247,
-            19,
-            color=BLUE,
-            max_width=width - 56,
-        ),
-    ]
-    return "".join(parts), y + 285
+    return "".join(parts), y + 195
 
 
 def _cadence(snapshot, width, y, mobile):
@@ -167,7 +88,11 @@ def _cadence(snapshot, width, y, mobile):
         x = 28 + index * pitch
         height = count / maximum * 110
         parts += [
-            f'<rect x="{x}" y="{y + 245 - height}" width="{pitch * 0.62}" height="{max(2, height)}" fill="{COBALT}"/>',
+            (
+                f'<rect x="{x}" y="{y + 245 - height}" width="{pitch * 0.62}" height="{height}" fill="{COBALT}"/>'
+                if count
+                else ""
+            ),
             text(count, x, y + 230 - height, 20, "mono"),
             text(month[5:], x, y + 275, 20, "mono"),
         ]
@@ -193,58 +118,295 @@ def _cadence(snapshot, width, y, mobile):
     return "".join(parts), y + 377
 
 
-def render_world(snapshot, panels, mobile=False, motion="ambient"):
-    from scripts.pixel_world import PALETTE, SCENE_SIZE, render_scene
-
-    width, scene_height = SCENE_SIZE["mobile" if mobile else "wide"]
-    scene = embed(render_scene(mobile=mobile, motion=motion), "scene")
-    # The title lives in the quiet sky; records remain outside every animated group.
-    heading = [
-        text("Jerome Queck", 28, 65, 43 if mobile else 56, "display", INK),
-        text("MATHEMATICS × SOFTWARE", 28, 103, 20, "mono", BLUE),
+def _activity_mix(snapshot, width, y):
+    kinds = snapshot["calendar_kinds"]
+    labels = (
+        ("commits", "Commits"),
+        ("issues", "Issues opened"),
+        ("pull_requests", "PRs opened"),
+        ("reviews", "Reviews"),
+        ("repositories", "Repos created"),
+    )
+    colors = ("#eeb36e", "#b77b70", "#82a8b1", "#c1a57b", "#806d8a")
+    total = sum(kinds.values())
+    cx, cy, radius = 105, y + 198, 67
+    parts = [
+        text("Activity mix", 28, y + 54, 36, "display"),
+        text("Public contributions since 1 July 2026", 28, y + 87, 20, color=BLUE),
     ]
-    parts = []
-    y = scene_height
-    merged_repos = {
-        record["repo"].casefold()
-        for record in snapshot["upstream_prs"]
-        if record["state"] == "MERGED"
-    }
-    if {"openclaw/openclaw", "freecodecamp/freecodecamp"} <= merged_repos:
+    if total:
+        angle = -math.pi / 2
+        for (key, _), color in zip(labels, colors):
+            value = kinds[key]
+            if not value:
+                continue
+            span = 2 * math.pi * value / total
+            if value == total:
+                parts.append(
+                    f'<circle cx="{cx}" cy="{cy}" r="{radius}" fill="none" stroke="{color}" stroke-width="26"/>'
+                )
+            else:
+                end = angle + span
+                x1, y1 = cx + radius * math.cos(angle), cy + radius * math.sin(angle)
+                x2, y2 = cx + radius * math.cos(end), cy + radius * math.sin(end)
+                parts.append(
+                    f'<path d="M{x1:.2f} {y1:.2f} A{radius} {radius} 0 {int(span > math.pi)} 1 {x2:.2f} {y2:.2f}" fill="none" stroke="{color}" stroke-width="26"/>'
+                )
+                angle = end
+        parts.append(text("100%", cx, cy + 7, 22, "mono", anchor="middle"))
+    else:
+        parts.append(
+            f'<circle cx="{cx}" cy="{cy}" r="{radius}" fill="none" stroke="{RULE}" stroke-width="3"/>'
+        )
+        parts.append(text("No records", cx, cy + 7, 18, anchor="middle"))
+    for i, ((key, label), color) in enumerate(zip(labels, colors)):
+        row = y + 129 + i * 43
+        parts.append(
+            f'<rect x="202" y="{row - 13}" width="11" height="11" fill="{color}"/>'
+        )
+        parts.append(text(label, 220, row, 18, max_width=125))
+        value = kinds[key]
+        percent = value / total * 100 if total else 0
+        percentage = "<0.1" if 0 < percent < 0.05 else f"{percent:.1f}"
+        number = f"{value:,}" + (f" ({percentage}%)" if total else "")
+        parts.append(text(number, width - 28, row + 20, 17, "mono", anchor="end"))
+    return "".join(parts), y + 375
+
+
+def _footprint(snapshot, width, y):
+    from scripts.upstream_prs import change_footprint
+
+    values = change_footprint(snapshot["upstream_prs"])
+    parts = [
+        text("Merged patch footprint", 28, y + 54, 35, "display", max_width=width - 56),
+        text(f"{values['prs']} upstream PRs / all time", 28, y + 88, 20, color=BLUE),
+    ]
+    rows = (
+        ("additions", "Lines added"),
+        ("deletions", "Lines deleted"),
+        ("file_changes", "File-change entries"),
+    )
+    line_max = max(values["additions"], values["deletions"]) or 1
+    for i, (key, label) in enumerate(rows):
+        row = y + 132 + i * 45
         parts += [
-            text(
-                "Contributions merged into",
-                28,
-                y + 42,
-                30,
-                "display",
-                max_width=width - 56,
-            ),
-            text(
-                "OpenClaw + freeCodeCamp",
-                28,
-                y + 84,
-                32,
-                "display",
-                COBALT,
-                max_width=width - 56,
-            ),
+            text(label, 28, row, 20),
+            text(f"{values[key]:,}", width - 28, row, 20, "mono", anchor="end"),
         ]
-        y += 115
-    parts.append(_beam(width, y))
-    project_art, y = _projects(snapshot["projects"], width, y + 16, mobile)
-    parts.append(project_art)
-    parts.append(_beam(width, y))
-    count_art, y = _counts(snapshot, width, y + 8, mobile)
+        if key != "file_changes" and values[key]:
+            length = (width - 355) * values[key] / line_max
+            parts.append(
+                f'<rect x="170" y="{row - 14}" width="{length:.2f}" height="13" fill="{COBALT if key == "additions" else BLUE}"/>'
+            )
+    parts += [
+        text(
+            "Whole PR patches include every coauthor.",
+            28,
+            y + 282,
+            19,
+            color=BLUE,
+            max_width=width - 56,
+        ),
+        text(
+            "File changes can repeat across PRs.",
+            28,
+            y + 308,
+            19,
+            color=BLUE,
+            max_width=width - 56,
+        ),
+    ]
+    return "".join(parts), y + 340
+
+
+def _proposal_ages(snapshot, width, y):
+    from scripts.upstream_prs import open_pr_ages
+
+    ages = open_pr_ages(snapshot["upstream_prs"], snapshot["observed_to"])
+    bins = Counter(item["days"] for item in ages)
+    days = sorted({0, 1, 2} | set(bins))
+    parts = [
+        text("Open proposal ages", 28, y + 54, 35, "display", max_width=width - 56),
+        text(
+            "Completed days at collection; one dot per PR",
+            28,
+            y + 87,
+            19,
+            color=BLUE,
+            max_width=width - 56,
+        ),
+    ]
+    cursor = y + 128
+    for day in days:
+        count = bins[day]
+        parts.append(text(str(day) + " d", 28, cursor, 19, "mono"))
+        for i in range(count):
+            parts.append(
+                f'<circle cx="{104 + (i % 20) * 15}" cy="{cursor - 6 + (i // 20) * 18}" r="4" fill="{COBALT}"/>'
+            )
+        parts.append(text(str(count), width - 28, cursor, 19, "mono", anchor="end"))
+        cursor += 44 + max(0, (count - 1) // 20) * 18
+    return "".join(parts), cursor + 12
+
+
+def _languages(snapshot, width, y):
+    counts = Counter()
+    for project in snapshot["projects"]:
+        counts.update(project["language_bytes"])
+    rows = sorted(counts.items(), key=lambda item: (-item[1], item[0]))
+    shown = rows[:4]
+    if len(rows) > 4:
+        shown.append(("Other", sum(value for _, value in rows[4:])))
+    total = sum(counts.values())
+    colors = ("#eeb36e", "#b77b70", "#82a8b1", "#c1a57b", "#806d8a")
+    parts = [
+        text(
+            "Languages in these repositories",
+            28,
+            y + 54,
+            32,
+            "display",
+            max_width=width - 56,
+        ),
+        text(
+            "GitHub language bytes / repository contents",
+            28,
+            y + 88,
+            19,
+            color=BLUE,
+            max_width=width - 56,
+        ),
+    ]
+    if not total:
+        parts.append(text("No language bytes reported", 28, y + 132, 20))
+        return "".join(parts), y + 165
+    x = 28
+    for (_, value), color in zip(shown, colors):
+        length = (width - 56) * value / total
+        if value:
+            parts.append(
+                f'<rect x="{x:.3f}" y="{y + 113}" width="{length:.3f}" height="21" fill="{color}"/>'
+            )
+        x += length
+    for i, ((name, value), color) in enumerate(zip(shown, colors)):
+        row = y + 169 + i * 36
+        parts.append(
+            f'<rect x="28" y="{row - 13}" width="11" height="11" fill="{color}"/>'
+        )
+        parts.append(text(name, 48, row, 19, max_width=150))
+        parts.append(text(f"{value:,} B", width - 28, row, 17, "mono", anchor="end"))
+    parts.append(
+        text(
+            "Other languages are listed in the snapshot.",
+            28,
+            y + 190 + len(shown) * 36,
+            18,
+            color=BLUE,
+            max_width=width - 56,
+        )
+    )
+    return "".join(parts), y + 220 + len(shown) * 36
+
+
+def _calendar(snapshot, width, y, mobile):
+    days = snapshot["calendar_days"]
+    start = dt.date.fromisoformat(snapshot["calendar_start"])
+    end = dt.date.fromisoformat(snapshot["calendar_end"])
+    sunday = start - dt.timedelta(days=(start.weekday() + 1) % 7)
+    maximum = max(days.values(), default=0)
+    palette = ("#302a3a", "#61454e", "#99705d", "#c69060", "#f2b768")
+    columns = 18 if mobile else 36
+    cell = 19 if mobile else 21
+    pitch = 23
+    weeks = (end - sunday).days // 7 + 1
+    panels = (weeks + columns - 1) // columns
+    parts = [
+        text(
+            "Public contribution calendar",
+            28,
+            y + 54,
+            33,
+            "display",
+            max_width=width - 56,
+        ),
+        text(f"{start} to {end}", 28, y + 86, 20, "mono", color=BLUE),
+    ]
+    last_panel_weeks = weeks - (panels - 1) * columns
+    last_rows = 7 if last_panel_weeks > 1 else (end.weekday() + 1) % 7 + 1
+    for panel in range(panels):
+        for label, row in (("M", 1), ("W", 3), ("F", 5)):
+            if panel == panels - 1 and row >= last_rows:
+                continue
+            parts.append(
+                text(label, 18, y + 130 + panel * 205 + row * pitch, 14, "mono", BLUE)
+            )
+    marker = start.replace(day=1)
+    while marker <= end:
+        visible = max(marker, start)
+        week = (visible - sunday).days // 7
+        panel, col = divmod(week, columns)
+        parts.append(
+            text(
+                f"{marker:%b}",
+                32 + col * pitch,
+                y + 108 + panel * 205,
+                15,
+                "mono",
+                BLUE,
+            )
+        )
+        marker = (marker.replace(day=28) + dt.timedelta(days=4)).replace(day=1)
+    date = start
+    while date <= end:
+        week = (date - sunday).days // 7
+        panel, col = divmod(week, columns)
+        row = (date.weekday() + 1) % 7
+        x, yy = 32 + col * pitch, y + 115 + panel * 205 + row * pitch
+        count = days.get(str(date), 0)
+        level = 0 if count == 0 else min(4, 1 + (count - 1) * 4 // maximum)
+        parts.append(
+            f'<rect x="{x}" y="{yy}" width="{cell}" height="{cell}" fill="{palette[level]}"><title>{date}: {count} records</title></rect>'
+        )
+        date += dt.timedelta(days=1)
+    legend_y = y + 115 + (panels - 1) * 205 + last_rows * pitch + 20
+    parts.append(text("0 to daily peak", 28, legend_y + 17, 19, color=BLUE))
+    for i, color in enumerate(palette):
+        parts.append(
+            f'<rect x="{190 + i * 26}" y="{legend_y}" width="20" height="20" fill="{color}"/>'
+        )
+    return "".join(parts), legend_y + 50
+
+
+def render_world(snapshot, panels, mobile=False, motion="ambient"):
+    from scripts.pixel_world import SCENE_SIZE
+
+    width, _ = SCENE_SIZE["mobile" if mobile else "wide"]
+    parts = [_beam(width, 0)]
+    y = 8
+    count_art, y = _counts(snapshot, width, y, mobile)
     parts.append(count_art)
-    parts.append(_beam(width, y))
     cadence_art, y = _cadence(snapshot, width, y + 8, mobile)
     parts.append(cadence_art)
-    suffix = "-mobile" if mobile else ""
-    calendar = panels[f"calendar{suffix}.svg"]
+    activity_art, y = _activity_mix(snapshot, width, y + 8)
+    parts.append(activity_art)
+    calendar_art, y = _calendar(snapshot, width, y + 8, mobile)
+    parts.append(calendar_art)
     parts.append(_beam(width, y))
-    parts.append(embed(calendar, "calendar", 0, y + 24))
-    y += 24 + float(ET.fromstring(calendar).get("height"))
+    languages, y = _languages(snapshot, width, y + 8)
+    parts.append(languages)
+    parts.append(_beam(width, y))
+    merged, opened, _ = upstream_totals(snapshot["upstream_prs"])
+    parts += [
+        text(
+            "Open-source contributions", 28, y + 56, 34, "display", max_width=width - 56
+        ),
+        text(f"{merged} merged / {opened} open", 28, y + 90, 20, "mono", BLUE),
+    ]
+    y += 115
+    footprint, y = _footprint(snapshot, width, y)
+    parts.append(footprint)
+    ages, y = _proposal_ages(snapshot, width, y)
+    parts.append(ages)
     parts += [
         text(
             "Collected " + snapshot["updated"],
@@ -255,21 +417,27 @@ def render_world(snapshot, panels, mobile=False, motion="ambient"):
             BLUE,
             max_width=width - 56,
         ),
-        text("Exact records + project links below.", 28, y + 65, 22, color=BLUE),
+        text("Exact records and definitions below.", 28, y + 65, 22, color=BLUE),
     ]
+    texture = base64.b64encode(
+        (
+            Path(__file__).resolve().parents[1]
+            / "assets/pixel-world/ledger-texture.jpg"
+        ).read_bytes()
+    ).decode("ascii")
     world = svg(
         width,
         y + 100,
-        scene
-        + "".join(heading)
+        f'<defs><pattern id="ledger-texture" width="160" height="192" patternUnits="userSpaceOnUse"><image width="160" height="192" href="data:image/jpeg;base64,{texture}"/></pattern></defs>'
+        f'<rect width="{width}" height="{y + 100}" fill="url(#ledger-texture)" opacity=".08"/>'
+        f'<path d="M0 0h18v{y + 100}H0zM{width - 18} 0h18v{y + 100}h-18z" fill="#392833"/>'
+        f'<path d="M16 0v{y + 100}M{width - 16} 0v{y + 100}" stroke="#805750" stroke-width="3"/>'
         + '<g id="world-data" aria-label="Observed public GitHub records">'
         + "".join(parts)
         + "</g>",
-        "Jerome Queck. Mathematics and software. A midnight workshop with nine projects and public GitHub records. "
-        + snapshot["updated"],
-        background=PALETTE["sky"],
+        "Public GitHub records for Jerome Queck. " + snapshot["updated"],
+        background="#211b29",
     )
-    # Namespace nested IDs before the outer outline deduplicator adds its glyphs.
     return world.replace(
         "<svg ",
         '<svg data-snapshot="'

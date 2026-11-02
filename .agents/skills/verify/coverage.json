@@ -51,7 +51,7 @@
     "status": "blocked: final live GitHub matrix pending; no pass claimed",
     "scope": "Sequential source coverage of all four feature files. No child readers under coordinator instruction. Historical baseline above is unchanged.",
     "source_review_notes": "External session evidence/linked-driver-notes/source-coverage.md records source entry points and recipes.",
-    "driver_unit_tests": 9,
+    "driver_unit_tests": 11,
     "corrections_pending_live_reproof": [
       "Sixteen-image continuous canvas and eleven rows including five 75/25 pairs",
       "Nine actual image-title clicks, five image-source clicks, six merged PR receipts",

@@ -74,3 +74,18 @@ test('SVG fragments remain discoverable when fetching selected media assets', ()
   assert.equal(sources.filter(src => /\.svg(?:#|\?|$)/.test(src)).length, 3);
   assert.equal(new Set(sources.map(assetFile)).size, 2);
 });
+
+test('a matching master file cannot prove the selected crop exists or differs', () => {
+  const {viewErrors, sameAssetFile} = require('./drive.cjs');
+  const views = [{id: 'roof', viewBox: '0 0 900 220'}, {id: 'cellar', viewBox: '0 220 900 220'}];
+  assert.equal(sameAssetFile('https://example.test/full.svg#roof', 'https://example.test/full.svg#cellar'), true);
+  assert.deepEqual(viewErrors(views, ['roof', 'cellar']), []);
+  assert.ok(viewErrors(views, ['missing']).some(error => /missing SVG view/.test(error)));
+  assert.ok(viewErrors(views.map(view => ({...view, viewBox: views[0].viewBox})), ['roof', 'cellar']).some(error => /duplicate/.test(error)));
+});
+
+test('meeting title/source tiles still require the authored 75/25 split', () => {
+  const {canvasRows} = require('./drive.cjs');
+  const canvas = {x: 0, width: 400};
+  assert.ok(canvasRows([{x: 0, y: 0, width: 200, height: 80}, {x: 200, y: 0, width: 200, height: 80}], canvas).errors.some(error => /75\/25/.test(error)));
+});

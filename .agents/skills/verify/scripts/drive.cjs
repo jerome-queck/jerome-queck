@@ -53,6 +53,7 @@ function canvasRows(images, article, tolerance = 1) {
     row.images.sort((a, b) => a.x - b.x);
     row.bottom = Math.max(...row.images.map(image => image.y + image.height));
     const first = row.images[0], last = row.images.at(-1);
+    if (row.images.length === 2 && (Math.abs(first.width - article.width * .75) > tolerance || Math.abs(last.width - article.width * .25) > tolerance)) errors.push(`row ${index} title/source ratio is not 75/25`);
     if (Math.abs(first.x - article.x) > tolerance || Math.abs(last.x + last.width - article.x - article.width) > tolerance) errors.push(`row ${index} does not fill canvas width`);
     for (let i = 1; i < row.images.length; i++) {
       const left = row.images[i - 1], right = row.images[i];
@@ -63,6 +64,12 @@ function canvasRows(images, article, tolerance = 1) {
   return {rows, errors};
 }
 
+function viewErrors(views, references) {
+  const errors = references.filter(reference => !views.some(view => view.id === reference)).map(reference => `missing SVG view ${reference}`);
+  if (new Set(views.map(view => view.viewBox)).size !== views.length) errors.push('duplicate SVG view boxes');
+  return errors;
+}
+
 function analyzeSvg(source) {
   const doc = new DOMParser().parseFromString(source, 'image/svg+xml');
   const data = doc.getElementById('world-data');
@@ -71,7 +78,7 @@ function analyzeSvg(source) {
   const invalidSelectors = [];
   const animated = [...new Set(selectors.flatMap(selector => { try { return [...doc.querySelectorAll(selector)]; } catch { invalidSelectors.push(selector); return []; } }))];
   return {
-    snapshot: doc.documentElement.getAttribute('data-snapshot'), dataBoundary: !!data, styles, selectors, invalidSelectors,
+    snapshot: doc.documentElement.getAttribute('data-snapshot'), dataBoundary: !!data, dataMarkup: data?.outerHTML, styles, selectors, invalidSelectors,
     unsupportedAnimation: doc.querySelectorAll('animate,animateMotion,animateTransform,set,script,[style*="animation"]').length,
     animatedElements: animated.map(e => ({tag: e.tagName, id: e.id, class: e.getAttribute('class')})),
     decorativeOnly: animated.every(e => e.tagName === 'circle' && !e.querySelector('text,path')),
@@ -264,13 +271,15 @@ async function run(config) {
             const asset = {url, status: assetResponse.status(), paths: (body.match(/<path\b/g) || []).length, textNodes: (body.match(/<text\b/g) || []).length, bytes: Buffer.byteLength(body)};
             asset.motionSource = await page.evaluate(analyzeSvg, body);
             const motion = asset.motionSource;
+            if (motion.dataMarkup) motion.dataSHA256 = createHash('sha256').update(motion.dataMarkup).digest('hex');
+            delete motion.dataMarkup;
             const dataWorld = /\/world(?:-mobile)?(?:-still)?\.svg(?:\?|$)/.test(url);
             const still = /-still\.svg(?:\?|$)/.test(url);
             if (motion.invalidSelectors.length || motion.unsupportedAnimation || motion.dataAffected || !motion.decorativeOnly || (still && motion.styles) || (dataWorld && (!motion.dataBoundary || !motion.snapshot || motion.animatedElements.length))) fail('motion-source', `${name}: invalid authored/data/static boundary in ${url}`);
             if (!dataWorld && !still && !motion.animatedElements.length) fail('motion-source', `${name}: ambient master has no decorative animation ${url}`);
             const references = allImages.map(selectedSource).filter(src => assetFile(src) === url).map(src => new URL(src).hash.slice(1)).filter(Boolean);
-            for (const reference of references) if (!motion.views.some(view => view.id === reference)) fail('fragment-source', `${name}: missing SVG view ${reference} in ${url}`);
-            if (new Set(motion.views.map(view => view.viewBox)).size !== motion.views.length) fail('fragment-source', `${name}: duplicate view boxes ${url}`);
+            for (const error of viewErrors(motion.views, references)) fail('fragment-source', `${name}: ${error} in ${url}`);
+            if (dataWorld && report.publishedSnapshot && motion.snapshot !== report.publishedSnapshot.observed_to) fail('snapshot-generation', `${name}: data asset timestamp differs from observed JSON ${url}`);
             report.assets.push(asset);
             if (!assetResponse.ok() || !body.includes('<svg')) fail('asset-body', url);
             if (config['require-outlines'] === 'yes' && (!asset.paths || asset.textNodes)) fail('svg-outlines', url);
@@ -334,7 +343,13 @@ async function run(config) {
                     await opened.waitForLoadState('domcontentloaded');
                     const published = await context.request.get(snapshotURL);
                     write('published-snapshot-source.json', {observedLink, requested: snapshotURL, final: published.url(), status: published.status()});
-                    if (published.ok()) write('published-snapshot.json', await published.json());
+                    if (published.ok()) {
+                      const snapshot = await published.json();
+                      write('published-snapshot.json', snapshot);
+                      report.publishedSnapshot = {schema_version: snapshot.schema_version, observed_to: snapshot.observed_to, counts: snapshot.counts};
+                      if (snapshot.schema_version !== 3) fail('publication', 'Expected schema-v3 public input');
+                      for (const asset of report.assets.filter(asset => asset.motionSource.dataBoundary)) if (asset.motionSource.snapshot !== snapshot.observed_to) fail('snapshot-generation', `Data timestamp differs from observed JSON ${asset.url}`);
+                    }
                     else fail('publication', `Snapshot response ${published.status()}`);
                   } else fail('publication', 'Published source does not link snapshot.json');
                 }
@@ -367,4 +382,4 @@ if (require.main === module) {
   try { run(options(process.argv.slice(2))).then(code => { process.exitCode = code; }).catch(error => { console.error(error); process.exitCode = 1; }); }
   catch (error) { console.error(error.message); process.exitCode = 1; }
 }
-module.exports = {options, anchorSettled, pixelDifference, captureMotion, assetFile, sameAssetFile, selectedSource, canvasRows, analyzeSvg};
+module.exports = {options, anchorSettled, pixelDifference, captureMotion, assetFile, sameAssetFile, selectedSource, canvasRows, analyzeSvg, viewErrors};

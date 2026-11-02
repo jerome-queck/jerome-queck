@@ -86,14 +86,14 @@ Notes websites and tools for exploring ideas. A small example from algebra follo
 <a href="https://github.com/jerome-queck/jerome-queck/tree/profile-data#merge-cadence">
 <picture>
   <source media="(min-width: 601px)" srcset="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/cadence.svg">
-  <img alt="Authored public PRs merged per UTC calendar month over twelve months. The current month is partial. All values are available in the text snapshot." src="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/cadence-mobile.svg" width="100%">
+  <img alt="Authored public PRs merged per UTC calendar month since July 2026. The current month is partial. All values are available in the text snapshot." src="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/cadence-mobile.svg" width="100%">
 </picture>
 </a>
 
 <a href="https://github.com/jerome-queck/jerome-queck/tree/profile-data#public-contribution-calendar">
 <picture>
   <source media="(min-width: 601px)" srcset="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/calendar.svg">
-  <img alt="365 days reconstructed from public commit, issue, PR, review and repository contribution records. Zero to peak cell colors indicate daily frequency; dates and exact values are in the text snapshot." src="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/calendar-mobile.svg" width="100%">
+  <img alt="Public commit, issue, PR, review and repository contribution records since 1 July 2026. Zero to peak cell colors indicate daily frequency; dates and exact values are in the text snapshot." src="https://raw.githubusercontent.com/jerome-queck/jerome-queck/profile-data/calendar-mobile.svg" width="100%">
 </picture>
 </a>
 

@@ -7,9 +7,10 @@ Jerome Queck's personal GitHub profile and its public-data pipeline.
 - `data/projects.json` is the authored nine-project catalogue, separate from fetched facts.
 - `assets/` contains original artwork and authored interface/diagram assets; provenance is in `assets/README.md`.
 - `scripts/render_interface.py` authors static chapter navigation, project links and the closing strip; `scripts/render_math_plate.py` plots exact square transforms.
-- `scripts/profile_data.py` collects the complete snapshot and renders counters, merge cadence and accessible text.
+- `scripts/profile_data.py` collects the complete snapshot; `scripts/upstream_prs.py` owns the scoped upstream search; `scripts/profile_style.py` owns measured outlined type.
 - `scripts/repo_pulse.py`, `public_calendar.py`, `recent_activity.py` own selected repo facts, public calendar and the two-event feed.
 - `.github/workflows/` runs CI and daily collection/publication; `tests/` exercises metrics, boundaries and remote Git publication.
-- `docs/design/circuit-atlas.md` records the current design, prompts and regeneration; `docs/design/decisions.md` retains the decision history.
+- `assets/type/` contains pinned OFL fonts and their manifest; `requirements.txt` pins shaping dependencies.
+- `docs/design/data-graphics.md` records public graphic definitions and regeneration; `docs/design/decisions.md` retains the decision history.
 - `docs/research/` records primary evidence; `docs/adr/` records architectural tradeoffs.
 - Exploratory designs remain on `prototype/` branches and do not merge into `main`.

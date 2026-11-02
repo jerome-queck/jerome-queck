@@ -104,6 +104,7 @@ class ProfileDataTests(unittest.TestCase):
             ),
             patch("scripts.profile_data.fetch_activity", return_value=[]),
             patch("scripts.profile_data.load_projects", return_value=[]),
+            patch("scripts.profile_data.fetch_upstream", return_value=[]),
             patch("sys.argv", ["profile_data", directory]),
         ):
             main()
@@ -152,7 +153,7 @@ class ProfileDataTests(unittest.TestCase):
                 "966",
                 "31 Oct 2026 15:45 UTC",
                 "ALL TIME",
-                "Linked issues resolved",
+                "Linked closed issues",
             ]:
                 self.assertIn(expected, copy)
 
@@ -209,16 +210,16 @@ class ProfileDataTests(unittest.TestCase):
         months = merge_months(
             {
                 "2025-11-30": 10,
-                "2025-12-01": 2,
+                "2026-07-01": 2,
                 "2026-11-01": 3,
                 "2026-11-02": 99,
                 "2026-12-01": 99,
             },
             dt.date(2026, 11, 1),
         )
-        self.assertEqual(len(months), 12)
-        self.assertEqual(next(iter(months)), "2025-12")
-        self.assertEqual(months["2026-01"], 0)
+        self.assertEqual(len(months), 5)
+        self.assertEqual(next(iter(months)), "2026-07")
+        self.assertEqual(months["2026-08"], 0)
         self.assertEqual(months["2026-11"], 3)
         self.assertEqual(sum(months.values()), 5)
 
@@ -298,7 +299,7 @@ class ProfileDataTests(unittest.TestCase):
 
     def test_all_graphics_and_text_derive_from_saved_snapshot(self):
         snapshot = {
-            "schema_version": 1,
+            "schema_version": 2,
             "observed_from": "2026-11-01T00:00:00+00:00",
             "observed_to": "2026-11-01T00:01:00+00:00",
             "updated": "01 Nov 2026 00:01 UTC",
@@ -309,6 +310,7 @@ class ProfileDataTests(unittest.TestCase):
             "merge_months": merge_months({"2026-11-01": 2}, dt.date(2026, 11, 1)),
             "projects": [],
             "recent_events": [],
+            "upstream_prs": [],
         }
         files = render_snapshot(snapshot)
         self.assertEqual(len(files), 11)
@@ -321,38 +323,37 @@ class ProfileDataTests(unittest.TestCase):
         self.assertIn("2026-11: 2", files["README.md"])
         self.assertIn('"2026-11": 2', files["snapshot.json"])
 
-    def test_long_words_cannot_add_a_third_title_line(self):
+    def test_long_titles_remain_complete_native_without_changing_graphic_height(self):
         event = {
             "title": " ".join(["a" * 24] * 3),
             "repo": "owner/repo",
             "number": 1,
             "action": "opened",
             "date": "2026-10-31",
+            "url": "https://github.com/owner/repo/pull/1",
         }
-        root = ET.fromstring(render_activity([event]))
-        title_lines = [
-            node for node in root.iter() if node.attrib.get("font-size") == "24"
-        ]
-        self.assertLessEqual(len(title_lines), 2)
+        graphic = render_activity([event])
+        event["title"] += " e\u0301 天気" * 20
+        self.assertEqual(render_activity([event]), graphic)
+        self.assertIn(event["title"], markdown_activity([event]))
 
-    def test_remote_event_runs_have_declared_layout_widths(self):
+    def test_remote_titles_stay_native_and_overlong_identifiers_fail(self):
         event = {
-            "title": "W" * 80,
-            "repo": "W" * 80,
+            "title": "未知 e\u0301 🧮",
+            "repo": "owner/project",
             "number": 1,
             "action": "opened",
             "date": "2026-10-31",
+            "url": "https://github.com/owner/project/pull/1",
         }
         root = ET.fromstring(render_activity([event]))
-        runs = [
-            node
-            for node in root.iter()
-            if node.attrib.get("font-size") == "24" or node.attrib.get("y") == "142"
-        ]
-        self.assertEqual(len(runs), 3)
-        for node in runs:
-            self.assertLessEqual(float(node.attrib["textLength"]), 576)
-            self.assertEqual(node.attrib["lengthAdjust"], "spacingAndGlyphs")
+        self.assertEqual(list(root.iter("{http://www.w3.org/2000/svg}text")), [])
+        self.assertIn(event["title"], markdown_activity([event]))
+        self.assertIn("owner/project#1", " ".join(root.itertext()))
+        self.assertNotIn("textLength", render_activity([event]))
+        event["repo"] = "W" * 100
+        with self.assertRaisesRegex(ValueError, "does not fit"):
+            render_activity([event])
 
     def test_recent_activity_stays_at_two_events(self):
         events = [

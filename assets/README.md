@@ -30,3 +30,11 @@ corrective arrow edit are recorded in [Circuit Atlas](../docs/design/circuit-atl
 Decorative numbered `chapter-*.svg` folios, `nav-*.svg`, `enter-*.svg` and `exit.svg` come from
 `scripts/render_interface.py`; the square-transform figures retain their exact mathematics
 with the new palette. Generated live data remains on `profile-data`, separate from authored art.
+
+## Typography data core and accepted avatar, 2 November 2026
+
+The field-journal composition was a rejected prototype. Its proposed masthead and diagram assets are not embedded or committed here. Existing Circuit Atlas assets above remain historical source material for the next composition review. The new data charts use locally outlined Fraunces, Source Sans 3 and IBM Plex Mono through `scripts/profile_style.py`.
+
+`type/manifest.json` records font sources pinned to exact Google Fonts commits, SHA256 hashes, axes and OFL licenses. The actual font files and licenses are local. Graphic letters are shaped with uharfbuzz 0.43.0 and HarfBuzz 10.1.0, then outlined with fontTools 4.55.3. Individual glyph paths are reused inside each SVG. No font loads from a CDN at runtime. Native Markdown retains descriptions, exact dynamic text and individually usable links. See [data graphic definitions and regeneration](../docs/design/data-graphics.md).
+
+`avatar-jq.jpg` is a separate built-in ImageGen artwork generated on 2 November 2026 for manual profile upload. The source PNG is external session evidence; JPEG conversion changes the encoding, not the artwork. The brief was a bold JQ typographic monogram using warm ivory, dark aubergine and cobalt. The generator's exact prompt remains in the task's tool history. No claim of a public reuse license accompanies it.

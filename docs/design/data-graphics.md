@@ -1,0 +1,15 @@
+# Public data graphics
+
+The data core remains useful after the owner rejected the initial field-journal profile composition. This file records the data and rendering choices; it does not approve that rejected composition.
+
+Merge cadence and the calendar start on 1 July 2026 and end at the collection date. The current month is partial. Weekday frequency groups the same UTC calendar records. All-time authored-public-PR and linked-closed-issue counters retain their original scope.
+
+"Open-source contributions" counts public PRs authored by `jerome-queck` outside repositories owned by `jerome-queck` or `Jerome-Group`. This is a complete scoped search, not the retained two-event sample or just the featured fixes. Its merged and open counts are separate. Repositories with PRs include any state. Closed without merge remains distinct in repository status. An open PR's merge-commit field does not establish a merge. The collector fails on more than 1000 results, count changes, duplicate records, incomplete pages or nonadvancing cursors.
+
+Schema 2 requires full upstream PR records and language-byte maps for the nine selected repositories. Missing fields fail; valid empty fields remain empty. Language connections must fit the 100-language request and match their reported byte and language totals. The chart shows the four largest languages plus Other, with unique color swatches and percentages. Full bytes remain native. GitHub's classifications can include generated and vendored code and other authors. They do not measure expertise or time.
+
+Fraunces 600, Source Sans 3 regular and IBM Plex Mono regular use local OFL sources pinned by commit and SHA256 in `assets/type/manifest.json`. That manifest also records axes and license hashes. `scripts/profile_style.py` owns palette, font roles, HarfBuzz shaping, measured ink and advances, missing-glyph failure and local outline reuse. Renderers own their composition. The engine is uharfbuzz 0.43.0 with HarfBuzz 10.1.0 and fontTools 4.55.3. No image font loads at runtime. Arbitrary Unicode titles and exact release tags stay complete in the native snapshot. Glyph zero and overflow fail the refresh instead of producing tofu or clipped text.
+
+The eleven publication names and Git publication block remain unchanged. Every required source and all rendering finish before output writes. A new source or rendering failure retains the previous complete publication and timestamp. Native snapshot Markdown includes exact values, states, timestamps, source links and definitions. SVG titles and outlined text labels retain descriptive alternatives. GitHub controls native Markdown's font.
+
+Install `requirements.txt` in a virtual environment. Run `python -m scripts.profile_data /absolute/output/directory` with authenticated `gh`. For a saved schema-2 snapshot, call `render_snapshot` to regenerate the same eleven payloads. Do not commit live output to the source branch. Run `python -m unittest discover -s tests`, `ruff format --check scripts tests` and `ruff check scripts tests`.

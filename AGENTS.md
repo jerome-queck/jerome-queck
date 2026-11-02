@@ -5,7 +5,7 @@
 
 ## What this repo is
 
-Jerome Queck’s GitHub profile: mathematics and software, selected public projects, and original visual assets. The root README is the profile surface; exploratory designs remain on prototype branches.
+Jerome Queck’s GitHub profile: mathematics and software, selected public projects, and original visual assets. The root README is the profile surface; exploratory designs remain on prototype branches. Data graphic definitions and regeneration commands live in `docs/design/data-graphics.md`.
 
 - **Visibility:** public
 - **Owner:** [jerome-queck](https://github.com/jerome-queck)
@@ -13,7 +13,7 @@ Jerome Queck’s GitHub profile: mathematics and software, selected public proje
 
 ## Getting it running
 
-Python 3 collects public facts and generates contribution/repository panels in GitHub Actions. `data/projects.json` controls the nine authored selections. Run `python3 -m unittest discover -s tests` and Ruff format/check. Review Markdown and image assets directly. Before publication, validate relative links, image rendering, light/dark appearance and mobile readability on GitHub.
+Python 3 collects public facts and generates contribution/repository panels in GitHub Actions. `data/projects.json` controls the nine authored selections. Install the pinned typography dependencies with `python3 -m pip install -r requirements.txt`. Run `python3 -m unittest discover -s tests` and Ruff format/check. Review Markdown and image assets directly. Before publication, validate relative links, image rendering, light/dark appearance and mobile readability on GitHub.
 
 ## Conventions
 
@@ -94,3 +94,5 @@ skeleton CI has not earned that.
 - Record reversible design choices in `docs/design/decisions.md`; glossary terms only in `CONTEXT.md`.
 - No blanket licence has been selected. Do not assume generated images establish rights or apply a code licence to artwork.
 - Bootstrap exception: the initial empty commit establishes `main`; subsequent file changes use pull requests.
+- Keep graphic text outlined through `scripts/profile_style.py`; preserve native equivalents and full Unicode dynamic titles in the snapshot.
+- Schema 2 requires upstream PR records and selected repository language bytes. Missing or truncated new input must fail, never become a zero-valued chart.

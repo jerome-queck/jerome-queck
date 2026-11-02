@@ -10,7 +10,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
-      - run: python3 -m pip install ruff==0.16.6
+      - run: python3 -m pip install ruff==0.16.6 -r requirements.txt
       - run: ruff format --check scripts tests
       - run: ruff check scripts tests
       - run: python3 -m unittest discover -s tests

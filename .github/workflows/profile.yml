@@ -16,6 +16,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
         with:
           persist-credentials: false
+      - run: python3 -m pip install -r requirements.txt
       - name: Collect public contributions and selected repositories
         env:
           GH_TOKEN: ${{ github.token }}

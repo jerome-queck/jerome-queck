@@ -16,11 +16,14 @@ PROFILE_EVIDENCE=$(mktemp -d /tmp/profile-evidence.XXXXXX)
 PROFILE_RUNTIME=$(mktemp -d /tmp/profile-runtime.XXXXXX)
 npm install --prefix "$PROFILE_RUNTIME" --no-audit --no-fund --save-exact playwright@1.62.1 pngjs@7.0.0
 export NODE_PATH="$PROFILE_RUNTIME/node_modules"
+python3 -m venv "$PROFILE_RUNTIME/python"
+PROFILE_PYTHON="$PROFILE_RUNTIME/python/bin/python"
+"$PROFILE_PYTHON" -m pip install -r requirements.txt
 node -e 'console.log(require("playwright/package.json").version)'
-python3 .agents/skills/verify/scripts/doctor.py --plan
+"$PROFILE_PYTHON" .agents/skills/verify/scripts/doctor.py --plan
 ```
 
-Node 20+ and Python 3.10+ suffice. `npx` must exist before setup. This reusable Playwright library driver runs a complete browser matrix; it uses no Playwright test fixtures. By default it launches installed Chrome in a separate headless process. If Chrome is absent, install the pinned browser into the external runtime and use `--channel chromium` on each drive.
+Node 20+ and Python 3.10+ with the pinned requirements suffice. The external virtual environment supplies HarfBuzz, fontTools and Pillow; a bare system Python is insufficient for collection or rendering. `npx` must exist before setup. This reusable Playwright library driver runs a complete browser matrix; it uses no Playwright test fixtures. By default it launches installed Chrome in a separate headless process. If Chrome is absent, install the pinned browser into the external runtime and use `--channel chromium` on each drive.
 
 ```sh
 export PLAYWRIGHT_BROWSERS_PATH="$PROFILE_RUNTIME/browsers"
@@ -32,8 +35,8 @@ An existing Codex bundled Playwright 1.62.1 may substitute for the install. Reso
 ## Doctor
 
 ```sh
-python3 .agents/skills/verify/scripts/doctor.py --url https://github.com/jerome-queck
-python3 .agents/skills/verify/scripts/doctor.py --url https://github.com/jerome-queck/jerome-queck/blob/main/README.md
+"$PROFILE_PYTHON" .agents/skills/verify/scripts/doctor.py --url https://github.com/jerome-queck
+"$PROFILE_PYTHON" .agents/skills/verify/scripts/doctor.py --url https://github.com/jerome-queck/jerome-queck/blob/main/README.md
 ```
 
 Record the source head and dirty state. Doctor performs only GET and Git reads. `--plan` performs no network, starts no service, writes no files, and prints what a later drive would do. On a surprising result, rerun doctor before retrying in a fresh evidence directory. A GitHub 404, authentication wall or unavailable README is a page failure, separately from an undecoded image or failed asset request. Never sign in or substitute a local rendering to clear a failure.
@@ -65,8 +68,8 @@ Secondary collector verification requires an authenticated `gh` with public Grap
 
 ```sh
 gh auth status
-GH_TOKEN="$(gh auth token)" python3 -m scripts.profile_data "$PROFILE_EVIDENCE/collected"
-python3 -m unittest discover -s tests
+GH_TOKEN="$(gh auth token)" "$PROFILE_PYTHON" -m scripts.profile_data "$PROFILE_EVIDENCE/collected"
+"$PROFILE_PYTHON" -m unittest discover -s tests
 ```
 
 Verify the emitted fifteen named payloads (the prior eleven plus four static data-world SVGs) against `.github/workflows/profile.yml`, inspect `snapshot.json`, and compare accessible `README.md` with generated SVG counts/dates. Collection failure must leave the published branch unchanged. Successful local generation does not prove the `publish` job, branch protection, CDN convergence or scheduled execution. Those require actual workflow run and publication readback, recorded separately.
@@ -90,8 +93,8 @@ After checking retained evidence, the optional runtime directory may be deleted 
 
 ## Helpers
 
-- `python3 .agents/skills/verify/scripts/doctor.py --plan` prints the read-only local plan.
-- `python3 .agents/skills/verify/scripts/doctor.py --url https://github.com/jerome-queck` checks source and target readiness.
+- `"$PROFILE_PYTHON" .agents/skills/verify/scripts/doctor.py --plan` prints the read-only local plan.
+- `"$PROFILE_PYTHON" .agents/skills/verify/scripts/doctor.py --url https://github.com/jerome-queck` checks source and target readiness.
 - `node .agents/skills/verify/scripts/drive.cjs --url https://github.com/jerome-queck --output "$PROFILE_EVIDENCE/profile" --mode read-only` runs the anonymous browser matrix.
 - `node --test .agents/skills/verify/scripts/drive.test.cjs` checks the read-only and external evidence boundary guards.
 

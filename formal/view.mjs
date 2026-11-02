@@ -1,10 +1,10 @@
-export const title = 'Publication with 15 payloads. The counterexample shows one publisher.';
+export const title = 'One publisher. Legacy upgrade and steady refresh.';
 export const state = v => {
   if (v.phase[1] === 'published') return 'Snapshot published';
-  if (v.phase[1] === 'failed') return 'Previous snapshot retained';
+  if (v.phase[1] === 'failed') return v.remote[10] === 3 ? 'Legacy snapshot retained' : 'Complete snapshot retained';
   if (v.phase[1] === 'rejected') return 'Stale push rejected';
   if (v.phase[1] === 'copy') return `Copied ${v.progress[1]} of 15 payloads`;
-  return 'Previous snapshot';
+  return v.remote[10] === 3 ? 'Legacy snapshot, 11 files' : 'Complete snapshot, 15 files';
 };
 export const step = (action, from) => {
   if (action === 'Fail' && from.phase[1] === 'copy') return null;

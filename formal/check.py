@@ -41,7 +41,9 @@ def check_payload_mapping():
     if bound is None or int(bound[1]) != len(payloads):
         sys.exit("Payload drift: model bound differs from publication fixture")
     new_slots = [index for index, name in enumerate(payloads, 1) if name not in legacy]
-    legacy_slots = re.search(r"^Legacy == Payloads \\ \{([^}]+)\}$", model, re.MULTILINE)
+    legacy_slots = re.search(
+        r"^Legacy == Payloads \\ \{([^}]+)\}$", model, re.MULTILINE
+    )
     if (
         len(legacy) != 11
         or len(set(legacy)) != 11
@@ -49,7 +51,9 @@ def check_payload_mapping():
         or legacy_slots is None
         or [int(slot.strip()) for slot in legacy_slots[1].split(",")] != new_slots
     ):
-        sys.exit("Payload drift: model legacy snapshot differs from publication fixture")
+        sys.exit(
+            "Payload drift: model legacy snapshot differs from publication fixture"
+        )
     workflow = (ROOT / ".github/workflows/profile.yml").read_text()
     copies = re.findall(
         r'^          cp "\$GENERATED/([^"\n]+)" ([^\s]+)$', workflow, re.MULTILINE

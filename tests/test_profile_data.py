@@ -14,7 +14,13 @@ from scripts.profile_data import (
     render_snapshot,
     resolved_issues,
 )
-from scripts.public_calendar import add_public_days, fetch_calendar, render_calendar
+from scripts.public_calendar import (
+    KINDS,
+    PublicCalendar,
+    add_public_days,
+    fetch_calendar,
+    render_calendar,
+)
 from scripts.recent_activity import markdown_activity, render_activity, select_activity
 
 
@@ -100,7 +106,11 @@ class ProfileDataTests(unittest.TestCase):
             ),
             patch(
                 "scripts.profile_data.fetch_calendar",
-                return_value=(dt.date(2026, 9, 10), {"2026-09-10": 3}),
+                return_value=PublicCalendar(
+                    dt.date(2026, 7, 1),
+                    {"2026-09-10": 3},
+                    dict(zip(KINDS, [3, 0, 0, 0, 0])),
+                ),
             ),
             patch("scripts.profile_data.fetch_activity", return_value=[]),
             patch("scripts.profile_data.load_projects", return_value=[]),
@@ -156,6 +166,114 @@ class ProfileDataTests(unittest.TestCase):
                 "Linked closed issues",
             ]:
                 self.assertIn(expected, copy)
+
+    def test_calendar_mix_uses_same_public_records_and_pagination(self):
+        calls = []
+
+        def node(identity, count=None, private=False, restricted=False):
+            item = {
+                "isRestricted": restricted,
+                "resourcePath": identity,
+                "pullRequestReview": {"id": identity},
+                "occurredAt": "2026-07-01T12:00:00Z",
+                "repository": {"id": "repo1", "isPrivate": private},
+            }
+            if count is not None:
+                item["commitCount"] = count
+            return item
+
+        def query(source, **variables):
+            calls.append(variables)
+            if "commitContributionsByRepository" in source:
+                value = {
+                    "totalRepositoriesWithContributedCommits": 1,
+                    "commitContributionsByRepository": [
+                        {
+                            "contributions": {
+                                "nodes": [
+                                    node("commits", 3),
+                                    node("private", 99, private=True),
+                                    {"isRestricted": True},
+                                ],
+                                "pageInfo": {"hasNextPage": False},
+                            }
+                        }
+                    ],
+                }
+            else:
+                connection = next(
+                    name
+                    for name in (
+                        "issueContributions",
+                        "pullRequestContributions",
+                        "pullRequestReviewContributions",
+                        "repositoryContributions",
+                    )
+                    if name in source
+                )
+                more = connection == "issueContributions" and "cursor" not in variables
+                item = node(connection + str(variables.get("cursor", "")))
+                if connection in ("issueContributions", "pullRequestContributions"):
+                    item[
+                        "issue" if connection == "issueContributions" else "pullRequest"
+                    ] = {
+                        "id": item["resourcePath"],
+                        "repository": {"id": "repo1", "isPrivate": False},
+                    }
+                value = {
+                    connection: {
+                        "nodes": [item],
+                        "pageInfo": {
+                            "hasNextPage": more,
+                            "endCursor": "next" if more else None,
+                        },
+                    }
+                }
+            return {"user": {"contributionsCollection": value}}
+
+        calendar = fetch_calendar(query, dt.date(2026, 7, 1))
+        self.assertEqual(
+            calendar.kinds,
+            {
+                "commits": 3,
+                "issues": 2,
+                "pull_requests": 1,
+                "reviews": 1,
+                "repositories": 1,
+            },
+        )
+        self.assertEqual(calendar.days, {"2026-07-01": 8})
+        self.assertEqual(sum(calendar.kinds.values()), sum(calendar.days.values()))
+        self.assertEqual(calls[2]["cursor"], "next")
+
+    def test_calendar_duplicate_public_record_aborts(self):
+        record = {
+            "isRestricted": False,
+            "resourcePath": "/same",
+            "occurredAt": "2026-07-01T12:00:00Z",
+            "repository": {"id": "repo1", "isPrivate": False},
+            "commitCount": 1,
+        }
+
+        def query(*a, **kw):
+            return {
+                "user": {
+                    "contributionsCollection": {
+                        "totalRepositoriesWithContributedCommits": 1,
+                        "commitContributionsByRepository": [
+                            {
+                                "contributions": {
+                                    "nodes": [record, record],
+                                    "pageInfo": {"hasNextPage": False},
+                                }
+                            }
+                        ],
+                    }
+                }
+            }
+
+        with self.assertRaisesRegex(ValueError, "Duplicate"):
+            fetch_calendar(query, dt.date(2026, 7, 1))
 
     def test_calendar_nonadvancing_cursors_fail_without_timeout(self):
         for cursor in (None, "repeated"):
@@ -280,7 +398,9 @@ class ProfileDataTests(unittest.TestCase):
             ),
             patch(
                 "scripts.profile_data.fetch_calendar",
-                return_value=(dt.date(2026, 9, 10), {}),
+                return_value=PublicCalendar(
+                    dt.date(2026, 7, 1), {}, dict.fromkeys(KINDS, 0)
+                ),
             ),
             patch("scripts.profile_data.fetch_activity", return_value=[]),
             patch("scripts.profile_data.load_projects", return_value=[{}]),
@@ -299,14 +419,15 @@ class ProfileDataTests(unittest.TestCase):
 
     def test_all_graphics_and_text_derive_from_saved_snapshot(self):
         snapshot = {
-            "schema_version": 2,
+            "schema_version": 3,
             "observed_from": "2026-11-01T00:00:00+00:00",
             "observed_to": "2026-11-01T00:01:00+00:00",
             "updated": "01 Nov 2026 00:01 UTC",
             "counts": [10, 8, 6],
-            "calendar_start": "2025-11-02",
+            "calendar_start": "2026-07-01",
             "calendar_end": "2026-11-01",
             "calendar_days": {"2026-11-01": 3},
+            "calendar_kinds": dict(zip(KINDS, [3, 0, 0, 0, 0])),
             "merge_months": merge_months({"2026-11-01": 2}, dt.date(2026, 11, 1)),
             "projects": [],
             "recent_events": [],

@@ -2,6 +2,16 @@
 
 import datetime as dt
 from collections import Counter
+from dataclasses import dataclass
+
+KINDS = ("commits", "issues", "pull_requests", "reviews", "repositories")
+
+
+@dataclass(frozen=True)
+class PublicCalendar:
+    start: dt.date
+    days: dict
+    kinds: dict
 
 
 def add_public_days(days, nodes, resource=None):
@@ -18,6 +28,37 @@ def fetch_calendar(graphql, today, start=dt.date(2026, 7, 1)):
     if start > today:
         raise ValueError("Calendar window begins after its end")
     days = Counter()
+    kinds = dict.fromkeys(KINDS, 0)
+    seen_records = set()
+
+    def add(kind, nodes, resource=None):
+        public = []
+        for node in nodes:
+            item = node.get(resource) if resource else node
+            if node["isRestricted"] or not item or item["repository"]["isPrivate"]:
+                continue
+            if resource:
+                record_id = item["id"]
+            elif kind == "reviews":
+                record_id = node["pullRequestReview"]["id"]
+            else:
+                record_id = item["repository"]["id"]
+            identity = (
+                kind,
+                record_id,
+                node["occurredAt"] if kind == "commits" else "",
+            )
+            if identity in seen_records:
+                raise ValueError("Duplicate public contribution record")
+            seen_records.add(identity)
+            date = dt.date.fromisoformat(node["occurredAt"][:10])
+            count = node["commitCount"] if kind == "commits" else 1
+            if not start <= date <= today or type(count) is not int or count < 0:
+                raise ValueError("Invalid public contribution date or count")
+            public.append(node)
+            kinds[kind] += count
+        add_public_days(days, public, resource)
+
     window = start
     while window <= today:
         end = min(window + dt.timedelta(days=27), today)
@@ -26,7 +67,7 @@ def fetch_calendar(graphql, today, start=dt.date(2026, 7, 1)):
             totalRepositoriesWithContributedCommits
             commitContributionsByRepository(maxRepositories:100) {
               contributions(first:100) { pageInfo { hasNextPage }
-                nodes { isRestricted occurredAt commitCount repository { isPrivate } }
+                nodes { isRestricted occurredAt commitCount repository { id isPrivate } }
               }
             }
           }
@@ -38,22 +79,24 @@ def fetch_calendar(graphql, today, start=dt.date(2026, 7, 1)):
             raise ValueError("Commit repositories truncated")
         for repo in collection["commitContributionsByRepository"]:
             connection = repo["contributions"]
-            if connection["pageInfo"]["hasNextPage"]:
+            if connection["pageInfo"]["hasNextPage"] is not False:
                 raise ValueError("Commit days truncated")
-            add_public_days(days, connection["nodes"])
+            add("commits", connection["nodes"])
         window = end + dt.timedelta(days=1)
-    for connection, resource in [
-        ("issueContributions", "issue"),
-        ("pullRequestContributions", "pullRequest"),
-        ("pullRequestReviewContributions", None),
-        ("repositoryContributions", None),
+    for kind, connection, resource in [
+        ("issues", "issueContributions", "issue"),
+        ("pull_requests", "pullRequestContributions", "pullRequest"),
+        ("reviews", "pullRequestReviewContributions", None),
+        ("repositories", "repositoryContributions", None),
     ]:
         cursor, seen = None, set()
         resource_field = (
-            f"{resource} {{ repository {{ isPrivate }} }}"
+            f"{resource} {{ id repository {{ id isPrivate }} }}"
             if resource
-            else "repository { isPrivate }"
+            else "repository { id isPrivate }"
         )
+        if kind == "reviews":
+            resource_field += " pullRequestReview { id }"
         arguments = (
             ", excludeFirst:false, excludePopular:false"
             if connection in ("issueContributions", "pullRequestContributions")
@@ -74,14 +117,16 @@ def fetch_calendar(graphql, today, start=dt.date(2026, 7, 1)):
             page = graphql(query, **variables)["user"]["contributionsCollection"][
                 connection
             ]
-            add_public_days(days, page["nodes"], resource)
-            if not page["pageInfo"]["hasNextPage"]:
+            add(kind, page["nodes"], resource)
+            if page["pageInfo"]["hasNextPage"] is False:
                 break
+            if page["pageInfo"]["hasNextPage"] is not True:
+                raise ValueError("Incomplete contribution pagination")
             cursor = page["pageInfo"]["endCursor"]
             if not cursor or cursor in seen:
                 raise ValueError("Contribution pagination did not advance")
             seen.add(cursor)
-    return start, days
+    return PublicCalendar(start, dict(days), kinds)
 
 
 def weekday_totals(days):

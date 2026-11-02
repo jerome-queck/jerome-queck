@@ -12,6 +12,7 @@ QUERY = """query($search:String!, $cursor:String) {
     issueCount pageInfo { hasNextPage endCursor }
     nodes { ... on PullRequest {
       id number title url state createdAt updatedAt closedAt mergedAt
+      additions deletions changedFiles
       author { login }
       repository { nameWithOwner isPrivate visibility owner { login } }
     } }
@@ -72,17 +73,39 @@ def _record(node):
         or (state == "OPEN") != (closed is None)
     ):
         raise ValueError("Inconsistent upstream PR state")
+    sizes = {
+        "additions": node.get("additions"),
+        "deletions": node.get("deletions"),
+        "changed_files": node.get("changedFiles"),
+    }
+    if any(type(value) is not int or value < 0 for value in sizes.values()):
+        raise ValueError("Incomplete upstream PR patch statistics")
+    dates = {
+        "created_at": _date(node.get("createdAt")),
+        "updated_at": _date(node.get("updatedAt")),
+        "merged_at": _date(merged) if merged is not None else None,
+        "closed_at": _date(closed) if closed is not None else None,
+    }
+    instants = {
+        key: dt.datetime.fromisoformat(value.replace("Z", "+00:00"))
+        for key, value in dates.items()
+        if value is not None
+    }
+    if instants["created_at"] > instants["updated_at"] or any(
+        not instants["created_at"] <= instants[key] <= instants["updated_at"]
+        for key in ("merged_at", "closed_at")
+        if key in instants
+    ):
+        raise ValueError("Inconsistent upstream PR timestamp bounds")
     return {
+        **sizes,
+        **dates,
         "id": node["id"],
         "repo": name,
         "number": number,
         "title": node["title"],
         "url": node["url"],
         "state": state,
-        "created_at": _date(node.get("createdAt")),
-        "updated_at": _date(node.get("updatedAt")),
-        "merged_at": _date(merged) if merged is not None else None,
-        "closed_at": _date(closed) if closed is not None else None,
     }
 
 
@@ -143,6 +166,51 @@ def fetch_upstream(graphql):
     )
 
 
+def change_footprint(records):
+    result = {"prs": 0, "additions": 0, "deletions": 0, "file_changes": 0}
+    for item in records:
+        if item["state"] != "MERGED":
+            continue
+        for field in ("additions", "deletions", "changed_files"):
+            if type(item[field]) is not int or item[field] < 0:
+                raise ValueError("Invalid upstream PR patch statistics")
+        result["prs"] += 1
+        result["additions"] += item["additions"]
+        result["deletions"] += item["deletions"]
+        result["file_changes"] += item["changed_files"]
+    return result
+
+
+def open_pr_ages(records, observed_to):
+    observed = dt.datetime.fromisoformat(_date(observed_to).replace("Z", "+00:00"))
+    result = []
+    for item in records:
+        if item["state"] != "OPEN":
+            continue
+        if item["merged_at"] is not None or item["closed_at"] is not None:
+            raise ValueError("Inconsistent open upstream PR state")
+        created = dt.datetime.fromisoformat(
+            _date(item["created_at"]).replace("Z", "+00:00")
+        )
+        updated = dt.datetime.fromisoformat(
+            _date(item["updated_at"]).replace("Z", "+00:00")
+        )
+        if not created <= updated <= observed:
+            raise ValueError("Upstream PR timestamps exceed observation bounds")
+        result.append(
+            {
+                "repo": item["repo"],
+                "number": item["number"],
+                "url": item["url"],
+                "days": (observed - created).days,
+            }
+        )
+    return sorted(
+        result,
+        key=lambda item: (-item["days"], item["repo"].casefold(), item["number"]),
+    )
+
+
 def upstream_totals(records):
     states = Counter(item["state"] for item in records)
     return states["MERGED"], states["OPEN"], len({item["repo"] for item in records})
@@ -183,6 +251,18 @@ def markdown_upstream(records, observed):
             f"| [{repo}](https://github.com/{repo}) | {states['MERGED']} | {states['OPEN']} | {states['CLOSED']} |"
         )
     lines.append("")
+    footprint = change_footprint(records)
+    lines += [
+        f"Merged PR patch footprint, all time: {footprint['prs']} PRs, {footprint['additions']} added lines, {footprint['deletions']} deleted lines, {footprint['file_changes']} file changes. These sum GitHub PR patch statistics, including all coauthors and generated code. File changes count a file again in each PR, not distinct files. They do not measure personal lines of code, effort or impact.",
+        "",
+        "Open proposal ages count completed 24-hour periods since creation as of the observation endpoint, not review waiting time.",
+        "",
+    ]
+    for item in open_pr_ages(records, observed):
+        lines.append(
+            f"- [{item['repo']}#{item['number']}]({item['url']}): {item['days']} completed days open"
+        )
+    lines.append("")
     for item in records:
         timing = (
             f"merged {item['merged_at']}"
@@ -190,7 +270,7 @@ def markdown_upstream(records, observed):
             else f"updated {item['updated_at']}"
         )
         lines.append(
-            f"- **{item['state']}** · [{item['repo']}#{item['number']}: {label(item['title'])}]({item['url']}) · {timing}"
+            f"- **{item['state']}** · [{item['repo']}#{item['number']}: {label(item['title'])}]({item['url']}) · {timing} · patch +{item['additions']}/−{item['deletions']}, {item['changed_files']} file changes"
         )
     return (
         "\n".join(lines) if records else "\n".join(lines) + "No matching upstream PRs."

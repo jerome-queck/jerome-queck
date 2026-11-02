@@ -24,7 +24,7 @@ def snapshot():
         }
     )
     return {
-        "schema_version": 2,
+        "schema_version": 3,
         "observed_from": "2026-11-02T00:00:00+00:00",
         "observed_to": "2026-11-02T00:01:00+00:00",
         "updated": "02 Nov 2026 00:01 UTC",
@@ -32,6 +32,13 @@ def snapshot():
         "calendar_start": "2026-07-01",
         "calendar_end": str(today),
         "calendar_days": {"2026-11-02": 3},
+        "calendar_kinds": {
+            "commits": 3,
+            "issues": 0,
+            "pull_requests": 0,
+            "reviews": 0,
+            "repositories": 0,
+        },
         "merge_months": merge_months({"2026-11-01": 2}, today),
         "projects": [],
         "recent_events": [],
@@ -39,7 +46,7 @@ def snapshot():
     }
 
 
-class SnapshotV2Tests(unittest.TestCase):
+class SnapshotV3Tests(unittest.TestCase):
     def test_new_metrics_and_native_sources_share_one_input(self):
         source = snapshot()
         files = render_snapshot(source)
@@ -50,21 +57,65 @@ class SnapshotV2Tests(unittest.TestCase):
         self.assertIn("https://github.com/upstream/project/pull/1", files["README.md"])
         self.assertIn("天気", files["README.md"])
         self.assertIn("Mon: 3", files["README.md"])
+        self.assertIn("commits: 3", files["README.md"])
+        self.assertIn(
+            "1 PRs, 12 added lines, 3 deleted lines, 2 file changes", files["README.md"]
+        )
+        self.assertIn("patch +12/−3, 2 file changes", files["README.md"])
         self.assertEqual(files, render_snapshot(source))
 
     def test_missing_new_sources_never_turn_into_zero(self):
-        for key in ("schema_version", "upstream_prs"):
+        for key in ("schema_version", "upstream_prs", "calendar_kinds"):
             source = snapshot()
             source.pop(key)
             with self.assertRaises((ValueError, KeyError)):
                 render_snapshot(source)
         source = snapshot()
         source["schema_version"] = 1
-        with self.assertRaisesRegex(ValueError, "schema-v2"):
+        with self.assertRaisesRegex(ValueError, "schema-v3"):
             render_snapshot(source)
         source = snapshot()
         source["projects"] = [{"name": "Algebra", "head": None, "release": None}]
         with self.assertRaises(KeyError):
+            render_snapshot(source)
+
+    def test_missing_or_invalid_patch_statistics_fail_before_publication(self):
+        for field in ("additions", "deletions", "changed_files"):
+            source = snapshot()
+            source["upstream_prs"][0].pop(field)
+            with self.assertRaises(KeyError):
+                render_snapshot(source)
+            for value in (True, -1, None):
+                source = snapshot()
+                source["upstream_prs"][0][field] = value
+                with self.assertRaises(ValueError):
+                    render_snapshot(source)
+
+    def test_mismatched_invalid_or_missing_activity_mix_fails(self):
+        for value in (
+            {},
+            {
+                "commits": True,
+                "issues": 0,
+                "pull_requests": 0,
+                "reviews": 0,
+                "repositories": 0,
+            },
+            {
+                "commits": 2,
+                "issues": 0,
+                "pull_requests": 0,
+                "reviews": 0,
+                "repositories": 0,
+            },
+        ):
+            source = snapshot()
+            source["calendar_kinds"] = value
+            with self.assertRaises(ValueError):
+                render_snapshot(source)
+        source = snapshot()
+        source["schema_version"] = 2
+        with self.assertRaisesRegex(ValueError, "schema-v3"):
             render_snapshot(source)
 
     def test_render_failure_leaves_existing_output_untouched(self):

@@ -6,7 +6,12 @@ from collections import Counter
 from pathlib import Path
 
 from scripts.profile_style import BLUE, COBALT, rule, svg, text
-from scripts.public_calendar import fetch_calendar, render_calendar, weekday_totals
+from scripts.public_calendar import (
+    KINDS,
+    fetch_calendar,
+    render_calendar,
+    weekday_totals,
+)
 from scripts.readme_world import render_world
 from scripts.recent_activity import fetch_activity, markdown_activity, render_activity
 from scripts.repo_pulse import (
@@ -249,21 +254,22 @@ def collect_snapshot():
     started = dt.datetime.now(dt.timezone.utc)
     today = started.date()
     contributions = fetch_contributions()
-    start, days = fetch_calendar(graphql, today)
+    calendar = fetch_calendar(graphql, today)
     activity = fetch_activity()
     catalogue = load_projects(Path(__file__).parents[1] / "data/projects.json")
     projects = [fetch_repo_pulse(graphql, project) for project in catalogue]
     upstream = fetch_upstream(graphql)
     completed = dt.datetime.now(dt.timezone.utc)
     return {
-        "schema_version": 2,
+        "schema_version": 3,
         "observed_from": started.isoformat(),
         "observed_to": completed.isoformat(),
         "updated": completed.strftime("%d %b %Y %H:%M UTC"),
         "counts": contributions["counts"],
-        "calendar_start": str(start),
+        "calendar_start": str(calendar.start),
         "calendar_end": str(today),
-        "calendar_days": dict(days),
+        "calendar_days": calendar.days,
+        "calendar_kinds": calendar.kinds,
         "merge_months": merge_months(contributions["merged_dates"], today),
         "projects": projects,
         "recent_events": activity,
@@ -272,10 +278,27 @@ def collect_snapshot():
 
 
 def render_snapshot(snapshot):
-    if snapshot.get("schema_version") != 2:
-        raise ValueError("Rendering requires a complete schema-v2 public snapshot")
+    if snapshot.get("schema_version") != 3:
+        raise ValueError("Rendering requires a complete schema-v3 public snapshot")
+    kinds = snapshot["calendar_kinds"]
+    if (
+        set(kinds) != set(KINDS)
+        or any(type(value) is not int or value < 0 for value in kinds.values())
+        or any(
+            type(value) is not int or value < 0
+            for value in snapshot["calendar_days"].values()
+        )
+        or sum(kinds.values()) != sum(snapshot["calendar_days"].values())
+    ):
+        raise ValueError("Public calendar kind totals must match daily records")
     counts, updated = snapshot["counts"], snapshot["updated"]
     upstream = snapshot["upstream_prs"]
+    if any(
+        type(item[field]) is not int or item[field] < 0
+        for item in upstream
+        for field in ("additions", "deletions", "changed_files")
+    ):
+        raise ValueError("Complete upstream PR patch statistics required")
     start = dt.date.fromisoformat(snapshot["calendar_start"])
     today = dt.date.fromisoformat(snapshot["calendar_end"])
     days, months = snapshot["calendar_days"], snapshot["merge_months"]
@@ -337,6 +360,10 @@ def render_snapshot(snapshot):
         "Cell levels are zero, then four nonzero levels relative to the largest daily count in this window. "
         "This is not a promise of parity with GitHub's native graph.\n\n"
         + "\n".join(f"- {date}: {count}" for date, count in sorted(days.items()))
+        + "\n\n### Activity mix\n\n"
+        + f"Same public records, {start} through {today}. Commits count commitCount; issues, pull requests, reviews and repository creations count contribution records. Private and restricted records are excluded.\n\n"
+        + "\n".join(f"- {kind}: {count}" for kind, count in kinds.items())
+        + f"\n- Total: {sum(kinds.values())}\n"
         + "\n\n### Weekday frequency\n\n"
         + "Same calendar records grouped by UTC weekday. Counts are frequency, not effort.\n\n"
         + "\n".join(f"- {day}: {count}" for day, count in weekday_totals(days).items())

@@ -11,7 +11,7 @@ PROJECTS = [
     (
         "ntulearn",
         "NTULearn Sync",
-        "Course pages and attachments, gathered for study.",
+        "Course pages and original attachments.",
         "https://github.com/Jerome-Group/ntulearn",
         None,
     ),
@@ -25,7 +25,7 @@ PROJECTS = [
     (
         "academic-os",
         "Academic OS",
-        "A study desk for sources, tasks and freshness.",
+        "Sources, tasks and freshness.",
         "https://github.com/Jerome-Group/academic-os",
         None,
     ),
@@ -39,7 +39,7 @@ PROJECTS = [
     (
         "syrax",
         "Syrax",
-        "A Telegram assistant with an academic desk.",
+        "Telegram study assistant.",
         "https://github.com/Jerome-Group/syrax",
         None,
     ),
@@ -53,21 +53,21 @@ PROJECTS = [
     (
         "emmy",
         "Emmy",
-        "An operating kit for ChatGPT Dot.",
+        "ChatGPT Dot operating kit.",
         "https://github.com/jerome-queck/emmy",
         None,
     ),
     (
         "numbertheory",
         "Number theory",
-        "Proofs and exact computational experiments.",
+        "Proofs and exact computation.",
         "https://github.com/Jerome-Group/numbertheory",
         "https://numbertheory.jeromegroup.org",
     ),
     (
         "calculator",
         "Calculator",
-        "Exact computation and notebooks. Sign-in required.",
+        "Exact notebooks. Sign-in required.",
         "https://github.com/Jerome-Group/calculator",
         "https://calculator.jeromegroup.org",
     ),
@@ -88,7 +88,7 @@ PROJECTS.sort(key=lambda item: PROJECT_ORDER.index(item[0]))
 
 
 def master(mobile, role, motion):
-    width, height = (480, 220) if mobile else (900, 220)
+    width, height = (480, 155) if mobile else (900, 160)
     title_width, button_width = width * 3 // 4, width // 4
     button = role == "source"
     view_width = {"full": width, "title": title_width, "source": button_width}[role]
@@ -96,38 +96,38 @@ def master(mobile, role, motion):
     # Project rooms reveal consecutive portions of the cutaway at a constant scale.
     art_height = (len(PROJECTS) + 1) * height
     art_width = art_height * 2 / 3
-    art_x = width * 0.65 - art_width * 420 / 1024
+    art_x = min(0, width * 0.72 - art_width * 420 / 1024)
     art = f'<defs><image id="scene-art" width="900" height="1350" href="data:image/jpeg;base64,{image}"/></defs>'
     art += f'<use href="#scene-art" transform="translate({art_x} 0) scale({art_width / 900})"/>'
-    body = [art]
+    body = [f'<rect width="{width}" height="{art_height}" fill="#211b29"/>', art]
     views = [f'<view id="hero" viewBox="0 0 {view_width} {height}"/>']
     if not button:
         body += [
-            f'<path d="M12 14h{width * 0.56}v{height - 28}H12z" fill="#1b1725" fill-opacity=".78"/>',
+            f'<path d="M12 14h{width * 0.64}v{height - 28}H12z" fill="#1b1725" fill-opacity=".78"/>',
             text(
                 "Jerome Queck",
                 25,
-                69 if mobile else 96,
-                44 if mobile else 62,
+                58 if mobile else 61,
+                42 if mobile else 56,
                 "display",
-                max_width=width * 0.54,
+                max_width=width * 0.62,
             ),
             text(
                 "Things I make",
                 27,
-                138 if mobile else 192,
+                123 if mobile else 130,
                 23 if mobile else 32,
                 "display",
             ),
         ]
-        for first, count, x in (
-            (1, 2, 12),
-            (3, 2, width * 0.05),
-            (5, 3, 12),
-            (8, 2, width * 0.05),
+        for first, count, x, fraction in (
+            (1, 2, 12, 0.64),
+            (3, 2, width * 0.05, 0.44),
+            (5, 3, 12, 0.64),
+            (8, 2, width * 0.05, 0.64),
         ):
             body.append(
-                f'<path d="M{x} {first * height + 5}h{width * 0.56}v{height * count - 10}H{x}z" fill="#1c1722" fill-opacity=".82"/>'
+                f'<path d="M{x} {first * height + 5}h{width * fraction}v{height * count - 10}H{x}z" fill="#1c1722" fill-opacity=".82"/>'
             )
     for i, (slug, name, desc, _, _) in enumerate(PROJECTS):
         y = (i + 1) * height
@@ -148,14 +148,17 @@ def master(mobile, role, motion):
                 ),
             ]
         else:
-            panel_width = width * 0.56
+            panel_width = width * (0.44 if i in (2, 3) else 0.64)
             label_x = (12 if i < 2 or 4 <= i < 7 else width * 0.05) + 13
-            lines = wrap(desc, 19 if mobile else 35)
+            lines = wrap(
+                desc,
+                (17 if i in (2, 3) else 23) if mobile else (28 if i in (2, 3) else 40),
+            )
             body.append(
                 text(
                     name,
                     label_x,
-                    y + (53 if mobile else 70),
+                    y + (47 if mobile else 52),
                     31 if mobile else 42,
                     "display",
                     max_width=panel_width - 26,
@@ -167,7 +170,7 @@ def master(mobile, role, motion):
                     text(
                         line,
                         label_x,
-                        y + (83 if mobile else 110) + n * (30 if mobile else 29),
+                        y + (76 if mobile else 88) + n * 29,
                         25,
                         "body",
                         max_width=panel_width - 26,

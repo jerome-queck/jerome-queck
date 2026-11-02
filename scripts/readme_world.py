@@ -396,46 +396,51 @@ def render_world(snapshot, panels, mobile=False, motion="ambient"):
     languages, y = _languages(snapshot, width, y + 8)
     parts.append(languages)
     parts.append(_beam(width, y))
-    merged, opened, _ = upstream_totals(snapshot["upstream_prs"])
-    parts += [
-        text(
-            "Open-source contributions", 28, y + 56, 34, "display", max_width=width - 56
-        ),
-        text(f"{merged} merged / {opened} open", 28, y + 90, 20, "mono", BLUE),
-    ]
-    y += 115
-    merged_by_repo = {}
-    for item in snapshot["upstream_prs"]:
-        if item["state"] == "MERGED":
-            merged_by_repo.setdefault(item["repo"], []).append(item["number"])
-    parts.append(text("Merged PRs", 28, y + 27, 22, "mono", BLUE))
-    y += 38
-    if not merged_by_repo:
-        parts.append(text("No merged upstream PRs", 28, y + 22, 20, color=BLUE))
-        y += 29
-    for repo, numbers in sorted(
-        merged_by_repo.items(), key=lambda item: item[0].casefold()
-    ):
-        label = repo + "  " + ", ".join("#" + str(number) for number in sorted(numbers))
-        for line in wrap(label, 31 if mobile else 70):
-            parts.append(text(line, 28, y + 22, 20, "mono", max_width=width - 56))
-            y += 29
-    footprint, y = _footprint(snapshot, width, y)
+    footprint, y = _footprint(snapshot, width, y + 8)
     parts.append(footprint)
     ages, y = _proposal_ages(snapshot, width, y)
     parts.append(ages)
-    parts += [
+    parts.append(
         text(
             "Collected " + snapshot["updated"],
             28,
-            y + 31,
+            y + 30,
             19,
             "mono",
             BLUE,
             max_width=width - 56,
+        )
+    )
+    y += 50
+    parts.append(_beam(width, y))
+    merged, opened, _ = upstream_totals(snapshot["upstream_prs"])
+    parts += [
+        text(
+            "Open-source contributions", 28, y + 39, 30, "display", max_width=width - 56
         ),
-        text("Exact records and definitions below.", 28, y + 65, 22, color=BLUE),
+        text(f"{merged} merged / {opened} open", 28, y + 64, 18, "mono", BLUE),
     ]
+    y += 70
+    merged_by_repo = {}
+    for item in snapshot["upstream_prs"]:
+        if item["state"] == "MERGED":
+            merged_by_repo.setdefault(item["repo"], []).append(item["number"])
+    if not merged_by_repo:
+        parts.append(text("No merged upstream PRs", 28, y + 20, 19, color=BLUE))
+        y += 23
+    aliases = {
+        "openclaw/openclaw": "OpenClaw",
+        "freecodecamp/freecodecamp": "freeCodeCamp",
+    }
+    for repo, numbers in sorted(
+        merged_by_repo.items(), key=lambda item: item[0].casefold()
+    ):
+        name = aliases.get(repo.casefold(), repo)
+        label = name + "  " + ", ".join("#" + str(number) for number in sorted(numbers))
+        for line in wrap(label, 35 if mobile else 75):
+            parts.append(text(line, 28, y + 20, 18, "mono", max_width=width - 56))
+            y += 23
+    y += 8
     texture = base64.b64encode(
         (
             Path(__file__).resolve().parents[1]
@@ -444,11 +449,11 @@ def render_world(snapshot, panels, mobile=False, motion="ambient"):
     ).decode("ascii")
     world = svg(
         width,
-        y + 100,
+        y + 20,
         f'<defs><pattern id="ledger-texture" width="160" height="192" patternUnits="userSpaceOnUse"><image width="160" height="192" href="data:image/jpeg;base64,{texture}"/></pattern></defs>'
-        f'<rect width="{width}" height="{y + 100}" fill="url(#ledger-texture)" opacity=".08"/>'
-        f'<path d="M0 0h18v{y + 100}H0zM{width - 18} 0h18v{y + 100}h-18z" fill="#392833"/>'
-        f'<path d="M16 0v{y + 100}M{width - 16} 0v{y + 100}" stroke="#805750" stroke-width="3"/>'
+        f'<rect width="{width}" height="{y + 20}" fill="url(#ledger-texture)" opacity=".08"/>'
+        f'<path d="M0 0h18v{y + 20}H0zM{width - 18} 0h18v{y + 20}h-18z" fill="#392833"/>'
+        f'<path d="M16 0v{y + 20}M{width - 16} 0v{y + 20}" stroke="#805750" stroke-width="3"/>'
         + '<g id="world-data" aria-label="Observed public GitHub records">'
         + "".join(parts)
         + "</g>",

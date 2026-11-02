@@ -31,18 +31,20 @@ class LinkedRooms(unittest.TestCase):
         groups = [n for n in root.iter() if n.get("data-bounds")]
         units = face("body")[0]["head"].unitsPerEm
         for index, (_, _, description, _, _) in enumerate(PROJECTS):
-            top = (index + 1) * 220
-            for line in wrap(description, 19):
+            top = (index + 1) * 155
+            line_length = 17 if index in (2, 3) else 23
+            self.assertLessEqual(len(wrap(description, line_length)), 2)
+            for line in wrap(description, line_length):
                 matches = [
                     n
                     for n in groups
                     if n.get("aria-label") == line
-                    and top <= float(n.get("data-bounds").split()[1]) < top + 220
+                    and top <= float(n.get("data-bounds").split()[1]) < top + 155
                 ]
                 self.assertEqual(len(matches), 1, line)
                 node = matches[0]
                 bounds = list(map(float, node.get("data-bounds").split()))
-                self.assertLess(bounds[3], top + 200)
+                self.assertLess(bounds[3], top + 142)
                 transform = next(child for child in node if child.get("transform")).get(
                     "transform"
                 )

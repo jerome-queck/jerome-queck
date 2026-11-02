@@ -8,3 +8,8 @@ Unapproved artwork. This branch tests GitHub image animation, reduced motion and
 </picture>
 
 [Project issue](https://github.com/jerome-queck/jerome-queck/issues/14).
+
+
+## Continuous linked canvas probe
+
+<p><img align="top" src="assets/strip-1.svg" width="100%" alt="First canvas strip"><br><a href="https://github.com/jerome-queck/jerome-queck/issues/14"><img align="top" src="assets/strip-2.svg" width="100%" alt="Clickable project title strip"></a><br><a href="https://github.com/Jerome-Group/algebra"><img align="top" src="assets/strip-3.svg" width="50%" alt="Repository link"></a><a href="https://algebra.jeromegroup.org"><img align="top" src="assets/strip-3.svg" width="50%" alt="Website link"></a></p>

@@ -159,7 +159,7 @@ def render_cadence(months, updated, mobile=False, upstream=()):
         item["merged_at"][:7] for item in upstream if item["merged_at"]
     )
     parts = [
-        text("A year of merges", 28, 61, 45, "display"),
+        text("PR merges", 28, 61, 45, "display"),
         text("Authored public PRs / UTC months", 28, 103, 25, color=BLUE),
     ]
     for index, (month, count) in enumerate(months.items()):

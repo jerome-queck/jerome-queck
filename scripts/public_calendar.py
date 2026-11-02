@@ -99,11 +99,18 @@ def render_calendar(start, today, days, mobile=False, updated=""):
     maximum = max(days.values(), default=1) or 1
     weeks = (today - sunday).days // 7 + 1
     panels = (weeks + 17) // 18 if mobile else 1
-    legend_y = 163 + (panels - 1) * 185 + 170 if mobile else 321
-    frequency_y = legend_y + 98 if mobile else 420
-    width, height = (480, frequency_y + 325) if mobile else (900, 690)
+    column_pitch = min(42, 790 / max(1, weeks - 1))
+    row_pitch = 22 if weeks <= 30 else 17
+    cell_size = min(row_pitch - 4, column_pitch - 3)
+    legend_y = (
+        163 + (panels - 1) * 185 + 170
+        if mobile
+        else 158 + 6 * row_pitch + cell_size + 35
+    )
+    frequency_y = legend_y + 98
+    width, height = (480, frequency_y + 325) if mobile else (900, frequency_y + 270)
     parts = [
-        text("A daily texture", 28, 59, 46, "display"),
+        text("Public records", 28, 59, 46, "display"),
         text(
             f"{(today - start).days + 1} days / {sum(days.values()):,} public records",
             28,
@@ -124,9 +131,9 @@ def render_calendar(start, today, days, mobile=False, updated=""):
             x, y, size = 78 + column * 20, 163 + panel * 185 + weekday * 19, 15
         else:
             x, y, size = (
-                52 + week * min(15, 790 / max(1, weeks - 1)),
-                158 + weekday * 17,
-                12,
+                52 + week * column_pitch,
+                158 + weekday * row_pitch,
+                cell_size,
             )
         parts.append(
             f'<rect x="{x}" y="{y}" width="{size}" height="{size}" fill="{palette[level]}"><title>{date}: {count}</title></rect>'
@@ -139,7 +146,7 @@ def render_calendar(start, today, days, mobile=False, updated=""):
                 text(
                     label,
                     28,
-                    origin + day * (19 if mobile else 17) + 13,
+                    origin + day * (19 if mobile else row_pitch) + 13,
                     20,
                     "mono",
                     BLUE,
@@ -151,18 +158,15 @@ def render_calendar(start, today, days, mobile=False, updated=""):
                 text(f"{beginning:%d %b %Y}", 78, origin - 18, 22, "mono", BLUE)
             )
         else:
-            for week in range(0, weeks, max(1, weeks // 6)):
-                marker = sunday + dt.timedelta(weeks=week)
+            marker = start
+            while marker <= today:
+                week = (marker - sunday).days // 7
                 parts.append(
                     text(
-                        f"{marker:%b %y}",
-                        52 + week * min(15, 790 / max(1, weeks - 1)),
-                        138,
-                        20,
-                        "mono",
-                        BLUE,
+                        f"{marker:%b}", 52 + week * column_pitch, 138, 20, "mono", BLUE
                     )
                 )
+                marker = (marker.replace(day=28) + dt.timedelta(days=4)).replace(day=1)
     parts.append(text("0 → peak", 28, legend_y + 18, 22, color=BLUE))
     for index, color in enumerate(palette):
         parts.append(

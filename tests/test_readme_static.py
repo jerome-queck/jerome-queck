@@ -1,10 +1,73 @@
+import json
+import tempfile
 import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
-from scripts.render_readme_world import PROJECTS
+from scripts.render_readme_world import PROJECTS, load_room_projects
 
 ART = Path(__file__).resolve().parents[1] / "assets/pixel-world"
+
+
+class CanonicalRooms(unittest.TestCase):
+    def test_catalogue_names_and_urls_reach_rooms_without_changing_captions(self):
+        path = ART.parents[1] / "data/projects.json"
+        catalogue = json.loads(path.read_text())
+        algebra = next(
+            row for row in catalogue if row["repo"] == "Jerome-Group/algebra"
+        )
+        algebra["name"] = "Algebra renamed"
+        algebra["url"] = "https://algebra.example.org/notes"
+        algebra["summary"] = "A longer native description."
+        catalogue.reverse()
+        with tempfile.TemporaryDirectory() as directory:
+            changed = Path(directory) / "projects.json"
+            changed.write_text(json.dumps(catalogue))
+            rooms = load_room_projects(changed)
+        self.assertEqual(
+            [row[0] for row in rooms],
+            [
+                "ntulearn",
+                "academic-os",
+                "syrax",
+                "emmy",
+                "algebra",
+                "calculus",
+                "probability",
+                "numbertheory",
+                "calculator",
+            ],
+        )
+        self.assertEqual(
+            next(row for row in rooms if row[0] == "algebra"),
+            (
+                "algebra",
+                "Algebra renamed",
+                "Structure, symmetry and proofs.",
+                "https://github.com/Jerome-Group/algebra",
+                "https://algebra.example.org/notes",
+            ),
+        )
+        self.assertEqual(len(rooms), len(catalogue))
+        self.assertEqual(
+            {row[3] for row in rooms},
+            {f"https://github.com/{row['repo']}" for row in catalogue},
+        )
+        self.assertTrue(all(row[4] is None for row in rooms[:4]))
+        self.assertTrue(all(row[4] is not None for row in rooms[4:]))
+
+    def test_catalogue_selection_change_requires_deliberate_room_update(self):
+        catalogue = json.loads((ART.parents[1] / "data/projects.json").read_text())
+        for replacement in ("another-project", "clarifold", "doomsday-protocol"):
+            with (
+                self.subTest(replacement=replacement),
+                tempfile.TemporaryDirectory() as directory,
+            ):
+                catalogue[0]["repo"] = f"Jerome-Group/{replacement}"
+                changed = Path(directory) / "projects.json"
+                changed.write_text(json.dumps(catalogue))
+                with self.assertRaises(ValueError):
+                    load_room_projects(changed)
 
 
 class LinkedRooms(unittest.TestCase):

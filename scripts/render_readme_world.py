@@ -5,86 +5,45 @@ from pathlib import Path
 from textwrap import wrap
 
 from scripts.profile_style import svg, text
+from scripts.repo_pulse import load_projects
 
-OUT = Path(__file__).resolve().parents[1] / "assets/pixel-world"
-PROJECTS = [
-    (
-        "ntulearn",
-        "NTULearn Sync",
-        "Course pages and original attachments.",
-        "https://github.com/Jerome-Group/ntulearn",
-        None,
-    ),
-    (
-        "algebra",
-        "Algebra",
-        "Structure, symmetry and proofs.",
-        "https://github.com/Jerome-Group/algebra",
-        "https://algebra.jeromegroup.org",
-    ),
-    (
-        "academic-os",
-        "Academic OS",
-        "Sources, tasks and freshness.",
-        "https://github.com/Jerome-Group/academic-os",
-        None,
-    ),
-    (
-        "calculus",
-        "Calculus",
-        "Change, geometry and arguments.",
-        "https://github.com/Jerome-Group/calculus",
-        "https://calculus.jeromegroup.org",
-    ),
-    (
-        "syrax",
-        "Syrax",
-        "Telegram study assistant.",
-        "https://github.com/Jerome-Group/syrax",
-        None,
-    ),
-    (
-        "probability",
-        "Probability",
-        "Uncertainty, examples and experiments.",
-        "https://github.com/jerome-queck/probability",
-        "https://probability.jeromegroup.org",
-    ),
-    (
-        "emmy",
-        "Emmy",
-        "ChatGPT Dot operating kit.",
-        "https://github.com/jerome-queck/emmy",
-        None,
-    ),
-    (
-        "numbertheory",
-        "Number theory",
-        "Proofs and exact computation.",
-        "https://github.com/Jerome-Group/numbertheory",
-        "https://numbertheory.jeromegroup.org",
-    ),
-    (
-        "calculator",
-        "Calculator",
-        "Exact notebooks. Sign-in required.",
-        "https://github.com/Jerome-Group/calculator",
-        "https://calculator.jeromegroup.org",
-    ),
-]
+ROOT = Path(__file__).resolve().parents[1]
+OUT = ROOT / "assets/pixel-world"
+# Room order and short captions fit the scene; catalogue summaries serve native text.
+ROOM_CAPTIONS = {
+    "Jerome-Group/ntulearn": "Course pages and original attachments.",
+    "Jerome-Group/academic-os": "Sources, tasks and freshness.",
+    "Jerome-Group/syrax": "Telegram study assistant.",
+    "jerome-queck/emmy": "ChatGPT Dot operating kit.",
+    "Jerome-Group/algebra": "Structure, symmetry and proofs.",
+    "Jerome-Group/calculus": "Change, geometry and arguments.",
+    "jerome-queck/probability": "Uncertainty, examples and experiments.",
+    "Jerome-Group/numbertheory": "Proofs and exact computation.",
+    "Jerome-Group/calculator": "Exact notebooks. Sign-in required.",
+}
 
-PROJECT_ORDER = (
-    "ntulearn",
-    "academic-os",
-    "syrax",
-    "emmy",
-    "algebra",
-    "calculus",
-    "probability",
-    "numbertheory",
-    "calculator",
-)
-PROJECTS.sort(key=lambda item: PROJECT_ORDER.index(item[0]))
+
+def load_room_projects(path=ROOT / "data/projects.json"):
+    catalogue = {project["repo"].casefold(): project for project in load_projects(path)}
+    if catalogue.keys() != {repo.casefold() for repo in ROOM_CAPTIONS}:
+        raise ValueError("Workshop rooms must match the selected project catalogue")
+    rooms = []
+    for repo, caption in ROOM_CAPTIONS.items():
+        project = catalogue[repo.casefold()]
+        rooms.append(
+            (
+                project["repo"].split("/")[1],
+                project["name"],
+                caption,
+                f"https://github.com/{project['repo']}",
+                project["url"] if project["group"] == "mathematics" else None,
+            )
+        )
+    return rooms
+
+
+PROJECTS = load_room_projects()
+PROJECT_ORDER = tuple(project[0] for project in PROJECTS)
 
 
 def master(mobile, role, motion):

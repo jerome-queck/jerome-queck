@@ -89,10 +89,13 @@ skeleton CI has not earned that.
 
 ## Repository notes
 
-- Give mathematics and software equal weight. Feature Algebra and Calculus as mathematical notes websites.
+- Represent mathematics, software and open-source work without presenting Jerome as exclusively a mathematics profile. The visual direction may use mathematical ideas. Feature Algebra and Calculus as mathematical notes websites.
 - Do not feature Clarifold or Doomsday Protocol until the Owner changes that decision.
 - Record reversible design choices in `docs/design/decisions.md`; glossary terms only in `CONTEXT.md`.
 - No blanket licence has been selected. Do not assume generated images establish rights or apply a code licence to artwork.
 - Bootstrap exception: the initial empty commit establishes `main`; subsequent file changes use pull requests.
 - Keep graphic text outlined through `scripts/profile_style.py`; preserve native equivalents and full Unicode dynamic titles in the snapshot.
 - Schema 2 requires upstream PR records and selected repository language bytes. Missing or truncated new input must fail, never become a zero-valued chart.
+- Read `.agents/skills/verify/SKILL.md` before visual acceptance. Actual GitHub desktop/mobile, light/dark, motion and reduced-motion evidence is required; local previews alone do not prove it.
+- Read `.agents/skills/profile-publication/SKILL.md` after changing covered collection, rendering, publication or fixtures. A source-drift failure requires mapping review, not blindly refreshing hashes.
+- Maintain the browser feature map after UI or source changes and the publication model after covered-code changes. Follow the installed pstack maintenance skills, resolve their current paths, and preserve failed evidence. No recurring automation is implied.

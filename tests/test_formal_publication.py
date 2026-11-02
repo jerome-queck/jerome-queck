@@ -28,7 +28,14 @@ class StalePushTests(unittest.TestCase):
             git(seed, "push", "origin", "HEAD:profile-data")
             for name in ("first", "stale"):
                 checkout = root / name
-                git(root, "clone", "--branch", "profile-data", str(remote), str(checkout))
+                git(
+                    root,
+                    "clone",
+                    "--branch",
+                    "profile-data",
+                    str(remote),
+                    str(checkout),
+                )
                 git(checkout, "config", "user.name", "Fixture")
                 git(checkout, "config", "user.email", "fixture@example.invalid")
                 (checkout / "snapshot").write_text(name)
@@ -36,11 +43,18 @@ class StalePushTests(unittest.TestCase):
                 git(checkout, "commit", "-m", name)
             git(root / "first", "push", "origin", "HEAD:profile-data")
             before = git(remote, "rev-parse", "refs/heads/profile-data").stdout.strip()
-            result = git(root / "stale", "push", "origin", "HEAD:profile-data", check=False)
+            result = git(
+                root / "stale", "push", "origin", "HEAD:profile-data", check=False
+            )
             self.assertNotEqual(result.returncode, 0)
             self.assertIn("rejected", result.stderr)
-            self.assertEqual(before, git(remote, "rev-parse", "refs/heads/profile-data").stdout.strip())
-            self.assertEqual("first", git(remote, "show", "profile-data:snapshot").stdout)
+            self.assertEqual(
+                before,
+                git(remote, "rev-parse", "refs/heads/profile-data").stdout.strip(),
+            )
+            self.assertEqual(
+                "first", git(remote, "show", "profile-data:snapshot").stdout
+            )
 
 
 if __name__ == "__main__":

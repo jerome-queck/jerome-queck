@@ -21,8 +21,8 @@ if args.plan:
     result['plan'] = [
         'Install pinned Playwright and pngjs into a chosen external runtime directory if absent.',
         'Open a fresh anonymous owned browser, GET GitHub target and authored destinations.',
-        'Click native footer section links and disclosures; capture four viewport/theme variants.',
-        'Compare actual embedded world PNG frames and fresh reduced-motion still-source frames.',
+        'Click nine title images, five sources, six merged PR receipts and the native disclosure; capture four variants.',
+        'Compare decorative master frames, static data and every reduced-motion still source; inspect SVG views and gapless rows.',
         'Write evidence only to a new external output directory; close owned browser.',
         'Collector is separate, opt-in, needs gh authentication and writes chosen output.',
         'No git writes, publication, workflows, launch services, or profile changes.',

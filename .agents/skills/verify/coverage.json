@@ -46,36 +46,19 @@
   ],
   "evidence_policy": "Run artifacts live outside the checkout. The session handoff records their actual paths. Keep failed iterations. Update this record only after rereading source/maps and driving the changed actual surfaces.",
   "maintenance": {
-    "source_head": "558adfe",
-    "target_source": "world-compose working tree; unpublished, not an immutable verified target",
-    "status": "blocked: final world source and GitHub target required for complete live reproof",
-    "scope": "Sequential source review, no child agents under coordinator instruction. Driver changed for one world and native footer; baseline observations above remain historical only.",
-    "mechanism_probe": {
-      "defect_head": "18810ce",
-      "fixed_head": "18d57cb",
-      "surface": "Actual immutable GitHub README; isolated normal/reduced contexts at desktop and mobile",
-      "normal_changed_pixels": {
-        "desktop": [
-          9590,
-          10036
-        ],
-        "mobile": [
-          1130,
-          1146
-        ]
-      },
-      "reduced_changed_pixels": {
-        "desktop": [
-          0,
-          0
-        ],
-        "mobile": [
-          0,
-          0
-        ]
-      },
-      "reduced_selection": "motion-proof-still.svg on both sizes",
-      "limit": "Technical mechanism only; final world full matrix awaits immutable actual target"
-    }
+    "source_head": "74b831a",
+    "target_source": "Immutable proposed README URL pending from coordinator.",
+    "status": "blocked: final live GitHub matrix pending; no pass claimed",
+    "scope": "Sequential source coverage of all four feature files. No child readers under coordinator instruction. Historical baseline above is unchanged.",
+    "source_review_notes": "External session evidence/linked-driver-notes/source-coverage.md records source entry points and recipes.",
+    "driver_unit_tests": 9,
+    "corrections_pending_live_reproof": [
+      "Sixteen-image continuous canvas and eleven rows including five 75/25 pairs",
+      "Nine actual image-title clicks, five image-source clicks, six merged PR receipts",
+      "Fragment-safe media file selection, explicit SVG views and retained actual view bitmaps",
+      "All-picture fresh reduced-motion selection and zero-pixel canvas motion",
+      "Authored decorative circles distinguished from generated static data boundary",
+      "Generic actual records-source and snapshot-link discovery including immutable previews"
+    ]
   }
 }

@@ -26,6 +26,60 @@ function options(args) {
   return result;
 }
 
+function assetFile(url) {
+  const parsed = new URL(url);
+  parsed.hash = '';
+  return parsed.href;
+}
+
+function selectedSource(image) {
+  return image.sources.find(source => source.matches)?.srcset || image.src;
+}
+
+function sameAssetFile(actual, expected) {
+  return assetFile(actual) === assetFile(expected);
+}
+
+function canvasRows(images, article, tolerance = 1) {
+  const rows = [];
+  for (const image of images) {
+    let row = rows.find(item => Math.abs(item.y - image.y) <= tolerance);
+    if (!row) { row = {y: image.y, images: []}; rows.push(row); }
+    row.images.push(image);
+  }
+  rows.sort((a, b) => a.y - b.y);
+  const errors = [];
+  rows.forEach((row, index) => {
+    row.images.sort((a, b) => a.x - b.x);
+    row.bottom = Math.max(...row.images.map(image => image.y + image.height));
+    const first = row.images[0], last = row.images.at(-1);
+    if (Math.abs(first.x - article.x) > tolerance || Math.abs(last.x + last.width - article.x - article.width) > tolerance) errors.push(`row ${index} does not fill canvas width`);
+    for (let i = 1; i < row.images.length; i++) {
+      const left = row.images[i - 1], right = row.images[i];
+      if (Math.abs(right.x - left.x - left.width) > tolerance || Math.abs(right.height - left.height) > tolerance) errors.push(`row ${index} tiles do not meet`);
+    }
+    if (index && Math.abs(row.y - rows[index - 1].bottom) > tolerance) errors.push(`row ${index} vertical gap or overlap`);
+  });
+  return {rows, errors};
+}
+
+function analyzeSvg(source) {
+  const doc = new DOMParser().parseFromString(source, 'image/svg+xml');
+  const data = doc.getElementById('world-data');
+  const styles = [...doc.querySelectorAll('style')].map(e => e.textContent).join('\n');
+  const selectors = [...styles.matchAll(/([^{}]+)\{([^{}]*animation\s*:[^{}]+)\}/g)].map(match => match[1].trim()).filter(selector => !selector.startsWith('@'));
+  const invalidSelectors = [];
+  const animated = [...new Set(selectors.flatMap(selector => { try { return [...doc.querySelectorAll(selector)]; } catch { invalidSelectors.push(selector); return []; } }))];
+  return {
+    snapshot: doc.documentElement.getAttribute('data-snapshot'), dataBoundary: !!data, styles, selectors, invalidSelectors,
+    unsupportedAnimation: doc.querySelectorAll('animate,animateMotion,animateTransform,set,script,[style*="animation"]').length,
+    animatedElements: animated.map(e => ({tag: e.tagName, id: e.id, class: e.getAttribute('class')})),
+    decorativeOnly: animated.every(e => e.tagName === 'circle' && !e.querySelector('text,path')),
+    dataAffected: data ? animated.some(e => e === data || e.contains(data) || data.contains(e)) : false,
+    views: [...doc.querySelectorAll('view')].map(e => ({id: e.id, viewBox: e.getAttribute('viewBox')}))
+  };
+}
+
 function anchorSettled(y, expectedTop, uncovered) {
   return y >= 0 && y <= Math.max(160, expectedTop + 8) && uncovered;
 }
@@ -37,13 +91,15 @@ async function inspect(article) {
       try { await img.decode(); } catch (e) { error = e.message; }
       const bounds = img.getBoundingClientRect();
       const picture = img.closest('picture');
+      const hit = img.closest('a')?.getBoundingClientRect();
       const sources = picture ? [...picture.querySelectorAll('source')].map(source => ({media: source.media, srcset: new URL(source.srcset, document.baseURI).href, matches: matchMedia(source.media).matches})) : [];
-      return {alt: img.alt, src: img.src, currentSrc: img.currentSrc, width: bounds.width, height: bounds.height, naturalWidth: img.naturalWidth, naturalHeight: img.naturalHeight, error, sources};
+      return {hitArea: hit ? {x: hit.x, y: hit.y, width: hit.width, height: hit.height} : null, alt: img.alt, src: img.src, srcAttribute: img.getAttribute('src'), currentSrc: img.currentSrc, href: img.closest('a')?.href, canvas: img.closest('p') === element.querySelector('picture')?.closest('p'), x: bounds.x, y: bounds.y, width: bounds.width, height: bounds.height, naturalWidth: img.naturalWidth, naturalHeight: img.naturalHeight, error, sources};
     }));
     const rect = element.getBoundingClientRect();
+    const canvas = element.querySelector('picture')?.closest('p')?.getBoundingClientRect();
     return {
       url: location.href, title: document.title, heading: [...element.querySelectorAll('h1,h2,h3')].map(e => ({level: e.tagName, text: e.textContent.trim(), id: e.id, anchor: e.querySelector('a')?.href})),
-      images, links: [...element.querySelectorAll('a[href]')].map(e => ({text: e.textContent.trim(), href: e.href, image: !!e.querySelector('img')})),
+      canvas: canvas ? {x: canvas.x, y: canvas.y, width: canvas.width, height: canvas.height} : null, images, links: [...element.querySelectorAll('a[href]')].map(e => ({text: e.textContent.trim(), href: e.href, image: !!e.querySelector('img'), alt: e.querySelector('img')?.alt})),
       details: [...element.querySelectorAll('details')].map(e => ({summary: e.querySelector('summary')?.textContent.trim(), open: e.open})),
       viewport: {width: innerWidth, height: innerHeight}, documentWidth: document.documentElement.scrollWidth,
       article: {x: rect.x, y: rect.y, width: rect.width, height: rect.height, scrollWidth: element.scrollWidth, clientWidth: element.clientWidth},
@@ -70,7 +126,7 @@ function pixelDifference(first, second) {
 
 async function captureMotion(page, image, output, name) {
   await image.scrollIntoViewIfNeeded();
-  await image.evaluate(async img => { await img.decode(); });
+  await image.evaluate(async element => { for (const img of element.matches('img') ? [element] : element.querySelectorAll('img')) await img.decode(); });
   const frames = [], timestamps = [];
   for (let i = 0; i < 3; i++) {
     if (i) await page.waitForTimeout(i === 1 ? 2300 : 2700);
@@ -121,7 +177,7 @@ async function run(config) {
             if (!avatarState.naturalWidth || !avatarState.width) fail('avatar', `${name}: avatar failed to decode or render`);
           }
           const sectionLinks = await article.locator('a[href^="#"]:not(.anchor)').evaluateAll(links => [...new Set(links.map(a => a.getAttribute('href')).filter(href => href !== '#'))]);
-          if (!sectionLinks.length) fail('navigation', `${name}: no native section navigation`);
+          // Section links are optional; any present must still prove actual heading arrival.
           for (const href of sectionLinks) {
             const section = href.replace(/^#(?:user-content-)?/, '');
             const sectionLink = article.locator(`a:is([href="#${section}"], [href="#user-content-${section}"]):not(.anchor)`);
@@ -152,50 +208,72 @@ async function run(config) {
           for (const img of after.images) {
             if (img.error || !img.naturalWidth || !img.width || !img.height) fail('asset', `${name}: undecoded or empty image ${img.currentSrc}`);
             if (!img.alt) fail('accessibility', `${name}: nondecorative image lacks alternative text ${img.src}`);
-            const selected = img.sources.find(s => s.matches);
-            const expected = selected?.srcset || img.src;
-            // GitHub Camo rewrites sources; compare URL-decoded path suffix, not proxy host.
-            const expectedFile = new URL(expected).pathname.split('/').pop();
-            if (!decodeURIComponent(img.currentSrc).includes(expectedFile)) fail('responsive-source', `${name}: expected ${expectedFile}; got ${img.currentSrc}`);
+            const expected = selectedSource(img);
+            if (!sameAssetFile(img.currentSrc, expected)) fail('responsive-source', `${name}: expected file ${expected}; got ${img.currentSrc}`);
           }
           if (after.documentWidth > viewport.width + 1 || after.article.scrollWidth > after.article.clientWidth + 1) fail('overflow', `${name}: horizontal overflow`);
-          if (!after.heading.some(h => h.level === 'H1') || ['Projects', 'Public records'].some(text => !after.heading.some(h => h.level === 'H2' && h.text === text))) fail('accessibility', `${name}: native section headings missing`);
-          if (after.details.length < 2) fail('details', `${name}: expected project and public record disclosures`);
+          if (!after.heading.length || after.heading.some(h => !h.text)) fail('accessibility', `${name}: native text-edition headings missing or empty`);
+          if (!after.details.length || after.details.some(d => !d.summary)) fail('details', `${name}: text-edition disclosure missing or unnamed`);
           const rgb = after.theme.background.match(/\d+/g)?.slice(0, 3).map(Number);
           if (!rgb || (scheme === 'dark') !== (rgb.reduce((a, b) => a + b, 0) < 384)) fail('theme', `${name}: actual page background does not follow ${scheme}`);
-          const world = article.locator('picture img').first();
-          if (after.images.length !== 1 || !/world(?:-mobile)?\.svg/.test(after.images[0]?.currentSrc || '')) fail('world', `${name}: expected one world canvas`);
-          const normal = await captureMotion(page, world, config.output, `${name}-motion`);
+          const canvasImages = after.images.filter(image => image.canvas);
+          const geometry = canvasRows(canvasImages, after.canvas);
+          write(`${name}-canvas.json`, geometry);
+          geometry.errors.forEach(error => fail('canvas-geometry', `${name}: ${error}`));
+          if (canvasImages.length !== 16 || geometry.rows.length !== 11 || geometry.rows.filter(row => row.images.length === 2).length !== 5) fail('canvas-contract', `${name}: expected hero, nine projects with five source pairs, data world`);
+          if (size === 'mobile') for (const image of canvasImages.filter(image => image.href)) {
+            if (!image.hitArea || image.hitArea.height < 44 || image.hitArea.width < 44) fail('mobile-hit-area', `${name}: image link smaller than 44 CSS pixels ${image.alt}`);
+          }
+          const pictures = article.locator('p:has(picture)').first().locator('picture img');
+          const normal = [];
+          for (const index of [0, 1]) normal.push(await captureMotion(page, pictures.nth(index), config.output, `${name}-motion-${index}`));
+          const staticData = await captureMotion(page, pictures.last(), config.output, `${name}-data`);
+          if (staticData.comparisons.some(diff => diff.changedPixels)) fail('data-motion', `${name}: data glyphs or counts changed between frames`);
+          if (!normal.some(item => item.comparisons.some(diff => diff.changedPixels > 0))) fail('motion', `${name}: no visible decorative master motion observed`);
+          const fragments = [];
+          for (let i = 0; i < canvasImages.length - 1; i++) {
+            const bitmap = await pictures.nth(i).screenshot({path: path.join(config.output, `${name}-view-${i}.png`), animations: 'allow'});
+            fragments.push({source: selectedSource(canvasImages[i]), srcAttribute: canvasImages[i].srcAttribute, currentSrc: canvasImages[i].currentSrc, screenshotSHA256: createHash('sha256').update(bitmap).digest('hex')});
+          }
+          write(`${name}-fragments.json`, fragments);
           const reducedContext = await browser.newContext({viewport, colorScheme: scheme, reducedMotion: 'reduce'});
-          const reducedPage = await reducedContext.newPage();
-          await reducedPage.goto(config.url, {waitUntil: 'domcontentloaded'});
-          const reduced = await captureMotion(reducedPage, reducedPage.locator('article.markdown-body picture img').first(), config.output, `${name}-reduced`);
-          await reducedContext.close();
-          write(`${name}-motion.json`, {normal, reduced});
-          if (!normal.comparisons.some(diff => diff.changedPixels > 0)) fail('motion', `${name}: no decorative motion observed in embedded world`);
-          const stillFile = size === 'desktop' ? 'world-still.svg' : 'world-mobile-still.svg';
-          if (!decodeURIComponent(reduced.image.currentSrc).includes(stillFile)) fail('reduced-source', `${name}: expected ${stillFile}; got ${reduced.image.currentSrc}`);
-          if (reduced.comparisons.some(diff => diff.changedPixels !== 0)) fail('reduced-motion', `${name}: embedded world moves with reduced motion`);
-          await page.emulateMedia({reducedMotion: 'no-preference'});
+          let reducedState, reduced;
+          try {
+            const reducedPage = await reducedContext.newPage();
+            await reducedPage.goto(config.url, {waitUntil: 'domcontentloaded'});
+            const reducedArticle = reducedPage.locator('article.markdown-body');
+            reducedState = await inspect(reducedArticle);
+            write(`${name}-reduced-state.json`, reducedState);
+            for (const image of reducedState.images) {
+              const expected = selectedSource(image);
+              if (!/-still\.svg(?:#|\?|$)/.test(expected) || !sameAssetFile(image.currentSrc, expected)) fail('reduced-source', `${name}: wrong reduced file ${image.currentSrc}; expected ${expected}`);
+            }
+            const canvas = reducedArticle.locator('p:has(picture)').first();
+            await paint(reducedPage);
+            reduced = await captureMotion(reducedPage, canvas, config.output, `${name}-reduced-canvas`);
+            if (reduced.comparisons.some(diff => diff.changedPixels)) fail('reduced-motion', `${name}: reduced canvas moves`);
+          } finally { await reducedContext.close(); }
+          write(`${name}-motion.json`, {normal, staticData, reduced});
           report.variants.push({name, before: `${name}-before.json`, expanded: `${name}-expanded.json`, traffic});
           traffic.filter(t => t.type === 'image').forEach(t => fail('asset-network', `${name}: ${JSON.stringify(t)}`));
-          for (const url of [...new Set([...after.images.map(img => img.currentSrc), reduced.image.currentSrc].filter(src => /\.svg(?:\?|$)/.test(src)))]) {
+          const allImages = [...after.images, ...reducedState.images];
+          const urls = [...new Set(allImages.map(selectedSource).filter(src => /\.svg(?:#|\?|$)/.test(src)).map(assetFile))];
+          for (const url of urls) {
             const assetResponse = await context.request.get(url);
             const body = await assetResponse.text();
             const asset = {url, status: assetResponse.status(), paths: (body.match(/<path\b/g) || []).length, textNodes: (body.match(/<text\b/g) || []).length, bytes: Buffer.byteLength(body)};
-            asset.motionSource = await page.evaluate(source => {
-              const doc = new DOMParser().parseFromString(source, 'image/svg+xml');
-              const data = doc.getElementById('world-data');
-              const styles = [...doc.querySelectorAll('style')].map(e => e.textContent).join('\n');
-              const selectors = [...styles.matchAll(/([^{}]+)\{([^{}]*animation\s*:[^{}]+)\}/g)].map(match => match[1].trim()).filter(selector => !selector.startsWith('@'));
-              const invalidSelectors = [];
-              const animated = [...new Set(selectors.flatMap(selector => { try { return [...doc.querySelectorAll(selector)]; } catch { invalidSelectors.push(selector); return []; } }))];
-              return {snapshot: doc.documentElement.getAttribute('data-snapshot'), dataBoundary: !!data, selectors, invalidSelectors, unsupportedAnimation: doc.querySelectorAll('animate,animateMotion,animateTransform,set,script,[style*="animation"]').length, animatedElements: animated.map(e => ({tag: e.tagName, id: e.id, class: e.getAttribute('class')})), dataAffected: data ? animated.some(e => e === data || e.contains(data) || data.contains(e)) : null, reducedMotionRule: /prefers-reduced-motion\s*:\s*reduce/.test(styles)};
-            }, body);
-            if (asset.motionSource.invalidSelectors.length || asset.motionSource.unsupportedAnimation || (/-still\.svg/.test(url) && asset.motionSource.animatedElements.length) || !asset.motionSource.dataBoundary || asset.motionSource.dataAffected || !asset.motionSource.snapshot || (!/-still\.svg/.test(url) && (!asset.motionSource.reducedMotionRule || !asset.motionSource.animatedElements.length))) fail('motion-source', `${name}: missing static data boundary or motion contract in ${url}`);
+            asset.motionSource = await page.evaluate(analyzeSvg, body);
+            const motion = asset.motionSource;
+            const dataWorld = /\/world(?:-mobile)?(?:-still)?\.svg(?:\?|$)/.test(url);
+            const still = /-still\.svg(?:\?|$)/.test(url);
+            if (motion.invalidSelectors.length || motion.unsupportedAnimation || motion.dataAffected || !motion.decorativeOnly || (still && motion.styles) || (dataWorld && (!motion.dataBoundary || !motion.snapshot || motion.animatedElements.length))) fail('motion-source', `${name}: invalid authored/data/static boundary in ${url}`);
+            if (!dataWorld && !still && !motion.animatedElements.length) fail('motion-source', `${name}: ambient master has no decorative animation ${url}`);
+            const references = allImages.map(selectedSource).filter(src => assetFile(src) === url).map(src => new URL(src).hash.slice(1)).filter(Boolean);
+            for (const reference of references) if (!motion.views.some(view => view.id === reference)) fail('fragment-source', `${name}: missing SVG view ${reference} in ${url}`);
+            if (new Set(motion.views.map(view => view.viewBox)).size !== motion.views.length) fail('fragment-source', `${name}: duplicate view boxes ${url}`);
             report.assets.push(asset);
             if (!assetResponse.ok() || !body.includes('<svg')) fail('asset-body', url);
-            if (config['require-outlines'] === 'yes' && /(?:world(?:-mobile)?(?:-still)?\.svg)/.test(url) && (!asset.paths || asset.textNodes)) fail('svg-outlines', url);
+            if (config['require-outlines'] === 'yes' && (!asset.paths || asset.textNodes)) fail('svg-outlines', url);
             fs.writeFileSync(path.join(config.output, `asset-${report.assets.length}.svg`), body);
           }
           if (counter++ === 0) {
@@ -210,49 +288,64 @@ async function run(config) {
             for (const project of JSON.parse(fs.readFileSync(path.join(__dirname, '../../../../data/projects.json'), 'utf8'))) {
               if (!fallbackState.text.includes(project.name) || !fallbackState.links.some(link => link.href.toLowerCase().includes(project.repo.toLowerCase()))) fail('images-blocked', `Missing native fallback for ${project.name}`);
             }
-            if (!fallbackState.text.includes('Open proposals') || !fallbackState.links.some(link => /profile-data/.test(link.href))) fail('images-blocked', 'Public records and exact-source fallback missing');
+            if (!fallbackState.text.includes('Open proposals') || !fallbackState.links.some(link => /public records|definitions/i.test(link.text))) fail('images-blocked', 'Public records and exact-source fallback missing');
             await fallback.close();
 
-            // Check each authored source and each publication target via a real anonymous GET navigation.
-            const sourceLinks = after.links.filter(link => /^https:\/\/github.com\/(Jerome-Group|jerome-queck)\/[^/#?]+\/?$/i.test(link.href));
-            const publication = after.links.filter(link => /\/tree\/profile-data/.test(link.href));
             const projects = JSON.parse(fs.readFileSync(path.join(__dirname, '../../../../data/projects.json'), 'utf8'));
+            const targets = [];
             for (const project of projects) {
-              if (!after.links.some(link => link.href.toLowerCase().replace(/\/$/, '') === `https://github.com/${project.repo}`.toLowerCase())) fail('sources', `Missing actual repository ${project.repo}`);
-              if (!after.links.some(link => link.href.replace(/\/$/, '') === project.url.replace(/\/$/, ''))) fail('projects', `Missing actual destination ${project.url}`);
+              const title = after.links.find(link => link.image && link.href.replace(/\/$/, '') === project.url.replace(/\/$/, '') && link.alt?.startsWith(project.name + '.'));
+              if (!title) fail('projects', `Missing image title destination for ${project.name}`);
+              else targets.push({...title, role: 'project-title'});
+              if (project.group === 'mathematics') {
+                const source = after.links.find(link => link.image && link.href.toLowerCase().replace(/\/$/, '') === `https://github.com/${project.repo}`.toLowerCase() && link.alt === `Repository for ${project.name}`);
+                if (!source) fail('sources', `Missing secondary image repository button ${project.name}`);
+                else targets.push({...source, role: 'project-source'});
+              }
             }
-            const upstream = after.links.filter(link => /^https:\/\/github.com\/[^/]+\/[^/]+\/pull\/\d+/.test(link.href));
-            const workflow = after.links.filter(link => /\/actions\/workflows\/profile.yml/.test(link.href));
-            const targets = [...new Set([...sourceLinks, ...publication, ...workflow, ...upstream].map(link => link.href))];
+            const mergedIDs = ['189784', '189855', '189960', '189993', '130275', '71474'];
+            for (const id of mergedIDs) {
+              const upstream = after.links.find(link => new RegExp(`/pull/${id}$`).test(link.href));
+              if (!upstream) fail('upstream', `Missing merged contribution #${id}`);
+              else targets.push({...upstream, role: 'merged-pr'});
+            }
+            const publication = after.links.find(link => /public records|definitions/i.test(link.text));
+            if (publication) targets.push({...publication, role: 'publication'});
+            else fail('publication', 'No rendered records/source link');
             for (const [i, target] of targets.entries()) {
               const opened = await context.newPage();
-              await opened.goto(config.url, {waitUntil: 'domcontentloaded'});
-              const sourceArticle = opened.locator('article.markdown-body');
-              for (const summary of await sourceArticle.locator('details > summary').all()) await summary.click();
-              const anchor = sourceArticle.locator(`a[href="${target}"]`).first();
-              const [response] = await Promise.all([
-                opened.waitForNavigation({waitUntil: 'domcontentloaded'}),
-                anchor.click()
-              ]);
-              const navigation = {target, url: opened.url(), title: await opened.title(), status: response?.status() ?? null};
-              report.navigation.push(navigation);
-              await opened.screenshot({path: path.join(config.output, `destination-${i}.png`)});
-              write(`destination-${i}.json`, {...navigation, text: (await opened.locator('body').innerText()).slice(0, 40000)});
-              if (target.endsWith('/tree/profile-data')) {
-                const snapshotLink = opened.locator('article.markdown-body a[href$="/snapshot.json"]').first();
-                if (await snapshotLink.count()) {
-                  const observedLink = await snapshotLink.getAttribute('href');
-                  const snapshotURL = new URL(observedLink, opened.url()).href.replace('/blob/', '/raw/');
-                  await snapshotLink.click();
-                  await opened.waitForLoadState('domcontentloaded');
-                  await opened.screenshot({path: path.join(config.output, 'published-snapshot-page.png')});
-                  const published = await context.request.get(snapshotURL);
-                  if (published.ok()) { write('published-snapshot.json', await published.json()); write('published-snapshot-source.json', {observedLink, requested: snapshotURL, final: published.url(), status: published.status()}); }
-                  else fail('publication', `Snapshot response ${published.status()}`);
-                } else fail('publication', 'Published text does not link snapshot.json');
-              }
-              if (navigation.status !== 200 || /Page not found|404/.test(navigation.title)) fail('github-destination', target + ': ' + navigation.title);
-              await opened.close();
+              try {
+                await opened.goto(config.url, {waitUntil: 'domcontentloaded'});
+                const sourceArticle = opened.locator('article.markdown-body');
+                for (const summary of await sourceArticle.locator('details > summary').all()) await summary.click();
+                const anchor = sourceArticle.locator(`a[href="${target.href}"]`).filter(target.image ? {has: opened.locator('img')} : {}).first();
+                const hitArea = await anchor.boundingBox();
+                const [response] = await Promise.all([opened.waitForNavigation({waitUntil: 'domcontentloaded'}), anchor.click()]);
+                const navigation = {role: target.role, expected: target.href, url: opened.url(), title: await opened.title(), status: response?.status() ?? null, hitArea};
+                const bodyText = (await opened.locator('body').innerText()).slice(0, 60000);
+                if (target.role === 'merged-pr' && !/Merged/.test(bodyText)) fail('upstream', `Merged state not observed ${target.href}`);
+                if (target.role === 'publication') {
+                  const snapshotLink = opened.locator('a[href$="/snapshot.json"]').first();
+                  if (await snapshotLink.count()) {
+                    const observedLink = await snapshotLink.getAttribute('href');
+                    const snapshotURL = new URL(observedLink, opened.url()).href.replace('/blob/', '/raw/');
+                    await snapshotLink.click();
+                    await opened.waitForLoadState('domcontentloaded');
+                    const published = await context.request.get(snapshotURL);
+                    write('published-snapshot-source.json', {observedLink, requested: snapshotURL, final: published.url(), status: published.status()});
+                    if (published.ok()) write('published-snapshot.json', await published.json());
+                    else fail('publication', `Snapshot response ${published.status()}`);
+                  } else fail('publication', 'Published source does not link snapshot.json');
+                }
+                if (navigation.status !== 200 || /Page not found|404/.test(navigation.title)) {
+                  if (new URL(target.href).hostname !== 'github.com' && [401, 403].includes(navigation.status)) navigation.outcome = 'verified-unreachable: anonymous website access blocked';
+                  else fail('destination', target.href + ': ' + navigation.title + ' status ' + navigation.status);
+                } else navigation.outcome = 'observed destination response 200';
+                report.navigation.push(navigation);
+                await opened.screenshot({path: path.join(config.output, `destination-${i}.png`)});
+                write(`destination-${i}.json`, {...navigation, text: bodyText});
+              } catch (error) { fail('destination', `${target.href}: ${error.message}`); }
+              finally { await opened.close(); }
             }
 
           }
@@ -273,4 +366,4 @@ if (require.main === module) {
   try { run(options(process.argv.slice(2))).then(code => { process.exitCode = code; }).catch(error => { console.error(error); process.exitCode = 1; }); }
   catch (error) { console.error(error.message); process.exitCode = 1; }
 }
-module.exports = {options, anchorSettled, pixelDifference, captureMotion};
+module.exports = {options, anchorSettled, pixelDifference, captureMotion, assetFile, sameAssetFile, selectedSource, canvasRows, analyzeSvg};

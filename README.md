@@ -18,3 +18,8 @@ Unapproved artwork. This branch tests GitHub image animation, reduced motion and
 ## Native view fragment proof
 
 <p><a href="https://github.com/jerome-queck/jerome-queck/issues/14"><img align="top" src="assets/view-proof.svg#one" width="100%" alt="SVG view one"></a><br><a href="https://github.com/jerome-queck/jerome-queck/issues/14"><img align="top" src="assets/view-proof.svg#two" width="100%" alt="SVG view two"></a></p>
+
+
+## Embedded scene view proof
+
+<p><a href="https://github.com/jerome-queck/jerome-queck/issues/14"><img align="top" src="assets/embedded-view-proof.svg#roof" width="100%" alt="Embedded roof view"></a><br><a href="https://github.com/jerome-queck/jerome-queck/issues/14"><img align="top" src="assets/embedded-view-proof.svg#cellar" width="100%" alt="Embedded cellar view"></a></p>

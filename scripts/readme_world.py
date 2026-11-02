@@ -3,7 +3,7 @@ import html
 import math
 import xml.etree.ElementTree as ET
 
-from scripts.profile_style import svg, text
+from scripts.profile_style import measure, svg, text
 
 COBALT = "#efad62"
 BLUE = "#c9b2a6"
@@ -80,7 +80,18 @@ def _cadence(snapshot, width, y, mobile):
             max_width=width - 56,
         ),
     ]
-    columns = min(len(months), 5 if mobile else 8) or 1
+    minimum_pitch = (
+        max(
+            [measure(month, 18 * 0.72, "mono") for month in months]
+            + [measure(count, 20 * 0.72, "mono") for count in months.values()]
+            + [1]
+        )
+        + 8
+    )
+    columns = (
+        min(len(months), 5 if mobile else 8, max(1, int((width - 56) / minimum_pitch)))
+        or 1
+    )
     pitch = (width - 56) / columns
     rows = max(1, math.ceil(len(months) / columns))
     row_height = 204

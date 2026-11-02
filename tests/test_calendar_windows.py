@@ -133,7 +133,10 @@ class CalendarWindowTests(unittest.TestCase):
             dt.date(2028, 7, 1),
         ):
             months = merge_months({}, today)
-            months = {month: 123456789 + i for i, month in enumerate(months)}
+            months = {
+                month: (100 if today.year == 2026 else 123456789) + i
+                for i, month in enumerate(months)
+            }
             for width, mobile, columns in ((480, True, 5), (900, False, 8)):
                 with self.subTest(today=today, mobile=mobile):
                     document, end = _cadence(

@@ -343,7 +343,7 @@ async function run(config) {
                 const bodyText = (await opened.locator('body').innerText()).slice(0, 60000);
                 if (target.role === 'merged-pr' && !/Merged/.test(bodyText)) fail('upstream', `Merged state not observed ${target.href}`);
                 if (target.role === 'publication') {
-                  const snapshotLink = opened.locator('a[href$="/snapshot.json"]').first();
+                  const snapshotLink = opened.locator('article.markdown-body a[href$="/snapshot.json"]').first();
                   if (await snapshotLink.count()) {
                     const observedLink = await snapshotLink.getAttribute('href');
                     const snapshotURL = new URL(observedLink, opened.url()).href.replace('/blob/', '/raw/');

@@ -38,7 +38,7 @@
 
 [All public records and definitions](https://github.com/jerome-queck/jerome-queck/tree/profile-data) · [Website](https://jeromegroup.org) · [LinkedIn](https://www.linkedin.com/in/jeromequeck/) · [Jerome-Group](https://github.com/Jerome-Group)
 
-Counters are all time. Both time graphs begin 1 July 2026; the current month is partial. Public records measure frequency, not effort or quality. Linked closed issues do not establish who closed them. GitHub language bytes describe repository contents, not expertise. A failed refresh retains the last complete snapshot and its timestamp.
+Counters are all time. Both time graphs begin 1 July 2026; the current month is partial. Public records measure frequency, not effort or quality. Linked closed issues do not establish who closed them. Language charts count physical code lines at nine recorded public commits, including JSON, markup and configuration. They describe repository contents across all authors, not personal authorship or expertise. A failed refresh retains the last complete snapshot and its timestamp.
 
 [Artwork, type and data](docs/design/midnight-workshop.md)
 

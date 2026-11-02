@@ -1,76 +1,16 @@
 {
-  "schema_version": 1,
-  "observed_from": "2026-11-02T07:43:52.743768+00:00",
-  "observed_to": "2026-11-02T07:45:08.750851+00:00",
-  "updated": "02 Nov 2026 07:45 UTC",
+  "schema_version": 4,
+  "observed_from": "2026-11-02T15:23:38.176680+00:00",
+  "observed_to": "2026-11-02T15:25:11.774073+00:00",
+  "updated": "02 Nov 2026 15:25 UTC",
   "counts": [
-    1332,
-    1286,
+    1334,
+    1288,
     973
   ],
-  "calendar_start": "2025-11-03",
+  "calendar_start": "2026-07-01",
   "calendar_end": "2026-11-02",
   "calendar_days": {
-    "2026-02-09": 3,
-    "2026-02-06": 7,
-    "2026-02-05": 8,
-    "2026-02-04": 34,
-    "2026-02-03": 30,
-    "2026-02-02": 2,
-    "2026-03-02": 7,
-    "2026-03-01": 5,
-    "2026-04-19": 3,
-    "2026-05-09": 8,
-    "2026-05-08": 6,
-    "2026-05-17": 1,
-    "2026-05-16": 1,
-    "2026-05-15": 2,
-    "2026-05-13": 2,
-    "2026-05-12": 1,
-    "2026-05-11": 2,
-    "2026-05-10": 2,
-    "2026-06-14": 2,
-    "2026-06-11": 2,
-    "2026-06-01": 2,
-    "2026-05-31": 6,
-    "2026-05-30": 84,
-    "2026-05-29": 98,
-    "2026-06-13": 1,
-    "2026-06-10": 1,
-    "2026-06-09": 1,
-    "2026-06-08": 2,
-    "2026-06-07": 1,
-    "2026-06-06": 1,
-    "2026-06-04": 2,
-    "2026-06-02": 1,
-    "2026-05-28": 1,
-    "2026-05-27": 1,
-    "2026-05-26": 1,
-    "2026-05-24": 2,
-    "2026-05-23": 1,
-    "2026-05-22": 1,
-    "2026-05-21": 1,
-    "2026-05-20": 1,
-    "2026-05-19": 1,
-    "2026-05-18": 1,
-    "2026-07-11": 7,
-    "2026-07-06": 7,
-    "2026-07-04": 3,
-    "2026-07-03": 4,
-    "2026-06-27": 3,
-    "2026-06-25": 3,
-    "2026-06-15": 2,
-    "2026-07-10": 1,
-    "2026-07-09": 1,
-    "2026-07-07": 2,
-    "2026-07-05": 1,
-    "2026-07-02": 1,
-    "2026-07-01": 1,
-    "2026-06-30": 1,
-    "2026-06-24": 1,
-    "2026-06-23": 1,
-    "2026-06-21": 2,
-    "2026-06-19": 1,
     "2026-07-25": 112,
     "2026-07-24": 56,
     "2026-07-23": 17,
@@ -82,30 +22,28 @@
     "2026-07-17": 41,
     "2026-07-14": 10,
     "2026-07-13": 41,
-    "2026-08-09": 21,
-    "2026-08-08": 14,
     "2026-07-26": 59,
-    "2026-07-29": 2,
-    "2026-08-04": 3,
+    "2026-07-11": 7,
+    "2026-07-06": 7,
+    "2026-07-04": 3,
+    "2026-07-03": 4,
     "2026-07-27": 6,
     "2026-07-16": 1,
     "2026-07-15": 1,
-    "2026-09-06": 20,
-    "2026-09-05": 27,
-    "2026-09-02": 5,
-    "2026-08-31": 21,
-    "2026-08-29": 40,
-    "2026-08-28": 29,
-    "2026-08-27": 29,
-    "2026-08-26": 61,
+    "2026-07-10": 1,
+    "2026-07-09": 1,
+    "2026-07-07": 2,
+    "2026-07-05": 1,
+    "2026-07-02": 1,
+    "2026-07-01": 1,
     "2026-08-25": 78,
     "2026-08-24": 25,
     "2026-08-23": 51,
     "2026-08-22": 57,
     "2026-08-21": 71,
-    "2026-08-18": 79,
     "2026-08-20": 19,
     "2026-08-19": 53,
+    "2026-08-18": 79,
     "2026-08-17": 60,
     "2026-08-16": 56,
     "2026-08-15": 46,
@@ -114,7 +52,26 @@
     "2026-08-12": 34,
     "2026-08-11": 69,
     "2026-08-10": 77,
-    "2026-08-30": 5,
+    "2026-08-09": 21,
+    "2026-08-08": 14,
+    "2026-08-04": 3,
+    "2026-07-29": 2,
+    "2026-09-14": 20,
+    "2026-09-13": 30,
+    "2026-09-12": 36,
+    "2026-09-11": 30,
+    "2026-09-10": 152,
+    "2026-09-09": 27,
+    "2026-09-08": 20,
+    "2026-09-07": 31,
+    "2026-09-06": 20,
+    "2026-09-05": 27,
+    "2026-09-02": 5,
+    "2026-08-31": 21,
+    "2026-08-29": 40,
+    "2026-08-28": 29,
+    "2026-08-27": 29,
+    "2026-08-26": 61,
     "2026-09-22": 112,
     "2026-09-21": 60,
     "2026-09-20": 13,
@@ -123,21 +80,27 @@
     "2026-09-17": 30,
     "2026-09-16": 48,
     "2026-09-15": 27,
-    "2026-09-14": 20,
+    "2026-08-30": 5,
+    "2026-10-18": 43,
     "2026-10-03": 138,
     "2026-09-24": 67,
     "2026-09-23": 209,
-    "2026-09-10": 152,
-    "2026-09-09": 27,
-    "2026-09-13": 30,
-    "2026-09-12": 36,
-    "2026-09-11": 30,
-    "2026-09-08": 20,
-    "2026-09-07": 31,
+    "2026-10-10": 8,
     "2026-10-04": 23,
     "2026-10-02": 128,
     "2026-09-27": 2,
     "2026-09-26": 92,
+    "2026-10-11": 2,
+    "2026-10-16": 2,
+    "2026-10-15": 10,
+    "2026-10-14": 11,
+    "2026-10-13": 18,
+    "2026-10-20": 1,
+    "2026-11-02": 8,
+    "2026-10-25": 192,
+    "2026-10-24": 85,
+    "2026-10-23": 356,
+    "2026-10-22": 232,
     "2026-11-01": 24,
     "2026-10-31": 55,
     "2026-10-30": 38,
@@ -145,19 +108,6 @@
     "2026-10-28": 2,
     "2026-10-27": 24,
     "2026-10-26": 58,
-    "2026-10-25": 192,
-    "2026-10-24": 85,
-    "2026-10-23": 356,
-    "2026-10-22": 232,
-    "2026-10-18": 43,
-    "2026-10-11": 2,
-    "2026-10-10": 8,
-    "2026-10-16": 2,
-    "2026-10-15": 10,
-    "2026-10-14": 11,
-    "2026-10-13": 18,
-    "2026-10-20": 1,
-    "2026-11-02": 2,
     "2026-10-17": 74,
     "2026-10-05": 1,
     "2026-10-01": 1,
@@ -168,19 +118,19 @@
     "2026-09-03": 1,
     "2026-09-01": 5
   },
+  "calendar_kinds": {
+    "commits": 1650,
+    "issues": 1346,
+    "pull_requests": 1315,
+    "reviews": 11,
+    "repositories": 15
+  },
   "merge_months": {
-    "2025-12": 0,
-    "2026-01": 0,
-    "2026-02": 14,
-    "2026-03": 2,
-    "2026-04": 1,
-    "2026-05": 1,
-    "2026-06": 0,
     "2026-07": 106,
     "2026-08": 330,
     "2026-09": 373,
     "2026-10": 454,
-    "2026-11": 5
+    "2026-11": 7
   },
   "projects": [
     {
@@ -192,11 +142,18 @@
       "repository_url": "https://github.com/Jerome-Group/algebra",
       "default_branch": "main",
       "head": {
-        "oid": "a76476433500f761356e0a2bbbaf41f6904edf42",
-        "committed_at": "2026-10-25T06:12:32Z",
-        "url": "https://github.com/Jerome-Group/algebra/commit/a76476433500f761356e0a2bbbaf41f6904edf42"
+        "oid": "18ac0c01ab03a6d2c3dc89c0ab8ff7402bbaa7f3",
+        "committed_at": "2026-11-02T08:07:18Z",
+        "url": "https://github.com/Jerome-Group/algebra/commit/18ac0c01ab03a6d2c3dc89c0ab8ff7402bbaa7f3"
       },
-      "release": null
+      "release": null,
+      "language_bytes": {
+        "TypeScript": 2105077,
+        "JavaScript": 772850,
+        "CSS": 103068,
+        "Shell": 9473,
+        "TLA": 7064
+      }
     },
     {
       "repo": "Jerome-Group/calculus",
@@ -211,7 +168,14 @@
         "committed_at": "2026-10-23T20:01:16Z",
         "url": "https://github.com/Jerome-Group/calculus/commit/9b2c492bebac94e0ae5545676de642b1358b4c01"
       },
-      "release": null
+      "release": null,
+      "language_bytes": {
+        "JavaScript": 1154187,
+        "TypeScript": 637829,
+        "CSS": 72130,
+        "TLA": 12748,
+        "Shell": 9548
+      }
     },
     {
       "repo": "jerome-queck/probability",
@@ -226,7 +190,13 @@
         "committed_at": "2026-10-24T01:31:24Z",
         "url": "https://github.com/jerome-queck/probability/commit/7473d4e60f1bcf6d165b9ac4f2461f419b3102a9"
       },
-      "release": null
+      "release": null,
+      "language_bytes": {
+        "JavaScript": 323207,
+        "TypeScript": 274420,
+        "CSS": 44917,
+        "TLA": 7770
+      }
     },
     {
       "repo": "Jerome-Group/numbertheory",
@@ -241,7 +211,13 @@
         "committed_at": "2026-10-23T16:12:38Z",
         "url": "https://github.com/Jerome-Group/numbertheory/commit/bf0f55b3140e8ba89702496f5e801a506b781184"
       },
-      "release": null
+      "release": null,
+      "language_bytes": {
+        "TypeScript": 543757,
+        "JavaScript": 480133,
+        "CSS": 100032,
+        "TLA": 6004
+      }
     },
     {
       "repo": "Jerome-Group/calculator",
@@ -252,11 +228,20 @@
       "repository_url": "https://github.com/Jerome-Group/calculator",
       "default_branch": "main",
       "head": {
-        "oid": "8b762b22bebc2c0ce1f7450b82eea010e1c69cde",
-        "committed_at": "2026-10-23T23:24:53Z",
-        "url": "https://github.com/Jerome-Group/calculator/commit/8b762b22bebc2c0ce1f7450b82eea010e1c69cde"
+        "oid": "1c206c01a878a488a4adbd854457cc23106a000c",
+        "committed_at": "2026-11-02T08:28:59Z",
+        "url": "https://github.com/Jerome-Group/calculator/commit/1c206c01a878a488a4adbd854457cc23106a000c"
       },
-      "release": null
+      "release": null,
+      "language_bytes": {
+        "JavaScript": 714829,
+        "TypeScript": 531635,
+        "Python": 205056,
+        "CSS": 51849,
+        "Shell": 17998,
+        "HTML": 17391,
+        "TLA": 5600
+      }
     },
     {
       "repo": "Jerome-Group/ntulearn",
@@ -271,7 +256,11 @@
         "committed_at": "2026-11-02T06:21:59Z",
         "url": "https://github.com/Jerome-Group/ntulearn/commit/044b78f397a1baeba03aa4ec10ecce5abeab1573"
       },
-      "release": null
+      "release": null,
+      "language_bytes": {
+        "JavaScript": 691210,
+        "TLA": 3644
+      }
     },
     {
       "repo": "Jerome-Group/academic-os",
@@ -282,11 +271,18 @@
       "repository_url": "https://github.com/Jerome-Group/academic-os",
       "default_branch": "main",
       "head": {
-        "oid": "469306b59ad8f4fe48f3a9729a3b341edc6f9961",
-        "committed_at": "2026-10-31T23:17:59Z",
-        "url": "https://github.com/Jerome-Group/academic-os/commit/469306b59ad8f4fe48f3a9729a3b341edc6f9961"
+        "oid": "03fd4c5e50f7c390ac0a40d893c97628f5b85955",
+        "committed_at": "2026-11-02T15:02:56Z",
+        "url": "https://github.com/Jerome-Group/academic-os/commit/03fd4c5e50f7c390ac0a40d893c97628f5b85955"
       },
-      "release": null
+      "release": null,
+      "language_bytes": {
+        "TypeScript": 4010743,
+        "JavaScript": 472104,
+        "TeX": 110101,
+        "TLA": 25062,
+        "Shell": 15448
+      }
     },
     {
       "repo": "Jerome-Group/syrax",
@@ -297,11 +293,16 @@
       "repository_url": "https://github.com/Jerome-Group/syrax",
       "default_branch": "main",
       "head": {
-        "oid": "20a28ce395f3ffa76d3f42a26a4466dae61d9258",
-        "committed_at": "2026-10-02T16:34:35Z",
-        "url": "https://github.com/Jerome-Group/syrax/commit/20a28ce395f3ffa76d3f42a26a4466dae61d9258"
+        "oid": "d9fdec0d3ae5c4855387fe3cb5de12b76a3d3f9e",
+        "committed_at": "2026-11-02T08:30:55Z",
+        "url": "https://github.com/Jerome-Group/syrax/commit/d9fdec0d3ae5c4855387fe3cb5de12b76a3d3f9e"
       },
-      "release": null
+      "release": null,
+      "language_bytes": {
+        "TypeScript": 652436,
+        "Python": 227818,
+        "Shell": 11986
+      }
     },
     {
       "repo": "jerome-queck/emmy",
@@ -312,29 +313,1189 @@
       "repository_url": "https://github.com/jerome-queck/emmy",
       "default_branch": "main",
       "head": {
-        "oid": "3e5adb1bbfd5f0502dca9e13c45a0d7cdd7d01bf",
-        "committed_at": "2026-10-25T15:36:03Z",
-        "url": "https://github.com/jerome-queck/emmy/commit/3e5adb1bbfd5f0502dca9e13c45a0d7cdd7d01bf"
+        "oid": "59be10ae07f01ab64e6802124436f2bb7fc88c89",
+        "committed_at": "2026-11-02T13:01:48Z",
+        "url": "https://github.com/jerome-queck/emmy/commit/59be10ae07f01ab64e6802124436f2bb7fc88c89"
       },
-      "release": null
+      "release": null,
+      "language_bytes": {
+        "JavaScript": 1182412,
+        "TLA": 10413
+      }
     }
   ],
+  "source_lines": {
+    "tool": {
+      "name": "cloc",
+      "version": "2.10",
+      "sha256": "bf59272455172108072a0a106379f7509fd4349bdcfd85203bac038ccd286d83",
+      "source": "https://raw.githubusercontent.com/AlDanial/cloc/eb5cef64db2b2d4380f501568cc584b7cab4ba50/cloc"
+    },
+    "rules": {
+      "excluded_dirs": [
+        ".git",
+        ".hg",
+        ".svn",
+        ".bzr",
+        ".cvs",
+        ".snapshot",
+        "node_modules",
+        "vendor",
+        "dist",
+        "build",
+        ".next",
+        ".open-next",
+        ".venv",
+        "venv",
+        "coverage",
+        "__pycache__",
+        ".terraform",
+        "site-packages"
+      ],
+      "exclude_known_generated": true,
+      "count_duplicate_files": true,
+      "follow_links": false,
+      "sha256": "e891733e8327cf99f3c36ab0b834ca587217b7b0769f4c1b41e7ecc592d7afb4"
+    },
+    "repositories": [
+      {
+        "repo": "Jerome-Group/algebra",
+        "head": "18ac0c01ab03a6d2c3dc89c0ab8ff7402bbaa7f3",
+        "source_url": "https://codeload.github.com/Jerome-Group/algebra/tar.gz/18ac0c01ab03a6d2c3dc89c0ab8ff7402bbaa7f3",
+        "archive_files": 451,
+        "skipped_links": 1,
+        "uncounted_files": 11,
+        "by_language": {
+          "JSON": {
+            "files": 29,
+            "code": 164447,
+            "comment": 0,
+            "blank": 0
+          },
+          "TypeScript": {
+            "files": 204,
+            "code": 77387,
+            "comment": 17,
+            "blank": 860
+          },
+          "JavaScript": {
+            "files": 109,
+            "code": 22196,
+            "comment": 49,
+            "blank": 577
+          },
+          "CSS": {
+            "files": 7,
+            "code": 5334,
+            "comment": 5,
+            "blank": 19
+          },
+          "Markdown": {
+            "files": 70,
+            "code": 4402,
+            "comment": 0,
+            "blank": 1349
+          },
+          "Bourne Shell": {
+            "files": 3,
+            "code": 249,
+            "comment": 7,
+            "blank": 33
+          },
+          "YAML": {
+            "files": 5,
+            "code": 234,
+            "comment": 204,
+            "blank": 39
+          },
+          "CSV": {
+            "files": 4,
+            "code": 188,
+            "comment": 0,
+            "blank": 0
+          },
+          "TLA+": {
+            "files": 1,
+            "code": 123,
+            "comment": 9,
+            "blank": 20
+          },
+          "C": {
+            "files": 1,
+            "code": 53,
+            "comment": 0,
+            "blank": 1
+          },
+          "SQL": {
+            "files": 2,
+            "code": 28,
+            "comment": 2,
+            "blank": 0
+          },
+          "INI": {
+            "files": 1,
+            "code": 18,
+            "comment": 0,
+            "blank": 4
+          },
+          "SVG": {
+            "files": 4,
+            "code": 4,
+            "comment": 0,
+            "blank": 0
+          }
+        },
+        "totals": {
+          "files": 440,
+          "code": 274663,
+          "comment": 293,
+          "blank": 2902
+        }
+      },
+      {
+        "repo": "Jerome-Group/calculus",
+        "head": "9b2c492bebac94e0ae5545676de642b1358b4c01",
+        "source_url": "https://codeload.github.com/Jerome-Group/calculus/tar.gz/9b2c492bebac94e0ae5545676de642b1358b4c01",
+        "archive_files": 492,
+        "skipped_links": 1,
+        "uncounted_files": 118,
+        "by_language": {
+          "JSON": {
+            "files": 27,
+            "code": 135425,
+            "comment": 0,
+            "blank": 0
+          },
+          "JavaScript": {
+            "files": 131,
+            "code": 33344,
+            "comment": 91,
+            "blank": 872
+          },
+          "TypeScript": {
+            "files": 121,
+            "code": 19156,
+            "comment": 29,
+            "blank": 317
+          },
+          "CSS": {
+            "files": 2,
+            "code": 3919,
+            "comment": 1,
+            "blank": 14
+          },
+          "Markdown": {
+            "files": 75,
+            "code": 3467,
+            "comment": 0,
+            "blank": 1829
+          },
+          "Bourne Shell": {
+            "files": 3,
+            "code": 251,
+            "comment": 7,
+            "blank": 33
+          },
+          "TLA+": {
+            "files": 2,
+            "code": 242,
+            "comment": 0,
+            "blank": 31
+          },
+          "YAML": {
+            "files": 6,
+            "code": 223,
+            "comment": 215,
+            "blank": 47
+          },
+          "Text": {
+            "files": 1,
+            "code": 75,
+            "comment": 0,
+            "blank": 18
+          },
+          "INI": {
+            "files": 1,
+            "code": 18,
+            "comment": 0,
+            "blank": 4
+          },
+          "SQL": {
+            "files": 1,
+            "code": 9,
+            "comment": 0,
+            "blank": 0
+          },
+          "SVG": {
+            "files": 4,
+            "code": 4,
+            "comment": 0,
+            "blank": 0
+          }
+        },
+        "totals": {
+          "files": 374,
+          "code": 196133,
+          "comment": 343,
+          "blank": 3165
+        }
+      },
+      {
+        "repo": "jerome-queck/probability",
+        "head": "7473d4e60f1bcf6d165b9ac4f2461f419b3102a9",
+        "source_url": "https://codeload.github.com/jerome-queck/probability/tar.gz/7473d4e60f1bcf6d165b9ac4f2461f419b3102a9",
+        "archive_files": 244,
+        "skipped_links": 1,
+        "uncounted_files": 109,
+        "by_language": {
+          "JSON": {
+            "files": 23,
+            "code": 10148,
+            "comment": 0,
+            "blank": 0
+          },
+          "JavaScript": {
+            "files": 31,
+            "code": 9217,
+            "comment": 69,
+            "blank": 199
+          },
+          "TypeScript": {
+            "files": 44,
+            "code": 7843,
+            "comment": 57,
+            "blank": 293
+          },
+          "CSS": {
+            "files": 1,
+            "code": 2399,
+            "comment": 11,
+            "blank": 13
+          },
+          "Markdown": {
+            "files": 27,
+            "code": 759,
+            "comment": 5,
+            "blank": 341
+          },
+          "TLA+": {
+            "files": 2,
+            "code": 171,
+            "comment": 0,
+            "blank": 22
+          },
+          "YAML": {
+            "files": 3,
+            "code": 76,
+            "comment": 7,
+            "blank": 6
+          },
+          "INI": {
+            "files": 1,
+            "code": 18,
+            "comment": 0,
+            "blank": 4
+          },
+          "SQL": {
+            "files": 1,
+            "code": 14,
+            "comment": 0,
+            "blank": 0
+          },
+          "Text": {
+            "files": 1,
+            "code": 2,
+            "comment": 0,
+            "blank": 0
+          },
+          "SVG": {
+            "files": 1,
+            "code": 1,
+            "comment": 0,
+            "blank": 0
+          }
+        },
+        "totals": {
+          "files": 135,
+          "code": 30648,
+          "comment": 149,
+          "blank": 878
+        }
+      },
+      {
+        "repo": "Jerome-Group/numbertheory",
+        "head": "bf0f55b3140e8ba89702496f5e801a506b781184",
+        "source_url": "https://codeload.github.com/Jerome-Group/numbertheory/tar.gz/bf0f55b3140e8ba89702496f5e801a506b781184",
+        "archive_files": 233,
+        "skipped_links": 1,
+        "uncounted_files": 6,
+        "by_language": {
+          "TypeScript": {
+            "files": 94,
+            "code": 16052,
+            "comment": 15,
+            "blank": 340
+          },
+          "JavaScript": {
+            "files": 43,
+            "code": 14122,
+            "comment": 3,
+            "blank": 214
+          },
+          "JSON": {
+            "files": 27,
+            "code": 13785,
+            "comment": 0,
+            "blank": 0
+          },
+          "CSS": {
+            "files": 8,
+            "code": 5551,
+            "comment": 1,
+            "blank": 98
+          },
+          "Markdown": {
+            "files": 46,
+            "code": 1597,
+            "comment": 0,
+            "blank": 645
+          },
+          "YAML": {
+            "files": 5,
+            "code": 324,
+            "comment": 200,
+            "blank": 51
+          },
+          "TLA+": {
+            "files": 1,
+            "code": 116,
+            "comment": 0,
+            "blank": 21
+          },
+          "INI": {
+            "files": 1,
+            "code": 18,
+            "comment": 0,
+            "blank": 4
+          },
+          "SQL": {
+            "files": 1,
+            "code": 7,
+            "comment": 0,
+            "blank": 0
+          },
+          "SVG": {
+            "files": 1,
+            "code": 1,
+            "comment": 0,
+            "blank": 0
+          }
+        },
+        "totals": {
+          "files": 227,
+          "code": 51573,
+          "comment": 219,
+          "blank": 1373
+        }
+      },
+      {
+        "repo": "Jerome-Group/calculator",
+        "head": "1c206c01a878a488a4adbd854457cc23106a000c",
+        "source_url": "https://codeload.github.com/Jerome-Group/calculator/tar.gz/1c206c01a878a488a4adbd854457cc23106a000c",
+        "archive_files": 283,
+        "skipped_links": 1,
+        "uncounted_files": 38,
+        "by_language": {
+          "JSON": {
+            "files": 22,
+            "code": 47439,
+            "comment": 0,
+            "blank": 0
+          },
+          "JavaScript": {
+            "files": 69,
+            "code": 22420,
+            "comment": 71,
+            "blank": 194
+          },
+          "TypeScript": {
+            "files": 62,
+            "code": 16748,
+            "comment": 35,
+            "blank": 177
+          },
+          "YAML": {
+            "files": 7,
+            "code": 6948,
+            "comment": 225,
+            "blank": 1541
+          },
+          "Text": {
+            "files": 11,
+            "code": 2907,
+            "comment": 0,
+            "blank": 743
+          },
+          "Python": {
+            "files": 13,
+            "code": 2723,
+            "comment": 100,
+            "blank": 84
+          },
+          "CSS": {
+            "files": 3,
+            "code": 2577,
+            "comment": 10,
+            "blank": 30
+          },
+          "Markdown": {
+            "files": 44,
+            "code": 1396,
+            "comment": 0,
+            "blank": 667
+          },
+          "Bourne Shell": {
+            "files": 4,
+            "code": 418,
+            "comment": 24,
+            "blank": 45
+          },
+          "diff": {
+            "files": 2,
+            "code": 302,
+            "comment": 254,
+            "blank": 6
+          },
+          "TLA+": {
+            "files": 1,
+            "code": 91,
+            "comment": 0,
+            "blank": 0
+          },
+          "HTML": {
+            "files": 1,
+            "code": 77,
+            "comment": 0,
+            "blank": 8
+          },
+          "INI": {
+            "files": 1,
+            "code": 18,
+            "comment": 0,
+            "blank": 4
+          },
+          "SQL": {
+            "files": 1,
+            "code": 6,
+            "comment": 0,
+            "blank": 0
+          },
+          "SVG": {
+            "files": 4,
+            "code": 4,
+            "comment": 0,
+            "blank": 0
+          }
+        },
+        "totals": {
+          "files": 245,
+          "code": 104074,
+          "comment": 719,
+          "blank": 3499
+        }
+      },
+      {
+        "repo": "Jerome-Group/ntulearn",
+        "head": "044b78f397a1baeba03aa4ec10ecce5abeab1573",
+        "source_url": "https://codeload.github.com/Jerome-Group/ntulearn/tar.gz/044b78f397a1baeba03aa4ec10ecce5abeab1573",
+        "archive_files": 179,
+        "skipped_links": 1,
+        "uncounted_files": 6,
+        "by_language": {
+          "JavaScript": {
+            "files": 97,
+            "code": 16530,
+            "comment": 519,
+            "blank": 1062
+          },
+          "Markdown": {
+            "files": 61,
+            "code": 4256,
+            "comment": 0,
+            "blank": 1075
+          },
+          "JSON": {
+            "files": 7,
+            "code": 1194,
+            "comment": 0,
+            "blank": 0
+          },
+          "YAML": {
+            "files": 5,
+            "code": 168,
+            "comment": 233,
+            "blank": 49
+          },
+          "TLA+": {
+            "files": 1,
+            "code": 75,
+            "comment": 0,
+            "blank": 12
+          },
+          "XML": {
+            "files": 1,
+            "code": 27,
+            "comment": 0,
+            "blank": 0
+          },
+          "INI": {
+            "files": 1,
+            "code": 18,
+            "comment": 0,
+            "blank": 4
+          }
+        },
+        "totals": {
+          "files": 173,
+          "code": 22268,
+          "comment": 752,
+          "blank": 2202
+        }
+      },
+      {
+        "repo": "Jerome-Group/academic-os",
+        "head": "03fd4c5e50f7c390ac0a40d893c97628f5b85955",
+        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/03fd4c5e50f7c390ac0a40d893c97628f5b85955",
+        "archive_files": 858,
+        "skipped_links": 1,
+        "uncounted_files": 28,
+        "by_language": {
+          "TypeScript": {
+            "files": 629,
+            "code": 117795,
+            "comment": 825,
+            "blank": 5950
+          },
+          "JavaScript": {
+            "files": 21,
+            "code": 12846,
+            "comment": 475,
+            "blank": 250
+          },
+          "Markdown": {
+            "files": 132,
+            "code": 9996,
+            "comment": 0,
+            "blank": 2731
+          },
+          "JSON": {
+            "files": 8,
+            "code": 1603,
+            "comment": 0,
+            "blank": 0
+          },
+          "TeX": {
+            "files": 18,
+            "code": 1123,
+            "comment": 97,
+            "blank": 120
+          },
+          "YAML": {
+            "files": 14,
+            "code": 397,
+            "comment": 242,
+            "blank": 49
+          },
+          "TLA+": {
+            "files": 3,
+            "code": 379,
+            "comment": 0,
+            "blank": 15
+          },
+          "Bourne Shell": {
+            "files": 1,
+            "code": 274,
+            "comment": 34,
+            "blank": 42
+          },
+          "zsh": {
+            "files": 2,
+            "code": 42,
+            "comment": 0,
+            "blank": 10
+          },
+          "INI": {
+            "files": 1,
+            "code": 18,
+            "comment": 0,
+            "blank": 4
+          },
+          "Text": {
+            "files": 1,
+            "code": 8,
+            "comment": 0,
+            "blank": 0
+          }
+        },
+        "totals": {
+          "files": 830,
+          "code": 144481,
+          "comment": 1673,
+          "blank": 9171
+        }
+      },
+      {
+        "repo": "Jerome-Group/syrax",
+        "head": "d9fdec0d3ae5c4855387fe3cb5de12b76a3d3f9e",
+        "source_url": "https://codeload.github.com/Jerome-Group/syrax/tar.gz/d9fdec0d3ae5c4855387fe3cb5de12b76a3d3f9e",
+        "archive_files": 252,
+        "skipped_links": 1,
+        "uncounted_files": 3,
+        "by_language": {
+          "TypeScript": {
+            "files": 115,
+            "code": 11971,
+            "comment": 2436,
+            "blank": 1682
+          },
+          "Markdown": {
+            "files": 65,
+            "code": 8505,
+            "comment": 0,
+            "blank": 2083
+          },
+          "JSON": {
+            "files": 8,
+            "code": 5601,
+            "comment": 0,
+            "blank": 0
+          },
+          "Python": {
+            "files": 40,
+            "code": 3640,
+            "comment": 836,
+            "blank": 1195
+          },
+          "Bourne Shell": {
+            "files": 4,
+            "code": 244,
+            "comment": 39,
+            "blank": 53
+          },
+          "XML": {
+            "files": 7,
+            "code": 237,
+            "comment": 0,
+            "blank": 22
+          },
+          "YAML": {
+            "files": 5,
+            "code": 178,
+            "comment": 251,
+            "blank": 52
+          },
+          "Text": {
+            "files": 2,
+            "code": 92,
+            "comment": 0,
+            "blank": 0
+          },
+          "TOML": {
+            "files": 2,
+            "code": 63,
+            "comment": 64,
+            "blank": 13
+          },
+          "INI": {
+            "files": 1,
+            "code": 18,
+            "comment": 0,
+            "blank": 4
+          }
+        },
+        "totals": {
+          "files": 249,
+          "code": 30549,
+          "comment": 3626,
+          "blank": 5104
+        }
+      },
+      {
+        "repo": "jerome-queck/emmy",
+        "head": "59be10ae07f01ab64e6802124436f2bb7fc88c89",
+        "source_url": "https://codeload.github.com/jerome-queck/emmy/tar.gz/59be10ae07f01ab64e6802124436f2bb7fc88c89",
+        "archive_files": 129,
+        "skipped_links": 0,
+        "uncounted_files": 7,
+        "by_language": {
+          "JavaScript": {
+            "files": 68,
+            "code": 9801,
+            "comment": 2,
+            "blank": 243
+          },
+          "JSON": {
+            "files": 13,
+            "code": 1821,
+            "comment": 0,
+            "blank": 0
+          },
+          "Markdown": {
+            "files": 36,
+            "code": 1540,
+            "comment": 0,
+            "blank": 974
+          },
+          "TLA+": {
+            "files": 1,
+            "code": 233,
+            "comment": 0,
+            "blank": 27
+          },
+          "YAML": {
+            "files": 3,
+            "code": 116,
+            "comment": 0,
+            "blank": 7
+          },
+          "TOML": {
+            "files": 1,
+            "code": 5,
+            "comment": 0,
+            "blank": 1
+          }
+        },
+        "totals": {
+          "files": 122,
+          "code": 13516,
+          "comment": 2,
+          "blank": 1252
+        }
+      }
+    ],
+    "by_language": {
+      "Bourne Shell": {
+        "files": 15,
+        "code": 1436,
+        "comment": 111,
+        "blank": 206
+      },
+      "C": {
+        "files": 1,
+        "code": 53,
+        "comment": 0,
+        "blank": 1
+      },
+      "CSS": {
+        "files": 21,
+        "code": 19780,
+        "comment": 28,
+        "blank": 174
+      },
+      "CSV": {
+        "files": 4,
+        "code": 188,
+        "comment": 0,
+        "blank": 0
+      },
+      "HTML": {
+        "files": 1,
+        "code": 77,
+        "comment": 0,
+        "blank": 8
+      },
+      "INI": {
+        "files": 8,
+        "code": 144,
+        "comment": 0,
+        "blank": 32
+      },
+      "JSON": {
+        "files": 164,
+        "code": 381463,
+        "comment": 0,
+        "blank": 0
+      },
+      "JavaScript": {
+        "files": 569,
+        "code": 140476,
+        "comment": 1279,
+        "blank": 3611
+      },
+      "Markdown": {
+        "files": 556,
+        "code": 35918,
+        "comment": 5,
+        "blank": 11694
+      },
+      "Python": {
+        "files": 53,
+        "code": 6363,
+        "comment": 936,
+        "blank": 1279
+      },
+      "SQL": {
+        "files": 6,
+        "code": 64,
+        "comment": 2,
+        "blank": 0
+      },
+      "SVG": {
+        "files": 14,
+        "code": 14,
+        "comment": 0,
+        "blank": 0
+      },
+      "TLA+": {
+        "files": 12,
+        "code": 1430,
+        "comment": 9,
+        "blank": 148
+      },
+      "TOML": {
+        "files": 3,
+        "code": 68,
+        "comment": 64,
+        "blank": 14
+      },
+      "TeX": {
+        "files": 18,
+        "code": 1123,
+        "comment": 97,
+        "blank": 120
+      },
+      "Text": {
+        "files": 16,
+        "code": 3084,
+        "comment": 0,
+        "blank": 761
+      },
+      "TypeScript": {
+        "files": 1269,
+        "code": 266952,
+        "comment": 3414,
+        "blank": 9619
+      },
+      "XML": {
+        "files": 8,
+        "code": 264,
+        "comment": 0,
+        "blank": 22
+      },
+      "YAML": {
+        "files": 53,
+        "code": 8664,
+        "comment": 1577,
+        "blank": 1841
+      },
+      "diff": {
+        "files": 2,
+        "code": 302,
+        "comment": 254,
+        "blank": 6
+      },
+      "zsh": {
+        "files": 2,
+        "code": 42,
+        "comment": 0,
+        "blank": 10
+      }
+    },
+    "totals": {
+      "files": 2795,
+      "code": 867905,
+      "comment": 7776,
+      "blank": 29546
+    }
+  },
   "recent_events": [
     {
-      "url": "https://github.com/openclaw/openclaw/pull/190799",
-      "title": "fix(msteams): broadcast entries split group chat sessions and ignore the documented key form",
-      "repo": "openclaw/openclaw",
-      "number": 190799,
+      "url": "https://github.com/jerome-queck/jerome-queck/pull/15",
+      "title": "feat(profile): build the midnight workshop and verified analytics",
+      "repo": "jerome-queck/jerome-queck",
+      "number": 15,
       "date": "2026-11-02",
       "action": "opened"
     },
     {
-      "url": "https://github.com/Jerome-Group/academic-os/issues/420",
-      "title": "Weekly maintenance review 2026-10-26",
-      "repo": "Jerome-Group/academic-os",
-      "number": 420,
-      "date": "2026-11-01",
-      "action": "closed"
+      "url": "https://github.com/jerome-queck/emmy/pull/51",
+      "title": "fix(dispatch): require fresh tasks for substantive follow-ons",
+      "repo": "jerome-queck/emmy",
+      "number": 51,
+      "date": "2026-11-02",
+      "action": "opened"
+    }
+  ],
+  "upstream_prs": [
+    {
+      "additions": 2,
+      "deletions": 2,
+      "changed_files": 2,
+      "created_at": "2026-10-31T02:00:02Z",
+      "updated_at": "2026-10-31T11:09:24Z",
+      "merged_at": "2026-10-31T11:09:15Z",
+      "closed_at": "2026-10-31T11:09:15Z",
+      "id": "PR_kwDOAbI7X88AAAABL5grNQ",
+      "repo": "freeCodeCamp/freeCodeCamp",
+      "number": 71474,
+      "title": "fix(curriculum): align callback review definitions",
+      "url": "https://github.com/freeCodeCamp/freeCodeCamp/pull/71474",
+      "state": "MERGED"
+    },
+    {
+      "additions": 234,
+      "deletions": 60,
+      "changed_files": 2,
+      "created_at": "2026-10-31T11:35:43Z",
+      "updated_at": "2026-11-02T13:32:59Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOAbI7X88AAAABL9AqzQ",
+      "repo": "freeCodeCamp/freeCodeCamp",
+      "number": 71484,
+      "title": "fix(curriculum): handle weather data edge cases",
+      "url": "https://github.com/freeCodeCamp/freeCodeCamp/pull/71484",
+      "state": "OPEN"
+    },
+    {
+      "additions": 17,
+      "deletions": 17,
+      "changed_files": 1,
+      "created_at": "2026-10-31T14:59:20Z",
+      "updated_at": "2026-11-02T14:36:33Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOAbI7X88AAAABL-fX_w",
+      "repo": "freeCodeCamp/freeCodeCamp",
+      "number": 71496,
+      "title": "fix(curriculum): accept valid enums in digital pet game tests",
+      "url": "https://github.com/freeCodeCamp/freeCodeCamp/pull/71496",
+      "state": "OPEN"
+    },
+    {
+      "additions": 408,
+      "deletions": 23,
+      "changed_files": 13,
+      "created_at": "2026-08-26T18:02:36Z",
+      "updated_at": "2026-08-29T14:13:05Z",
+      "merged_at": "2026-08-28T20:49:11Z",
+      "closed_at": "2026-08-28T20:49:11Z",
+      "id": "PR_kwDOQb6kR88AAAABBHIU1Q",
+      "repo": "openclaw/openclaw",
+      "number": 130275,
+      "title": "fix(failover): oversized Groq requests stall the session with unusable rate-limit advice",
+      "url": "https://github.com/openclaw/openclaw/pull/130275",
+      "state": "MERGED"
+    },
+    {
+      "additions": 188,
+      "deletions": 4,
+      "changed_files": 2,
+      "created_at": "2026-10-31T15:19:11Z",
+      "updated_at": "2026-10-31T22:32:46Z",
+      "merged_at": null,
+      "closed_at": "2026-10-31T22:32:46Z",
+      "id": "PR_kwDOQb6kR88AAAABL-pmbg",
+      "repo": "openclaw/openclaw",
+      "number": 189499,
+      "title": "fix: macOS gateway discovery truncates names and TXT values that contain spaces",
+      "url": "https://github.com/openclaw/openclaw/pull/189499",
+      "state": "CLOSED"
+    },
+    {
+      "additions": 72,
+      "deletions": 51,
+      "changed_files": 5,
+      "created_at": "2026-10-31T21:42:18Z",
+      "updated_at": "2026-10-31T23:38:19Z",
+      "merged_at": "2026-10-31T23:38:15Z",
+      "closed_at": "2026-10-31T23:38:15Z",
+      "id": "PR_kwDOQb6kR88AAAABMBcVNw",
+      "repo": "openclaw/openclaw",
+      "number": 189784,
+      "title": "fix(oc-path): follow YAML aliases in path resolve, find and set",
+      "url": "https://github.com/openclaw/openclaw/pull/189784",
+      "state": "MERGED"
+    },
+    {
+      "additions": 87,
+      "deletions": 33,
+      "changed_files": 10,
+      "created_at": "2026-10-31T23:15:30Z",
+      "updated_at": "2026-11-01T00:42:48Z",
+      "merged_at": "2026-11-01T00:42:44Z",
+      "closed_at": "2026-11-01T00:42:44Z",
+      "id": "PR_kwDOQb6kR88AAAABMCETaQ",
+      "repo": "openclaw/openclaw",
+      "number": 189855,
+      "title": "fix(oc-path): use last duplicate JSON key to match runtime parsing",
+      "url": "https://github.com/openclaw/openclaw/pull/189855",
+      "state": "MERGED"
+    },
+    {
+      "additions": 110,
+      "deletions": 3,
+      "changed_files": 3,
+      "created_at": "2026-10-31T23:59:35Z",
+      "updated_at": "2026-11-01T10:51:03Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOQb6kR88AAAABMCUwkg",
+      "repo": "openclaw/openclaw",
+      "number": 189880,
+      "title": "fix(sandbox): resolve bundled channel in sandbox explain (companion to #189343)",
+      "url": "https://github.com/openclaw/openclaw/pull/189880",
+      "state": "OPEN"
+    },
+    {
+      "additions": 182,
+      "deletions": 2,
+      "changed_files": 3,
+      "created_at": "2026-10-31T23:59:40Z",
+      "updated_at": "2026-11-01T00:59:53Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOQb6kR88AAAABMCUyTA",
+      "repo": "openclaw/openclaw",
+      "number": 189881,
+      "title": "doctor: warn on undeliverable cron alerts (companion to #188946, proof)",
+      "url": "https://github.com/openclaw/openclaw/pull/189881",
+      "state": "OPEN"
+    },
+    {
+      "additions": 22,
+      "deletions": 4,
+      "changed_files": 4,
+      "created_at": "2026-11-01T02:06:09Z",
+      "updated_at": "2026-11-01T02:54:43Z",
+      "merged_at": "2026-11-01T02:54:39Z",
+      "closed_at": "2026-11-01T02:54:39Z",
+      "id": "PR_kwDOQb6kR88AAAABMDG1Sw",
+      "repo": "openclaw/openclaw",
+      "number": 189960,
+      "title": "fix(oc-path): descend into JSONL line values when ** spans the line slot",
+      "url": "https://github.com/openclaw/openclaw/pull/189960",
+      "state": "MERGED"
+    },
+    {
+      "additions": 162,
+      "deletions": 151,
+      "changed_files": 62,
+      "created_at": "2026-11-01T02:48:40Z",
+      "updated_at": "2026-11-02T02:37:04Z",
+      "merged_at": "2026-11-02T02:37:00Z",
+      "closed_at": "2026-11-02T02:37:00Z",
+      "id": "PR_kwDOQb6kR88AAAABMDW_uQ",
+      "repo": "openclaw/openclaw",
+      "number": 189993,
+      "title": "fix(cli): show the reason for invalid numeric flag values",
+      "url": "https://github.com/openclaw/openclaw/pull/189993",
+      "state": "MERGED"
+    },
+    {
+      "additions": 193,
+      "deletions": 31,
+      "changed_files": 16,
+      "created_at": "2026-11-01T11:00:18Z",
+      "updated_at": "2026-11-02T13:33:02Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOQb6kR88AAAABMGISjg",
+      "repo": "openclaw/openclaw",
+      "number": 190257,
+      "title": "fix(cli): stop status/channels list/doctor emitting Matrix SDK deprecation warnings",
+      "url": "https://github.com/openclaw/openclaw/pull/190257",
+      "state": "OPEN"
+    },
+    {
+      "additions": 103,
+      "deletions": 1,
+      "changed_files": 4,
+      "created_at": "2026-11-01T11:16:18Z",
+      "updated_at": "2026-11-02T09:35:48Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOQb6kR88AAAABMGPyeA",
+      "repo": "openclaw/openclaw",
+      "number": 190269,
+      "title": "fix(config): warn when an empty tool allow list is the whole policy",
+      "url": "https://github.com/openclaw/openclaw/pull/190269",
+      "state": "OPEN"
+    },
+    {
+      "additions": 270,
+      "deletions": 23,
+      "changed_files": 4,
+      "created_at": "2026-11-01T11:28:25Z",
+      "updated_at": "2026-11-02T05:25:35Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOQb6kR88AAAABMGUxQw",
+      "repo": "openclaw/openclaw",
+      "number": 190282,
+      "title": "fix(infra): name the lock path in gateway lock errors (companion to #159614)",
+      "url": "https://github.com/openclaw/openclaw/pull/190282",
+      "state": "OPEN"
+    },
+    {
+      "additions": 68,
+      "deletions": 18,
+      "changed_files": 4,
+      "created_at": "2026-11-01T12:03:40Z",
+      "updated_at": "2026-11-02T05:25:44Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOQb6kR88AAAABMGjFvA",
+      "repo": "openclaw/openclaw",
+      "number": 190299,
+      "title": "fix(cli): explain unknown ids in devices reject and remove",
+      "url": "https://github.com/openclaw/openclaw/pull/190299",
+      "state": "OPEN"
+    },
+    {
+      "additions": 257,
+      "deletions": 5,
+      "changed_files": 4,
+      "created_at": "2026-11-02T02:23:51Z",
+      "updated_at": "2026-11-02T04:49:14Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOQb6kR88AAAABMNE1YQ",
+      "repo": "openclaw/openclaw",
+      "number": 190799,
+      "title": "fix(msteams): broadcast entries split group chat sessions and ignore the documented key form",
+      "url": "https://github.com/openclaw/openclaw/pull/190799",
+      "state": "OPEN"
+    },
+    {
+      "additions": 46,
+      "deletions": 2,
+      "changed_files": 2,
+      "created_at": "2026-10-31T15:08:45Z",
+      "updated_at": "2026-10-31T15:08:46Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOS4xLO88AAAABL-j8vw",
+      "repo": "vorssaint/vorssaint-utils",
+      "number": 3734,
+      "title": "fix(agents): match today's hour bars to the local day",
+      "url": "https://github.com/vorssaint/vorssaint-utils/pull/3734",
+      "state": "OPEN"
+    },
+    {
+      "additions": 61,
+      "deletions": 24,
+      "changed_files": 2,
+      "created_at": "2026-10-31T15:20:35Z",
+      "updated_at": "2026-10-31T15:20:37Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOS4xLO88AAAABL-qNfw",
+      "repo": "vorssaint/vorssaint-utils",
+      "number": 3737,
+      "title": "fix(mouse): focus without raising again when the no-raise path fails",
+      "url": "https://github.com/vorssaint/vorssaint-utils/pull/3737",
+      "state": "OPEN"
     }
   ]
 }

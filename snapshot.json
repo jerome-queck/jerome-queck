@@ -1,15 +1,15 @@
 {
   "schema_version": 4,
-  "observed_from": "2026-11-03T07:58:03.980278+00:00",
-  "observed_to": "2026-11-03T07:59:37.902360+00:00",
-  "updated": "03 Nov 2026 07:59 UTC",
+  "observed_from": "2026-11-04T07:32:24.924906+00:00",
+  "observed_to": "2026-11-04T07:33:59.352750+00:00",
+  "updated": "04 Nov 2026 07:33 UTC",
   "counts": [
-    1335,
-    1289,
-    974
+    1339,
+    1292,
+    977
   ],
   "calendar_start": "2026-07-01",
-  "calendar_end": "2026-11-03",
+  "calendar_end": "2026-11-04",
   "calendar_days": {
     "2026-07-25": 112,
     "2026-07-24": 56,
@@ -108,7 +108,8 @@
     "2026-10-28": 2,
     "2026-10-27": 24,
     "2026-10-26": 58,
-    "2026-11-03": 2,
+    "2026-11-03": 9,
+    "2026-11-04": 3,
     "2026-10-17": 74,
     "2026-10-05": 1,
     "2026-10-01": 1,
@@ -120,9 +121,9 @@
     "2026-09-01": 5
   },
   "calendar_kinds": {
-    "commits": 1652,
-    "issues": 1346,
-    "pull_requests": 1316,
+    "commits": 1655,
+    "issues": 1349,
+    "pull_requests": 1320,
     "reviews": 11,
     "repositories": 15
   },
@@ -131,7 +132,7 @@
     "2026-08": 330,
     "2026-09": 373,
     "2026-10": 454,
-    "2026-11": 8
+    "2026-11": 11
   },
   "projects": [
     {
@@ -272,15 +273,15 @@
       "repository_url": "https://github.com/Jerome-Group/academic-os",
       "default_branch": "main",
       "head": {
-        "oid": "03fd4c5e50f7c390ac0a40d893c97628f5b85955",
-        "committed_at": "2026-11-02T15:02:56Z",
-        "url": "https://github.com/Jerome-Group/academic-os/commit/03fd4c5e50f7c390ac0a40d893c97628f5b85955"
+        "oid": "e5e1e2190620c85e1d9f37e23b4630d0e03d5532",
+        "committed_at": "2026-11-03T15:38:20Z",
+        "url": "https://github.com/Jerome-Group/academic-os/commit/e5e1e2190620c85e1d9f37e23b4630d0e03d5532"
       },
       "release": null,
       "language_bytes": {
-        "TypeScript": 4010743,
-        "JavaScript": 472104,
-        "TeX": 110101,
+        "TypeScript": 4142528,
+        "JavaScript": 536032,
+        "TeX": 113564,
         "TLA": 25062,
         "Shell": 15448
       }
@@ -865,29 +866,29 @@
       },
       {
         "repo": "Jerome-Group/academic-os",
-        "head": "03fd4c5e50f7c390ac0a40d893c97628f5b85955",
-        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/03fd4c5e50f7c390ac0a40d893c97628f5b85955",
-        "archive_files": 858,
+        "head": "e5e1e2190620c85e1d9f37e23b4630d0e03d5532",
+        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/e5e1e2190620c85e1d9f37e23b4630d0e03d5532",
+        "archive_files": 876,
         "skipped_links": 1,
         "uncounted_files": 28,
         "by_language": {
           "TypeScript": {
-            "files": 629,
-            "code": 117795,
-            "comment": 825,
-            "blank": 5950
+            "files": 646,
+            "code": 121755,
+            "comment": 828,
+            "blank": 6038
           },
           "JavaScript": {
             "files": 21,
-            "code": 12846,
-            "comment": 475,
-            "blank": 250
+            "code": 14515,
+            "comment": 537,
+            "blank": 263
           },
           "Markdown": {
-            "files": 132,
-            "code": 9996,
+            "files": 133,
+            "code": 10156,
             "comment": 0,
-            "blank": 2731
+            "blank": 2749
           },
           "JSON": {
             "files": 8,
@@ -897,14 +898,14 @@
           },
           "TeX": {
             "files": 18,
-            "code": 1123,
-            "comment": 97,
+            "code": 1170,
+            "comment": 98,
             "blank": 120
           },
           "YAML": {
             "files": 14,
-            "code": 397,
-            "comment": 242,
+            "code": 402,
+            "comment": 246,
             "blank": 49
           },
           "TLA+": {
@@ -939,10 +940,10 @@
           }
         },
         "totals": {
-          "files": 830,
-          "code": 144481,
-          "comment": 1673,
-          "blank": 9171
+          "files": 848,
+          "code": 150322,
+          "comment": 1743,
+          "blank": 9290
         }
       },
       {
@@ -1119,15 +1120,15 @@
       },
       "JavaScript": {
         "files": 569,
-        "code": 140476,
-        "comment": 1279,
-        "blank": 3611
+        "code": 142145,
+        "comment": 1341,
+        "blank": 3624
       },
       "Markdown": {
-        "files": 556,
-        "code": 35918,
+        "files": 557,
+        "code": 36078,
         "comment": 5,
-        "blank": 11694
+        "blank": 11712
       },
       "Python": {
         "files": 53,
@@ -1161,8 +1162,8 @@
       },
       "TeX": {
         "files": 18,
-        "code": 1123,
-        "comment": 97,
+        "code": 1170,
+        "comment": 98,
         "blank": 120
       },
       "Text": {
@@ -1172,10 +1173,10 @@
         "blank": 761
       },
       "TypeScript": {
-        "files": 1269,
-        "code": 266952,
-        "comment": 3414,
-        "blank": 9619
+        "files": 1286,
+        "code": 270912,
+        "comment": 3417,
+        "blank": 9707
       },
       "XML": {
         "files": 8,
@@ -1185,8 +1186,8 @@
       },
       "YAML": {
         "files": 53,
-        "code": 8664,
-        "comment": 1577,
+        "code": 8669,
+        "comment": 1581,
         "blank": 1841
       },
       "diff": {
@@ -1203,28 +1204,28 @@
       }
     },
     "totals": {
-      "files": 2795,
-      "code": 867905,
-      "comment": 7776,
-      "blank": 29546
+      "files": 2813,
+      "code": 873746,
+      "comment": 7846,
+      "blank": 29665
     }
   },
   "recent_events": [
     {
-      "url": "https://github.com/openclaw/openclaw/pull/191609",
-      "title": "fix(models): Gateway model picker keeps retired Qwen Token Plan models after discovery succeeds",
+      "url": "https://github.com/openclaw/openclaw/pull/192478",
+      "title": "fix(cli): gateway restart flag conflicts print only \"The CLI command failed.\"",
       "repo": "openclaw/openclaw",
-      "number": 191609,
-      "date": "2026-11-03",
+      "number": 192478,
+      "date": "2026-11-04",
       "action": "opened"
     },
     {
-      "url": "https://github.com/jerome-queck/jerome-queck/issues/14",
-      "title": "Refine profile typography and feature new upstream contributions",
-      "repo": "jerome-queck/jerome-queck",
-      "number": 14,
-      "date": "2026-11-02",
-      "action": "closed"
+      "url": "https://github.com/openclaw/openclaw/issues/192477",
+      "title": "[Bug]: gateway restart flag-conflict errors print only \"The CLI command failed.\" instead of the reason",
+      "repo": "openclaw/openclaw",
+      "number": 192477,
+      "date": "2026-11-04",
+      "action": "opened"
     }
   ],
   "upstream_prs": [
@@ -1244,19 +1245,19 @@
       "state": "MERGED"
     },
     {
-      "additions": 234,
+      "additions": 228,
       "deletions": 60,
       "changed_files": 2,
       "created_at": "2026-10-31T11:35:43Z",
-      "updated_at": "2026-11-02T13:32:59Z",
-      "merged_at": null,
-      "closed_at": null,
+      "updated_at": "2026-11-03T09:21:54Z",
+      "merged_at": "2026-11-03T09:21:45Z",
+      "closed_at": "2026-11-03T09:21:45Z",
       "id": "PR_kwDOAbI7X88AAAABL9AqzQ",
       "repo": "freeCodeCamp/freeCodeCamp",
       "number": 71484,
       "title": "fix(curriculum): handle weather data edge cases",
       "url": "https://github.com/freeCodeCamp/freeCodeCamp/pull/71484",
-      "state": "OPEN"
+      "state": "MERGED"
     },
     {
       "additions": 17,
@@ -1413,7 +1414,7 @@
       "deletions": 1,
       "changed_files": 4,
       "created_at": "2026-11-01T11:16:18Z",
-      "updated_at": "2026-11-03T03:46:27Z",
+      "updated_at": "2026-11-03T10:24:54Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOQb6kR88AAAABMGPyeA",
@@ -1458,7 +1459,7 @@
       "deletions": 5,
       "changed_files": 4,
       "created_at": "2026-11-02T02:23:51Z",
-      "updated_at": "2026-11-02T04:49:14Z",
+      "updated_at": "2026-11-03T16:09:16Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOQb6kR88AAAABMNE1YQ",
@@ -1482,6 +1483,36 @@
       "title": "fix(models): Gateway model picker keeps retired Qwen Token Plan models after discovery succeeds",
       "url": "https://github.com/openclaw/openclaw/pull/191609",
       "state": "MERGED"
+    },
+    {
+      "additions": 288,
+      "deletions": 3,
+      "changed_files": 3,
+      "created_at": "2026-11-04T01:45:52Z",
+      "updated_at": "2026-11-04T07:33:26Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOQb6kR88AAAABMs9XLA",
+      "repo": "openclaw/openclaw",
+      "number": 192458,
+      "title": "fix(agents): transcode provider-unsupported images within limits",
+      "url": "https://github.com/openclaw/openclaw/pull/192458",
+      "state": "OPEN"
+    },
+    {
+      "additions": 40,
+      "deletions": 13,
+      "changed_files": 3,
+      "created_at": "2026-11-04T02:23:49Z",
+      "updated_at": "2026-11-04T05:13:32Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOQb6kR88AAAABMtSKVg",
+      "repo": "openclaw/openclaw",
+      "number": 192478,
+      "title": "fix(cli): gateway restart flag conflicts print only \"The CLI command failed.\"",
+      "url": "https://github.com/openclaw/openclaw/pull/192478",
+      "state": "OPEN"
     },
     {
       "additions": 46,

@@ -1,15 +1,15 @@
 {
   "schema_version": 4,
-  "observed_from": "2026-11-04T07:32:24.924906+00:00",
-  "observed_to": "2026-11-04T07:33:59.352750+00:00",
-  "updated": "04 Nov 2026 07:33 UTC",
+  "observed_from": "2026-11-05T07:56:24.742614+00:00",
+  "observed_to": "2026-11-05T07:57:48.281254+00:00",
+  "updated": "05 Nov 2026 07:57 UTC",
   "counts": [
-    1339,
-    1292,
-    977
+    1342,
+    1294,
+    978
   ],
   "calendar_start": "2026-07-01",
-  "calendar_end": "2026-11-04",
+  "calendar_end": "2026-11-05",
   "calendar_days": {
     "2026-07-25": 112,
     "2026-07-24": 56,
@@ -109,7 +109,8 @@
     "2026-10-27": 24,
     "2026-10-26": 58,
     "2026-11-03": 9,
-    "2026-11-04": 3,
+    "2026-11-05": 4,
+    "2026-11-04": 5,
     "2026-10-17": 74,
     "2026-10-05": 1,
     "2026-10-01": 1,
@@ -121,9 +122,9 @@
     "2026-09-01": 5
   },
   "calendar_kinds": {
-    "commits": 1655,
-    "issues": 1349,
-    "pull_requests": 1320,
+    "commits": 1657,
+    "issues": 1350,
+    "pull_requests": 1323,
     "reviews": 11,
     "repositories": 15
   },
@@ -132,7 +133,7 @@
     "2026-08": 330,
     "2026-09": 373,
     "2026-10": 454,
-    "2026-11": 11
+    "2026-11": 13
   },
   "projects": [
     {
@@ -1212,19 +1213,19 @@
   },
   "recent_events": [
     {
-      "url": "https://github.com/openclaw/openclaw/pull/192478",
-      "title": "fix(cli): gateway restart flag conflicts print only \"The CLI command failed.\"",
-      "repo": "openclaw/openclaw",
-      "number": 192478,
-      "date": "2026-11-04",
-      "action": "opened"
+      "url": "https://github.com/jerome-queck/openclaw/pull/1",
+      "title": "fix: unknown /a2a/v1 paths return JSON 404 instead of the Control UI",
+      "repo": "jerome-queck/openclaw",
+      "number": 1,
+      "date": "2026-11-05",
+      "action": "closed"
     },
     {
-      "url": "https://github.com/openclaw/openclaw/issues/192477",
-      "title": "[Bug]: gateway restart flag-conflict errors print only \"The CLI command failed.\" instead of the reason",
+      "url": "https://github.com/openclaw/openclaw/pull/193128",
+      "title": "fix(a2a): return JSON 404 for unsupported /a2a/v1 paths",
       "repo": "openclaw/openclaw",
-      "number": 192477,
-      "date": "2026-11-04",
+      "number": 193128,
+      "date": "2026-11-05",
       "action": "opened"
     }
   ],
@@ -1264,7 +1265,7 @@
       "deletions": 17,
       "changed_files": 1,
       "created_at": "2026-10-31T14:59:20Z",
-      "updated_at": "2026-11-02T14:36:33Z",
+      "updated_at": "2026-11-05T00:29:52Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOAbI7X88AAAABL-fX_w",
@@ -1335,11 +1336,11 @@
       "state": "MERGED"
     },
     {
-      "additions": 110,
+      "additions": 112,
       "deletions": 3,
-      "changed_files": 3,
+      "changed_files": 4,
       "created_at": "2026-10-31T23:59:35Z",
-      "updated_at": "2026-11-02T20:57:56Z",
+      "updated_at": "2026-11-05T05:31:53Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOQb6kR88AAAABMCUwkg",
@@ -1410,11 +1411,11 @@
       "state": "OPEN"
     },
     {
-      "additions": 103,
+      "additions": 344,
       "deletions": 1,
-      "changed_files": 4,
+      "changed_files": 5,
       "created_at": "2026-11-01T11:16:18Z",
-      "updated_at": "2026-11-03T10:24:54Z",
+      "updated_at": "2026-11-05T07:31:06Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOQb6kR88AAAABMGPyeA",
@@ -1489,29 +1490,59 @@
       "deletions": 3,
       "changed_files": 3,
       "created_at": "2026-11-04T01:45:52Z",
-      "updated_at": "2026-11-04T07:33:26Z",
+      "updated_at": "2026-11-04T10:37:55Z",
       "merged_at": null,
-      "closed_at": null,
+      "closed_at": "2026-11-04T10:26:36Z",
       "id": "PR_kwDOQb6kR88AAAABMs9XLA",
       "repo": "openclaw/openclaw",
       "number": 192458,
       "title": "fix(agents): transcode provider-unsupported images within limits",
       "url": "https://github.com/openclaw/openclaw/pull/192458",
-      "state": "OPEN"
+      "state": "CLOSED"
     },
     {
       "additions": 40,
       "deletions": 13,
       "changed_files": 3,
       "created_at": "2026-11-04T02:23:49Z",
-      "updated_at": "2026-11-04T05:13:32Z",
-      "merged_at": null,
-      "closed_at": null,
+      "updated_at": "2026-11-04T17:50:17Z",
+      "merged_at": "2026-11-04T17:49:59Z",
+      "closed_at": "2026-11-04T17:49:59Z",
       "id": "PR_kwDOQb6kR88AAAABMtSKVg",
       "repo": "openclaw/openclaw",
       "number": 192478,
       "title": "fix(cli): gateway restart flag conflicts print only \"The CLI command failed.\"",
       "url": "https://github.com/openclaw/openclaw/pull/192478",
+      "state": "MERGED"
+    },
+    {
+      "additions": 133,
+      "deletions": 24,
+      "changed_files": 5,
+      "created_at": "2026-11-04T11:27:45Z",
+      "updated_at": "2026-11-04T11:49:46Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOQb6kR88AAAABMyrXmQ",
+      "repo": "openclaw/openclaw",
+      "number": 192745,
+      "title": "fix(gateway): validate run flags before the startup config guard",
+      "url": "https://github.com/openclaw/openclaw/pull/192745",
+      "state": "OPEN"
+    },
+    {
+      "additions": 311,
+      "deletions": 14,
+      "changed_files": 11,
+      "created_at": "2026-11-05T01:57:39Z",
+      "updated_at": "2026-11-05T07:50:37Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOQb6kR88AAAABM9fojQ",
+      "repo": "openclaw/openclaw",
+      "number": 193128,
+      "title": "fix(a2a): return JSON 404 for unsupported /a2a/v1 paths",
+      "url": "https://github.com/openclaw/openclaw/pull/193128",
       "state": "OPEN"
     },
     {
@@ -1519,7 +1550,7 @@
       "deletions": 2,
       "changed_files": 2,
       "created_at": "2026-10-31T15:08:45Z",
-      "updated_at": "2026-10-31T15:08:46Z",
+      "updated_at": "2026-11-05T00:29:56Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOS4xLO88AAAABL-j8vw",
@@ -1530,19 +1561,19 @@
       "state": "OPEN"
     },
     {
-      "additions": 61,
-      "deletions": 24,
+      "additions": 73,
+      "deletions": 27,
       "changed_files": 2,
       "created_at": "2026-10-31T15:20:35Z",
-      "updated_at": "2026-10-31T15:20:37Z",
-      "merged_at": null,
-      "closed_at": null,
+      "updated_at": "2026-11-04T19:34:36Z",
+      "merged_at": "2026-11-04T19:34:36Z",
+      "closed_at": "2026-11-04T19:34:36Z",
       "id": "PR_kwDOS4xLO88AAAABL-qNfw",
       "repo": "vorssaint/vorssaint-utils",
       "number": 3737,
       "title": "fix(mouse): focus without raising again when the no-raise path fails",
       "url": "https://github.com/vorssaint/vorssaint-utils/pull/3737",
-      "state": "OPEN"
+      "state": "MERGED"
     }
   ]
 }

@@ -1,75 +1,76 @@
 # Public work snapshot
 
-Collected 04 Nov 2026 07:33 UTC.
+Collected 05 Nov 2026 07:57 UTC.
 
-Observation interval: 2026-11-04T07:32:24.924906+00:00 to 2026-11-04T07:33:59.352750+00:00. GitHub queries are separate observations, not a transaction at one instant. [Reproducible public input](snapshot.json).
+Observation interval: 2026-11-05T07:56:24.742614+00:00 to 2026-11-05T07:57:48.281254+00:00. GitHub queries are separate observations, not a transaction at one instant. [Reproducible public input](snapshot.json).
 
-- Authored public PRs opened, all time: 1339
-- Authored public PRs merged, all time: 1292
-- Distinct currently closed public issues linked to those merged PRs: 977
+- Authored public PRs opened, all time: 1342
+- Authored public PRs merged, all time: 1294
+- Distinct currently closed public issues linked to those merged PRs: 978
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close or proof that a PR alone caused closure; GitHub can change links retrospectively.
 
 ## Merge cadence
 
-Authored public PRs merged by UTC calendar month, 2026-07 through 2026-11. Current month is partial through 2026-11-04. Across all public repositories, not just the selected projects.
+Authored public PRs merged by UTC calendar month, 2026-07 through 2026-11. Current month is partial through 2026-11-05. Across all public repositories, not just the selected projects.
 
 - 2026-07: 106, including 0 upstream
 - 2026-08: 330, including 1 upstream
 - 2026-09: 373, including 0 upstream
 - 2026-10: 454, including 2 upstream
-- 2026-11: 11, including 5 upstream
+- 2026-11: 13, including 7 upstream
 
 ## Upstream PR records
 
-Public PRs authored by jerome-queck outside repositories owned by jerome-queck or Jerome-Group. Closed without merge is separate from merged. Open means current state, not an outcome. Observed 2026-11-04T07:33:59.352750+00:00. Search is complete within GitHub's 1000-result bound; a larger result aborts refresh.
+Public PRs authored by jerome-queck outside repositories owned by jerome-queck or Jerome-Group. Closed without merge is separate from merged. Open means current state, not an outcome. Observed 2026-11-05T07:57:48.281254+00:00. Search is complete within GitHub's 1000-result bound; a larger result aborts refresh.
 
-8 merged, 12 open, 1 closed without merge, across 3 repositories with PRs in any state.
+10 merged, 11 open, 2 closed without merge, across 3 repositories with PRs in any state.
 
 | Repository | Merged | Open | Closed without merge |
 | --- | ---: | ---: | ---: |
 | [freeCodeCamp/freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp) | 2 | 1 | 0 |
-| [openclaw/openclaw](https://github.com/openclaw/openclaw) | 6 | 9 | 1 |
-| [vorssaint/vorssaint-utils](https://github.com/vorssaint/vorssaint-utils) | 0 | 2 | 0 |
+| [openclaw/openclaw](https://github.com/openclaw/openclaw) | 7 | 9 | 2 |
+| [vorssaint/vorssaint-utils](https://github.com/vorssaint/vorssaint-utils) | 1 | 1 | 0 |
 
-Merged PR patch footprint, all time: 8 PRs, 1019 added lines, 349 deleted lines, 101 file changes. These sum GitHub PR patch statistics, including all coauthors and generated code. File changes count a file again in each PR, not distinct files. They do not measure personal lines of code, effort or impact.
+Merged PR patch footprint, all time: 10 PRs, 1132 added lines, 389 deleted lines, 106 file changes. These sum GitHub PR patch statistics, including all coauthors and generated code. File changes count a file again in each PR, not distinct files. They do not measure personal lines of code, effort or impact.
 
 Open proposal ages count completed 24-hour periods since creation as of the observation endpoint, not review waiting time.
 
-- [freeCodeCamp/freeCodeCamp#71496](https://github.com/freeCodeCamp/freeCodeCamp/pull/71496): 3 completed days open
-- [openclaw/openclaw#189880](https://github.com/openclaw/openclaw/pull/189880): 3 completed days open
-- [openclaw/openclaw#189881](https://github.com/openclaw/openclaw/pull/189881): 3 completed days open
-- [vorssaint/vorssaint-utils#3734](https://github.com/vorssaint/vorssaint-utils/pull/3734): 3 completed days open
-- [vorssaint/vorssaint-utils#3737](https://github.com/vorssaint/vorssaint-utils/pull/3737): 3 completed days open
-- [openclaw/openclaw#190257](https://github.com/openclaw/openclaw/pull/190257): 2 completed days open
-- [openclaw/openclaw#190269](https://github.com/openclaw/openclaw/pull/190269): 2 completed days open
-- [openclaw/openclaw#190282](https://github.com/openclaw/openclaw/pull/190282): 2 completed days open
-- [openclaw/openclaw#190299](https://github.com/openclaw/openclaw/pull/190299): 2 completed days open
-- [openclaw/openclaw#190799](https://github.com/openclaw/openclaw/pull/190799): 2 completed days open
-- [openclaw/openclaw#192458](https://github.com/openclaw/openclaw/pull/192458): 0 completed days open
-- [openclaw/openclaw#192478](https://github.com/openclaw/openclaw/pull/192478): 0 completed days open
+- [freeCodeCamp/freeCodeCamp#71496](https://github.com/freeCodeCamp/freeCodeCamp/pull/71496): 4 completed days open
+- [openclaw/openclaw#189880](https://github.com/openclaw/openclaw/pull/189880): 4 completed days open
+- [openclaw/openclaw#189881](https://github.com/openclaw/openclaw/pull/189881): 4 completed days open
+- [vorssaint/vorssaint-utils#3734](https://github.com/vorssaint/vorssaint-utils/pull/3734): 4 completed days open
+- [openclaw/openclaw#190257](https://github.com/openclaw/openclaw/pull/190257): 3 completed days open
+- [openclaw/openclaw#190269](https://github.com/openclaw/openclaw/pull/190269): 3 completed days open
+- [openclaw/openclaw#190282](https://github.com/openclaw/openclaw/pull/190282): 3 completed days open
+- [openclaw/openclaw#190299](https://github.com/openclaw/openclaw/pull/190299): 3 completed days open
+- [openclaw/openclaw#190799](https://github.com/openclaw/openclaw/pull/190799): 3 completed days open
+- [openclaw/openclaw#192745](https://github.com/openclaw/openclaw/pull/192745): 0 completed days open
+- [openclaw/openclaw#193128](https://github.com/openclaw/openclaw/pull/193128): 0 completed days open
 
 - **MERGED** · [freeCodeCamp/freeCodeCamp#71474: fix(curriculum): align callback review definitions](https://github.com/freeCodeCamp/freeCodeCamp/pull/71474) · merged 2026-10-31T11:09:15Z · patch +2/−2, 2 file changes
 - **MERGED** · [freeCodeCamp/freeCodeCamp#71484: fix(curriculum): handle weather data edge cases](https://github.com/freeCodeCamp/freeCodeCamp/pull/71484) · merged 2026-11-03T09:21:45Z · patch +228/−60, 2 file changes
-- **OPEN** · [freeCodeCamp/freeCodeCamp#71496: fix(curriculum): accept valid enums in digital pet game tests](https://github.com/freeCodeCamp/freeCodeCamp/pull/71496) · updated 2026-11-02T14:36:33Z · patch +17/−17, 1 file changes
+- **OPEN** · [freeCodeCamp/freeCodeCamp#71496: fix(curriculum): accept valid enums in digital pet game tests](https://github.com/freeCodeCamp/freeCodeCamp/pull/71496) · updated 2026-11-05T00:29:52Z · patch +17/−17, 1 file changes
 - **MERGED** · [openclaw/openclaw#130275: fix(failover): oversized Groq requests stall the session with unusable rate-limit advice](https://github.com/openclaw/openclaw/pull/130275) · merged 2026-08-28T20:49:11Z · patch +408/−23, 13 file changes
 - **CLOSED** · [openclaw/openclaw#189499: fix: macOS gateway discovery truncates names and TXT values that contain spaces](https://github.com/openclaw/openclaw/pull/189499) · updated 2026-10-31T22:32:46Z · patch +188/−4, 2 file changes
 - **MERGED** · [openclaw/openclaw#189784: fix(oc-path): follow YAML aliases in path resolve, find and set](https://github.com/openclaw/openclaw/pull/189784) · merged 2026-10-31T23:38:15Z · patch +72/−51, 5 file changes
 - **MERGED** · [openclaw/openclaw#189855: fix(oc-path): use last duplicate JSON key to match runtime parsing](https://github.com/openclaw/openclaw/pull/189855) · merged 2026-11-01T00:42:44Z · patch +87/−33, 10 file changes
-- **OPEN** · [openclaw/openclaw#189880: fix(sandbox): resolve bundled channel in sandbox explain (companion to #189343)](https://github.com/openclaw/openclaw/pull/189880) · updated 2026-11-02T20:57:56Z · patch +110/−3, 3 file changes
+- **OPEN** · [openclaw/openclaw#189880: fix(sandbox): resolve bundled channel in sandbox explain (companion to #189343)](https://github.com/openclaw/openclaw/pull/189880) · updated 2026-11-05T05:31:53Z · patch +112/−3, 4 file changes
 - **OPEN** · [openclaw/openclaw#189881: doctor: warn on undeliverable cron alerts (companion to #188946, proof)](https://github.com/openclaw/openclaw/pull/189881) · updated 2026-11-02T21:25:25Z · patch +182/−2, 3 file changes
 - **MERGED** · [openclaw/openclaw#189960: fix(oc-path): descend into JSONL line values when ** spans the line slot](https://github.com/openclaw/openclaw/pull/189960) · merged 2026-11-01T02:54:39Z · patch +22/−4, 4 file changes
 - **MERGED** · [openclaw/openclaw#189993: fix(cli): show the reason for invalid numeric flag values](https://github.com/openclaw/openclaw/pull/189993) · merged 2026-11-02T02:37:00Z · patch +162/−151, 62 file changes
 - **OPEN** · [openclaw/openclaw#190257: fix(cli): stop status/channels list/doctor emitting Matrix SDK deprecation warnings](https://github.com/openclaw/openclaw/pull/190257) · updated 2026-11-03T03:45:48Z · patch +193/−31, 16 file changes
-- **OPEN** · [openclaw/openclaw#190269: fix(config): warn when an empty tool allow list is the whole policy](https://github.com/openclaw/openclaw/pull/190269) · updated 2026-11-03T10:24:54Z · patch +103/−1, 4 file changes
+- **OPEN** · [openclaw/openclaw#190269: fix(config): warn when an empty tool allow list is the whole policy](https://github.com/openclaw/openclaw/pull/190269) · updated 2026-11-05T07:31:06Z · patch +344/−1, 5 file changes
 - **OPEN** · [openclaw/openclaw#190282: fix(infra): name the lock path in gateway lock errors (companion to #159614)](https://github.com/openclaw/openclaw/pull/190282) · updated 2026-11-03T04:43:06Z · patch +270/−23, 4 file changes
 - **OPEN** · [openclaw/openclaw#190299: fix(cli): explain unknown ids in devices reject and remove](https://github.com/openclaw/openclaw/pull/190299) · updated 2026-11-03T04:44:14Z · patch +68/−18, 4 file changes
 - **OPEN** · [openclaw/openclaw#190799: fix(msteams): broadcast entries split group chat sessions and ignore the documented key form](https://github.com/openclaw/openclaw/pull/190799) · updated 2026-11-03T16:09:16Z · patch +257/−5, 4 file changes
 - **MERGED** · [openclaw/openclaw#191609: fix(models): Gateway model picker keeps retired Qwen Token Plan models after discovery succeeds](https://github.com/openclaw/openclaw/pull/191609) · merged 2026-11-03T03:31:41Z · patch +38/−25, 3 file changes
-- **OPEN** · [openclaw/openclaw#192458: fix(agents): transcode provider-unsupported images within limits](https://github.com/openclaw/openclaw/pull/192458) · updated 2026-11-04T07:33:26Z · patch +288/−3, 3 file changes
-- **OPEN** · [openclaw/openclaw#192478: fix(cli): gateway restart flag conflicts print only &quot;The CLI command failed.&quot;](https://github.com/openclaw/openclaw/pull/192478) · updated 2026-11-04T05:13:32Z · patch +40/−13, 3 file changes
-- **OPEN** · [vorssaint/vorssaint-utils#3734: fix(agents): match today&#x27;s hour bars to the local day](https://github.com/vorssaint/vorssaint-utils/pull/3734) · updated 2026-10-31T15:08:46Z · patch +46/−2, 2 file changes
-- **OPEN** · [vorssaint/vorssaint-utils#3737: fix(mouse): focus without raising again when the no-raise path fails](https://github.com/vorssaint/vorssaint-utils/pull/3737) · updated 2026-10-31T15:20:37Z · patch +61/−24, 2 file changes
+- **CLOSED** · [openclaw/openclaw#192458: fix(agents): transcode provider-unsupported images within limits](https://github.com/openclaw/openclaw/pull/192458) · updated 2026-11-04T10:37:55Z · patch +288/−3, 3 file changes
+- **MERGED** · [openclaw/openclaw#192478: fix(cli): gateway restart flag conflicts print only &quot;The CLI command failed.&quot;](https://github.com/openclaw/openclaw/pull/192478) · merged 2026-11-04T17:49:59Z · patch +40/−13, 3 file changes
+- **OPEN** · [openclaw/openclaw#192745: fix(gateway): validate run flags before the startup config guard](https://github.com/openclaw/openclaw/pull/192745) · updated 2026-11-04T11:49:46Z · patch +133/−24, 5 file changes
+- **OPEN** · [openclaw/openclaw#193128: fix(a2a): return JSON 404 for unsupported /a2a/v1 paths](https://github.com/openclaw/openclaw/pull/193128) · updated 2026-11-05T07:50:37Z · patch +311/−14, 11 file changes
+- **OPEN** · [vorssaint/vorssaint-utils#3734: fix(agents): match today&#x27;s hour bars to the local day](https://github.com/vorssaint/vorssaint-utils/pull/3734) · updated 2026-11-05T00:29:56Z · patch +46/−2, 2 file changes
+- **MERGED** · [vorssaint/vorssaint-utils#3737: fix(mouse): focus without raising again when the no-raise path fails](https://github.com/vorssaint/vorssaint-utils/pull/3737) · merged 2026-11-04T19:34:36Z · patch +73/−27, 2 file changes
 
 ## Selected repository pulse
 
@@ -160,7 +161,7 @@ Totals: 2,813 files, 873,746 code, 7,846 comment, 29,665 blank.
 
 ## Public contribution calendar
 
-2026-07-01 through 2026-11-04, reconstructed from public commit, issue, PR, review and repository contribution records. The displayed window begins 1 July 2026. Count is records, not hours or quality. Cell levels are zero, then four nonzero levels relative to the largest daily count in this window. This is not a promise of parity with GitHub's native graph.
+2026-07-01 through 2026-11-05, reconstructed from public commit, issue, PR, review and repository contribution records. The displayed window begins 1 July 2026. Count is records, not hours or quality. Cell levels are zero, then four nonzero levels relative to the largest daily count in this window. This is not a promise of parity with GitHub's native graph.
 
 - 2026-07-01: 1
 - 2026-07-02: 1
@@ -269,18 +270,19 @@ Totals: 2,813 files, 873,746 code, 7,846 comment, 29,665 blank.
 - 2026-11-01: 24
 - 2026-11-02: 9
 - 2026-11-03: 9
-- 2026-11-04: 3
+- 2026-11-04: 5
+- 2026-11-05: 4
 
 ### Activity mix
 
-Same public records, 2026-07-01 through 2026-11-04. Commits count commitCount; issues, pull requests, reviews and repository creations count contribution records. Private and restricted records are excluded.
+Same public records, 2026-07-01 through 2026-11-05. Commits count commitCount; issues, pull requests, reviews and repository creations count contribution records. Private and restricted records are excluded.
 
-- commits: 1655
-- issues: 1349
-- pull_requests: 1320
+- commits: 1657
+- issues: 1350
+- pull_requests: 1323
 - reviews: 11
 - repositories: 15
-- Total: 4350
+- Total: 4356
 
 
 ### Weekday frequency
@@ -289,16 +291,16 @@ Same calendar records grouped by UTC weekday. Counts are frequency, not effort.
 
 - Mon: 438
 - Tue: 483
-- Wed: 470
-- Thu: 628
+- Wed: 472
+- Thu: 632
 - Fri: 883
 - Sat: 868
 - Sun: 580
 
 ## Recent issue and PR events
 
-- 2026-11-04 · opened · [openclaw/openclaw#192478: fix(cli): gateway restart flag conflicts print only &quot;The CLI command failed.&quot;](https://github.com/openclaw/openclaw/pull/192478)
-- 2026-11-04 · opened · [openclaw/openclaw#192477: &#91;Bug&#93;: gateway restart flag-conflict errors print only &quot;The CLI command failed.&quot; instead of the reason](https://github.com/openclaw/openclaw/issues/192477)
+- 2026-11-05 · closed · [jerome-queck/openclaw#1: fix: unknown /a2a/v1 paths return JSON 404 instead of the Control UI](https://github.com/jerome-queck/openclaw/pull/1)
+- 2026-11-05 · opened · [openclaw/openclaw#193128: fix(a2a): return JSON 404 for unsupported /a2a/v1 paths](https://github.com/openclaw/openclaw/pull/193128)
 
 The profile shows two matching issue/PR events sampled from the latest 300 public GitHub events. GitHub retains at most 30 days of public events. This is not a complete history. Aggregate counts and the calendar include all public projects. Featured exclusions apply to selected projects and the feed. Every source must succeed before publication. Failed refreshes retain the previous published snapshot and timestamp. Scheduled runs can be delayed or disabled by GitHub. One Git commit publishes the payload; CDN caches can refresh separately.
 

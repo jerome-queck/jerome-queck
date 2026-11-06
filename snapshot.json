@@ -1,15 +1,15 @@
 {
   "schema_version": 4,
-  "observed_from": "2026-11-05T07:56:24.742614+00:00",
-  "observed_to": "2026-11-05T07:57:48.281254+00:00",
-  "updated": "05 Nov 2026 07:57 UTC",
+  "observed_from": "2026-11-06T07:58:04.654631+00:00",
+  "observed_to": "2026-11-06T07:59:30.155746+00:00",
+  "updated": "06 Nov 2026 07:59 UTC",
   "counts": [
-    1342,
-    1294,
-    978
+    1361,
+    1314,
+    998
   ],
   "calendar_start": "2026-07-01",
-  "calendar_end": "2026-11-05",
+  "calendar_end": "2026-11-06",
   "calendar_days": {
     "2026-07-25": 112,
     "2026-07-24": 56,
@@ -108,8 +108,9 @@
     "2026-10-28": 2,
     "2026-10-27": 24,
     "2026-10-26": 58,
+    "2026-11-06": 29,
+    "2026-11-05": 45,
     "2026-11-03": 9,
-    "2026-11-05": 4,
     "2026-11-04": 5,
     "2026-10-17": 74,
     "2026-10-05": 1,
@@ -122,9 +123,9 @@
     "2026-09-01": 5
   },
   "calendar_kinds": {
-    "commits": 1657,
-    "issues": 1350,
-    "pull_requests": 1323,
+    "commits": 1675,
+    "issues": 1383,
+    "pull_requests": 1342,
     "reviews": 11,
     "repositories": 15
   },
@@ -133,7 +134,7 @@
     "2026-08": 330,
     "2026-09": 373,
     "2026-10": 454,
-    "2026-11": 13
+    "2026-11": 33
   },
   "projects": [
     {
@@ -274,17 +275,20 @@
       "repository_url": "https://github.com/Jerome-Group/academic-os",
       "default_branch": "main",
       "head": {
-        "oid": "e5e1e2190620c85e1d9f37e23b4630d0e03d5532",
-        "committed_at": "2026-11-03T15:38:20Z",
-        "url": "https://github.com/Jerome-Group/academic-os/commit/e5e1e2190620c85e1d9f37e23b4630d0e03d5532"
+        "oid": "b81c7635a8122f11cd2e174842b036e8584ecbb3",
+        "committed_at": "2026-11-06T02:40:04Z",
+        "url": "https://github.com/Jerome-Group/academic-os/commit/b81c7635a8122f11cd2e174842b036e8584ecbb3"
       },
       "release": null,
       "language_bytes": {
-        "TypeScript": 4142528,
-        "JavaScript": 536032,
+        "TypeScript": 5250770,
+        "JavaScript": 660657,
         "TeX": 113564,
-        "TLA": 25062,
-        "Shell": 15448
+        "C++": 60468,
+        "TLA": 50688,
+        "Shell": 15722,
+        "C": 12078,
+        "Java": 1533
       }
     },
     {
@@ -867,35 +871,35 @@
       },
       {
         "repo": "Jerome-Group/academic-os",
-        "head": "e5e1e2190620c85e1d9f37e23b4630d0e03d5532",
-        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/e5e1e2190620c85e1d9f37e23b4630d0e03d5532",
-        "archive_files": 876,
+        "head": "b81c7635a8122f11cd2e174842b036e8584ecbb3",
+        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/b81c7635a8122f11cd2e174842b036e8584ecbb3",
+        "archive_files": 1050,
         "skipped_links": 1,
-        "uncounted_files": 28,
+        "uncounted_files": 32,
         "by_language": {
           "TypeScript": {
-            "files": 646,
-            "code": 121755,
-            "comment": 828,
-            "blank": 6038
+            "files": 768,
+            "code": 161163,
+            "comment": 1559,
+            "blank": 6501
           },
           "JavaScript": {
-            "files": 21,
-            "code": 14515,
-            "comment": 537,
-            "blank": 263
-          },
-          "Markdown": {
-            "files": 133,
-            "code": 10156,
-            "comment": 0,
-            "blank": 2749
+            "files": 36,
+            "code": 18396,
+            "comment": 539,
+            "blank": 315
           },
           "JSON": {
-            "files": 8,
-            "code": 1603,
+            "files": 21,
+            "code": 14167,
             "comment": 0,
             "blank": 0
+          },
+          "Markdown": {
+            "files": 145,
+            "code": 10842,
+            "comment": 0,
+            "blank": 2896
           },
           "TeX": {
             "files": 18,
@@ -903,23 +907,41 @@
             "comment": 98,
             "blank": 120
           },
-          "YAML": {
-            "files": 14,
-            "code": 402,
-            "comment": 246,
-            "blank": 49
+          "C++": {
+            "files": 4,
+            "code": 994,
+            "comment": 0,
+            "blank": 4
           },
           "TLA+": {
-            "files": 3,
-            "code": 379,
+            "files": 5,
+            "code": 845,
             "comment": 0,
-            "blank": 15
+            "blank": 24
           },
           "Bourne Shell": {
             "files": 1,
-            "code": 274,
+            "code": 281,
             "comment": 34,
             "blank": 42
+          },
+          "C": {
+            "files": 1,
+            "code": 249,
+            "comment": 0,
+            "blank": 17
+          },
+          "YAML": {
+            "files": 13,
+            "code": 168,
+            "comment": 201,
+            "blank": 34
+          },
+          "C/C++ Header": {
+            "files": 1,
+            "code": 104,
+            "comment": 0,
+            "blank": 1
           },
           "zsh": {
             "files": 2,
@@ -927,24 +949,30 @@
             "comment": 0,
             "blank": 10
           },
+          "Java": {
+            "files": 1,
+            "code": 36,
+            "comment": 0,
+            "blank": 1
+          },
+          "Text": {
+            "files": 1,
+            "code": 32,
+            "comment": 0,
+            "blank": 7
+          },
           "INI": {
             "files": 1,
             "code": 18,
             "comment": 0,
             "blank": 4
-          },
-          "Text": {
-            "files": 1,
-            "code": 8,
-            "comment": 0,
-            "blank": 0
           }
         },
         "totals": {
-          "files": 848,
-          "code": 150322,
-          "comment": 1743,
-          "blank": 9290
+          "files": 1018,
+          "code": 208507,
+          "comment": 2431,
+          "blank": 9976
         }
       },
       {
@@ -1079,13 +1107,25 @@
     "by_language": {
       "Bourne Shell": {
         "files": 15,
-        "code": 1436,
+        "code": 1443,
         "comment": 111,
         "blank": 206
       },
       "C": {
+        "files": 2,
+        "code": 302,
+        "comment": 0,
+        "blank": 18
+      },
+      "C++": {
+        "files": 4,
+        "code": 994,
+        "comment": 0,
+        "blank": 4
+      },
+      "C/C++ Header": {
         "files": 1,
-        "code": 53,
+        "code": 104,
         "comment": 0,
         "blank": 1
       },
@@ -1114,22 +1154,28 @@
         "blank": 32
       },
       "JSON": {
-        "files": 164,
-        "code": 381463,
+        "files": 177,
+        "code": 394027,
         "comment": 0,
         "blank": 0
       },
+      "Java": {
+        "files": 1,
+        "code": 36,
+        "comment": 0,
+        "blank": 1
+      },
       "JavaScript": {
-        "files": 569,
-        "code": 142145,
-        "comment": 1341,
-        "blank": 3624
+        "files": 584,
+        "code": 146026,
+        "comment": 1343,
+        "blank": 3676
       },
       "Markdown": {
-        "files": 557,
-        "code": 36078,
+        "files": 569,
+        "code": 36764,
         "comment": 5,
-        "blank": 11712
+        "blank": 11859
       },
       "Python": {
         "files": 53,
@@ -1150,10 +1196,10 @@
         "blank": 0
       },
       "TLA+": {
-        "files": 12,
-        "code": 1430,
+        "files": 14,
+        "code": 1896,
         "comment": 9,
-        "blank": 148
+        "blank": 157
       },
       "TOML": {
         "files": 3,
@@ -1169,15 +1215,15 @@
       },
       "Text": {
         "files": 16,
-        "code": 3084,
+        "code": 3108,
         "comment": 0,
-        "blank": 761
+        "blank": 768
       },
       "TypeScript": {
-        "files": 1286,
-        "code": 270912,
-        "comment": 3417,
-        "blank": 9707
+        "files": 1408,
+        "code": 310320,
+        "comment": 4148,
+        "blank": 10170
       },
       "XML": {
         "files": 8,
@@ -1186,10 +1232,10 @@
         "blank": 22
       },
       "YAML": {
-        "files": 53,
-        "code": 8669,
-        "comment": 1581,
-        "blank": 1841
+        "files": 52,
+        "code": 8435,
+        "comment": 1536,
+        "blank": 1826
       },
       "diff": {
         "files": 2,
@@ -1205,27 +1251,27 @@
       }
     },
     "totals": {
-      "files": 2813,
-      "code": 873746,
-      "comment": 7846,
-      "blank": 29665
+      "files": 2983,
+      "code": 931931,
+      "comment": 8534,
+      "blank": 30351
     }
   },
   "recent_events": [
     {
-      "url": "https://github.com/jerome-queck/openclaw/pull/1",
-      "title": "fix: unknown /a2a/v1 paths return JSON 404 instead of the Control UI",
-      "repo": "jerome-queck/openclaw",
-      "number": 1,
-      "date": "2026-11-05",
-      "action": "closed"
+      "url": "https://github.com/Jerome-Group/academic-os/issues/483",
+      "title": "Separate bootstrap catalog markers from public request ownership",
+      "repo": "Jerome-Group/academic-os",
+      "number": 483,
+      "date": "2026-11-06",
+      "action": "opened"
     },
     {
-      "url": "https://github.com/openclaw/openclaw/pull/193128",
-      "title": "fix(a2a): return JSON 404 for unsupported /a2a/v1 paths",
-      "repo": "openclaw/openclaw",
-      "number": 193128,
-      "date": "2026-11-05",
+      "url": "https://github.com/Jerome-Group/academic-os/issues/482",
+      "title": "Validate intrinsic fragment hash consistency",
+      "repo": "Jerome-Group/academic-os",
+      "number": 482,
+      "date": "2026-11-06",
       "action": "opened"
     }
   ],
@@ -1273,6 +1319,21 @@
       "number": 71496,
       "title": "fix(curriculum): accept valid enums in digital pet game tests",
       "url": "https://github.com/freeCodeCamp/freeCodeCamp/pull/71496",
+      "state": "OPEN"
+    },
+    {
+      "additions": 280,
+      "deletions": 1,
+      "changed_files": 9,
+      "created_at": "2026-11-05T17:39:06Z",
+      "updated_at": "2026-11-06T02:07:02Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOS8Fiac8AAAABNIMN0Q",
+      "repo": "HeMiaolin/openclaw",
+      "number": 1,
+      "title": "test(a2a): Gateway control-ui regression coverage for #193102",
+      "url": "https://github.com/HeMiaolin/openclaw/pull/1",
       "state": "OPEN"
     },
     {
@@ -1340,15 +1401,15 @@
       "deletions": 3,
       "changed_files": 4,
       "created_at": "2026-10-31T23:59:35Z",
-      "updated_at": "2026-11-05T05:31:53Z",
+      "updated_at": "2026-11-06T01:14:20Z",
       "merged_at": null,
-      "closed_at": null,
+      "closed_at": "2026-11-06T01:14:20Z",
       "id": "PR_kwDOQb6kR88AAAABMCUwkg",
       "repo": "openclaw/openclaw",
       "number": 189880,
       "title": "fix(sandbox): resolve bundled channel in sandbox explain (companion to #189343)",
       "url": "https://github.com/openclaw/openclaw/pull/189880",
-      "state": "OPEN"
+      "state": "CLOSED"
     },
     {
       "additions": 182,
@@ -1396,11 +1457,11 @@
       "state": "MERGED"
     },
     {
-      "additions": 193,
-      "deletions": 31,
-      "changed_files": 16,
+      "additions": 169,
+      "deletions": 25,
+      "changed_files": 14,
       "created_at": "2026-11-01T11:00:18Z",
-      "updated_at": "2026-11-03T03:45:48Z",
+      "updated_at": "2026-11-05T11:23:53Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOQb6kR88AAAABMGISjg",
@@ -1415,7 +1476,7 @@
       "deletions": 1,
       "changed_files": 5,
       "created_at": "2026-11-01T11:16:18Z",
-      "updated_at": "2026-11-05T07:31:06Z",
+      "updated_at": "2026-11-05T13:20:18Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOQb6kR88AAAABMGPyeA",
@@ -1520,7 +1581,7 @@
       "deletions": 24,
       "changed_files": 5,
       "created_at": "2026-11-04T11:27:45Z",
-      "updated_at": "2026-11-04T11:49:46Z",
+      "updated_at": "2026-11-06T03:34:52Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOQb6kR88AAAABMyrXmQ",
@@ -1531,11 +1592,11 @@
       "state": "OPEN"
     },
     {
-      "additions": 311,
+      "additions": 310,
       "deletions": 14,
       "changed_files": 11,
       "created_at": "2026-11-05T01:57:39Z",
-      "updated_at": "2026-11-05T07:50:37Z",
+      "updated_at": "2026-11-05T17:39:18Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOQb6kR88AAAABM9fojQ",

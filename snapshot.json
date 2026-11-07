@@ -1,15 +1,15 @@
 {
   "schema_version": 4,
-  "observed_from": "2026-11-06T07:58:04.654631+00:00",
-  "observed_to": "2026-11-06T07:59:30.155746+00:00",
-  "updated": "06 Nov 2026 07:59 UTC",
+  "observed_from": "2026-11-07T07:15:10.448424+00:00",
+  "observed_to": "2026-11-07T07:16:32.604655+00:00",
+  "updated": "07 Nov 2026 07:16 UTC",
   "counts": [
-    1361,
-    1314,
-    998
+    1368,
+    1319,
+    1018
   ],
   "calendar_start": "2026-07-01",
-  "calendar_end": "2026-11-06",
+  "calendar_end": "2026-11-07",
   "calendar_days": {
     "2026-07-25": 112,
     "2026-07-24": 56,
@@ -108,7 +108,7 @@
     "2026-10-28": 2,
     "2026-10-27": 24,
     "2026-10-26": 58,
-    "2026-11-06": 29,
+    "2026-11-06": 42,
     "2026-11-05": 45,
     "2026-11-03": 9,
     "2026-11-04": 5,
@@ -120,12 +120,13 @@
     "2026-09-28": 3,
     "2026-09-04": 23,
     "2026-09-03": 1,
-    "2026-09-01": 5
+    "2026-09-01": 5,
+    "2026-11-07": 2
   },
   "calendar_kinds": {
-    "commits": 1675,
-    "issues": 1383,
-    "pull_requests": 1342,
+    "commits": 1680,
+    "issues": 1386,
+    "pull_requests": 1349,
     "reviews": 11,
     "repositories": 15
   },
@@ -134,7 +135,7 @@
     "2026-08": 330,
     "2026-09": 373,
     "2026-10": 454,
-    "2026-11": 33
+    "2026-11": 38
   },
   "projects": [
     {
@@ -275,19 +276,19 @@
       "repository_url": "https://github.com/Jerome-Group/academic-os",
       "default_branch": "main",
       "head": {
-        "oid": "b81c7635a8122f11cd2e174842b036e8584ecbb3",
-        "committed_at": "2026-11-06T02:40:04Z",
-        "url": "https://github.com/Jerome-Group/academic-os/commit/b81c7635a8122f11cd2e174842b036e8584ecbb3"
+        "oid": "fcee8be3726682c14ed52844e3ef130685a1313a",
+        "committed_at": "2026-11-06T15:13:13Z",
+        "url": "https://github.com/Jerome-Group/academic-os/commit/fcee8be3726682c14ed52844e3ef130685a1313a"
       },
       "release": null,
       "language_bytes": {
-        "TypeScript": 5250770,
-        "JavaScript": 660657,
+        "TypeScript": 5727127,
+        "JavaScript": 733182,
         "TeX": 113564,
-        "C++": 60468,
-        "TLA": 50688,
+        "C++": 81586,
+        "TLA": 79829,
+        "C": 23250,
         "Shell": 15722,
-        "C": 12078,
         "Java": 1533
       }
     },
@@ -871,35 +872,47 @@
       },
       {
         "repo": "Jerome-Group/academic-os",
-        "head": "b81c7635a8122f11cd2e174842b036e8584ecbb3",
-        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/b81c7635a8122f11cd2e174842b036e8584ecbb3",
-        "archive_files": 1050,
+        "head": "fcee8be3726682c14ed52844e3ef130685a1313a",
+        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/fcee8be3726682c14ed52844e3ef130685a1313a",
+        "archive_files": 1107,
         "skipped_links": 1,
         "uncounted_files": 32,
         "by_language": {
           "TypeScript": {
-            "files": 768,
-            "code": 161163,
-            "comment": 1559,
-            "blank": 6501
-          },
-          "JavaScript": {
-            "files": 36,
-            "code": 18396,
-            "comment": 539,
-            "blank": 315
+            "files": 805,
+            "code": 179413,
+            "comment": 2225,
+            "blank": 6640
           },
           "JSON": {
-            "files": 21,
-            "code": 14167,
+            "files": 26,
+            "code": 23762,
             "comment": 0,
             "blank": 0
           },
+          "JavaScript": {
+            "files": 45,
+            "code": 20555,
+            "comment": 539,
+            "blank": 324
+          },
           "Markdown": {
             "files": 145,
-            "code": 10842,
+            "code": 10935,
             "comment": 0,
-            "blank": 2896
+            "blank": 2932
+          },
+          "C++": {
+            "files": 5,
+            "code": 1321,
+            "comment": 0,
+            "blank": 5
+          },
+          "TLA+": {
+            "files": 7,
+            "code": 1191,
+            "comment": 0,
+            "blank": 24
           },
           "TeX": {
             "files": 18,
@@ -907,29 +920,17 @@
             "comment": 98,
             "blank": 120
           },
-          "C++": {
-            "files": 4,
-            "code": 994,
-            "comment": 0,
-            "blank": 4
-          },
-          "TLA+": {
-            "files": 5,
-            "code": 845,
-            "comment": 0,
-            "blank": 24
+          "C": {
+            "files": 3,
+            "code": 417,
+            "comment": 1,
+            "blank": 19
           },
           "Bourne Shell": {
             "files": 1,
             "code": 281,
             "comment": 34,
             "blank": 42
-          },
-          "C": {
-            "files": 1,
-            "code": 249,
-            "comment": 0,
-            "blank": 17
           },
           "YAML": {
             "files": 13,
@@ -938,10 +939,10 @@
             "blank": 34
           },
           "C/C++ Header": {
-            "files": 1,
-            "code": 104,
-            "comment": 0,
-            "blank": 1
+            "files": 2,
+            "code": 158,
+            "comment": 2,
+            "blank": 8
           },
           "zsh": {
             "files": 2,
@@ -969,10 +970,10 @@
           }
         },
         "totals": {
-          "files": 1018,
-          "code": 208507,
-          "comment": 2431,
-          "blank": 9976
+          "files": 1075,
+          "code": 239499,
+          "comment": 3100,
+          "blank": 10170
         }
       },
       {
@@ -1112,22 +1113,22 @@
         "blank": 206
       },
       "C": {
-        "files": 2,
-        "code": 302,
-        "comment": 0,
-        "blank": 18
+        "files": 4,
+        "code": 470,
+        "comment": 1,
+        "blank": 20
       },
       "C++": {
-        "files": 4,
-        "code": 994,
+        "files": 5,
+        "code": 1321,
         "comment": 0,
-        "blank": 4
+        "blank": 5
       },
       "C/C++ Header": {
-        "files": 1,
-        "code": 104,
-        "comment": 0,
-        "blank": 1
+        "files": 2,
+        "code": 158,
+        "comment": 2,
+        "blank": 8
       },
       "CSS": {
         "files": 21,
@@ -1154,8 +1155,8 @@
         "blank": 32
       },
       "JSON": {
-        "files": 177,
-        "code": 394027,
+        "files": 182,
+        "code": 403622,
         "comment": 0,
         "blank": 0
       },
@@ -1166,16 +1167,16 @@
         "blank": 1
       },
       "JavaScript": {
-        "files": 584,
-        "code": 146026,
+        "files": 593,
+        "code": 148185,
         "comment": 1343,
-        "blank": 3676
+        "blank": 3685
       },
       "Markdown": {
         "files": 569,
-        "code": 36764,
+        "code": 36857,
         "comment": 5,
-        "blank": 11859
+        "blank": 11895
       },
       "Python": {
         "files": 53,
@@ -1196,8 +1197,8 @@
         "blank": 0
       },
       "TLA+": {
-        "files": 14,
-        "code": 1896,
+        "files": 16,
+        "code": 2242,
         "comment": 9,
         "blank": 157
       },
@@ -1220,10 +1221,10 @@
         "blank": 768
       },
       "TypeScript": {
-        "files": 1408,
-        "code": 310320,
-        "comment": 4148,
-        "blank": 10170
+        "files": 1445,
+        "code": 328570,
+        "comment": 4814,
+        "blank": 10309
       },
       "XML": {
         "files": 8,
@@ -1251,27 +1252,27 @@
       }
     },
     "totals": {
-      "files": 2983,
-      "code": 931931,
-      "comment": 8534,
-      "blank": 30351
+      "files": 3040,
+      "code": 962923,
+      "comment": 9203,
+      "blank": 30545
     }
   },
   "recent_events": [
     {
-      "url": "https://github.com/Jerome-Group/academic-os/issues/483",
-      "title": "Separate bootstrap catalog markers from public request ownership",
-      "repo": "Jerome-Group/academic-os",
-      "number": 483,
-      "date": "2026-11-06",
+      "url": "https://github.com/openclaw/openclaw/pull/194440",
+      "title": "test: cover stale quarantine hashing and Doctor cleanup",
+      "repo": "openclaw/openclaw",
+      "number": 194440,
+      "date": "2026-11-07",
       "action": "opened"
     },
     {
-      "url": "https://github.com/Jerome-Group/academic-os/issues/482",
-      "title": "Validate intrinsic fragment hash consistency",
-      "repo": "Jerome-Group/academic-os",
-      "number": 482,
-      "date": "2026-11-06",
+      "url": "https://github.com/jerome-queck/openclaw/pull/2",
+      "title": "fix: stop stale quarantine rows from hashing databases on open",
+      "repo": "jerome-queck/openclaw",
+      "number": 2,
+      "date": "2026-11-07",
       "action": "opened"
     }
   ],
@@ -1322,11 +1323,11 @@
       "state": "OPEN"
     },
     {
-      "additions": 280,
-      "deletions": 1,
-      "changed_files": 9,
+      "additions": 215,
+      "deletions": 0,
+      "changed_files": 3,
       "created_at": "2026-11-05T17:39:06Z",
-      "updated_at": "2026-11-06T02:07:02Z",
+      "updated_at": "2026-11-06T16:08:44Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOS8Fiac8AAAABNIMN0Q",
@@ -1596,7 +1597,7 @@
       "deletions": 14,
       "changed_files": 11,
       "created_at": "2026-11-05T01:57:39Z",
-      "updated_at": "2026-11-05T17:39:18Z",
+      "updated_at": "2026-11-06T18:42:46Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOQb6kR88AAAABM9fojQ",
@@ -1604,6 +1605,21 @@
       "number": 193128,
       "title": "fix(a2a): return JSON 404 for unsupported /a2a/v1 paths",
       "url": "https://github.com/openclaw/openclaw/pull/193128",
+      "state": "OPEN"
+    },
+    {
+      "additions": 249,
+      "deletions": 1,
+      "changed_files": 5,
+      "created_at": "2026-11-07T03:43:12Z",
+      "updated_at": "2026-11-07T05:23:11Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOQb6kR88AAAABNdS1pw",
+      "repo": "openclaw/openclaw",
+      "number": 194440,
+      "title": "test: cover stale quarantine hashing and Doctor cleanup",
+      "url": "https://github.com/openclaw/openclaw/pull/194440",
       "state": "OPEN"
     },
     {

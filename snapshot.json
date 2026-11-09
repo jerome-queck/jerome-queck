@@ -1,15 +1,15 @@
 {
   "schema_version": 4,
-  "observed_from": "2026-11-08T07:27:15.779293+00:00",
-  "observed_to": "2026-11-08T07:28:39.996199+00:00",
-  "updated": "08 Nov 2026 07:28 UTC",
+  "observed_from": "2026-11-09T08:03:25.462164+00:00",
+  "observed_to": "2026-11-09T08:04:53.892304+00:00",
+  "updated": "09 Nov 2026 08:04 UTC",
   "counts": [
-    1286,
-    1235,
-    952
+    1302,
+    1250,
+    954
   ],
   "calendar_start": "2026-07-01",
-  "calendar_end": "2026-11-08",
+  "calendar_end": "2026-11-09",
   "calendar_days": {
     "2026-07-26": 59,
     "2026-07-25": 94,
@@ -86,7 +86,8 @@
     "2026-10-14": 11,
     "2026-10-13": 18,
     "2026-10-20": 1,
-    "2026-11-08": 12,
+    "2026-11-09": 8,
+    "2026-11-08": 36,
     "2026-11-01": 24,
     "2026-10-31": 55,
     "2026-10-30": 38,
@@ -117,9 +118,9 @@
     "2026-07-24": 37
   },
   "calendar_kinds": {
-    "commits": 1559,
-    "issues": 1314,
-    "pull_requests": 1286,
+    "commits": 1574,
+    "issues": 1315,
+    "pull_requests": 1302,
     "reviews": 11,
     "repositories": 12
   },
@@ -128,7 +129,7 @@
     "2026-08": 329,
     "2026-09": 373,
     "2026-10": 454,
-    "2026-11": 44
+    "2026-11": 59
   },
   "projects": [
     {
@@ -1253,19 +1254,19 @@
   },
   "recent_events": [
     {
-      "url": "https://github.com/jerome-queck/integration-bee/pull/138",
-      "title": "Replay the repaired worked-identity lessons onto main",
-      "repo": "jerome-queck/integration-bee",
-      "number": 138,
-      "date": "2026-11-08",
-      "action": "opened"
+      "url": "https://github.com/Jerome-Group/academic-os/issues/427",
+      "title": "Weekly maintenance review 2026-11-02",
+      "repo": "Jerome-Group/academic-os",
+      "number": 427,
+      "date": "2026-11-09",
+      "action": "closed"
     },
     {
-      "url": "https://github.com/jerome-queck/integration-bee/pull/137",
-      "title": "Replay Yang chapter 1 units 06 through 10 onto main",
-      "repo": "jerome-queck/integration-bee",
-      "number": 137,
-      "date": "2026-11-08",
+      "url": "https://github.com/Jerome-Group/academic-os/issues/492",
+      "title": "Weekly maintenance review 2026-11-09",
+      "repo": "Jerome-Group/academic-os",
+      "number": 492,
+      "date": "2026-11-09",
       "action": "opened"
     }
   ],
@@ -1455,15 +1456,15 @@
       "deletions": 25,
       "changed_files": 14,
       "created_at": "2026-11-01T11:00:18Z",
-      "updated_at": "2026-11-05T11:23:53Z",
-      "merged_at": null,
-      "closed_at": null,
+      "updated_at": "2026-11-08T20:50:24Z",
+      "merged_at": "2026-11-08T20:50:18Z",
+      "closed_at": "2026-11-08T20:50:18Z",
       "id": "PR_kwDOQb6kR88AAAABMGISjg",
       "repo": "openclaw/openclaw",
       "number": 190257,
       "title": "fix(cli): stop status/channels list/doctor emitting Matrix SDK deprecation warnings",
       "url": "https://github.com/openclaw/openclaw/pull/190257",
-      "state": "OPEN"
+      "state": "MERGED"
     },
     {
       "additions": 344,
@@ -1485,30 +1486,30 @@
       "deletions": 23,
       "changed_files": 4,
       "created_at": "2026-11-01T11:28:25Z",
-      "updated_at": "2026-11-03T04:43:06Z",
-      "merged_at": null,
-      "closed_at": null,
+      "updated_at": "2026-11-08T20:48:27Z",
+      "merged_at": "2026-11-08T20:48:22Z",
+      "closed_at": "2026-11-08T20:48:22Z",
       "id": "PR_kwDOQb6kR88AAAABMGUxQw",
       "repo": "openclaw/openclaw",
       "number": 190282,
       "title": "fix(infra): name the lock path in gateway lock errors (companion to #159614)",
       "url": "https://github.com/openclaw/openclaw/pull/190282",
-      "state": "OPEN"
+      "state": "MERGED"
     },
     {
       "additions": 68,
       "deletions": 18,
       "changed_files": 4,
       "created_at": "2026-11-01T12:03:40Z",
-      "updated_at": "2026-11-03T04:44:14Z",
-      "merged_at": null,
-      "closed_at": null,
+      "updated_at": "2026-11-08T20:37:37Z",
+      "merged_at": "2026-11-08T20:37:30Z",
+      "closed_at": "2026-11-08T20:37:30Z",
       "id": "PR_kwDOQb6kR88AAAABMGjFvA",
       "repo": "openclaw/openclaw",
       "number": 190299,
       "title": "fix(cli): explain unknown ids in devices reject and remove",
       "url": "https://github.com/openclaw/openclaw/pull/190299",
-      "state": "OPEN"
+      "state": "MERGED"
     },
     {
       "additions": 257,
@@ -1605,7 +1606,7 @@
       "deletions": 22,
       "changed_files": 8,
       "created_at": "2026-11-07T03:43:12Z",
-      "updated_at": "2026-11-07T10:10:55Z",
+      "updated_at": "2026-11-08T17:52:17Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOQb6kR88AAAABNdS1pw",

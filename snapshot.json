@@ -1,15 +1,15 @@
 {
   "schema_version": 4,
-  "observed_from": "2026-11-09T08:03:25.462164+00:00",
-  "observed_to": "2026-11-09T08:04:53.892304+00:00",
-  "updated": "09 Nov 2026 08:04 UTC",
+  "observed_from": "2026-11-10T08:27:30.039966+00:00",
+  "observed_to": "2026-11-10T08:28:57.582719+00:00",
+  "updated": "10 Nov 2026 08:28 UTC",
   "counts": [
-    1302,
-    1250,
+    1311,
+    1257,
     954
   ],
   "calendar_start": "2026-07-01",
-  "calendar_end": "2026-11-09",
+  "calendar_end": "2026-11-10",
   "calendar_days": {
     "2026-07-26": 59,
     "2026-07-25": 94,
@@ -86,7 +86,8 @@
     "2026-10-14": 11,
     "2026-10-13": 18,
     "2026-10-20": 1,
-    "2026-11-09": 8,
+    "2026-11-10": 14,
+    "2026-11-09": 11,
     "2026-11-08": 36,
     "2026-11-01": 24,
     "2026-10-31": 55,
@@ -118,9 +119,9 @@
     "2026-07-24": 37
   },
   "calendar_kinds": {
-    "commits": 1574,
-    "issues": 1315,
-    "pull_requests": 1302,
+    "commits": 1581,
+    "issues": 1316,
+    "pull_requests": 1311,
     "reviews": 11,
     "repositories": 12
   },
@@ -129,7 +130,7 @@
     "2026-08": 329,
     "2026-09": 373,
     "2026-10": 454,
-    "2026-11": 59
+    "2026-11": 66
   },
   "projects": [
     {
@@ -1254,19 +1255,19 @@
   },
   "recent_events": [
     {
-      "url": "https://github.com/Jerome-Group/academic-os/issues/427",
-      "title": "Weekly maintenance review 2026-11-02",
-      "repo": "Jerome-Group/academic-os",
-      "number": 427,
-      "date": "2026-11-09",
-      "action": "closed"
+      "url": "https://github.com/jerome-queck/integration-bee/pull/162",
+      "title": "Add a gitignored local MIT corpus, its SymPy check, and a pointer-only MIT trainer",
+      "repo": "jerome-queck/integration-bee",
+      "number": 162,
+      "date": "2026-11-10",
+      "action": "opened"
     },
     {
-      "url": "https://github.com/Jerome-Group/academic-os/issues/492",
-      "title": "Weekly maintenance review 2026-11-09",
+      "url": "https://github.com/Jerome-Group/academic-os/pull/494",
+      "title": "Allow morning curation to finish without a deadline",
       "repo": "Jerome-Group/academic-os",
-      "number": 492,
-      "date": "2026-11-09",
+      "number": 494,
+      "date": "2026-11-10",
       "action": "opened"
     }
   ],

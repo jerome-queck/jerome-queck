@@ -1,15 +1,15 @@
 {
   "schema_version": 4,
-  "observed_from": "2026-11-10T08:27:30.039966+00:00",
-  "observed_to": "2026-11-10T08:28:57.582719+00:00",
-  "updated": "10 Nov 2026 08:28 UTC",
+  "observed_from": "2026-11-11T07:47:00.950930+00:00",
+  "observed_to": "2026-11-11T07:48:18.922622+00:00",
+  "updated": "11 Nov 2026 07:48 UTC",
   "counts": [
-    1311,
-    1257,
-    954
+    1152,
+    1111,
+    955
   ],
   "calendar_start": "2026-07-01",
-  "calendar_end": "2026-11-10",
+  "calendar_end": "2026-11-11",
   "calendar_days": {
     "2026-07-26": 59,
     "2026-07-25": 94,
@@ -86,26 +86,23 @@
     "2026-10-14": 11,
     "2026-10-13": 18,
     "2026-10-20": 1,
-    "2026-11-10": 14,
-    "2026-11-09": 11,
-    "2026-11-08": 36,
-    "2026-11-01": 24,
-    "2026-10-31": 55,
-    "2026-10-30": 38,
-    "2026-10-29": 13,
-    "2026-10-28": 2,
-    "2026-10-27": 24,
-    "2026-10-26": 58,
-    "2026-10-25": 192,
-    "2026-10-24": 85,
+    "2026-11-11": 2,
     "2026-11-02": 9,
+    "2026-10-25": 121,
+    "2026-10-24": 58,
     "2026-10-23": 356,
     "2026-10-22": 232,
     "2026-11-06": 42,
     "2026-11-05": 45,
     "2026-11-03": 9,
-    "2026-11-07": 6,
+    "2026-11-01": 18,
+    "2026-11-09": 4,
+    "2026-11-07": 3,
+    "2026-10-31": 30,
+    "2026-11-10": 7,
     "2026-11-04": 5,
+    "2026-10-27": 1,
+    "2026-10-26": 1,
     "2026-10-17": 74,
     "2026-10-05": 1,
     "2026-10-01": 1,
@@ -119,18 +116,18 @@
     "2026-07-24": 37
   },
   "calendar_kinds": {
-    "commits": 1581,
-    "issues": 1316,
-    "pull_requests": 1311,
+    "commits": 1426,
+    "issues": 1318,
+    "pull_requests": 1152,
     "reviews": 11,
-    "repositories": 12
+    "repositories": 11
   },
   "merge_months": {
     "2026-07": 35,
     "2026-08": 329,
     "2026-09": 373,
-    "2026-10": 454,
-    "2026-11": 66
+    "2026-10": 332,
+    "2026-11": 42
   },
   "projects": [
     {
@@ -316,14 +313,15 @@
       "repository_url": "https://github.com/jerome-queck/emmy",
       "default_branch": "main",
       "head": {
-        "oid": "59be10ae07f01ab64e6802124436f2bb7fc88c89",
-        "committed_at": "2026-11-02T13:01:48Z",
-        "url": "https://github.com/jerome-queck/emmy/commit/59be10ae07f01ab64e6802124436f2bb7fc88c89"
+        "oid": "80b720305ffccf1b73c40a5b459bdcb993c36a9a",
+        "committed_at": "2026-11-10T23:20:18Z",
+        "url": "https://github.com/jerome-queck/emmy/commit/80b720305ffccf1b73c40a5b459bdcb993c36a9a"
       },
       "release": null,
       "language_bytes": {
-        "JavaScript": 1182412,
-        "TLA": 10413
+        "JavaScript": 1228031,
+        "TLA": 10413,
+        "Mermaid": 1822
       }
     }
   ],
@@ -1049,29 +1047,29 @@
       },
       {
         "repo": "jerome-queck/emmy",
-        "head": "59be10ae07f01ab64e6802124436f2bb7fc88c89",
-        "source_url": "https://codeload.github.com/jerome-queck/emmy/tar.gz/59be10ae07f01ab64e6802124436f2bb7fc88c89",
-        "archive_files": 129,
+        "head": "80b720305ffccf1b73c40a5b459bdcb993c36a9a",
+        "source_url": "https://codeload.github.com/jerome-queck/emmy/tar.gz/80b720305ffccf1b73c40a5b459bdcb993c36a9a",
+        "archive_files": 141,
         "skipped_links": 0,
-        "uncounted_files": 7,
+        "uncounted_files": 8,
         "by_language": {
           "JavaScript": {
-            "files": 68,
-            "code": 9801,
+            "files": 76,
+            "code": 10338,
             "comment": 2,
-            "blank": 243
+            "blank": 267
           },
           "JSON": {
-            "files": 13,
-            "code": 1821,
+            "files": 14,
+            "code": 1935,
             "comment": 0,
             "blank": 0
           },
           "Markdown": {
-            "files": 36,
-            "code": 1540,
+            "files": 38,
+            "code": 1590,
             "comment": 0,
-            "blank": 974
+            "blank": 1009
           },
           "TLA+": {
             "files": 1,
@@ -1093,10 +1091,10 @@
           }
         },
         "totals": {
-          "files": 122,
-          "code": 13516,
+          "files": 133,
+          "code": 14217,
           "comment": 2,
-          "blank": 1252
+          "blank": 1311
         }
       }
     ],
@@ -1150,8 +1148,8 @@
         "blank": 32
       },
       "JSON": {
-        "files": 182,
-        "code": 403622,
+        "files": 183,
+        "code": 403736,
         "comment": 0,
         "blank": 0
       },
@@ -1162,16 +1160,16 @@
         "blank": 1
       },
       "JavaScript": {
-        "files": 593,
-        "code": 148185,
+        "files": 601,
+        "code": 148722,
         "comment": 1343,
-        "blank": 3685
+        "blank": 3709
       },
       "Markdown": {
-        "files": 569,
-        "code": 36857,
+        "files": 571,
+        "code": 36907,
         "comment": 5,
-        "blank": 11895
+        "blank": 11930
       },
       "Python": {
         "files": 53,
@@ -1247,26 +1245,26 @@
       }
     },
     "totals": {
-      "files": 3040,
-      "code": 962923,
+      "files": 3051,
+      "code": 963624,
       "comment": 9203,
-      "blank": 30545
+      "blank": 30604
     }
   },
   "recent_events": [
     {
-      "url": "https://github.com/jerome-queck/integration-bee/pull/162",
-      "title": "Add a gitignored local MIT corpus, its SymPy check, and a pointer-only MIT trainer",
-      "repo": "jerome-queck/integration-bee",
-      "number": 162,
+      "url": "https://github.com/jerome-queck/emmy/pull/52",
+      "title": "Run repository checks through a replayable assurance gate",
+      "repo": "jerome-queck/emmy",
+      "number": 52,
       "date": "2026-11-10",
       "action": "opened"
     },
     {
-      "url": "https://github.com/Jerome-Group/academic-os/pull/494",
-      "title": "Allow morning curation to finish without a deadline",
-      "repo": "Jerome-Group/academic-os",
-      "number": 494,
+      "url": "https://github.com/openclaw/openclaw/issues/196708",
+      "title": "[Bug]: mcp serve reports invalid flags as a Gateway startup failure",
+      "repo": "openclaw/openclaw",
+      "number": 196708,
       "date": "2026-11-10",
       "action": "opened"
     }
@@ -1607,7 +1605,7 @@
       "deletions": 22,
       "changed_files": 8,
       "created_at": "2026-11-07T03:43:12Z",
-      "updated_at": "2026-11-08T17:52:17Z",
+      "updated_at": "2026-11-10T12:36:42Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOQb6kR88AAAABNdS1pw",
@@ -1615,6 +1613,36 @@
       "number": 194440,
       "title": "test: cover stale quarantine hashing and Doctor cleanup",
       "url": "https://github.com/openclaw/openclaw/pull/194440",
+      "state": "OPEN"
+    },
+    {
+      "additions": 45,
+      "deletions": 27,
+      "changed_files": 4,
+      "created_at": "2026-11-10T14:38:38Z",
+      "updated_at": "2026-11-10T16:44:55Z",
+      "merged_at": "2026-11-10T16:44:50Z",
+      "closed_at": "2026-11-10T16:44:50Z",
+      "id": "PR_kwDOQb6kR88AAAABOIRpKw",
+      "repo": "openclaw/openclaw",
+      "number": 196709,
+      "title": "fix(mcp): mcp serve reports invalid flags as a Gateway startup failure",
+      "url": "https://github.com/openclaw/openclaw/pull/196709",
+      "state": "MERGED"
+    },
+    {
+      "additions": 101,
+      "deletions": 6,
+      "changed_files": 4,
+      "created_at": "2026-11-10T15:08:02Z",
+      "updated_at": "2026-11-11T06:01:46Z",
+      "merged_at": null,
+      "closed_at": null,
+      "id": "PR_kwDOQb6kR88AAAABOIueHA",
+      "repo": "openclaw/openclaw",
+      "number": 196719,
+      "title": "fix(state): CLI reads fail while another CLI holds a schema lease",
+      "url": "https://github.com/openclaw/openclaw/pull/196719",
       "state": "OPEN"
     },
     {

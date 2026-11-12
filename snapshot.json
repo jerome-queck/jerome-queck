@@ -1,15 +1,15 @@
 {
   "schema_version": 4,
-  "observed_from": "2026-11-11T07:47:00.950930+00:00",
-  "observed_to": "2026-11-11T07:48:18.922622+00:00",
-  "updated": "11 Nov 2026 07:48 UTC",
+  "observed_from": "2026-11-12T08:23:59.630007+00:00",
+  "observed_to": "2026-11-12T08:25:31.488751+00:00",
+  "updated": "12 Nov 2026 08:25 UTC",
   "counts": [
-    1152,
-    1111,
-    955
+    991,
+    952,
+    834
   ],
   "calendar_start": "2026-07-01",
-  "calendar_end": "2026-11-11",
+  "calendar_end": "2026-11-12",
   "calendar_days": {
     "2026-07-26": 59,
     "2026-07-25": 94,
@@ -27,14 +27,14 @@
     "2026-07-05": 1,
     "2026-07-02": 1,
     "2026-07-01": 1,
-    "2026-08-25": 78,
-    "2026-08-24": 25,
-    "2026-08-23": 51,
-    "2026-08-22": 57,
-    "2026-08-21": 71,
+    "2026-08-25": 36,
+    "2026-08-24": 17,
+    "2026-08-23": 38,
+    "2026-08-22": 40,
+    "2026-08-21": 44,
     "2026-08-20": 19,
-    "2026-08-19": 53,
-    "2026-08-18": 79,
+    "2026-08-19": 43,
+    "2026-08-18": 65,
     "2026-08-17": 60,
     "2026-08-16": 56,
     "2026-08-15": 46,
@@ -47,22 +47,6 @@
     "2026-08-08": 14,
     "2026-08-04": 3,
     "2026-07-29": 2,
-    "2026-09-14": 20,
-    "2026-09-13": 30,
-    "2026-09-12": 36,
-    "2026-09-11": 30,
-    "2026-09-10": 152,
-    "2026-09-09": 27,
-    "2026-09-08": 20,
-    "2026-09-07": 31,
-    "2026-09-06": 20,
-    "2026-09-05": 27,
-    "2026-09-02": 5,
-    "2026-08-31": 21,
-    "2026-08-29": 34,
-    "2026-08-28": 29,
-    "2026-08-27": 29,
-    "2026-08-26": 61,
     "2026-09-22": 112,
     "2026-09-21": 60,
     "2026-09-20": 12,
@@ -71,6 +55,16 @@
     "2026-09-17": 30,
     "2026-09-16": 48,
     "2026-09-15": 27,
+    "2026-09-14": 7,
+    "2026-09-10": 60,
+    "2026-08-26": 48,
+    "2026-09-09": 17,
+    "2026-09-08": 10,
+    "2026-09-06": 2,
+    "2026-08-31": 6,
+    "2026-08-27": 3,
+    "2026-09-02": 3,
+    "2026-08-29": 3,
     "2026-10-18": 43,
     "2026-10-03": 138,
     "2026-09-24": 67,
@@ -86,8 +80,14 @@
     "2026-10-14": 11,
     "2026-10-13": 18,
     "2026-10-20": 1,
-    "2026-11-11": 2,
+    "2026-11-11": 15,
     "2026-11-02": 9,
+    "2026-11-01": 21,
+    "2026-10-31": 36,
+    "2026-10-30": 10,
+    "2026-10-29": 8,
+    "2026-10-28": 18,
+    "2026-10-27": 2,
     "2026-10-25": 121,
     "2026-10-24": 58,
     "2026-10-23": 356,
@@ -95,13 +95,10 @@
     "2026-11-06": 42,
     "2026-11-05": 45,
     "2026-11-03": 9,
-    "2026-11-01": 18,
     "2026-11-09": 4,
     "2026-11-07": 3,
-    "2026-10-31": 30,
     "2026-11-10": 7,
     "2026-11-04": 5,
-    "2026-10-27": 1,
     "2026-10-26": 1,
     "2026-10-17": 74,
     "2026-10-05": 1,
@@ -109,25 +106,29 @@
     "2026-09-30": 1,
     "2026-09-29": 1,
     "2026-09-28": 3,
-    "2026-09-04": 23,
+    "2026-09-07": 16,
+    "2026-09-05": 3,
+    "2026-09-04": 1,
     "2026-09-03": 1,
-    "2026-09-01": 5,
+    "2026-09-01": 3,
     "2026-08-30": 4,
-    "2026-07-24": 37
+    "2026-08-28": 1,
+    "2026-07-24": 37,
+    "2026-11-12": 4
   },
   "calendar_kinds": {
-    "commits": 1426,
-    "issues": 1318,
-    "pull_requests": 1152,
+    "commits": 1314,
+    "issues": 1106,
+    "pull_requests": 991,
     "reviews": 11,
     "repositories": 11
   },
   "merge_months": {
     "2026-07": 35,
-    "2026-08": 329,
-    "2026-09": 373,
+    "2026-08": 255,
+    "2026-09": 280,
     "2026-10": 332,
-    "2026-11": 42
+    "2026-11": 50
   },
   "projects": [
     {
@@ -313,15 +314,15 @@
       "repository_url": "https://github.com/jerome-queck/emmy",
       "default_branch": "main",
       "head": {
-        "oid": "80b720305ffccf1b73c40a5b459bdcb993c36a9a",
-        "committed_at": "2026-11-10T23:20:18Z",
-        "url": "https://github.com/jerome-queck/emmy/commit/80b720305ffccf1b73c40a5b459bdcb993c36a9a"
+        "oid": "1530f6de762c6ade133124d0aba3998ccbaf0088",
+        "committed_at": "2026-11-12T05:28:27Z",
+        "url": "https://github.com/jerome-queck/emmy/commit/1530f6de762c6ade133124d0aba3998ccbaf0088"
       },
       "release": null,
       "language_bytes": {
-        "JavaScript": 1228031,
-        "TLA": 10413,
-        "Mermaid": 1822
+        "JavaScript": 2546300,
+        "TLA": 31445,
+        "Mermaid": 4978
       }
     }
   ],
@@ -1047,41 +1048,47 @@
       },
       {
         "repo": "jerome-queck/emmy",
-        "head": "80b720305ffccf1b73c40a5b459bdcb993c36a9a",
-        "source_url": "https://codeload.github.com/jerome-queck/emmy/tar.gz/80b720305ffccf1b73c40a5b459bdcb993c36a9a",
-        "archive_files": 141,
+        "head": "1530f6de762c6ade133124d0aba3998ccbaf0088",
+        "source_url": "https://codeload.github.com/jerome-queck/emmy/tar.gz/1530f6de762c6ade133124d0aba3998ccbaf0088",
+        "archive_files": 347,
         "skipped_links": 0,
-        "uncounted_files": 8,
+        "uncounted_files": 45,
         "by_language": {
           "JavaScript": {
-            "files": 76,
-            "code": 10338,
+            "files": 189,
+            "code": 24097,
             "comment": 2,
-            "blank": 267
+            "blank": 731
           },
           "JSON": {
-            "files": 14,
-            "code": 1935,
+            "files": 33,
+            "code": 14797,
             "comment": 0,
             "blank": 0
           },
           "Markdown": {
-            "files": 38,
-            "code": 1590,
+            "files": 69,
+            "code": 2697,
             "comment": 0,
-            "blank": 1009
+            "blank": 1774
           },
           "TLA+": {
-            "files": 1,
-            "code": 233,
+            "files": 6,
+            "code": 513,
             "comment": 0,
             "blank": 27
           },
           "YAML": {
             "files": 3,
-            "code": 116,
+            "code": 118,
             "comment": 0,
             "blank": 7
+          },
+          "Text": {
+            "files": 1,
+            "code": 71,
+            "comment": 0,
+            "blank": 1
           },
           "TOML": {
             "files": 1,
@@ -1091,10 +1098,10 @@
           }
         },
         "totals": {
-          "files": 133,
-          "code": 14217,
+          "files": 302,
+          "code": 42298,
           "comment": 2,
-          "blank": 1311
+          "blank": 2541
         }
       }
     ],
@@ -1148,8 +1155,8 @@
         "blank": 32
       },
       "JSON": {
-        "files": 183,
-        "code": 403736,
+        "files": 202,
+        "code": 416598,
         "comment": 0,
         "blank": 0
       },
@@ -1160,16 +1167,16 @@
         "blank": 1
       },
       "JavaScript": {
-        "files": 601,
-        "code": 148722,
+        "files": 714,
+        "code": 162481,
         "comment": 1343,
-        "blank": 3709
+        "blank": 4173
       },
       "Markdown": {
-        "files": 571,
-        "code": 36907,
+        "files": 602,
+        "code": 38014,
         "comment": 5,
-        "blank": 11930
+        "blank": 12695
       },
       "Python": {
         "files": 53,
@@ -1190,8 +1197,8 @@
         "blank": 0
       },
       "TLA+": {
-        "files": 16,
-        "code": 2242,
+        "files": 21,
+        "code": 2522,
         "comment": 9,
         "blank": 157
       },
@@ -1208,10 +1215,10 @@
         "blank": 120
       },
       "Text": {
-        "files": 16,
-        "code": 3108,
+        "files": 17,
+        "code": 3179,
         "comment": 0,
-        "blank": 768
+        "blank": 769
       },
       "TypeScript": {
         "files": 1445,
@@ -1227,7 +1234,7 @@
       },
       "YAML": {
         "files": 52,
-        "code": 8435,
+        "code": 8437,
         "comment": 1536,
         "blank": 1826
       },
@@ -1245,27 +1252,27 @@
       }
     },
     "totals": {
-      "files": 3051,
-      "code": 963624,
+      "files": 3220,
+      "code": 991705,
       "comment": 9203,
-      "blank": 30604
+      "blank": 31834
     }
   },
   "recent_events": [
     {
-      "url": "https://github.com/jerome-queck/emmy/pull/52",
-      "title": "Run repository checks through a replayable assurance gate",
+      "url": "https://github.com/jerome-queck/emmy/pull/60",
+      "title": "fix(verify): preserve evidence before scratch cleanup",
       "repo": "jerome-queck/emmy",
-      "number": 52,
-      "date": "2026-11-10",
+      "number": 60,
+      "date": "2026-11-12",
       "action": "opened"
     },
     {
-      "url": "https://github.com/openclaw/openclaw/issues/196708",
-      "title": "[Bug]: mcp serve reports invalid flags as a Gateway startup failure",
-      "repo": "openclaw/openclaw",
-      "number": 196708,
-      "date": "2026-11-10",
+      "url": "https://github.com/jerome-queck/emmy/pull/59",
+      "title": "Check fleet histories directly from reducer graphs",
+      "repo": "jerome-queck/emmy",
+      "number": 59,
+      "date": "2026-11-12",
       "action": "opened"
     }
   ],

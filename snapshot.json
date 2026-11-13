@@ -1,15 +1,15 @@
 {
   "schema_version": 4,
-  "observed_from": "2026-11-12T08:23:59.630007+00:00",
-  "observed_to": "2026-11-12T08:25:31.488751+00:00",
-  "updated": "12 Nov 2026 08:25 UTC",
+  "observed_from": "2026-11-13T08:05:24.531996+00:00",
+  "observed_to": "2026-11-13T08:06:37.876569+00:00",
+  "updated": "13 Nov 2026 08:06 UTC",
   "counts": [
-    991,
-    952,
-    834
+    996,
+    957,
+    839
   ],
   "calendar_start": "2026-07-01",
-  "calendar_end": "2026-11-12",
+  "calendar_end": "2026-11-13",
   "calendar_days": {
     "2026-07-26": 59,
     "2026-07-25": 94,
@@ -92,9 +92,11 @@
     "2026-10-24": 58,
     "2026-10-23": 356,
     "2026-10-22": 232,
+    "2026-11-13": 10,
     "2026-11-06": 42,
     "2026-11-05": 45,
     "2026-11-03": 9,
+    "2026-11-12": 10,
     "2026-11-09": 4,
     "2026-11-07": 3,
     "2026-11-10": 7,
@@ -113,14 +115,13 @@
     "2026-09-01": 3,
     "2026-08-30": 4,
     "2026-08-28": 1,
-    "2026-07-24": 37,
-    "2026-11-12": 4
+    "2026-07-24": 37
   },
   "calendar_kinds": {
-    "commits": 1314,
-    "issues": 1106,
-    "pull_requests": 991,
-    "reviews": 11,
+    "commits": 1319,
+    "issues": 1111,
+    "pull_requests": 996,
+    "reviews": 12,
     "repositories": 11
   },
   "merge_months": {
@@ -128,7 +129,7 @@
     "2026-08": 255,
     "2026-09": 280,
     "2026-10": 332,
-    "2026-11": 50
+    "2026-11": 55
   },
   "projects": [
     {
@@ -250,13 +251,13 @@
       "repository_url": "https://github.com/Jerome-Group/ntulearn",
       "default_branch": "main",
       "head": {
-        "oid": "044b78f397a1baeba03aa4ec10ecce5abeab1573",
-        "committed_at": "2026-11-02T06:21:59Z",
-        "url": "https://github.com/Jerome-Group/ntulearn/commit/044b78f397a1baeba03aa4ec10ecce5abeab1573"
+        "oid": "1377002a1ceca65e243884b253b8aff5476c3422",
+        "committed_at": "2026-11-12T14:40:05Z",
+        "url": "https://github.com/Jerome-Group/ntulearn/commit/1377002a1ceca65e243884b253b8aff5476c3422"
       },
       "release": null,
       "language_bytes": {
-        "JavaScript": 691210,
+        "JavaScript": 697423,
         "TLA": 3644
       }
     },
@@ -269,13 +270,13 @@
       "repository_url": "https://github.com/Jerome-Group/academic-os",
       "default_branch": "main",
       "head": {
-        "oid": "fcee8be3726682c14ed52844e3ef130685a1313a",
-        "committed_at": "2026-11-06T15:13:13Z",
-        "url": "https://github.com/Jerome-Group/academic-os/commit/fcee8be3726682c14ed52844e3ef130685a1313a"
+        "oid": "93a01471810d3007373829583f5c7a0f9343fdc2",
+        "committed_at": "2026-11-13T04:28:21Z",
+        "url": "https://github.com/Jerome-Group/academic-os/commit/93a01471810d3007373829583f5c7a0f9343fdc2"
       },
       "release": null,
       "language_bytes": {
-        "TypeScript": 5727127,
+        "TypeScript": 5745120,
         "JavaScript": 733182,
         "TeX": 113564,
         "C++": 81586,
@@ -808,21 +809,21 @@
       },
       {
         "repo": "Jerome-Group/ntulearn",
-        "head": "044b78f397a1baeba03aa4ec10ecce5abeab1573",
-        "source_url": "https://codeload.github.com/Jerome-Group/ntulearn/tar.gz/044b78f397a1baeba03aa4ec10ecce5abeab1573",
-        "archive_files": 179,
+        "head": "1377002a1ceca65e243884b253b8aff5476c3422",
+        "source_url": "https://codeload.github.com/Jerome-Group/ntulearn/tar.gz/1377002a1ceca65e243884b253b8aff5476c3422",
+        "archive_files": 181,
         "skipped_links": 1,
         "uncounted_files": 6,
         "by_language": {
           "JavaScript": {
-            "files": 97,
-            "code": 16530,
+            "files": 99,
+            "code": 16697,
             "comment": 519,
-            "blank": 1062
+            "blank": 1066
           },
           "Markdown": {
             "files": 61,
-            "code": 4256,
+            "code": 4257,
             "comment": 0,
             "blank": 1075
           },
@@ -858,25 +859,25 @@
           }
         },
         "totals": {
-          "files": 173,
-          "code": 22268,
+          "files": 175,
+          "code": 22436,
           "comment": 752,
-          "blank": 2202
+          "blank": 2206
         }
       },
       {
         "repo": "Jerome-Group/academic-os",
-        "head": "fcee8be3726682c14ed52844e3ef130685a1313a",
-        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/fcee8be3726682c14ed52844e3ef130685a1313a",
-        "archive_files": 1107,
+        "head": "93a01471810d3007373829583f5c7a0f9343fdc2",
+        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/93a01471810d3007373829583f5c7a0f9343fdc2",
+        "archive_files": 1109,
         "skipped_links": 1,
         "uncounted_files": 32,
         "by_language": {
           "TypeScript": {
-            "files": 805,
-            "code": 179413,
-            "comment": 2225,
-            "blank": 6640
+            "files": 807,
+            "code": 179841,
+            "comment": 2227,
+            "blank": 6653
           },
           "JSON": {
             "files": 26,
@@ -892,9 +893,9 @@
           },
           "Markdown": {
             "files": 145,
-            "code": 10935,
+            "code": 10948,
             "comment": 0,
-            "blank": 2932
+            "blank": 2933
           },
           "C++": {
             "files": 5,
@@ -964,10 +965,10 @@
           }
         },
         "totals": {
-          "files": 1075,
-          "code": 239499,
-          "comment": 3100,
-          "blank": 10170
+          "files": 1077,
+          "code": 239940,
+          "comment": 3102,
+          "blank": 10184
         }
       },
       {
@@ -1167,16 +1168,16 @@
         "blank": 1
       },
       "JavaScript": {
-        "files": 714,
-        "code": 162481,
+        "files": 716,
+        "code": 162648,
         "comment": 1343,
-        "blank": 4173
+        "blank": 4177
       },
       "Markdown": {
         "files": 602,
-        "code": 38014,
+        "code": 38028,
         "comment": 5,
-        "blank": 12695
+        "blank": 12696
       },
       "Python": {
         "files": 53,
@@ -1221,10 +1222,10 @@
         "blank": 769
       },
       "TypeScript": {
-        "files": 1445,
-        "code": 328570,
-        "comment": 4814,
-        "blank": 10309
+        "files": 1447,
+        "code": 328998,
+        "comment": 4816,
+        "blank": 10322
       },
       "XML": {
         "files": 8,
@@ -1252,27 +1253,27 @@
       }
     },
     "totals": {
-      "files": 3220,
-      "code": 991705,
-      "comment": 9203,
-      "blank": 31834
+      "files": 3224,
+      "code": 992314,
+      "comment": 9205,
+      "blank": 31852
     }
   },
   "recent_events": [
     {
-      "url": "https://github.com/jerome-queck/emmy/pull/60",
-      "title": "fix(verify): preserve evidence before scratch cleanup",
-      "repo": "jerome-queck/emmy",
-      "number": 60,
-      "date": "2026-11-12",
-      "action": "opened"
+      "url": "https://github.com/Jerome-Group/academic-os/issues/501",
+      "title": "Interpret absent curation fields consistently",
+      "repo": "Jerome-Group/academic-os",
+      "number": 501,
+      "date": "2026-11-13",
+      "action": "closed"
     },
     {
-      "url": "https://github.com/jerome-queck/emmy/pull/59",
-      "title": "Check fleet histories directly from reducer graphs",
-      "repo": "jerome-queck/emmy",
-      "number": 59,
-      "date": "2026-11-12",
+      "url": "https://github.com/Jerome-Group/academic-os/pull/502",
+      "title": "Interpret absent curation fields consistently",
+      "repo": "Jerome-Group/academic-os",
+      "number": 502,
+      "date": "2026-11-13",
       "action": "opened"
     }
   ],

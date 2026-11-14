@@ -1,15 +1,15 @@
 {
   "schema_version": 4,
-  "observed_from": "2026-11-13T08:05:24.531996+00:00",
-  "observed_to": "2026-11-13T08:06:37.876569+00:00",
-  "updated": "13 Nov 2026 08:06 UTC",
+  "observed_from": "2026-11-14T07:38:35.742902+00:00",
+  "observed_to": "2026-11-14T07:40:01.503286+00:00",
+  "updated": "14 Nov 2026 07:40 UTC",
   "counts": [
-    996,
-    957,
-    839
+    1001,
+    963,
+    845
   ],
   "calendar_start": "2026-07-01",
-  "calendar_end": "2026-11-13",
+  "calendar_end": "2026-11-14",
   "calendar_days": {
     "2026-07-26": 59,
     "2026-07-25": 94,
@@ -92,7 +92,8 @@
     "2026-10-24": 58,
     "2026-10-23": 356,
     "2026-10-22": 232,
-    "2026-11-13": 10,
+    "2026-11-14": 5,
+    "2026-11-13": 26,
     "2026-11-06": 42,
     "2026-11-05": 45,
     "2026-11-03": 9,
@@ -118,10 +119,10 @@
     "2026-07-24": 37
   },
   "calendar_kinds": {
-    "commits": 1319,
-    "issues": 1111,
-    "pull_requests": 996,
-    "reviews": 12,
+    "commits": 1326,
+    "issues": 1117,
+    "pull_requests": 1001,
+    "reviews": 15,
     "repositories": 11
   },
   "merge_months": {
@@ -129,7 +130,7 @@
     "2026-08": 255,
     "2026-09": 280,
     "2026-10": 332,
-    "2026-11": 55
+    "2026-11": 61
   },
   "projects": [
     {
@@ -270,14 +271,14 @@
       "repository_url": "https://github.com/Jerome-Group/academic-os",
       "default_branch": "main",
       "head": {
-        "oid": "93a01471810d3007373829583f5c7a0f9343fdc2",
-        "committed_at": "2026-11-13T04:28:21Z",
-        "url": "https://github.com/Jerome-Group/academic-os/commit/93a01471810d3007373829583f5c7a0f9343fdc2"
+        "oid": "3b0a038d284864f8bd6a685e35c0694c3bd1e110",
+        "committed_at": "2026-11-14T01:35:42Z",
+        "url": "https://github.com/Jerome-Group/academic-os/commit/3b0a038d284864f8bd6a685e35c0694c3bd1e110"
       },
       "release": null,
       "language_bytes": {
-        "TypeScript": 5745120,
-        "JavaScript": 733182,
+        "TypeScript": 5793252,
+        "JavaScript": 735601,
         "TeX": 113564,
         "C++": 81586,
         "TLA": 79829,
@@ -867,17 +868,17 @@
       },
       {
         "repo": "Jerome-Group/academic-os",
-        "head": "93a01471810d3007373829583f5c7a0f9343fdc2",
-        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/93a01471810d3007373829583f5c7a0f9343fdc2",
-        "archive_files": 1109,
+        "head": "3b0a038d284864f8bd6a685e35c0694c3bd1e110",
+        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/3b0a038d284864f8bd6a685e35c0694c3bd1e110",
+        "archive_files": 1116,
         "skipped_links": 1,
         "uncounted_files": 32,
         "by_language": {
           "TypeScript": {
-            "files": 807,
-            "code": 179841,
-            "comment": 2227,
-            "blank": 6653
+            "files": 813,
+            "code": 181239,
+            "comment": 2230,
+            "blank": 6701
           },
           "JSON": {
             "files": 26,
@@ -887,15 +888,15 @@
           },
           "JavaScript": {
             "files": 45,
-            "code": 20555,
+            "code": 20621,
             "comment": 539,
-            "blank": 324
+            "blank": 325
           },
           "Markdown": {
-            "files": 145,
-            "code": 10948,
+            "files": 146,
+            "code": 11059,
             "comment": 0,
-            "blank": 2933
+            "blank": 2955
           },
           "C++": {
             "files": 5,
@@ -965,10 +966,10 @@
           }
         },
         "totals": {
-          "files": 1077,
-          "code": 239940,
-          "comment": 3102,
-          "blank": 10184
+          "files": 1084,
+          "code": 241515,
+          "comment": 3105,
+          "blank": 10255
         }
       },
       {
@@ -1169,15 +1170,15 @@
       },
       "JavaScript": {
         "files": 716,
-        "code": 162648,
+        "code": 162714,
         "comment": 1343,
-        "blank": 4177
+        "blank": 4178
       },
       "Markdown": {
-        "files": 602,
-        "code": 38028,
+        "files": 603,
+        "code": 38139,
         "comment": 5,
-        "blank": 12696
+        "blank": 12718
       },
       "Python": {
         "files": 53,
@@ -1222,10 +1223,10 @@
         "blank": 769
       },
       "TypeScript": {
-        "files": 1447,
-        "code": 328998,
-        "comment": 4816,
-        "blank": 10322
+        "files": 1453,
+        "code": 330396,
+        "comment": 4819,
+        "blank": 10370
       },
       "XML": {
         "files": 8,
@@ -1253,28 +1254,28 @@
       }
     },
     "totals": {
-      "files": 3224,
-      "code": 992314,
-      "comment": 9205,
-      "blank": 31852
+      "files": 3231,
+      "code": 993889,
+      "comment": 9208,
+      "blank": 31923
     }
   },
   "recent_events": [
     {
-      "url": "https://github.com/Jerome-Group/academic-os/issues/501",
-      "title": "Interpret absent curation fields consistently",
+      "url": "https://github.com/Jerome-Group/academic-os/issues/504",
+      "title": "Resolve remaining Module audit and acquisition gaps",
       "repo": "Jerome-Group/academic-os",
-      "number": 501,
-      "date": "2026-11-13",
+      "number": 504,
+      "date": "2026-11-14",
       "action": "closed"
     },
     {
-      "url": "https://github.com/Jerome-Group/academic-os/pull/502",
-      "title": "Interpret absent curation fields consistently",
+      "url": "https://github.com/Jerome-Group/academic-os/issues/505",
+      "title": "fix: allow full check profile to finish selected work",
       "repo": "Jerome-Group/academic-os",
-      "number": 502,
-      "date": "2026-11-13",
-      "action": "opened"
+      "number": 505,
+      "date": "2026-11-14",
+      "action": "closed"
     }
   ],
   "upstream_prs": [
@@ -1313,7 +1314,7 @@
       "deletions": 17,
       "changed_files": 1,
       "created_at": "2026-10-31T14:59:20Z",
-      "updated_at": "2026-11-05T00:29:52Z",
+      "updated_at": "2026-11-13T17:56:04Z",
       "merged_at": null,
       "closed_at": null,
       "id": "PR_kwDOAbI7X88AAAABL-fX_w",

@@ -1,15 +1,15 @@
 {
   "schema_version": 4,
-  "observed_from": "2026-11-14T07:38:35.742902+00:00",
-  "observed_to": "2026-11-14T07:40:01.503286+00:00",
-  "updated": "14 Nov 2026 07:40 UTC",
+  "observed_from": "2026-11-15T07:54:27.674806+00:00",
+  "observed_to": "2026-11-15T07:55:43.960934+00:00",
+  "updated": "15 Nov 2026 07:55 UTC",
   "counts": [
-    1001,
-    963,
-    845
+    1002,
+    964,
+    846
   ],
   "calendar_start": "2026-07-01",
-  "calendar_end": "2026-11-14",
+  "calendar_end": "2026-11-15",
   "calendar_days": {
     "2026-07-26": 59,
     "2026-07-25": 94,
@@ -92,7 +92,7 @@
     "2026-10-24": 58,
     "2026-10-23": 356,
     "2026-10-22": 232,
-    "2026-11-14": 5,
+    "2026-11-14": 9,
     "2026-11-13": 26,
     "2026-11-06": 42,
     "2026-11-05": 45,
@@ -119,9 +119,9 @@
     "2026-07-24": 37
   },
   "calendar_kinds": {
-    "commits": 1326,
-    "issues": 1117,
-    "pull_requests": 1001,
+    "commits": 1327,
+    "issues": 1119,
+    "pull_requests": 1002,
     "reviews": 15,
     "repositories": 11
   },
@@ -130,7 +130,7 @@
     "2026-08": 255,
     "2026-09": 280,
     "2026-10": 332,
-    "2026-11": 61
+    "2026-11": 62
   },
   "projects": [
     {
@@ -271,14 +271,14 @@
       "repository_url": "https://github.com/Jerome-Group/academic-os",
       "default_branch": "main",
       "head": {
-        "oid": "3b0a038d284864f8bd6a685e35c0694c3bd1e110",
-        "committed_at": "2026-11-14T01:35:42Z",
-        "url": "https://github.com/Jerome-Group/academic-os/commit/3b0a038d284864f8bd6a685e35c0694c3bd1e110"
+        "oid": "23c2dae83ea344d44d5f31e305d2fab4b2c7d197",
+        "committed_at": "2026-11-14T11:01:00Z",
+        "url": "https://github.com/Jerome-Group/academic-os/commit/23c2dae83ea344d44d5f31e305d2fab4b2c7d197"
       },
       "release": null,
       "language_bytes": {
-        "TypeScript": 5793252,
-        "JavaScript": 735601,
+        "TypeScript": 5812170,
+        "JavaScript": 737754,
         "TeX": 113564,
         "C++": 81586,
         "TLA": 79829,
@@ -868,17 +868,17 @@
       },
       {
         "repo": "Jerome-Group/academic-os",
-        "head": "3b0a038d284864f8bd6a685e35c0694c3bd1e110",
-        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/3b0a038d284864f8bd6a685e35c0694c3bd1e110",
-        "archive_files": 1116,
+        "head": "23c2dae83ea344d44d5f31e305d2fab4b2c7d197",
+        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/23c2dae83ea344d44d5f31e305d2fab4b2c7d197",
+        "archive_files": 1120,
         "skipped_links": 1,
         "uncounted_files": 32,
         "by_language": {
           "TypeScript": {
-            "files": 813,
-            "code": 181239,
-            "comment": 2230,
-            "blank": 6701
+            "files": 816,
+            "code": 181780,
+            "comment": 2229,
+            "blank": 6716
           },
           "JSON": {
             "files": 26,
@@ -888,15 +888,15 @@
           },
           "JavaScript": {
             "files": 45,
-            "code": 20621,
+            "code": 20672,
             "comment": 539,
             "blank": 325
           },
           "Markdown": {
-            "files": 146,
-            "code": 11059,
+            "files": 147,
+            "code": 11105,
             "comment": 0,
-            "blank": 2955
+            "blank": 2962
           },
           "C++": {
             "files": 5,
@@ -966,10 +966,10 @@
           }
         },
         "totals": {
-          "files": 1084,
-          "code": 241515,
-          "comment": 3105,
-          "blank": 10255
+          "files": 1088,
+          "code": 242153,
+          "comment": 3104,
+          "blank": 10277
         }
       },
       {
@@ -1170,15 +1170,15 @@
       },
       "JavaScript": {
         "files": 716,
-        "code": 162714,
+        "code": 162765,
         "comment": 1343,
         "blank": 4178
       },
       "Markdown": {
-        "files": 603,
-        "code": 38139,
+        "files": 604,
+        "code": 38185,
         "comment": 5,
-        "blank": 12718
+        "blank": 12725
       },
       "Python": {
         "files": 53,
@@ -1223,10 +1223,10 @@
         "blank": 769
       },
       "TypeScript": {
-        "files": 1453,
-        "code": 330396,
-        "comment": 4819,
-        "blank": 10370
+        "files": 1456,
+        "code": 330937,
+        "comment": 4818,
+        "blank": 10385
       },
       "XML": {
         "files": 8,
@@ -1254,28 +1254,28 @@
       }
     },
     "totals": {
-      "files": 3231,
-      "code": 993889,
-      "comment": 9208,
-      "blank": 31923
+      "files": 3235,
+      "code": 994527,
+      "comment": 9207,
+      "blank": 31945
     }
   },
   "recent_events": [
     {
-      "url": "https://github.com/Jerome-Group/academic-os/issues/504",
-      "title": "Resolve remaining Module audit and acquisition gaps",
+      "url": "https://github.com/Jerome-Group/academic-os/issues/515",
+      "title": "Support cross-unit review exercise sets and migrate existing review material",
       "repo": "Jerome-Group/academic-os",
-      "number": 504,
+      "number": 515,
       "date": "2026-11-14",
       "action": "closed"
     },
     {
-      "url": "https://github.com/Jerome-Group/academic-os/issues/505",
-      "title": "fix: allow full check profile to finish selected work",
+      "url": "https://github.com/Jerome-Group/academic-os/pull/516",
+      "title": "Support cross-unit review exercises and task provenance correction",
       "repo": "Jerome-Group/academic-os",
-      "number": 505,
+      "number": 516,
       "date": "2026-11-14",
-      "action": "closed"
+      "action": "opened"
     }
   ],
   "upstream_prs": [

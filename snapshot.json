@@ -1,15 +1,15 @@
 {
   "schema_version": 4,
-  "observed_from": "2026-11-16T08:02:14.147992+00:00",
-  "observed_to": "2026-11-16T08:03:35.581001+00:00",
-  "updated": "16 Nov 2026 08:03 UTC",
+  "observed_from": "2026-11-17T09:16:06.620509+00:00",
+  "observed_to": "2026-11-17T09:17:38.490457+00:00",
+  "updated": "17 Nov 2026 09:17 UTC",
   "counts": [
     1002,
-    964,
+    965,
     846
   ],
   "calendar_start": "2026-07-01",
-  "calendar_end": "2026-11-16",
+  "calendar_end": "2026-11-17",
   "calendar_days": {
     "2026-07-26": 59,
     "2026-07-25": 94,
@@ -131,7 +131,7 @@
     "2026-08": 255,
     "2026-09": 280,
     "2026-10": 332,
-    "2026-11": 62
+    "2026-11": 63
   },
   "projects": [
     {
@@ -1330,15 +1330,15 @@
       "deletions": 0,
       "changed_files": 3,
       "created_at": "2026-11-05T17:39:06Z",
-      "updated_at": "2026-11-06T16:08:44Z",
-      "merged_at": null,
-      "closed_at": null,
+      "updated_at": "2026-11-17T01:25:33Z",
+      "merged_at": "2026-11-17T01:25:24Z",
+      "closed_at": "2026-11-17T01:25:24Z",
       "id": "PR_kwDOS8Fiac8AAAABNIMN0Q",
       "repo": "HeMiaolin/openclaw",
       "number": 1,
       "title": "test(a2a): Gateway control-ui regression coverage for #193102",
       "url": "https://github.com/HeMiaolin/openclaw/pull/1",
-      "state": "OPEN"
+      "state": "MERGED"
     },
     {
       "additions": 408,

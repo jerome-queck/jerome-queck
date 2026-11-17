@@ -1,56 +1,55 @@
 # Public work snapshot
 
-Collected 16 Nov 2026 08:03 UTC.
+Collected 17 Nov 2026 09:17 UTC.
 
-Observation interval: 2026-11-16T08:02:14.147992+00:00 to 2026-11-16T08:03:35.581001+00:00. GitHub queries are separate observations, not a transaction at one instant. [Reproducible public input](snapshot.json).
+Observation interval: 2026-11-17T09:16:06.620509+00:00 to 2026-11-17T09:17:38.490457+00:00. GitHub queries are separate observations, not a transaction at one instant. [Reproducible public input](snapshot.json).
 
 - Authored public PRs opened, all time: 1002
-- Authored public PRs merged, all time: 964
+- Authored public PRs merged, all time: 965
 - Distinct currently closed public issues linked to those merged PRs: 846
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close or proof that a PR alone caused closure; GitHub can change links retrospectively.
 
 ## Merge cadence
 
-Authored public PRs merged by UTC calendar month, 2026-07 through 2026-11. Current month is partial through 2026-11-16. Across all public repositories, not just the selected projects.
+Authored public PRs merged by UTC calendar month, 2026-07 through 2026-11. Current month is partial through 2026-11-17. Across all public repositories, not just the selected projects.
 
 - 2026-07: 35, including 0 upstream
 - 2026-08: 255, including 1 upstream
 - 2026-09: 280, including 0 upstream
 - 2026-10: 332, including 2 upstream
-- 2026-11: 62, including 12 upstream
+- 2026-11: 63, including 13 upstream
 
 ## Upstream PR records
 
-Public PRs authored by jerome-queck outside repositories owned by jerome-queck or Jerome-Group. Closed without merge is separate from merged. Open means current state, not an outcome. Observed 2026-11-16T08:03:35.581001+00:00. Search is complete within GitHub's 1000-result bound; a larger result aborts refresh.
+Public PRs authored by jerome-queck outside repositories owned by jerome-queck or Jerome-Group. Closed without merge is separate from merged. Open means current state, not an outcome. Observed 2026-11-17T09:17:38.490457+00:00. Search is complete within GitHub's 1000-result bound; a larger result aborts refresh.
 
-15 merged, 9 open, 3 closed without merge, across 4 repositories with PRs in any state.
+16 merged, 8 open, 3 closed without merge, across 4 repositories with PRs in any state.
 
 | Repository | Merged | Open | Closed without merge |
 | --- | ---: | ---: | ---: |
 | [freeCodeCamp/freeCodeCamp](https://github.com/freeCodeCamp/freeCodeCamp) | 2 | 1 | 0 |
-| [HeMiaolin/openclaw](https://github.com/HeMiaolin/openclaw) | 0 | 1 | 0 |
+| [HeMiaolin/openclaw](https://github.com/HeMiaolin/openclaw) | 1 | 0 | 0 |
 | [openclaw/openclaw](https://github.com/openclaw/openclaw) | 12 | 6 | 3 |
 | [vorssaint/vorssaint-utils](https://github.com/vorssaint/vorssaint-utils) | 1 | 1 | 0 |
 
-Merged PR patch footprint, all time: 15 PRs, 1819 added lines, 560 deleted lines, 136 file changes. These sum GitHub PR patch statistics, including all coauthors and generated code. File changes count a file again in each PR, not distinct files. They do not measure personal lines of code, effort or impact.
+Merged PR patch footprint, all time: 16 PRs, 2034 added lines, 560 deleted lines, 139 file changes. These sum GitHub PR patch statistics, including all coauthors and generated code. File changes count a file again in each PR, not distinct files. They do not measure personal lines of code, effort or impact.
 
 Open proposal ages count completed 24-hour periods since creation as of the observation endpoint, not review waiting time.
 
-- [freeCodeCamp/freeCodeCamp#71496](https://github.com/freeCodeCamp/freeCodeCamp/pull/71496): 15 completed days open
-- [openclaw/openclaw#189881](https://github.com/openclaw/openclaw/pull/189881): 15 completed days open
-- [vorssaint/vorssaint-utils#3734](https://github.com/vorssaint/vorssaint-utils/pull/3734): 15 completed days open
-- [openclaw/openclaw#190269](https://github.com/openclaw/openclaw/pull/190269): 14 completed days open
-- [openclaw/openclaw#190799](https://github.com/openclaw/openclaw/pull/190799): 14 completed days open
-- [openclaw/openclaw#193128](https://github.com/openclaw/openclaw/pull/193128): 11 completed days open
-- [HeMiaolin/openclaw#1](https://github.com/HeMiaolin/openclaw/pull/1): 10 completed days open
-- [openclaw/openclaw#194440](https://github.com/openclaw/openclaw/pull/194440): 9 completed days open
-- [openclaw/openclaw#196719](https://github.com/openclaw/openclaw/pull/196719): 5 completed days open
+- [freeCodeCamp/freeCodeCamp#71496](https://github.com/freeCodeCamp/freeCodeCamp/pull/71496): 16 completed days open
+- [openclaw/openclaw#189881](https://github.com/openclaw/openclaw/pull/189881): 16 completed days open
+- [vorssaint/vorssaint-utils#3734](https://github.com/vorssaint/vorssaint-utils/pull/3734): 16 completed days open
+- [openclaw/openclaw#190269](https://github.com/openclaw/openclaw/pull/190269): 15 completed days open
+- [openclaw/openclaw#190799](https://github.com/openclaw/openclaw/pull/190799): 15 completed days open
+- [openclaw/openclaw#193128](https://github.com/openclaw/openclaw/pull/193128): 12 completed days open
+- [openclaw/openclaw#194440](https://github.com/openclaw/openclaw/pull/194440): 10 completed days open
+- [openclaw/openclaw#196719](https://github.com/openclaw/openclaw/pull/196719): 6 completed days open
 
 - **MERGED** · [freeCodeCamp/freeCodeCamp#71474: fix(curriculum): align callback review definitions](https://github.com/freeCodeCamp/freeCodeCamp/pull/71474) · merged 2026-10-31T11:09:15Z · patch +2/−2, 2 file changes
 - **MERGED** · [freeCodeCamp/freeCodeCamp#71484: fix(curriculum): handle weather data edge cases](https://github.com/freeCodeCamp/freeCodeCamp/pull/71484) · merged 2026-11-03T09:21:45Z · patch +228/−60, 2 file changes
 - **OPEN** · [freeCodeCamp/freeCodeCamp#71496: fix(curriculum): accept valid enums in digital pet game tests](https://github.com/freeCodeCamp/freeCodeCamp/pull/71496) · updated 2026-11-16T00:23:00Z · patch +17/−17, 1 file changes
-- **OPEN** · [HeMiaolin/openclaw#1: test(a2a): Gateway control-ui regression coverage for #193102](https://github.com/HeMiaolin/openclaw/pull/1) · updated 2026-11-06T16:08:44Z · patch +215/−0, 3 file changes
+- **MERGED** · [HeMiaolin/openclaw#1: test(a2a): Gateway control-ui regression coverage for #193102](https://github.com/HeMiaolin/openclaw/pull/1) · merged 2026-11-17T01:25:24Z · patch +215/−0, 3 file changes
 - **MERGED** · [openclaw/openclaw#130275: fix(failover): oversized Groq requests stall the session with unusable rate-limit advice](https://github.com/openclaw/openclaw/pull/130275) · merged 2026-08-28T20:49:11Z · patch +408/−23, 13 file changes
 - **CLOSED** · [openclaw/openclaw#189499: fix: macOS gateway discovery truncates names and TXT values that contain spaces](https://github.com/openclaw/openclaw/pull/189499) · updated 2026-10-31T22:32:46Z · patch +188/−4, 2 file changes
 - **MERGED** · [openclaw/openclaw#189784: fix(oc-path): follow YAML aliases in path resolve, find and set](https://github.com/openclaw/openclaw/pull/189784) · merged 2026-10-31T23:38:15Z · patch +72/−51, 5 file changes
@@ -167,7 +166,7 @@ Totals: 3,235 files, 994,527 code, 9,207 comment, 31,945 blank.
 
 ## Public contribution calendar
 
-2026-07-01 through 2026-11-16, reconstructed from public commit, issue, PR, review and repository contribution records. The displayed window begins 1 July 2026. Count is records, not hours or quality. Cell levels are zero, then four nonzero levels relative to the largest daily count in this window. This is not a promise of parity with GitHub's native graph.
+2026-07-01 through 2026-11-17, reconstructed from public commit, issue, PR, review and repository contribution records. The displayed window begins 1 July 2026. Count is records, not hours or quality. Cell levels are zero, then four nonzero levels relative to the largest daily count in this window. This is not a promise of parity with GitHub's native graph.
 
 - 2026-07-01: 1
 - 2026-07-02: 1
@@ -279,7 +278,7 @@ Totals: 3,235 files, 994,527 code, 9,207 comment, 31,945 blank.
 
 ### Activity mix
 
-Same public records, 2026-07-01 through 2026-11-16. Commits count commitCount; issues, pull requests, reviews and repository creations count contribution records. Private and restricted records are excluded.
+Same public records, 2026-07-01 through 2026-11-17. Commits count commitCount; issues, pull requests, reviews and repository creations count contribution records. Private and restricted records are excluded.
 
 - commits: 1327
 - issues: 1120

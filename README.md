@@ -1,8 +1,8 @@
 # Public work snapshot
 
-Collected 17 Nov 2026 09:17 UTC.
+Collected 18 Nov 2026 08:38 UTC.
 
-Observation interval: 2026-11-17T09:16:06.620509+00:00 to 2026-11-17T09:17:38.490457+00:00. GitHub queries are separate observations, not a transaction at one instant. [Reproducible public input](snapshot.json).
+Observation interval: 2026-11-18T08:37:41.420151+00:00 to 2026-11-18T08:38:58.891716+00:00. GitHub queries are separate observations, not a transaction at one instant. [Reproducible public input](snapshot.json).
 
 - Authored public PRs opened, all time: 1002
 - Authored public PRs merged, all time: 965
@@ -12,7 +12,7 @@ Linked issues must close at or after the PR merge. This measures linked resoluti
 
 ## Merge cadence
 
-Authored public PRs merged by UTC calendar month, 2026-07 through 2026-11. Current month is partial through 2026-11-17. Across all public repositories, not just the selected projects.
+Authored public PRs merged by UTC calendar month, 2026-07 through 2026-11. Current month is partial through 2026-11-18. Across all public repositories, not just the selected projects.
 
 - 2026-07: 35, including 0 upstream
 - 2026-08: 255, including 1 upstream
@@ -22,7 +22,7 @@ Authored public PRs merged by UTC calendar month, 2026-07 through 2026-11. Curre
 
 ## Upstream PR records
 
-Public PRs authored by jerome-queck outside repositories owned by jerome-queck or Jerome-Group. Closed without merge is separate from merged. Open means current state, not an outcome. Observed 2026-11-17T09:17:38.490457+00:00. Search is complete within GitHub's 1000-result bound; a larger result aborts refresh.
+Public PRs authored by jerome-queck outside repositories owned by jerome-queck or Jerome-Group. Closed without merge is separate from merged. Open means current state, not an outcome. Observed 2026-11-18T08:38:58.891716+00:00. Search is complete within GitHub's 1000-result bound; a larger result aborts refresh.
 
 16 merged, 8 open, 3 closed without merge, across 4 repositories with PRs in any state.
 
@@ -37,14 +37,14 @@ Merged PR patch footprint, all time: 16 PRs, 2034 added lines, 560 deleted lines
 
 Open proposal ages count completed 24-hour periods since creation as of the observation endpoint, not review waiting time.
 
-- [freeCodeCamp/freeCodeCamp#71496](https://github.com/freeCodeCamp/freeCodeCamp/pull/71496): 16 completed days open
-- [openclaw/openclaw#189881](https://github.com/openclaw/openclaw/pull/189881): 16 completed days open
-- [vorssaint/vorssaint-utils#3734](https://github.com/vorssaint/vorssaint-utils/pull/3734): 16 completed days open
-- [openclaw/openclaw#190269](https://github.com/openclaw/openclaw/pull/190269): 15 completed days open
-- [openclaw/openclaw#190799](https://github.com/openclaw/openclaw/pull/190799): 15 completed days open
-- [openclaw/openclaw#193128](https://github.com/openclaw/openclaw/pull/193128): 12 completed days open
-- [openclaw/openclaw#194440](https://github.com/openclaw/openclaw/pull/194440): 10 completed days open
-- [openclaw/openclaw#196719](https://github.com/openclaw/openclaw/pull/196719): 6 completed days open
+- [freeCodeCamp/freeCodeCamp#71496](https://github.com/freeCodeCamp/freeCodeCamp/pull/71496): 17 completed days open
+- [openclaw/openclaw#189881](https://github.com/openclaw/openclaw/pull/189881): 17 completed days open
+- [vorssaint/vorssaint-utils#3734](https://github.com/vorssaint/vorssaint-utils/pull/3734): 17 completed days open
+- [openclaw/openclaw#190269](https://github.com/openclaw/openclaw/pull/190269): 16 completed days open
+- [openclaw/openclaw#190799](https://github.com/openclaw/openclaw/pull/190799): 16 completed days open
+- [openclaw/openclaw#193128](https://github.com/openclaw/openclaw/pull/193128): 13 completed days open
+- [openclaw/openclaw#194440](https://github.com/openclaw/openclaw/pull/194440): 11 completed days open
+- [openclaw/openclaw#196719](https://github.com/openclaw/openclaw/pull/196719): 7 completed days open
 
 - **MERGED** · [freeCodeCamp/freeCodeCamp#71474: fix(curriculum): align callback review definitions](https://github.com/freeCodeCamp/freeCodeCamp/pull/71474) · merged 2026-10-31T11:09:15Z · patch +2/−2, 2 file changes
 - **MERGED** · [freeCodeCamp/freeCodeCamp#71484: fix(curriculum): handle weather data edge cases](https://github.com/freeCodeCamp/freeCodeCamp/pull/71484) · merged 2026-11-03T09:21:45Z · patch +228/−60, 2 file changes
@@ -68,7 +68,7 @@ Open proposal ages count completed 24-hour periods since creation as of the obse
 - **MERGED** · [openclaw/openclaw#192478: fix(cli): gateway restart flag conflicts print only &quot;The CLI command failed.&quot;](https://github.com/openclaw/openclaw/pull/192478) · merged 2026-11-04T17:49:59Z · patch +40/−13, 3 file changes
 - **MERGED** · [openclaw/openclaw#192745: fix(gateway): validate run flags before the startup config guard](https://github.com/openclaw/openclaw/pull/192745) · merged 2026-11-07T12:52:12Z · patch +135/−78, 4 file changes
 - **OPEN** · [openclaw/openclaw#193128: fix(a2a): return JSON 404 for unsupported /a2a/v1 paths](https://github.com/openclaw/openclaw/pull/193128) · updated 2026-11-06T18:42:46Z · patch +310/−14, 11 file changes
-- **OPEN** · [openclaw/openclaw#194440: test: cover stale quarantine hashing and Doctor cleanup](https://github.com/openclaw/openclaw/pull/194440) · updated 2026-11-10T12:36:42Z · patch +357/−22, 8 file changes
+- **OPEN** · [openclaw/openclaw#194440: test: cover stale quarantine hashing and Doctor cleanup](https://github.com/openclaw/openclaw/pull/194440) · updated 2026-11-18T04:59:29Z · patch +357/−22, 8 file changes
 - **MERGED** · [openclaw/openclaw#196709: fix(mcp): mcp serve reports invalid flags as a Gateway startup failure](https://github.com/openclaw/openclaw/pull/196709) · merged 2026-11-10T16:44:50Z · patch +45/−27, 4 file changes
 - **OPEN** · [openclaw/openclaw#196719: fix(state): CLI reads fail while another CLI holds a schema lease](https://github.com/openclaw/openclaw/pull/196719) · updated 2026-11-11T06:01:46Z · patch +101/−6, 4 file changes
 - **OPEN** · [vorssaint/vorssaint-utils#3734: fix(agents): match today&#x27;s hour bars to the local day](https://github.com/vorssaint/vorssaint-utils/pull/3734) · updated 2026-11-05T00:29:56Z · patch +46/−2, 2 file changes
@@ -166,7 +166,7 @@ Totals: 3,235 files, 994,527 code, 9,207 comment, 31,945 blank.
 
 ## Public contribution calendar
 
-2026-07-01 through 2026-11-17, reconstructed from public commit, issue, PR, review and repository contribution records. The displayed window begins 1 July 2026. Count is records, not hours or quality. Cell levels are zero, then four nonzero levels relative to the largest daily count in this window. This is not a promise of parity with GitHub's native graph.
+2026-07-01 through 2026-11-18, reconstructed from public commit, issue, PR, review and repository contribution records. The displayed window begins 1 July 2026. Count is records, not hours or quality. Cell levels are zero, then four nonzero levels relative to the largest daily count in this window. This is not a promise of parity with GitHub's native graph.
 
 - 2026-07-01: 1
 - 2026-07-02: 1
@@ -278,7 +278,7 @@ Totals: 3,235 files, 994,527 code, 9,207 comment, 31,945 blank.
 
 ### Activity mix
 
-Same public records, 2026-07-01 through 2026-11-17. Commits count commitCount; issues, pull requests, reviews and repository creations count contribution records. Private and restricted records are excluded.
+Same public records, 2026-07-01 through 2026-11-18. Commits count commitCount; issues, pull requests, reviews and repository creations count contribution records. Private and restricted records are excluded.
 
 - commits: 1327
 - issues: 1120

@@ -1,15 +1,15 @@
 {
   "schema_version": 4,
-  "observed_from": "2026-11-19T08:53:38.081905+00:00",
-  "observed_to": "2026-11-19T08:55:07.102195+00:00",
-  "updated": "19 Nov 2026 08:55 UTC",
+  "observed_from": "2026-11-20T08:40:16.217280+00:00",
+  "observed_to": "2026-11-20T08:41:33.441010+00:00",
+  "updated": "20 Nov 2026 08:41 UTC",
   "counts": [
     1002,
     965,
     846
   ],
   "calendar_start": "2026-07-01",
-  "calendar_end": "2026-11-19",
+  "calendar_end": "2026-11-20",
   "calendar_days": {
     "2026-07-26": 59,
     "2026-07-25": 94,

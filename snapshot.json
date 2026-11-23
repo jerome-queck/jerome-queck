@@ -1,15 +1,15 @@
 {
   "schema_version": 4,
-  "observed_from": "2026-11-22T08:05:48.386653+00:00",
-  "observed_to": "2026-11-22T08:07:23.579004+00:00",
-  "updated": "22 Nov 2026 08:07 UTC",
+  "observed_from": "2026-11-23T09:12:53.298139+00:00",
+  "observed_to": "2026-11-23T09:14:18.023783+00:00",
+  "updated": "23 Nov 2026 09:14 UTC",
   "counts": [
-    1009,
-    972,
-    854
+    1013,
+    976,
+    858
   ],
   "calendar_start": "2026-07-01",
-  "calendar_end": "2026-11-22",
+  "calendar_end": "2026-11-23",
   "calendar_days": {
     "2026-07-26": 59,
     "2026-07-25": 94,
@@ -100,7 +100,8 @@
     "2026-11-12": 10,
     "2026-11-09": 4,
     "2026-11-07": 3,
-    "2026-11-22": 14,
+    "2026-11-23": 2,
+    "2026-11-22": 25,
     "2026-11-21": 8,
     "2026-11-16": 1,
     "2026-11-10": 7,
@@ -122,9 +123,9 @@
     "2026-07-24": 37
   },
   "calendar_kinds": {
-    "commits": 1334,
-    "issues": 1128,
-    "pull_requests": 1009,
+    "commits": 1338,
+    "issues": 1133,
+    "pull_requests": 1013,
     "reviews": 15,
     "repositories": 11
   },
@@ -133,7 +134,7 @@
     "2026-08": 255,
     "2026-09": 280,
     "2026-10": 332,
-    "2026-11": 70
+    "2026-11": 74
   },
   "projects": [
     {
@@ -274,15 +275,15 @@
       "repository_url": "https://github.com/Jerome-Group/academic-os",
       "default_branch": "main",
       "head": {
-        "oid": "b111f31f02df5dd023081d2d229654ace342aa11",
-        "committed_at": "2026-11-22T04:59:57Z",
-        "url": "https://github.com/Jerome-Group/academic-os/commit/b111f31f02df5dd023081d2d229654ace342aa11"
+        "oid": "b426af42dd9c9bd4c6166b04baa080b1abc18637",
+        "committed_at": "2026-11-22T16:50:02Z",
+        "url": "https://github.com/Jerome-Group/academic-os/commit/b426af42dd9c9bd4c6166b04baa080b1abc18637"
       },
       "release": null,
       "language_bytes": {
-        "TypeScript": 5860105,
-        "JavaScript": 738667,
-        "TeX": 116080,
+        "TypeScript": 5874968,
+        "JavaScript": 743711,
+        "TeX": 116452,
         "C++": 81586,
         "TLA": 81335,
         "C": 23250,
@@ -871,17 +872,17 @@
       },
       {
         "repo": "Jerome-Group/academic-os",
-        "head": "b111f31f02df5dd023081d2d229654ace342aa11",
-        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/b111f31f02df5dd023081d2d229654ace342aa11",
+        "head": "b426af42dd9c9bd4c6166b04baa080b1abc18637",
+        "source_url": "https://codeload.github.com/Jerome-Group/academic-os/tar.gz/b426af42dd9c9bd4c6166b04baa080b1abc18637",
         "archive_files": 1129,
         "skipped_links": 1,
         "uncounted_files": 33,
         "by_language": {
           "TypeScript": {
             "files": 821,
-            "code": 183155,
+            "code": 183501,
             "comment": 2229,
-            "blank": 6757
+            "blank": 6772
           },
           "JSON": {
             "files": 26,
@@ -891,15 +892,15 @@
           },
           "JavaScript": {
             "files": 46,
-            "code": 20702,
+            "code": 20794,
             "comment": 539,
             "blank": 325
           },
           "Markdown": {
             "files": 148,
-            "code": 11323,
+            "code": 11440,
             "comment": 0,
-            "blank": 3002
+            "blank": 3021
           },
           "C++": {
             "files": 5,
@@ -907,17 +908,17 @@
             "comment": 0,
             "blank": 5
           },
-          "TeX": {
-            "files": 18,
-            "code": 1233,
-            "comment": 99,
-            "blank": 120
-          },
           "TLA+": {
             "files": 8,
             "code": 1230,
             "comment": 0,
             "blank": 35
+          },
+          "TeX": {
+            "files": 18,
+            "code": 1228,
+            "comment": 98,
+            "blank": 118
           },
           "C": {
             "files": 3,
@@ -970,9 +971,9 @@
         },
         "totals": {
           "files": 1096,
-          "code": 243878,
-          "comment": 3105,
-          "blank": 10369
+          "code": 244428,
+          "comment": 3104,
+          "blank": 10401
         }
       },
       {
@@ -1173,15 +1174,15 @@
       },
       "JavaScript": {
         "files": 717,
-        "code": 162795,
+        "code": 162887,
         "comment": 1343,
         "blank": 4178
       },
       "Markdown": {
         "files": 605,
-        "code": 38403,
+        "code": 38520,
         "comment": 5,
-        "blank": 12765
+        "blank": 12784
       },
       "Python": {
         "files": 53,
@@ -1215,9 +1216,9 @@
       },
       "TeX": {
         "files": 18,
-        "code": 1233,
-        "comment": 99,
-        "blank": 120
+        "code": 1228,
+        "comment": 98,
+        "blank": 118
       },
       "Text": {
         "files": 17,
@@ -1227,9 +1228,9 @@
       },
       "TypeScript": {
         "files": 1461,
-        "code": 332312,
+        "code": 332658,
         "comment": 4818,
-        "blank": 10426
+        "blank": 10441
       },
       "XML": {
         "files": 8,
@@ -1258,26 +1259,26 @@
     },
     "totals": {
       "files": 3243,
-      "code": 996252,
-      "comment": 9208,
-      "blank": 32037
+      "code": 996802,
+      "comment": 9207,
+      "blank": 32069
     }
   },
   "recent_events": [
     {
-      "url": "https://github.com/Jerome-Group/academic-os/issues/531",
-      "title": "Prioritize finals content and clean up cheatsheet highlights",
+      "url": "https://github.com/Jerome-Group/academic-os/issues/517",
+      "title": "Weekly maintenance review 2026-11-16",
       "repo": "Jerome-Group/academic-os",
-      "number": 531,
-      "date": "2026-11-22",
+      "number": 517,
+      "date": "2026-11-23",
       "action": "closed"
     },
     {
-      "url": "https://github.com/Jerome-Group/academic-os/pull/532",
-      "title": "feat(cheatsheet): rank finals priorities and keep highlight fills clean",
+      "url": "https://github.com/Jerome-Group/academic-os/issues/541",
+      "title": "Weekly maintenance review 2026-11-23",
       "repo": "Jerome-Group/academic-os",
-      "number": 532,
-      "date": "2026-11-22",
+      "number": 541,
+      "date": "2026-11-23",
       "action": "opened"
     }
   ],

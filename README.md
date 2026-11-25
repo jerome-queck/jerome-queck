@@ -1,28 +1,28 @@
 # Public work snapshot
 
-Collected 24 Nov 2026 11:07 UTC.
+Collected 25 Nov 2026 09:56 UTC.
 
-Observation interval: 2026-11-24T11:05:37.465615+00:00 to 2026-11-24T11:07:13.984886+00:00. GitHub queries are separate observations, not a transaction at one instant. [Reproducible public input](snapshot.json).
+Observation interval: 2026-11-25T09:55:32.630405+00:00 to 2026-11-25T09:56:49.621160+00:00. GitHub queries are separate observations, not a transaction at one instant. [Reproducible public input](snapshot.json).
 
-- Authored public PRs opened, all time: 1013
-- Authored public PRs merged, all time: 976
-- Distinct currently closed public issues linked to those merged PRs: 858
+- Authored public PRs opened, all time: 1017
+- Authored public PRs merged, all time: 980
+- Distinct currently closed public issues linked to those merged PRs: 862
 
 Linked issues must close at or after the PR merge. This measures linked resolution, not who clicked Close or proof that a PR alone caused closure; GitHub can change links retrospectively.
 
 ## Merge cadence
 
-Authored public PRs merged by UTC calendar month, 2026-07 through 2026-11. Current month is partial through 2026-11-24. Across all public repositories, not just the selected projects.
+Authored public PRs merged by UTC calendar month, 2026-07 through 2026-11. Current month is partial through 2026-11-25. Across all public repositories, not just the selected projects.
 
 - 2026-07: 35, including 0 upstream
 - 2026-08: 255, including 1 upstream
 - 2026-09: 280, including 0 upstream
 - 2026-10: 332, including 2 upstream
-- 2026-11: 74, including 13 upstream
+- 2026-11: 78, including 13 upstream
 
 ## Upstream PR records
 
-Public PRs authored by jerome-queck outside repositories owned by jerome-queck or Jerome-Group. Closed without merge is separate from merged. Open means current state, not an outcome. Observed 2026-11-24T11:07:13.984886+00:00. Search is complete within GitHub's 1000-result bound; a larger result aborts refresh.
+Public PRs authored by jerome-queck outside repositories owned by jerome-queck or Jerome-Group. Closed without merge is separate from merged. Open means current state, not an outcome. Observed 2026-11-25T09:56:49.621160+00:00. Search is complete within GitHub's 1000-result bound; a larger result aborts refresh.
 
 16 merged, 7 open, 4 closed without merge, across 4 repositories with PRs in any state.
 
@@ -37,13 +37,13 @@ Merged PR patch footprint, all time: 16 PRs, 2034 added lines, 560 deleted lines
 
 Open proposal ages count completed 24-hour periods since creation as of the observation endpoint, not review waiting time.
 
-- [openclaw/openclaw#189881](https://github.com/openclaw/openclaw/pull/189881): 23 completed days open
-- [vorssaint/vorssaint-utils#3734](https://github.com/vorssaint/vorssaint-utils/pull/3734): 23 completed days open
-- [openclaw/openclaw#190269](https://github.com/openclaw/openclaw/pull/190269): 22 completed days open
-- [openclaw/openclaw#190799](https://github.com/openclaw/openclaw/pull/190799): 22 completed days open
-- [openclaw/openclaw#193128](https://github.com/openclaw/openclaw/pull/193128): 19 completed days open
-- [openclaw/openclaw#194440](https://github.com/openclaw/openclaw/pull/194440): 17 completed days open
-- [openclaw/openclaw#196719](https://github.com/openclaw/openclaw/pull/196719): 13 completed days open
+- [openclaw/openclaw#189881](https://github.com/openclaw/openclaw/pull/189881): 24 completed days open
+- [vorssaint/vorssaint-utils#3734](https://github.com/vorssaint/vorssaint-utils/pull/3734): 24 completed days open
+- [openclaw/openclaw#190269](https://github.com/openclaw/openclaw/pull/190269): 23 completed days open
+- [openclaw/openclaw#190799](https://github.com/openclaw/openclaw/pull/190799): 23 completed days open
+- [openclaw/openclaw#193128](https://github.com/openclaw/openclaw/pull/193128): 20 completed days open
+- [openclaw/openclaw#194440](https://github.com/openclaw/openclaw/pull/194440): 18 completed days open
+- [openclaw/openclaw#196719](https://github.com/openclaw/openclaw/pull/196719): 14 completed days open
 
 - **MERGED** · [freeCodeCamp/freeCodeCamp#71474: fix(curriculum): align callback review definitions](https://github.com/freeCodeCamp/freeCodeCamp/pull/71474) · merged 2026-10-31T11:09:15Z · patch +2/−2, 2 file changes
 - **MERGED** · [freeCodeCamp/freeCodeCamp#71484: fix(curriculum): handle weather data edge cases](https://github.com/freeCodeCamp/freeCodeCamp/pull/71484) · merged 2026-11-03T09:21:45Z · patch +228/−60, 2 file changes
@@ -98,13 +98,13 @@ Nine authored selections. Default-branch tip commit and its Git committer date, 
   - No published GitHub release
   - GitHub language bytes: JavaScript 714,829, TypeScript 531,635, Python 205,056, CSS 51,849, Shell 17,998, HTML 17,391, TLA 5,600
 - **NTULearn Sync** ([repository](https://github.com/Jerome-Group/ntulearn))
-  - Default-branch tip commit: [main · 2026-11-12T14:40:05Z](https://github.com/Jerome-Group/ntulearn/commit/1377002a1ceca65e243884b253b8aff5476c3422)
+  - Default-branch tip commit: [main · 2026-11-24T11:51:37Z](https://github.com/Jerome-Group/ntulearn/commit/f9e0c722fb34b4cc5a7a21eb2b9cafbb9165ce13)
   - No published GitHub release
-  - GitHub language bytes: JavaScript 697,423, TLA 3,644
+  - GitHub language bytes: JavaScript 704,616, TLA 3,644
 - **Academic OS** ([repository](https://github.com/Jerome-Group/academic-os))
-  - Default-branch tip commit: [main · 2026-11-22T16:50:02Z](https://github.com/Jerome-Group/academic-os/commit/b426af42dd9c9bd4c6166b04baa080b1abc18637)
+  - Default-branch tip commit: [main · 2026-11-24T12:22:09Z](https://github.com/Jerome-Group/academic-os/commit/85e78d926897d95363f8201884194f01e728bf81)
   - No published GitHub release
-  - GitHub language bytes: TypeScript 5,874,968, JavaScript 743,711, TeX 116,452, C++ 81,586, TLA 81,335, C 23,250, Shell 15,722, Java 1,533
+  - GitHub language bytes: TypeScript 5,923,472, JavaScript 743,711, TeX 116,452, C++ 81,586, TLA 81,335, C 23,250, Shell 15,722, Java 1,533
 - **Syrax** ([repository](https://github.com/Jerome-Group/syrax))
   - Default-branch tip commit: [main · 2026-11-02T08:30:55Z](https://github.com/Jerome-Group/syrax/commit/d9fdec0d3ae5c4855387fe3cb5de12b76a3d3f9e)
   - No published GitHub release
@@ -122,14 +122,14 @@ Physical lines at the nine recorded public project commits, across all authors. 
 Counter: [cloc 2.10](https://raw.githubusercontent.com/AlDanial/cloc/eb5cef64db2b2d4380f501568cc584b7cab4ba50/cloc), SHA-256 `bf59272455172108072a0a106379f7509fd4349bdcfd85203bac038ccd286d83`.
 Rules SHA-256: `e891733e8327cf99f3c36ab0b834ca587217b7b0769f4c1b41e7ecc592d7afb4`. Excluded directories: `.git`, `.hg`, `.svn`, `.bzr`, `.cvs`, `.snapshot`, `node_modules`, `vendor`, `dist`, `build`, `.next`, `.open-next`, `.venv`, `venv`, `coverage`, `__pycache__`, `.terraform`, `site-packages`.
 
-Totals: 3,243 files, 996,802 code, 9,207 comment, 32,069 blank.
+Totals: 3,246 files, 998,353 code, 9,210 comment, 32,116 blank.
 
 | Language | Files | Code | Comments | Blanks |
 | --- | ---: | ---: | ---: | ---: |
 | JSON | 202 | 416,598 | 0 | 0 |
-| TypeScript | 1,461 | 332,658 | 4,818 | 10,441 |
-| JavaScript | 717 | 162,887 | 1,343 | 4,178 |
-| Markdown | 605 | 38,520 | 5 | 12,784 |
+| TypeScript | 1,464 | 333,981 | 4,820 | 10,471 |
+| JavaScript | 717 | 163,067 | 1,344 | 4,189 |
+| Markdown | 605 | 38,568 | 5 | 12,790 |
 | CSS | 21 | 19,780 | 28 | 174 |
 | YAML | 52 | 8,437 | 1,536 | 1,826 |
 | Python | 53 | 6,363 | 936 | 1,279 |
@@ -158,14 +158,14 @@ Totals: 3,243 files, 996,802 code, 9,207 comment, 32,069 blank.
 - [jerome-queck/probability @ 7473d4e60f1bcf6d165b9ac4f2461f419b3102a9](https://codeload.github.com/jerome-queck/probability/tar.gz/7473d4e60f1bcf6d165b9ac4f2461f419b3102a9): 135 files, 30,648 code, 149 comment, 878 blank; 109 uncounted files; 1 skipped links.
 - [Jerome-Group/numbertheory @ 9a31939697b7e6cacb34006cbed40b43eb03c183](https://codeload.github.com/Jerome-Group/numbertheory/tar.gz/9a31939697b7e6cacb34006cbed40b43eb03c183): 227 files, 51,573 code, 219 comment, 1,373 blank; 6 uncounted files; 1 skipped links.
 - [Jerome-Group/calculator @ 1c206c01a878a488a4adbd854457cc23106a000c](https://codeload.github.com/Jerome-Group/calculator/tar.gz/1c206c01a878a488a4adbd854457cc23106a000c): 245 files, 104,074 code, 719 comment, 3,499 blank; 38 uncounted files; 1 skipped links.
-- [Jerome-Group/ntulearn @ 1377002a1ceca65e243884b253b8aff5476c3422](https://codeload.github.com/Jerome-Group/ntulearn/tar.gz/1377002a1ceca65e243884b253b8aff5476c3422): 175 files, 22,436 code, 752 comment, 2,206 blank; 6 uncounted files; 1 skipped links.
-- [Jerome-Group/academic-os @ b426af42dd9c9bd4c6166b04baa080b1abc18637](https://codeload.github.com/Jerome-Group/academic-os/tar.gz/b426af42dd9c9bd4c6166b04baa080b1abc18637): 1,096 files, 244,428 code, 3,104 comment, 10,401 blank; 33 uncounted files; 1 skipped links.
+- [Jerome-Group/ntulearn @ f9e0c722fb34b4cc5a7a21eb2b9cafbb9165ce13](https://codeload.github.com/Jerome-Group/ntulearn/tar.gz/f9e0c722fb34b4cc5a7a21eb2b9cafbb9165ce13): 175 files, 22,621 code, 753 comment, 2,217 blank; 6 uncounted files; 1 skipped links.
+- [Jerome-Group/academic-os @ 85e78d926897d95363f8201884194f01e728bf81](https://codeload.github.com/Jerome-Group/academic-os/tar.gz/85e78d926897d95363f8201884194f01e728bf81): 1,099 files, 245,794 code, 3,106 comment, 10,437 blank; 33 uncounted files; 1 skipped links.
 - [Jerome-Group/syrax @ d9fdec0d3ae5c4855387fe3cb5de12b76a3d3f9e](https://codeload.github.com/Jerome-Group/syrax/tar.gz/d9fdec0d3ae5c4855387fe3cb5de12b76a3d3f9e): 249 files, 30,549 code, 3,626 comment, 5,104 blank; 3 uncounted files; 1 skipped links.
 - [jerome-queck/emmy @ 1530f6de762c6ade133124d0aba3998ccbaf0088](https://codeload.github.com/jerome-queck/emmy/tar.gz/1530f6de762c6ade133124d0aba3998ccbaf0088): 302 files, 42,298 code, 2 comment, 2,541 blank; 45 uncounted files; 0 skipped links.
 
 ## Public contribution calendar
 
-2026-07-01 through 2026-11-24, reconstructed from public commit, issue, PR, review and repository contribution records. The displayed window begins 1 July 2026. Count is records, not hours or quality. Cell levels are zero, then four nonzero levels relative to the largest daily count in this window. This is not a promise of parity with GitHub's native graph.
+2026-07-01 through 2026-11-25, reconstructed from public commit, issue, PR, review and repository contribution records. The displayed window begins 1 July 2026. Count is records, not hours or quality. Cell levels are zero, then four nonzero levels relative to the largest daily count in this window. This is not a promise of parity with GitHub's native graph.
 
 - 2026-07-01: 1
 - 2026-07-02: 1
@@ -277,17 +277,18 @@ Totals: 3,243 files, 996,802 code, 9,207 comment, 32,069 blank.
 - 2026-11-21: 8
 - 2026-11-22: 25
 - 2026-11-23: 2
+- 2026-11-24: 12
 
 ### Activity mix
 
-Same public records, 2026-07-01 through 2026-11-24. Commits count commitCount; issues, pull requests, reviews and repository creations count contribution records. Private and restricted records are excluded.
+Same public records, 2026-07-01 through 2026-11-25. Commits count commitCount; issues, pull requests, reviews and repository creations count contribution records. Private and restricted records are excluded.
 
-- commits: 1338
-- issues: 1133
-- pull_requests: 1013
+- commits: 1342
+- issues: 1137
+- pull_requests: 1017
 - reviews: 15
 - repositories: 11
-- Total: 3510
+- Total: 3522
 
 
 ### Weekday frequency
@@ -295,7 +296,7 @@ Same public records, 2026-07-01 through 2026-11-24. Commits count commitCount; i
 Same calendar records grouped by UTC weekday. Counts are frequency, not effort.
 
 - Mon: 282
-- Tue: 365
+- Tue: 377
 - Wed: 456
 - Thu: 543
 - Fri: 756
@@ -304,8 +305,8 @@ Same calendar records grouped by UTC weekday. Counts are frequency, not effort.
 
 ## Recent issue and PR events
 
-- 2026-11-23 · closed · [Jerome-Group/academic-os#517: Weekly maintenance review 2026-11-16](https://github.com/Jerome-Group/academic-os/issues/517)
-- 2026-11-23 · opened · [Jerome-Group/academic-os#541: Weekly maintenance review 2026-11-23](https://github.com/Jerome-Group/academic-os/issues/541)
+- 2026-11-24 · opened · [Jerome-Group/academic-os#542: Make the morning curation handoff deterministic](https://github.com/Jerome-Group/academic-os/issues/542)
+- 2026-11-24 · opened · [Jerome-Group/ntulearn#352: Stop retrying NTULearn identity-provider stalls](https://github.com/Jerome-Group/ntulearn/issues/352)
 
 The profile shows two matching issue/PR events sampled from the latest 300 public GitHub events. GitHub retains at most 30 days of public events. This is not a complete history. Aggregate counts and the calendar include all public projects. Featured exclusions apply to selected projects and the feed. Every source must succeed before publication. Failed refreshes retain the previous published snapshot and timestamp. Scheduled runs can be delayed or disabled by GitHub. One Git commit publishes the payload; CDN caches can refresh separately.
 

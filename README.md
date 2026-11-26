@@ -1,8 +1,8 @@
 # Public work snapshot
 
-Collected 25 Nov 2026 09:56 UTC.
+Collected 26 Nov 2026 09:41 UTC.
 
-Observation interval: 2026-11-25T09:55:32.630405+00:00 to 2026-11-25T09:56:49.621160+00:00. GitHub queries are separate observations, not a transaction at one instant. [Reproducible public input](snapshot.json).
+Observation interval: 2026-11-26T09:40:16.822957+00:00 to 2026-11-26T09:41:34.532149+00:00. GitHub queries are separate observations, not a transaction at one instant. [Reproducible public input](snapshot.json).
 
 - Authored public PRs opened, all time: 1017
 - Authored public PRs merged, all time: 980
@@ -12,7 +12,7 @@ Linked issues must close at or after the PR merge. This measures linked resoluti
 
 ## Merge cadence
 
-Authored public PRs merged by UTC calendar month, 2026-07 through 2026-11. Current month is partial through 2026-11-25. Across all public repositories, not just the selected projects.
+Authored public PRs merged by UTC calendar month, 2026-07 through 2026-11. Current month is partial through 2026-11-26. Across all public repositories, not just the selected projects.
 
 - 2026-07: 35, including 0 upstream
 - 2026-08: 255, including 1 upstream
@@ -22,7 +22,7 @@ Authored public PRs merged by UTC calendar month, 2026-07 through 2026-11. Curre
 
 ## Upstream PR records
 
-Public PRs authored by jerome-queck outside repositories owned by jerome-queck or Jerome-Group. Closed without merge is separate from merged. Open means current state, not an outcome. Observed 2026-11-25T09:56:49.621160+00:00. Search is complete within GitHub's 1000-result bound; a larger result aborts refresh.
+Public PRs authored by jerome-queck outside repositories owned by jerome-queck or Jerome-Group. Closed without merge is separate from merged. Open means current state, not an outcome. Observed 2026-11-26T09:41:34.532149+00:00. Search is complete within GitHub's 1000-result bound; a larger result aborts refresh.
 
 16 merged, 7 open, 4 closed without merge, across 4 repositories with PRs in any state.
 
@@ -37,13 +37,13 @@ Merged PR patch footprint, all time: 16 PRs, 2034 added lines, 560 deleted lines
 
 Open proposal ages count completed 24-hour periods since creation as of the observation endpoint, not review waiting time.
 
-- [openclaw/openclaw#189881](https://github.com/openclaw/openclaw/pull/189881): 24 completed days open
-- [vorssaint/vorssaint-utils#3734](https://github.com/vorssaint/vorssaint-utils/pull/3734): 24 completed days open
-- [openclaw/openclaw#190269](https://github.com/openclaw/openclaw/pull/190269): 23 completed days open
-- [openclaw/openclaw#190799](https://github.com/openclaw/openclaw/pull/190799): 23 completed days open
-- [openclaw/openclaw#193128](https://github.com/openclaw/openclaw/pull/193128): 20 completed days open
-- [openclaw/openclaw#194440](https://github.com/openclaw/openclaw/pull/194440): 18 completed days open
-- [openclaw/openclaw#196719](https://github.com/openclaw/openclaw/pull/196719): 14 completed days open
+- [openclaw/openclaw#189881](https://github.com/openclaw/openclaw/pull/189881): 25 completed days open
+- [vorssaint/vorssaint-utils#3734](https://github.com/vorssaint/vorssaint-utils/pull/3734): 25 completed days open
+- [openclaw/openclaw#190269](https://github.com/openclaw/openclaw/pull/190269): 24 completed days open
+- [openclaw/openclaw#190799](https://github.com/openclaw/openclaw/pull/190799): 24 completed days open
+- [openclaw/openclaw#193128](https://github.com/openclaw/openclaw/pull/193128): 21 completed days open
+- [openclaw/openclaw#194440](https://github.com/openclaw/openclaw/pull/194440): 19 completed days open
+- [openclaw/openclaw#196719](https://github.com/openclaw/openclaw/pull/196719): 15 completed days open
 
 - **MERGED** · [freeCodeCamp/freeCodeCamp#71474: fix(curriculum): align callback review definitions](https://github.com/freeCodeCamp/freeCodeCamp/pull/71474) · merged 2026-10-31T11:09:15Z · patch +2/−2, 2 file changes
 - **MERGED** · [freeCodeCamp/freeCodeCamp#71484: fix(curriculum): handle weather data edge cases](https://github.com/freeCodeCamp/freeCodeCamp/pull/71484) · merged 2026-11-03T09:21:45Z · patch +228/−60, 2 file changes
@@ -165,7 +165,7 @@ Totals: 3,246 files, 998,353 code, 9,210 comment, 32,116 blank.
 
 ## Public contribution calendar
 
-2026-07-01 through 2026-11-25, reconstructed from public commit, issue, PR, review and repository contribution records. The displayed window begins 1 July 2026. Count is records, not hours or quality. Cell levels are zero, then four nonzero levels relative to the largest daily count in this window. This is not a promise of parity with GitHub's native graph.
+2026-07-01 through 2026-11-26, reconstructed from public commit, issue, PR, review and repository contribution records. The displayed window begins 1 July 2026. Count is records, not hours or quality. Cell levels are zero, then four nonzero levels relative to the largest daily count in this window. This is not a promise of parity with GitHub's native graph.
 
 - 2026-07-01: 1
 - 2026-07-02: 1
@@ -281,7 +281,7 @@ Totals: 3,246 files, 998,353 code, 9,210 comment, 32,116 blank.
 
 ### Activity mix
 
-Same public records, 2026-07-01 through 2026-11-25. Commits count commitCount; issues, pull requests, reviews and repository creations count contribution records. Private and restricted records are excluded.
+Same public records, 2026-07-01 through 2026-11-26. Commits count commitCount; issues, pull requests, reviews and repository creations count contribution records. Private and restricted records are excluded.
 
 - commits: 1342
 - issues: 1137
